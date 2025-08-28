@@ -54,18 +54,18 @@ print(df_baseline)
 
 ??? Returns
     ```
-    id	    datetime		            temperature	observed
-    108618	2018-01-01 00:00:00-06:00	-2.384038	16635.193673
-            2018-01-02 00:00:00-06:00	1.730000	15594.051162
-            2018-01-03 00:00:00-06:00	13.087946	11928.025899
-            2018-01-04 00:00:00-06:00	4.743269	14399.333812
-            2018-01-05 00:00:00-06:00	4.130577	14315.101721
-    ...	...	...	...
-    120841	2018-12-27 00:00:00-06:00	52.010625	1153.749811
-            2018-12-28 00:00:00-06:00	35.270000	1704.076968
-            2018-12-29 00:00:00-06:00	29.630000	2151.225729
-            2018-12-30 00:00:00-06:00	34.250000	1331.123954
-            2018-12-31 00:00:00-06:00	43.311250	1723.397349
+    id	    datetime		           temperature      observed
+    108618	2018-01-01 00:00:00-06:00    -2.384038  16635.193673
+            2018-01-02 00:00:00-06:00     1.730000  15594.051162
+            2018-01-03 00:00:00-06:00    13.087946  11928.025899
+            2018-01-04 00:00:00-06:00     4.743269  14399.333812
+            2018-01-05 00:00:00-06:00     4.130577  14315.101721
+            ...	                               ...	         ...
+    120841	2018-12-27 00:00:00-06:00    52.010625   1153.749811
+            2018-12-28 00:00:00-06:00    35.270000   1704.076968
+            2018-12-29 00:00:00-06:00    29.630000   2151.225729
+            2018-12-30 00:00:00-06:00    34.250000   1331.123954
+            2018-12-31 00:00:00-06:00    43.311250   1723.397349
     ```
 
 To simplify things, we will filter down to a single meter for the rest of the example. Let's filter down to the 15th id.
@@ -87,8 +87,7 @@ print(df_baseline_n)
 
 ??? Returns
     ```
-                               temperature     observed
-    datetime                                           
+    datetime                   temperature     observed                        
     2018-01-01 00:00:00-06:00   -10.045000  9629.679232
     2018-01-02 00:00:00-06:00    -4.712500  8868.878051
     2018-01-03 00:00:00-06:00    11.352500  6109.322326
@@ -173,17 +172,18 @@ print(baseline_data.df.head())
 
 ??? Returns
     ```
-    datetime				    season	weekday_weekend	temperature	observed
-    2018-01-01 00:00:00-06:00	winter	weekday	        -10.0450	9629.7
-    2018-01-02 00:00:00-06:00	winter	weekday	        -4.7125	    8868.9
-    2018-01-03 00:00:00-06:00	winter	weekday	        11.3525	    6109.3
-    2018-01-04 00:00:00-06:00	winter	weekday	        0.9725	    7557.1
-    2018-01-05 00:00:00-06:00	winter	weekday	        3.1475	    6650.2
+    datetime				   season  weekday_weekend  temperature  observed
+    2018-01-01 00:00:00-06:00  winter  weekday             -10.0450    9629.7
+    2018-01-02 00:00:00-06:00  winter  weekday              -4.7125    8868.9
+    2018-01-03 00:00:00-06:00  winter  weekday              11.3525    6109.3
+    2018-01-04 00:00:00-06:00  winter  weekday               0.9725    7557.1
+    2018-01-05 00:00:00-06:00  winter  weekday               3.1475    6650.2
     ```
 
 ### Creating the Model
 
 The daily model follows the general process of:
+
 1. Initialize
 2. Fit
 3. Predict
@@ -195,7 +195,7 @@ daily_model = em.DailyModel()
 daily_model.fit(baseline_data)
 ```
 
-Before we move to predicting against a dataframe, we can actually use the built in plot function (requiring matplotlib) to plot the performance of the model against the provided data.
+Before we move to predicting against a dataframe, we can actually use the built in plot function (requiring Matplotlib) to plot the performance of the model against the provided data.
 
 ```python
 daily_model.plot(baseline_data)
@@ -237,12 +237,12 @@ print(df_results.head())
 
 ??? Returns
     ```                             
-    datetime                    season  day_of_week weekday_weekend  temperature observed     predicted    predicted_unc  heating_load  cooling_load  model_split  model_type                                                  
-    2019-01-01 00:00:00-06:00  winter            2         weekday     -10.0450  6821.633670  8458.769369     403.385708   6145.    508305           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth
-    2019-01-02 00:00:00-06:00  winter            3         weekday      -4.7125  5668.980225  7829.167990     403.385708   5515.    906926           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth
-    2019-01-03 00:00:00-06:00  winter            4         weekday      11.3525  3122.794390  5960.086410     403.385708   3646.    825346           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth
-    2019-01-04 00:00:00-06:00  winter            5         weekday       0.9725  3880.896300  7161.729548     403.385708   4848.    468484           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth
-    2019-01-05 00:00:00-06:00  winter            6         weekend       3.1475  3182.209058  5213.370264     285.516312   3858.    054437           0.0  we-su_sh_wi  hdd_tidd_cdd_smooth
+    datetime                    season  day_of_week  weekday_weekend  temperature     observed    predicted  predicted_unc  heating_load  cooling_load  model_split  model_type                                                   
+    2019-01-01 00:00:00-06:00   winter            2  weekday             -10.0450  6821.633670  8458.769369     403.385708   6145.508305           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+    2019-01-02 00:00:00-06:00   winter            3  weekday              -4.7125  5668.980225  7829.167990     403.385708   5515.906926           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+    2019-01-03 00:00:00-06:00   winter            4  weekday              11.3525  3122.794390  5960.086410     403.385708   3646.825346           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+    2019-01-04 00:00:00-06:00   winter            5  weekday               0.9725  3880.896300  7161.729548     403.385708   4848.468484           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+    2019-01-05 00:00:00-06:00   winter            6  weekend               3.1475  3182.209058  5213.370264     285.516312   3858.054437           0.0  we-su_sh_wi  hdd_tidd_cdd_smooth
     ```
 
 We can also plot the observed usage vs. the predicted usage.
@@ -274,8 +274,8 @@ print(f"Savings (kWh):          {round(df_results['savings'].sum(), 2)}")
 ??? Returns
     ```
     Predicted Usage (kWh):  1038465.06
-    Observed Usage (kWh):   789252.05
-    Savings (kWh):          249213.01
+    Observed Usage (kWh):    789252.05
+    Savings (kWh):           249213.01
     ```
 
 ### Model Serialization
@@ -303,18 +303,12 @@ loaded_model = em.DailyModel.from_json(saved_model)
 Two of the core features of the OpenDSM Data and Model classes are automatic data sufficiency and model sufficiency checking. This ensures that only acceptable data and models are allowed to be used for making measurements. Let's show an example of how this works by introducing too many NaN values into the observed data of the prior example.
 
 ```python
-daily_baseline_data_DQ = em.DailyBaselineData.from_series(
-    meter_data = df_baseline_n["observed"], 
-    temperature_data = df_baseline_n["temperature"],
-    is_electricity_data=True
-    )
-
 # set rows 1:38 of observed to nan
-df_baseline_n = daily_baseline_data_DQ.df
-df_baseline_n.loc[df_baseline_n.index[1:37], "observed"] = np.nan
+df_baseline_n_dq = df_baseline_n.copy()
+df_baseline_n_dq.loc[df_baseline_n_dq.index[1:38], "observed"] = np.nan
 
-daily_baseline_data_DQ = em.DailyBaselineData(df_baseline_n, is_electricity_data=True)
-print(f"Disqualifications: {daily_baseline_data_DQ.disqualification}")
+baseline_data_DQ = em.DailyBaselineData(df_baseline_n_dq, is_electricity_data=True)
+print(f"Disqualifications: {baseline_data_DQ.disqualification}")
 ```
 
 ???Returns
@@ -329,7 +323,7 @@ If this data were to try to be fit on it would return an error by default.
 
 ```python
 try:
-    daily_model = em.DailyModel().fit(daily_baseline_data_DQ)
+    daily_model = em.DailyModel().fit(baseline_data_DQ)
 except Exception as e:
     print(f"Exception: {e}")
 ```
@@ -342,7 +336,7 @@ except Exception as e:
 In some circumstances it may still be possible to fit a model on disqualified data for investigative purposes. This can be done by setting the `ignore_disqualification` flag to True.
 
 ```python
-daily_model = em.DailyModel().fit(daily_baseline_data_DQ, ignore_disqualification=True)
+daily_model = em.DailyModel().fit(baseline_data_DQ, ignore_disqualification=True)
 ```
 
 Please remember that enabling `ignore_disqualification` or making any changes to the model configuration fundamentally alters the model and such models are **not approved for measurement purposes**.
