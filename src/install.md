@@ -35,6 +35,6 @@ hide:
 
 There are two supported ways to install OpenDSM:
 
--- Install the latest stable release from <a href="https://pypi.python.org/pypi/opendsm" target="_blank">PyPI</a>. This is best for most users.
+-- Install the latest stable release from [PyPI](https://pypi.python.org/pypi/opendsm). This is best for most users.
 
--- Build the package from source at <a href="https://github.com/opendsm/opendsm" target="_blank">https://github.com/opendsm/opendsm</a>. This is best for advanced users and developers.
+-- Build the package from source at [https://github.com/opendsm/opendsm](https://github.com/opendsm/opendsm). This is best for advanced users and developers.

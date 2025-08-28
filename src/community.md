@@ -47,10 +47,10 @@ hide:
 
 ---
 
-- Join the LF Energy discussion group <a href="https://lists.lfenergy.org/g/opendsm-discussion/" target="_blank">here</a>.
+- Join the LF Energy discussion group [here](https://lists.lfenergy.org/g/opendsm-discussion/).
     - There are no active working groups at present.
     - If you were part of a prior working group or in the LFE discussion group, you will be alerted the next time one begins.
 
-- If you have any issues or contributions that you would like to discuss, please use either the discussion group or <a href="https://github.com/opendsm/opendsm" target="_blank">github</a> under issues, pull requests or discussions.
+- If you have any issues or contributions that you would like to discuss, please use either the discussion group or [github](https://github.com/opendsm/opendsm) under issues, pull requests or discussions.
 
-We strictly adhere to our <a href="https://github.com/opendsm/opendsm/blob/master/CODE_OF_CONDUCT.md" target="_blank">code of conduct</a> and <a href="https://github.com/opendsm/opendsm/blob/master/CONTRIBUTING.md" target="_blank">contribution guidelines</a>.
+We strictly adhere to our [code of conduct](https://github.com/opendsm/opendsm/blob/master/CODE_OF_CONDUCT.md) and [contribution guidelines](https://github.com/opendsm/opendsm/blob/master/CONTRIBUTING.md).

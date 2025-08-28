@@ -1,5 +1,7 @@
 The daily model is trained using daily energy usage intervals and predicts in daily intervals.
 
+One of the key requirements of the daily model is to be able to disaggregate daily heating and cooling loads.
+
 ## Model Theory
 
 ### Model Shape and Balance Points
@@ -7,7 +9,7 @@ The daily model is trained using daily energy usage intervals and predicts in da
 The daily model, at its core, utilizes a piecewise linear regression model that predicts energy usage relative to temperature. The model determines temperature balance points at which energy usage starts changing relative to temperature.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/basic_model.png" alt="Daily model">
+    <img src="site:assets/images/eemeter/daily_model/basic_model.png" alt="Daily model", style="width:85%">
 </div>
 
 #### Nomenclature
@@ -26,7 +28,7 @@ Based on the site behavior, there are four different model types that may be gen
 - Temperature Independent Load
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes">
+    <img src="site:assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes", style="width:75%">
 </div>
 
 #### Smooth Transitions
@@ -34,7 +36,7 @@ Based on the site behavior, there are four different model types that may be gen
 The daily model is designed to allow smooth transitions between model regimes. There are many reasons why a smooth transition might be favorable, but one example of this is inlet water temperature into a water heater. In this example, more energy will be required as the temperature decreases, which will be a smooth transition.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/smoothed_winter.png" alt="Smooth winter transition">
+    <img src="site:assets/images/eemeter/daily_model/smoothed_winter.png" alt="Smooth winter transition", style="width:85%">
 </div>
 
 #### Robust, Adaptive Outlier Downweighting
@@ -42,7 +44,7 @@ The daily model is designed to allow smooth transitions between model regimes. T
 While the majority of the time Sum of Squares Error (SSE) is the optimal metric to minimize to obtain the best model, there are instances where it is less effective at creating predictive models in data containing influential outliers. The daily model handles these outliers by downweighting them using a robust, adaptive loss function and procedure.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/outliers.png" alt="Downweighted outliers">
+    <img src="site:assets/images/eemeter/daily_model/outliers.png" alt="Downweighted outliers", style="width:85%">
 </div>
 
 #### Model Fit
@@ -62,7 +64,7 @@ The Lasso inspired penalization means that increased model complexity must be ju
 - Smoothing parameter is pushed to 0 (no smoothing)
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/lasso_penalization.png" alt="Lasso penalization">
+    <img src="site:assets/images/eemeter/daily_model/lasso_penalization.png" alt="Lasso penalization", style="width:85%">
 </div>
 
 ### Model Splits
@@ -87,10 +89,10 @@ The general process is as follows:
 This provides a standardized process for splitting the model to better predict energy usage by certain time periods (if the benefit outweighs the additional model complexity).
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/split_model_season.png" alt="Model split by season">
+    <img src="site:assets/images/eemeter/daily_model/split_model_season.png" alt="Model split by season", style="width:85%">
 </div>
 
-### Real Data Example
+## Real Data Example
 
 The daily model is a deceptively complex model capable of handling some complex situations. 
 
@@ -101,11 +103,18 @@ In this real example, we have three models:
 3. Weekend model: an all-season model with significant usage decrease compared to the weekday models.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/real_example.png" alt="Real world example">
+    <img src="site:assets/images/eemeter/daily_model/real_example.png" alt="Real world example", style="width:85%">
 </div>
 
-*For additional information and validation details, see the [References](../documentation/eemeter/daily_model/references/) page.
+*For additional information and validation details, see the [References](site:documentation/eemeter/daily_model/references/) page.
 
 ## Sufficiency Criteria
 
+To be completed
+
+### Data Sufficiency
+
+To be completed
+
+### Model Sufficiency
 To be completed
