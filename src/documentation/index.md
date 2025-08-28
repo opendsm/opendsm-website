@@ -26,6 +26,6 @@ Assign comparison groups (CGs) to correct OpenEEmeter models using non-participa
 Get the most appropriate weather data for a location
 
 <span style="font-size: 0.8em;">
-* Available in the OpenDSM GitHub organization <a href="https://github.com/opendsm/eeweather" target="_blank">(link)</a>.<br> 
+* Available in the OpenDSM GitHub organization ([link](https://github.com/opendsm/eeweather)).<br> 
 * In the future EEweather will be available as a module with the OpenDSM library.
 </span>

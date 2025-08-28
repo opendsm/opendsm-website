@@ -53,7 +53,7 @@ OpenDSM (formerly OpenEEmeter) is an open source library used to measure the imp
 
 - **Open Source**: All code is open source, making OpenDSM an excellent choice for measuring energy savings when results must be transparent and reproducible.
 - **Fast**: A key tenet of OpenDSM modules are to be highly efficient, critical when there are millions of meters to be modeled. 
-- **Easy and Intuitive**: The API interface is inspired by <a href="https://scikit-learn.org/stable/" target="_blank">scikit-learn</a>, a well-known data science package for building models. Just fit and predict.
+- **Easy and Intuitive**: The API interface is inspired by [scikit-learn](https://scikit-learn.org/stable), a well-known data science package for building models. Just fit and predict.
 - **Pandas DataFrame Support**: Input data and predictions use pandas DataFrames, a well-known format for data scientists and engineers.
 - **Model Serialization and Deserialization**: Models can be serialized into dictionaries or json objects, saved, and deserialized later.
 
@@ -94,6 +94,6 @@ Get the most appropriate weather data for a location
 - **Reliable Data Sources**: Utilizes US Census Bureau, NOAA NCDC, and NREL as primary data sources
 
 <span style="font-size: 0.8em;">
-* Available in the OpenDSM GitHub organization <a href="https://github.com/opendsm/eeweather" target="_blank">(link)</a>.<br> 
+* Available in the OpenDSM GitHub organization ([link](https://github.com/opendsm/eeweather)).<br> 
 * In the future EEweather will be available as a module with the OpenDSM library.
 </span>

@@ -54,7 +54,7 @@ print(df_baseline)
 
 ??? Returns
     ```      
-    id      datetime                   temperature       observed                       
+    id      datetime                   temperature       observed
     108618  2018-01-01 00:00:00-06:00    -2.384038  257406.539278
             2018-01-02 00:00:00-06:00     1.730000            NaN
             2018-01-03 00:00:00-06:00    13.087946            NaN
@@ -101,7 +101,6 @@ print(df_baseline_n)
     2018-12-29 00:00:00-06:00    26.386250            NaN
     2018-12-30 00:00:00-06:00    28.463750            NaN
     2018-12-31 00:00:00-06:00    40.345250            NaN
-                               temperature     observed
     ```
 
 Also notice the general structure of these dataframes for a single meter. We have three columns:
@@ -254,7 +253,7 @@ billing_model.plot(baseline_data, aggregation="monthly")
         <img src="site:assets/images/eemeter/billing_model/example/billing_baseline_vs_model.png" alt="Monthly Baseline Observed vs. Model">
     </div>
 
-While it might initially be concerning that this model does not appear to look like any of the [Model Archetypes](../documentation/eemeter/billing_model/methodology/#model-archetypes), remember that this is utilizing the daily model under the hood. We've found through extensive testing that this model is more accurate than a CalTRACK model that does follow those model archetypes on a billing interval basis ([References pg. 28](../documentation/eemeter/billing_model/references/)).
+While it might initially be concerning that this model does not appear to look like any of the [Model Archetypes](site:documentation/eemeter/billing_model/methodology/#model-archetypes), remember that this is utilizing the daily model under the hood. We've found through extensive testing that this model is more accurate than a CalTRACK model that does follow those model archetypes on a billing interval basis ([References pg. 28](site:documentation/eemeter/billing_model/references/)).
 
 We can also use this function to plot the model prediction against the reporting period as follows:
 
@@ -280,7 +279,7 @@ print(df_results.head())
 
 ??? Returns
     ```                             
-    datetime                     season  temperature      observed      predicted  predicted_unc  heating_load  cooling_load  model_split model_type                                         
+    datetime                     season  temperature      observed      predicted  predicted_unc  heating_load  cooling_load  model_split model_type
     2019-01-01 00:00:00-06:00    winter    23.684855  83259.561689  113204.189203    4817.570659  41972.011102           0.0  fw-su_sh_wi   hdd_tidd
     2019-02-01 00:00:00-06:00    winter    32.858562  59500.977283   94352.449401    4578.532084  30013.707891           0.0  fw-su_sh_wi   hdd_tidd
     2019-03-01 00:00:00-06:00  shoulder    37.632207  59374.674004   99912.353102    4817.570659  28680.175001           0.0  fw-su_sh_wi   hdd_tidd

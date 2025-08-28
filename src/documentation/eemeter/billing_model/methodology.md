@@ -1,4 +1,4 @@
-The billing model uses the daily model with some slight configuration changes and uses billing (monthly or bimonthly) interval data.
+The billing model uses the [daily model](site:documentation/eemeter/daily_model/methodology) with some slight configuration changes and uses billing (monthly or bimonthly) interval data.
 
 ## Model Theory
 
@@ -13,7 +13,7 @@ From here, the data is treated as daily interval data and uses the daily model i
 The daily model, at its core, utilizes a piecewise linear regression model that predicts energy usage relative to temperature. The model determines temperature balance points at which energy usage starts changing relative to temperature.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/billing_model/basic_model.png" alt="Billing Model">
+    <img src="site:assets/images/eemeter/billing_model/basic_model.png" alt="Billing Model", style="width:85%">
 </div>
 
 #### Key Concepts
@@ -33,16 +33,16 @@ Based on the site behavior, there are four different model types that may be gen
 - Temperature Independent Load
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes">
+    <img src="site:assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes", style="width:75%">
 </div>
 
 #### Smooth Transitions
 
-The billing model disables this feature.
+The billing model disables this feature of the [daily model](site:documentation/eemeter/daily_model/methodology/#smooth-transitions).
 
 #### Robust, Adaptive Outlier Downweighting
 
-The billing model disables this feature.
+The billing model disables this feature of the [daily model](site:documentation/eemeter/daily_model/methodology/#robust-adaptive-outlier-downweighting).
 
 #### Model Fit
 
@@ -60,16 +60,16 @@ The Lasso inspired penalization means that increased model complexity must be ju
 - Balance points are pushed towards the nearest edge (most extreme temperature)
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/billing_model/lasso_penalization.png" alt="Lasso penalization">
+    <img src="site:assets/images/eemeter/billing_model/lasso_penalization.png" alt="Lasso penalization", style="width:85%">
 </div>
 
 At this point the billing model is now fit and can be used for prediction.
 
 ### Model Splits
 
-The billing model disables this feature.
+The billing model disables this feature of the [daily model](site:documentation/eemeter/daily_model/methodology/#model-splits).
 
-### Real Data Example
+## Real Data Example
 
 Here are 6 examples of how the billing model performs on real data.
 
@@ -77,8 +77,15 @@ Here are 6 examples of how the billing model performs on real data.
     <img src="site:assets/images/eemeter/billing_model/real_examples.png" alt="Real world examples">
 </div>
 
-*For additional information and validation details, see the [References](../documentation/eemeter/billing_model/references/) page.
+*For additional information and validation details, see the [References](site:documentation/eemeter/billing_model/references/) page.
 
 ## Sufficiency Criteria
 
+To be completed
+
+### Data Sufficiency
+
+To be completed
+
+### Model Sufficiency
 To be completed

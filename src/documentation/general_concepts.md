@@ -5,7 +5,7 @@ If you are new to the energy industry, you may be asking yourself what the use c
 **Common Use Cases Include:**
 
 - Forecasting load using weather forecasts to ensure adequate energy supply for the days, weeks, months, and years ahead.
-- Determining the impact of interventions such as energy efficiency and demand response. This includes:
+- Determining the impact of interventions (an intentional change to a building to decrease energy usage) such as energy efficiency and demand response. This includes:
     - Understanding the financial impact of installed interventions to accurately track ROI.
     - Utilities measuring the impact of these interventions on the utility grid and effectively utilizing them as grid resources.
 - Implementing "continuous commissioning" at buildings to track changes in energy usage and diagnose equipment issues.

@@ -1,2 +1,2 @@
-- <a href="https://www.caiso.com/Documents/Demand-Response_Advanced_Measurement_Methodology_updated_Feb_2022.pdf">CAISO Demand Response Report</a>
-- <a href="https://eta-publications.lbl.gov/sites/default/files/LBNL-4944E.pdf">LBNL Time-of-Week and Temperature (TOWT) Model Paper</a>
+- [CAISO Demand Response Report](https://www.caiso.com/Documents/Demand-Response_Advanced_Measurement_Methodology_updated_Feb_2022.pdf)
+- [LBNL Time-of-Week and Temperature (TOWT) Model Journal Article](https://eta-publications.lbl.gov/sites/default/files/LBNL-4944E.pdf)

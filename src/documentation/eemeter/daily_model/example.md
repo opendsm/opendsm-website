@@ -87,7 +87,7 @@ print(df_baseline_n)
 
 ??? Returns
     ```
-    datetime                   temperature     observed                        
+    datetime                   temperature     observed
     2018-01-01 00:00:00-06:00   -10.045000  9629.679232
     2018-01-02 00:00:00-06:00    -4.712500  8868.878051
     2018-01-03 00:00:00-06:00    11.352500  6109.322326
@@ -206,7 +206,7 @@ daily_model.plot(baseline_data)
         <img src="site:assets/images/eemeter/daily_model/example/daily_baseline_vs_model.png" alt="Daily Baseline Observed vs. Model">
     </div>
 
-From this graph we can also observe model splits and model types as described in the [Model Splits](../documentation/eemeter/daily_model/methodology/#model-splits) section of the [Methodology](../documentation/eemeter/daily_model/methodology) page. We can observe the following models:
+From this graph we can also observe model splits and model types as described in [Model Splits](site:documentation/eemeter/daily_model/methodology/#model-splits). We can observe the following models:
 
 1. Summer/Shoulder/Winter - Weekday
 2. Summer/Shoulder/Winter - Weekend
@@ -237,7 +237,7 @@ print(df_results.head())
 
 ??? Returns
     ```                             
-    datetime                    season  day_of_week  weekday_weekend  temperature     observed    predicted  predicted_unc  heating_load  cooling_load  model_split  model_type                                                   
+    datetime                    season  day_of_week  weekday_weekend  temperature     observed    predicted  predicted_unc  heating_load  cooling_load  model_split  model_type
     2019-01-01 00:00:00-06:00   winter            2  weekday             -10.0450  6821.633670  8458.769369     403.385708   6145.508305           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
     2019-01-02 00:00:00-06:00   winter            3  weekday              -4.7125  5668.980225  7829.167990     403.385708   5515.906926           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
     2019-01-03 00:00:00-06:00   winter            4  weekday              11.3525  3122.794390  5960.086410     403.385708   3646.825346           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
@@ -314,7 +314,7 @@ print(f"Disqualifications: {baseline_data_DQ.disqualification}")
 ???Returns
     ```python
     Disqualifications: [
-        EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.too_many_days_with_missing_observed_data), 
+        EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.too_many_days_with_missing_observed_data),
         EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.too_many_days_with_missing_joint_data)
     ]
     ```
