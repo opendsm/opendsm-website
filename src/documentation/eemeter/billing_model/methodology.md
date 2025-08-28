@@ -67,7 +67,7 @@ At this point the billing model is now fit and can be used for prediction.
 
 ### Model Splits
 
-Unlike the standard daily model, the billing model is configured to not allow splits. There is not enough information to make these distinctions.
+The billing model disables this feature.
 
 ### Real Data Example
 
