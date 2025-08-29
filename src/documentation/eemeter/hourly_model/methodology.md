@@ -72,7 +72,7 @@ In this example, the building has decreased usage during the weekend and complet
 
 It is unsurprising that buildings with solar PV generation respond to solar irradiance. Therefore, to model a building with solar PV production well requires a solar irradiance covariate as an input. The solar model expects a Global Horizontal Irradiance (GHI) time series to act as that covariate. GHI provides a direct proxy for solar generation, being approximately linearly proportional to PV production. The model assumes a linear response to GHI that is the same across all hours of the year.
 
-It is currently up to the user to obtain their own GHI data. This can be done with free, but delayed, sources such as NREL or through a commercial service. The irradiance data should be location-specific either by weather station or directly over the meter location. Clear sky GHI should not be used as it neglects cloud cover which will impact PV production.
+It is currently up to the user to obtain their own GHI data. This can be done with free, but delayed, sources such as [NREL](https://nsrdb.nrel.gov/) or through a commercial service. The irradiance data should be location-specific either by weather station or directly over the meter location. Clearsky GHI should not be used as it neglects cloud cover which will impact PV production.
 
 Solar irradiance is only required for the solar hourly model. If solar irradiance is not provided, the hourly model defaults to using the non-solar model. 
 
