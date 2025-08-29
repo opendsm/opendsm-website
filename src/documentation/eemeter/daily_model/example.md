@@ -26,7 +26,7 @@ The essential inputs to OpenDSM library functions are the following:
 3. Temperature data from a nearby weather station for both named `temperature`
 4. All data is expected to have a timezone-aware datetime index or column named `datetime`
 
-Users of the library are responsible for obtaining and formatting this data (to get weather data, see [EEweather](https://eeweather.openee.io/), which helps perform site to weather station matching and can pull and cache temperature data directly from public (US) data sources).
+Users of the library are responsible for obtaining and formatting this data (to get weather data, see [EEweather](https://github.com/opendsm/eeweather), which helps perform site to weather station matching and can pull and cache temperature data directly from public (US) data sources).
 
 We utilize data classes to store meter data, perform transforms, and validate the data to ensure data compliance. The inputs into these data classes can either be [pandas](https://pandas.pydata.org/) `DataFrame` if initializing the classes directly or `Series` if initializing the classes using `.from_series`.
 

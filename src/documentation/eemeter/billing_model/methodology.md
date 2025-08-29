@@ -77,7 +77,7 @@ Here are 6 examples of how the billing model performs on real data.
     <img src="site:assets/images/eemeter/billing_model/real_examples.png" alt="Real world examples">
 </div>
 
-*For additional information and validation details, see the [References](site:documentation/eemeter/billing_model/references/) page.
+*For additional information and validation details, see [References](site:documentation/eemeter/billing_model/references/).
 
 ## Sufficiency Criteria
 

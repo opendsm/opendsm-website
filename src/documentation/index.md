@@ -5,11 +5,11 @@ hide:
 
 ## Modules
 
-### OpenEEmeter
+### [OpenEEmeter](site:documentation/eemeter)
 
 Create long-term models fit on historical data to generate predictions of energy consumption
 
-### DRmeter
+### [DRmeter](site:documentation/drmeter)
 
 Create short-term models fit on historical data to generate predictions of energy consumption 
 
@@ -21,11 +21,11 @@ Assign comparison groups (CGs) to correct OpenEEmeter models using non-participa
 * Comparison groups are currently being added to OpenDSM but are a planned feature for future versions.
 </span>
 
-### EEweather
+### [EEweather](https://github.com/opendsm/eeweather)
 
 Get the most appropriate weather data for a location
 
 <span style="font-size: 0.8em;">
-* Available in the OpenDSM GitHub organization ([link](https://github.com/opendsm/eeweather)).<br> 
+* Available in the OpenDSM GitHub organization.<br> 
 * In the future EEweather will be available as a module with the OpenDSM library.
 </span>

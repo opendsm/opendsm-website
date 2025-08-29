@@ -56,4 +56,14 @@ When calculating savings from an intervention, it is important to define tempora
 - **Blackout Period**: The period in which the intervention is being installed that should not be included in either baseline or reporting periods. During this period, energy usage is often erratic due to the installation process. For some interventions, the blackout period may be months, and for others there may be no blackout period (i.e. demand response).
 - **Reporting Period**: The post-blackout period in which we can compare the model counterfactual to the observed energy usage to calculate savings. Reporting periods for efficiency projects typically last at least 365 days but may go far beyond this. For demand response, the reporting period is typically just the event day.
 
+## Error Metrics
 
+To be completed. discuss need for normalized error metrics etc.
+
+### CVRMSE
+
+To be completed.
+
+### PNRMSE
+
+To be completed.

@@ -46,7 +46,6 @@ nav:
     - General Concepts: documentation/general_concepts.md
     - OpenEEmeter: 
       - documentation/eemeter/index.md
-      - Basics: documentation/eemeter/basics.md
       - Hourly Model:
         - Methodology: documentation/eemeter/hourly_model/methodology.md
         - Example: documentation/eemeter/hourly_model/example.md
@@ -64,12 +63,11 @@ nav:
         - References: documentation/eemeter/billing_model/references.md
     - DRmeter:
       - documentation/drmeter/index.md
-      - Basics: documentation/drmeter/basics.md
-      - CalTRACK: 
-        - Methodology: documentation/drmeter/caltrack/methodology.md
-        - Example: documentation/drmeter/caltrack/example.md
-        - API: documentation/drmeter/caltrack/api.md
-        - References: documentation/drmeter/caltrack/references.md
+      - CalTRACK Model: 
+        - Methodology: documentation/drmeter/caltrack_model/methodology.md
+        - Example: documentation/drmeter/caltrack_model/example.md
+        - API: documentation/drmeter/caltrack_model/api.md
+        - References: documentation/drmeter/caltrack_model/references.md
       - New Model: documentation/drmeter/new_model/index.md
   - Community: community.md
 
@@ -121,3 +119,4 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:
       permalink: true
+  - sane_lists
