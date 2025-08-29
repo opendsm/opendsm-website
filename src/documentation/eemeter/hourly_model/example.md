@@ -30,7 +30,7 @@ The essential inputs to OpenDSM library functions are the following:
 
 5. Solar irradiance data, which should be Global Horizontal Irradiance (GHI) and named `ghi`, either at the weather station location or directly over the meter location.
 
-Users of the library are responsible for obtaining and formatting this data (to get weather data, see [EEweather](https://github.com/opendsm/eeweather), which helps perform site to weather station matching and can pull and cache temperature data directly from public (US) data sources). It is currently up to the user to obtain their own GHI data. This can be done with free, but delayed, sources such as NREL or through a commercial service.
+Users of the library are responsible for obtaining and formatting this data (to get weather data, see [EEweather](https://github.com/opendsm/eeweather), which helps perform site to weather station matching and can pull and cache temperature data directly from public (US) data sources). It is currently up to the user to obtain their own GHI data. This can be done with free, but delayed, sources such as [NREL](https://nsrdb.nrel.gov/) or through a commercial service.
 
 We utilize data classes to store meter data, perform transforms, and validate the data to ensure data compliance. The inputs into these data classes can either be [pandas](https://pandas.pydata.org/) `DataFrame` if initializing the classes directly or `Series` if initializing the classes using `.from_series`.
 
