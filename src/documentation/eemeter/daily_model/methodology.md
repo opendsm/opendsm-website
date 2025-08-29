@@ -106,7 +106,7 @@ In this real example, we have three models:
     <img src="site:assets/images/eemeter/daily_model/real_example.png" alt="Real world example", style="width:85%">
 </div>
 
-*For additional information and validation details, see the [References](site:documentation/eemeter/daily_model/references/) page.
+*For additional information and validation details, see [References](site:documentation/eemeter/daily_model/references/).
 
 ## Sufficiency Criteria
 
