@@ -93,9 +93,21 @@ Inputs into the model are provided through a dataframe to the appropriate data c
 
 ## Real Data Example
 
-To be completed
+It is rare to look at how the hourly model predicts for any given hour due to the high variance in hourly interval data, but let's first look at the first 2 weeks in July for this solar, residential meter in its baseline period.
 
-*For additional information and validation details, see the [References](site:documentation/eemeter/hourly_model/references/) page.
+<div style="text-align: center; margin-top: 30px">
+    <img src="site:assets/images/eemeter/hourly_model/real_example.png" alt="Real world example", style="width:85%">
+</div>
+
+Here it looks like the model is performing fairly well, but this is only 672 hours out of a 8760 hour baseline year. Because of the large day-to-day variance, if we were to plot the entire year, it would be very difficult to glean any information from the smudge of a plot. Instead, let's see what it looks like as a seasonal, hour-of-week loadshape.
+
+<div style="text-align: center; margin-top: 30px">
+    <img src="site:assets/images/eemeter/hourly_model/real_example_loadshape.png" alt="Real world loadshape example", style="width:100%">
+</div>
+
+The seasonal, hour-of-week loadshape does confirm our prior assessment of how well the model is fitting the baseline data.
+
+*For additional information and validation details, see [References](site:documentation/eemeter/hourly_model/references/).
 
 ## Sufficiency Criteria
 
