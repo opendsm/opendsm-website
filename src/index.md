@@ -47,7 +47,7 @@ hide:
 
 ---
 
-OpenDSM (formerly OpenEEmeter) is an open source library used to measure the impacts of demand-side programs by using historical data to fit models and then create predictions (counterfactuals) to compare to post-intervention, observed energy usage.
+OpenDSM (formerly OpenEEmeter) is an open-source library ([source code](https://github.com/opendsm/opendsm)) used to measure the impacts of demand-side programs by using historical data to fit models and then create predictions (counterfactuals) to compare to post-intervention, observed energy usage.
 
 ## Key Features include:
 
@@ -59,7 +59,7 @@ OpenDSM (formerly OpenEEmeter) is an open source library used to measure the imp
 
 ## Core Modules
 
-### OpenEEmeter
+### [OpenEEmeter](site:documentation/eemeter)
 
 Create long-term models fit on historical data to generate predictions of energy consumption
 
@@ -67,11 +67,11 @@ Create long-term models fit on historical data to generate predictions of energy
 - **Input Data Formatting**: Meter usage and temperature time series are input to models through data classes to ensure standardization and avoid common pitfalls
 - **Data and Model Sufficiency**: Native sufficiency checking to verify measurement compliance with the approved methodology
 
-### DRmeter
+### [DRmeter](site:documentation/drmeter)
 
 Create short-term models fit on historical data to generate predictions of energy consumption 
 
-- **Hourly Model**: All demand response models use hourly resolution data
+- **Hourly Model**: All demand response models require at least hourly resolution data
 
 ### Comparison Groups
 
@@ -82,10 +82,10 @@ Assign comparison groups (CGs) to correct OpenEEmeter models using non-participa
 - **Stratified Sampling**: Select meters for CG based upon shared characteristics (outdated methdology)
 
 <span style="font-size: 0.8em;">
-* Comparison groups are currently being added to OpenDSM but are a planned feature for future versions.
+* Planned feature in future OpenDSM versions
 </span>
 
-### EEweather
+### [EEweather](https://github.com/opendsm/eeweather)
 
 Get the most appropriate weather data for a location
 
@@ -94,6 +94,5 @@ Get the most appropriate weather data for a location
 - **Reliable Data Sources**: Utilizes US Census Bureau, NOAA NCDC, and NREL as primary data sources
 
 <span style="font-size: 0.8em;">
-* Available in the OpenDSM GitHub organization ([link](https://github.com/opendsm/eeweather)).<br> 
-* In the future EEweather will be available as a module with the OpenDSM library.
+* Planned integration in future OpenDSM versions
 </span>

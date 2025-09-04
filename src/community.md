@@ -47,6 +47,8 @@ hide:
 
 ---
 
+- OpenDSM is an LF Energy project. More information can be found at the [LF Energy OpenDSM page](https://lfenergy.org/projects/opendsm/).
+
 - Join the LF Energy discussion group [here](https://lists.lfenergy.org/g/opendsm-discussion/).
     - There are no active working groups at present.
     - If you were part of a prior working group or in the LFE discussion group, you will be alerted the next time one begins.

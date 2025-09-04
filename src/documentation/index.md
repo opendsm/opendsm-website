@@ -18,7 +18,7 @@ Create short-term models fit on historical data to generate predictions of energ
 Assign comparison groups (CGs) to correct OpenEEmeter models using non-participant population through one of the following methods
 
 <span style="font-size: 0.8em;">
-* Comparison groups are currently being added to OpenDSM but are a planned feature for future versions.
+* Planned feature in future OpenDSM versions
 </span>
 
 ### [EEweather](https://github.com/opendsm/eeweather)
@@ -26,6 +26,5 @@ Assign comparison groups (CGs) to correct OpenEEmeter models using non-participa
 Get the most appropriate weather data for a location
 
 <span style="font-size: 0.8em;">
-* Available in the OpenDSM GitHub organization.<br> 
-* In the future EEweather will be available as a module with the OpenDSM library.
+* Planned integration in future OpenDSM versions
 </span>
