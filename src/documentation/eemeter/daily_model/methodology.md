@@ -110,11 +110,129 @@ In this real example, we have three models:
 
 ## Sufficiency Criteria
 
-To be completed
+Most sufficiency criteria derive their origins from the CalTRACK specifications. Old reference numbers to the CalTRACK specifications are no longer valid and the new reference numbers should be used when discussing OpenDSM. A remnant of the old CalTRACK specifications is that there are two types of checks performed, disqualification and warnings. Disqualifications are a hard line that means meters should not be used for measurement. Warnings are purely for experts to take a deeper look at the data to possibly disqualify them. Only explicit disqualifications will be defined herein.
+
+Many sufficiency criteria are duplicated between the various models, but for the sake of completeness they will be included in definitions for all models. Unique sufficiency criteria will be designated with an **\***.
+
+### Nomenclature
+
+- Valid Data: Data which is not NULL, NaN, or otherwise empty
+- Joint Data: The combination of all inputs
 
 ### Data Sufficiency
 
-To be completed
+#### Common
+Common data sufficiency are prerequisites to both the baseline and reporting data sufficiency checks.
+
+##### **2.1.1: Blackout Exclusion**
+Blackout period data should not be included in either the baseline or reporting periods.
+
+##### **2.1.2: Data Exists**
+Input is not an empty dataset
+
+##### **2.1.3: Datetime Time Zone-Aware**
+Datetimes must include time zone information and all data must have the same time-zone information
+
+##### **2.1.4: Duplicate Data**
+No duplicated datetimes are allowed
+
+##### **2.1.5: High-Frequency Data**
+At least 50% of high-frequency data must be valid. Missing data must be imputed for aggregations 
+
+##### **2.1.6: Missing Temperature**
+Missing temperature data will result in the entire datetime to be considered missing
+
+##### **2.1.7: Minimum Monthly Temperature Coverage**
+Each month in the period must have at least 90% valid temperature data for all datetimes
+
+##### **2.1.8: Minimum Daily Temperature Coverage**
+The percentage of valid days (days with greater than 90% valid temperature data coverage) must be greater than 90%
+
+##### **2.1.9: Minimum Daily Joint Coverage**
+The percentage of valid days (days with greater than 90% valid joint data coverage) must be greater than 90%
+
+#### Baseline Period
+The baseline period must meet both the common and the baseline period sufficiency criteria.
+
+##### **2.2.1: Baseline Length**
+The baseline length must be of an appropriate length
+
+###### **2.2.1.1: Maximum Baseline Length**
+The baseline length must be less than 366 days. This is 1 day longer than a standard year to account for leap years
+
+###### **2.2.1.2: Minimum Baseline Length**
+The baseline length must be at least the floor of 90% of the maximum baseline length as defined in [Daily DQ 2.2.1.1](#2211-maximum-baseline-length), floor(366*0.9) = 329 days
+
+###### **2.2.1.3: Full Datetime Range**
+A full year of datetimes should be provided
+
+##### **2.2.2: Negative Gas Data**
+For gas data, observed values may not be less than 0
+
+##### **2.2.3: Minimum Daily Observed Coverage**
+The percentage of valid days (days with greater than 90% valid observed data coverage) must be greater than 90%
+
+#### Reporting Period
+The reporting period must meet the common sufficiency criteria.
+
+#### User Responsibilities
+There are some checks that should be performed which cannot be performed within the confines of the data or model classes, but are critical for valid measurements
+
+##### Period Definition
+
+###### **2.3.1.1 Blackout Period**
+The blackout period should be known, or at least estimated, and excluded from being included in the data.
+
+###### **2.3.1.2 Baseline Period**
+The baseline period should be one year immediately prior to the blackout period
+
+###### **2.3.1.3 Reporting Period**
+The reporting period should be one year immediately following the blackout period
+
+##### **2.3.2 Units**
+Units can be critically import to model performance. Convert your units accordingly.
+
+###### **2.3.2.1 Temperature**
+Temperature data should in Fahrenheit
+
+###### **3.2.2.1 Consumption/Usage**
+Consumption data is expected to be in some kind of units of energy
+
+##### **2.3.3 Net Metering**
+A meter's net metering status should be known during all periods. If the status changes ***during*** a period, the meter should be disqualified. Negative meter data is indicative of net metering, but a meter may have an undersized system and remain positive at all datetimes. 
+
+##### **2.3.4 Electric Vehicle**
+A meter's elecric vehicle charging status should be known during all periods. If the status changes ***during*** a period, the meter should be disqualified.
+
+##### **2.3.5 Location**
+There are two options for location data, but [Daily DQ 2.3.6.1](#2361-latitude-and-longitude) is greatly preferred.
+
+###### **2.3.6.1 Latitude and Longitude**
+Latitude and longitude should be known to three decimal places
+
+###### **2.3.6.2 ZIP Code Tabulation Area (ZCTA)**
+If absolutely necessary, the centroid of the ZCTA may be used in place of latitude and longitude
+
+##### **2.3.7 Model Results**
+
+###### **2.3.7.1 Predicted Energy Aggregation**
+Predicted energy can be aggregated through simple summation
+
+###### **2.3.7.2 Predicted Energy Uncertainty Aggregation**
+Predicted energy uncertainty should be aggregated by [summing in quadrature](https://en.wikipedia.org/wiki/Pythagorean_addition)
 
 ### Model Sufficiency
-To be completed
+A fit daily model must meet ***either*** CVRMSE ***or*** PNRMSE criteria to be qualified for measurement.
+
+#### CVRMSE
+
+##### **2.4.1: Maximum CVRMSE**
+The adjusted CVRMSE must be less than or equal to 1.0
+
+##### **2.4.2: Minimum CVRMSE**
+The adjusted CVRMSE must be greater than or equal to 0.0
+
+#### PNRMSE
+
+##### **2.5.1: Maximum PNRMSE**
+The adjusted PNRMSE must be less than or equal to 1.6
