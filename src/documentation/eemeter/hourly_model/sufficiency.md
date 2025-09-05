@@ -70,33 +70,39 @@ Predicted energy uncertainty should be aggregated by [summing in quadrature](htt
 
 </div>
 
-#### **1.1.4 Electric-Only Criteria**
+#### **1.1.4 Location**
 <div style="padding-left: 20px;" markdown="1">
+There are two options for location data, but [Hourly DQ 1.1.4.1](#1141-latitude-and-longitude) is greatly preferred.
 
-##### **1.1.4.1 Net Metering**
-<div style="padding-left: 20px;" markdown="1">
-A meter's net metering status should be known during all periods. If the status changes ***during*** a period, the meter should be disqualified. Negative meter data is indicative of net metering, but a meter may have an undersized system and remain positive at all datetimes.
-</div>
-
-##### **1.1.4.2 Electric Vehicle**
-<div style="padding-left: 20px;" markdown="1">
-A meter's elecric vehicle charging status should be known during all periods. If the status changes ***during*** a period, the meter should be disqualified.
-</div>
-
-</div>
-
-#### **1.1.5 Location**
-<div style="padding-left: 20px;" markdown="1">
-There are two options for location data, but [Hourly DQ 1.1.5.1](#1151-latitude-and-longitude) is greatly preferred.
-
-##### **1.1.5.1 Latitude and Longitude**
+##### **1.1.4.1 Latitude and Longitude**
 <div style="padding-left: 20px;" markdown="1">
 Latitude and longitude should be known to three decimal places
 </div>
 
-##### **1.1.5.2 ZIP Code Tabulation Area (ZCTA)**
+##### **1.1.4.2 ZIP Code Tabulation Area (ZCTA)**
 <div style="padding-left: 20px;" markdown="1">
 If absolutely necessary, the centroid of the ZCTA may be used in place of latitude and longitude
+</div>
+
+</div>
+
+#### **1.1.5 Non-Routine Events**
+<div style="padding-left: 20px;" markdown="1">
+Identifying and addressing non-routine events (NRE) is a best practice for making measurements, but is not required by OpenDSM.
+
+##### **1.1.5.1 Net Metering Status Change**
+<div style="padding-left: 20px;" markdown="1">
+If a meter's net metering status changes ***during*** a period, the meter should be disqualified as an NRE. Negative meter data is indicative of net metering, but a meter may have an undersized system and remain positive at all datetimes.
+</div>
+
+##### **1.1.5.2 Electric Vehicle Status Change**
+<div style="padding-left: 20px;" markdown="1">
+If a meter's elecric vehicle charging status changes ***during*** a period, the meter should be disqualified as an NRE.
+</div>
+
+##### **1.1.5.3 Heuristic-Based Identification**
+<div style="padding-left: 20px;" markdown="1">
+Observed values which fall outside of $[Q_1 - 3\times IQR, Q_3 + 3\times IQR]$, a modification of the general [1.5 IQR Rule](https://en.wikipedia.org/wiki/Interquartile_range), can be considered for disqualification as an NRE.
 </div>
 
 </div>
