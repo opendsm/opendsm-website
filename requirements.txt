@@ -10,5 +10,6 @@ griffe==0.47.0
 pymdown-extensions==10.15
 mkdocs-section-index==0.3.9
 mkdocs-site-urls==0.3.0
+mkdocs-git-revision-date-localized-plugin==1.4
 
 opendsm @ git+https://github.com/opendsm/opendsm@master

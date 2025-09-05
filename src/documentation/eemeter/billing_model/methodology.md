@@ -1,4 +1,4 @@
-The billing model uses the [daily model](site:documentation/eemeter/daily_model/methodology) with some slight configuration changes and uses billing (monthly or bimonthly) interval data.
+The billing model uses the [daily model](site:documentation/eemeter/daily_model/methodology) with small configuration changes and billing (monthly or bimonthly) interval data.
 
 ## Model Theory
 
@@ -69,6 +69,8 @@ At this point the billing model is now fit and can be used for prediction.
 
 The billing model disables this feature of the [daily model](site:documentation/eemeter/daily_model/methodology/#model-splits).
 
+---
+
 ## Real Data Example
 
 Here are 6 examples of how the billing model performs on real data.
@@ -77,15 +79,6 @@ Here are 6 examples of how the billing model performs on real data.
     <img src="site:assets/images/eemeter/billing_model/real_examples.png" alt="Real world examples">
 </div>
 
-*For additional information and validation details, see [References](site:documentation/eemeter/billing_model/references/).
-
-## Sufficiency Criteria
-
-To be completed
-
-### Data Sufficiency
-
-To be completed
-
-### Model Sufficiency
-To be completed
+<div style="text-align: left; font-size: 0.9em; color: #888; margin-top: 40px;">
+    For additional information and validation details, see <a href="site:documentation/eemeter/billing_model/references/">References</a>.
+</div>

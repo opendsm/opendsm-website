@@ -91,6 +91,8 @@ While the majority of the time Sum of Squares Error (SSE) is the optimal metric 
 
 Inputs into the model are provided through a dataframe to the appropriate data class. Internally, the model converts the inputs into a form appropriate for the underlying [elastic net regression framework](#model-algorithm). When the model is fit, each site will receive its own unique model fit and coefficients.
 
+---
+
 ## Real Data Example
 
 It is rare to look at how the hourly model predicts for any given hour due to the high variance in hourly interval data, but let's first look at the first 2 weeks in July for this solar, residential meter in its baseline period.
@@ -107,15 +109,6 @@ Here it looks like the model is performing fairly well, but this is only 672 hou
 
 The seasonal, hour-of-week loadshape does confirm our prior assessment of how well the model is fitting the baseline data.
 
-*For additional information and validation details, see [References](site:documentation/eemeter/hourly_model/references/).
-
-## Sufficiency Criteria
-
-To be completed
-
-### Data Sufficiency
-
-To be completed
-
-### Model Sufficiency
-To be completed
+<div style="text-align: left; font-size: 0.9em; color: #888; margin-top: 40px;">
+    For additional information and validation details, see <a href="site:documentation/eemeter/hourly_model/references/">References</a>.
+</div>
