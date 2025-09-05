@@ -102,7 +102,7 @@ If a meter's elecric vehicle charging status changes ***during*** a period, the 
 
 ##### **1.1.5.3 Heuristic-Based Identification**
 <div style="padding-left: 20px;" markdown="1">
-Observed values which fall outside of $[Q_1 - 3\times IQR, Q_3 + 3\times IQR]$, a modification of the general [1.5 IQR Rule](https://en.wikipedia.org/wiki/Interquartile_range), can be considered for disqualification as an NRE.
+Observed values which fall outside of $[Q_1 - 3\times IQR, Q_3 + 3\times IQR]$, a modification of the general [1.5 IQR Rule](https://en.wikipedia.org/wiki/Interquartile_range), can be investigated for disqualification as an NRE.
 </div>
 
 </div>
