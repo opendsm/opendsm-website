@@ -4,7 +4,7 @@ The billing model uses the [daily model](site:documentation/eemeter/daily_model/
 
 ### Converting from billing data to daily data
 
-The billing model intakes billing data and calculates the average energy usage for each given period. For example if a bill covers 31 days and uses 93 therms total, then each day would be given 3 therms of usage. Pulling the temperature from `EEweather` ensures that each day's mean temperature is correct.
+The billing model intakes billing data and calculates the average energy usage for each given period. For example if a bill covers 31 days and uses 93 therms total, then each day would be given 3 therms of usage. A billing period is assumed to start on the datetime in which it has a value and to end 1 day prior to the next datetime with a value with 1 final empty datetime signifying the end of the year resulting in 13 total datetimes for monthly billing data and 7 for bimonthly billing data. Pulling the temperature from `EEweather` ensures that each day's mean temperature is correct.
 
 From here, the data is treated as daily interval data and uses the daily model internally.
 

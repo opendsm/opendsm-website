@@ -53,6 +53,7 @@ nav:
       - documentation/eemeter/index.md
       - Hourly Model:
         - Methodology: documentation/eemeter/hourly_model/methodology.md
+        - Sufficiency: documentation/eemeter/hourly_model/sufficiency.md
         - Example: documentation/eemeter/hourly_model/example.md
         - API: documentation/eemeter/hourly_model/api.md
         - References: documentation/eemeter/hourly_model/references.md

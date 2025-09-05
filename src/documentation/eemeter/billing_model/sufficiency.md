@@ -160,19 +160,19 @@ Estimated periods should be combined with the next period up to a 70 day limit. 
 Missing temperature data will result in the entire datetime to be considered missing
 </div>
 
-#### **2.2.8: Minimum Monthly Temperature Coverage**
-<div style="padding-left: 20px;" markdown="1">
-Each month in the period must have at least 90% valid temperature data for all datetimes
-</div>
-
-#### **2.2.9: Minimum Daily Temperature Coverage**
+#### **2.2.8: Minimum Daily Temperature Coverage**
 <div style="padding-left: 20px;" markdown="1">
 The percentage of valid days (days with greater than 90% valid temperature data coverage) must be greater than 90%
 </div>
 
-#### **2.2.10: Minimum Daily Joint Coverage**
+#### **2.2.9: Minimum Daily Joint Coverage**
 <div style="padding-left: 20px;" markdown="1">
 The percentage of valid days (days with greater than 90% valid joint data coverage) must be greater than 90%
+</div>
+
+#### **2.2.10: Minimum Monthly Temperature Coverage**
+<div style="padding-left: 20px;" markdown="1">
+Each month in the period must have at least 90% valid temperature data for all datetimes
 </div>
 
 </div>
@@ -181,7 +181,7 @@ The percentage of valid days (days with greater than 90% valid joint data covera
 
 ### **2.3 Baseline Period**
 <div style="padding-left: 20px;" markdown="1">
-The baseline period must meet both the common and the baseline period sufficiency criteria.
+The baseline period must meet both the [Common](#22-common) and the baseline period sufficiency criteria.
 
 #### **2.3.1: Baseline Length**
 <div style="padding-left: 20px;" markdown="1">
@@ -220,13 +220,13 @@ The percentage of valid days (days with greater than 90% valid observed data cov
 
 ### **2.4 Reporting Period**
 <div style="padding-left: 20px;" markdown="1">
-The reporting period must meet the common sufficiency criteria.
+The reporting period must meet the [Common](#22-common) sufficiency criteria.
 </div>
 
 ---
 
 ## **Model Sufficiency**
-A fit billing model must meet <span style="color: orange;">either</span> CVRMSE <span style="color: orange;">or</span> PNRMSE criteria to be qualified for measurement.
+A fit billing model must meet either [CVRMSE](site:documentation/general_concepts/#cvrmse) <span style="color: orange;">or</span> [PNRMSE](site:documentation/general_concepts/#pnrmse) criteria to be qualified for measurement.
 
 ### **2.1 CVRMSE**
 <div style="padding-left: 20px;" markdown="1">
