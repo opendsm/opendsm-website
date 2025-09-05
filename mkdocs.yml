@@ -1,6 +1,7 @@
 site_name: OpenDSM
 site_url: !ENV [SITE_URL, "https://opendsm.energy/"]
 dev_addr: 127.0.0.1:8000
+# repo_url: https://github.com/opendsm/opendsm
 
 docs_dir: "src"
 extra_css:
@@ -35,6 +36,10 @@ plugins:
             show_symbol_type_toc: true
             show_docstring_modules: false
             docstring_section_style: table
+  - git-revision-date-localized:
+      enable_creation_date: false
+      type: date
+      fallback_to_build_date: true
 
 nav:
   - Home: index.md
@@ -53,11 +58,13 @@ nav:
         - References: documentation/eemeter/hourly_model/references.md
       - Daily Model: 
         - Methodology: documentation/eemeter/daily_model/methodology.md
+        - Sufficiency: documentation/eemeter/daily_model/sufficiency.md
         - Example: documentation/eemeter/daily_model/example.md
         - API: documentation/eemeter/daily_model/api.md
         - References: documentation/eemeter/daily_model/references.md
       - Billing Model: 
         - Methodology: documentation/eemeter/billing_model/methodology.md
+        - Sufficiency: documentation/eemeter/billing_model/sufficiency.md
         - Example: documentation/eemeter/billing_model/example.md
         - API: documentation/eemeter/billing_model/api.md
         - References: documentation/eemeter/billing_model/references.md
@@ -76,11 +83,20 @@ theme:
   logo: "https://opendsm.github.io/opendsm-website/assets/images/common/opendsm-icon-white.svg"
   features:
     - content.code.copy
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
     - navigation.sections
     - navigation.tabs
+    # - navigation.expand
+    # - navigation.prune
+    # - navigation.path
+    - navigation.top
+    - toc.follow
     - search.highlight
     - search.suggest
-  
+    - content.footnote.tooltips
+    
   language: en
 
   palette:
@@ -107,6 +123,9 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.arithmatex:
       generic: 
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
   - footnotes
   - attr_list
   - pymdownx.inlinehilite
@@ -117,8 +136,11 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:
-      permalink: true
+      permalink: 🔗
   - sane_lists
+  - footnotes
+  - smarty
+  - md_in_html
 
 extra:
   generator: false
