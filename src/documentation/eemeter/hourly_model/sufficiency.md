@@ -139,19 +139,34 @@ At least 50% of high-frequency data must be valid. Missing data must be imputed 
 Missing temperature data will result in the entire datetime to be considered missing
 </div>
 
-#### **2.2.7: Minimum Monthly Temperature Coverage**
-<div style="padding-left: 20px;" markdown="1">
-Each month in the period must have at least 90% valid temperature data for all datetimes
-</div>
-
-#### **2.2.8: Minimum Daily Temperature Coverage**
+#### **2.2.7: Minimum Daily Temperature Coverage**
 <div style="padding-left: 20px;" markdown="1">
 The percentage of valid days (days with greater than 90% valid temperature data coverage) must be greater than 90%
 </div>
 
-#### **2.2.9: Minimum Daily Joint Coverage**
+#### **2.2.8: Minimum Daily Joint Coverage**
 <div style="padding-left: 20px;" markdown="1">
 The percentage of valid days (days with greater than 90% valid joint data coverage) must be greater than 90%
+</div>
+
+#### **2.2.9: Minimum Monthly Temperature Coverage**
+<div style="padding-left: 20px;" markdown="1">
+Each month in the period must have at least 90% valid temperature data for all datetimes
+</div>
+
+#### **2.2.10: Solar Model Sufficiency**
+<div style="padding-left: 20px;" markdown="1">
+
+##### **2.2.10.1: Minimum Daily GHI Coverage**
+<div style="padding-left: 20px;" markdown="1">
+The percentage of valid days (days with greater than 90% valid GHI data coverage) must be greater than 90%
+</div>
+
+##### **2.2.10.2: Minimum Monthly GHI Coverage**
+<div style="padding-left: 20px;" markdown="1">
+Each month in the period must have at least 90% valid GHI data for all datetimes
+</div>
+
 </div>
 
 </div>
@@ -160,7 +175,7 @@ The percentage of valid days (days with greater than 90% valid joint data covera
 
 ### **2.3 Baseline Period**
 <div style="padding-left: 20px;" markdown="1">
-The baseline period must meet both the common and the baseline period sufficiency criteria.
+The baseline period must meet both the [Common](#22-common) and the baseline period sufficiency criteria.
 
 #### **2.3.1: Baseline Length**
 <div style="padding-left: 20px;" markdown="1">
@@ -193,19 +208,24 @@ For gas data, observed values may not be less than 0
 The percentage of valid days (days with greater than 90% valid observed data coverage) must be greater than 90%
 </div>
 
+#### **2.3.4: Minimum Monthly Observed Coverage**
+<div style="padding-left: 20px;" markdown="1">
+Each month in the period must have at least 90% valid observed data for all datetimes
+</div>
+
 </div>
 
 ---
 
 ### **2.4 Reporting Period**
 <div style="padding-left: 20px;" markdown="1">
-The reporting period must meet the common sufficiency criteria.
+The reporting period must meet the [Common](#22-common) sufficiency criteria.
 </div>
 
 ---
 
 ## **Model Sufficiency**
-A fit hourly model must meet <span style="color: orange;">either</span> CVRMSE <span style="color: orange;">or</span> PNRMSE criteria to be qualified for measurement.
+A fit hourly model must meet either [CVRMSE](site:documentation/general_concepts/#cvrmse) <span style="color: orange;">or</span> [PNRMSE](site:documentation/general_concepts/#pnrmse) criteria to be qualified for measurement.
 
 ### **2.1 CVRMSE**
 <div style="padding-left: 20px;" markdown="1">

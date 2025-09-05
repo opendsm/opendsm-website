@@ -37,6 +37,7 @@ If working with your own data instead of these samples, please refer directly to
 #### Important notes about data
 - *These models were developed and tested using Fahrenheit temperature. Please convert your temperatures accordingly*
 - *It is expected that all data is trimmed to its appropriate time period (baseline and reporting) and does not contain extraneous datetimes*
+    - *The exception to this is that a billing period is assumed to start on the datetime in which it has a value and to end 1 day prior to the next datetime with a value with 1 final empty datetime signifying the end of the year resulting in 13 total datetimes for monthly billing data and 7 for bimonthly billing data*
 
 Let us begin by loading some example data. Here we use a built-in utility function to load some example data.
 
