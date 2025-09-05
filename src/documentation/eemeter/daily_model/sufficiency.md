@@ -160,7 +160,7 @@ Each month in the period must have at least 90% valid temperature data for all d
 
 ### **1.3 Baseline Period**
 <div style="padding-left: 20px;" markdown="1">
-The baseline period must meet both the [Common](#22-common) and the baseline period sufficiency criteria.
+The baseline period must meet both the [Common](#12-common) and the baseline period sufficiency criteria.
 
 #### **1.3.1: Baseline Length**
 <div style="padding-left: 20px;" markdown="1">
@@ -199,7 +199,7 @@ The percentage of valid days (days with greater than 90% valid observed data cov
 
 ### **1.4 Reporting Period**
 <div style="padding-left: 20px;" markdown="1">
-The reporting period must meet the [Common](#22-common) sufficiency criteria.
+The reporting period must meet the [Common](#12-common) sufficiency criteria.
 </div>
 
 ---
