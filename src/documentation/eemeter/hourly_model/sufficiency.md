@@ -1,4 +1,4 @@
-# Sufficiency Criteria
+# Sufficiency Criteria<br><div style="text-align: left; font-size: 0.5em; color: #888; ; margin-bottom: -2.3em;">Last updated: OpenDSM 1.2</div>
 
 Most sufficiency criteria derive their origins from the CalTRACK specifications. Old reference numbers to the CalTRACK specifications are no longer valid and the new reference numbers should be used when discussing OpenDSM. A remnant of the old CalTRACK specifications is that there are two types of checks performed, disqualification and warnings. Disqualification is a hard line that means meters should not be used for measurement. A warning is purely for experts to take a deeper look at the data to possibly disqualify them. Only explicit disqualifications will be defined herein.
 
@@ -261,7 +261,3 @@ The adjusted PNRMSE must be less than or equal to 2.2
 </div>
 
 ---
-
-<div style="text-align: right; font-size: 0.9em; color: #888; margin-top: 40px;">
-    OpenDSM v1.2
-</div>

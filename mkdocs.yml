@@ -40,6 +40,13 @@ plugins:
       enable_creation_date: false
       type: date
       fallback_to_build_date: true
+      exclude:
+        - index.md
+        - install.md
+        - community.md
+        - eemeter/index.md
+        # - eemeter/hourly_model/index.md
+        # - eemeter/daily_model/index.md
 
 nav:
   - Home: index.md
