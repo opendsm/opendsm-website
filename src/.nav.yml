@@ -1,0 +1,63 @@
+# https://lukasgeiter.github.io/mkdocs-awesome-nav/features/nav/
+
+preserve_directory_names: true 
+
+hide: true 
+
+flatten_single_child_sections: true 
+
+ignore: "*.hidden.md" 
+
+sort:
+  direction: asc 
+  type: natural 
+  by: title 
+  sections: mixed 
+  ignore_case: true
+
+append_unmatched: true
+
+# nav: 
+#   - getting-started.md
+#   - guides
+#   - More Resources:
+#     - "*"
+#     - Website: https://lukasgeiter.github.io/mkdocs-awesome-nav
+
+nav:
+  - Home: index.md
+  - Install: install.md
+  - Documentation:
+    - documentation/index.md
+    - History: documentation/history.md
+    - Philosophy: documentation/philosophy.md
+    - General Concepts: documentation/general_concepts.md
+    - OpenEEmeter: 
+      - documentation/eemeter/index.md
+      - Hourly Model:
+        - Methodology: documentation/eemeter/hourly_model/methodology.md
+        - Sufficiency: documentation/eemeter/hourly_model/sufficiency.md
+        - Example: documentation/eemeter/hourly_model/example.md
+        - API: documentation/eemeter/hourly_model/api.md
+        - References: documentation/eemeter/hourly_model/references.md
+      - Daily Model: 
+        - Methodology: documentation/eemeter/daily_model/methodology.md
+        - Sufficiency: documentation/eemeter/daily_model/sufficiency.md
+        - Example: documentation/eemeter/daily_model/example.md
+        - API: documentation/eemeter/daily_model/api.md
+        - References: documentation/eemeter/daily_model/references.md
+      - Billing Model: 
+        - Methodology: documentation/eemeter/billing_model/methodology.md
+        - Sufficiency: documentation/eemeter/billing_model/sufficiency.md
+        - Example: documentation/eemeter/billing_model/example.md
+        - API: documentation/eemeter/billing_model/api.md
+        - References: documentation/eemeter/billing_model/references.md
+    - DRmeter:
+      - documentation/drmeter/index.md
+      - CalTRACK Model: 
+        - Methodology: documentation/drmeter/caltrack_model/methodology.md
+        - Example: documentation/drmeter/caltrack_model/example.md
+        - API: documentation/drmeter/caltrack_model/api.md
+        - References: documentation/drmeter/caltrack_model/references.md
+      - New Model: documentation/drmeter/new_model/index.md
+  - Community: community.md
