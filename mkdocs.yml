@@ -9,6 +9,7 @@ extra_css:
   
 plugins:
   - search
+  - awesome-nav
   - macros
   - section-index
   - site-urls:
@@ -44,67 +45,12 @@ plugins:
         - index.md
         - install.md
         - community.md
-        - eemeter/index.md
-        # - eemeter/hourly_model/index.md
-        # - eemeter/daily_model/index.md
-
-nav:
-  - Home: index.md
-  - Install: install.md
-  - Documentation:
-    - documentation/index.md
-    - History: documentation/history.md
-    - Philosophy: documentation/philosophy.md
-    - General Concepts: documentation/general_concepts.md
-    - OpenEEmeter: 
-      - documentation/eemeter/index.md
-      - Hourly Model:
-        - Methodology: documentation/eemeter/hourly_model/methodology.md
-        - Sufficiency: documentation/eemeter/hourly_model/sufficiency.md
-        - Example: documentation/eemeter/hourly_model/example.md
-        - API: documentation/eemeter/hourly_model/api.md
-        - References: documentation/eemeter/hourly_model/references.md
-      - Daily Model: 
-        - Methodology: documentation/eemeter/daily_model/methodology.md
-        - Sufficiency: documentation/eemeter/daily_model/sufficiency.md
-        - Example: documentation/eemeter/daily_model/example.md
-        - API: documentation/eemeter/daily_model/api.md
-        - References: documentation/eemeter/daily_model/references.md
-      - Billing Model: 
-        - Methodology: documentation/eemeter/billing_model/methodology.md
-        - Sufficiency: documentation/eemeter/billing_model/sufficiency.md
-        - Example: documentation/eemeter/billing_model/example.md
-        - API: documentation/eemeter/billing_model/api.md
-        - References: documentation/eemeter/billing_model/references.md
-    - DRmeter:
-      - documentation/drmeter/index.md
-      - CalTRACK Model: 
-        - Methodology: documentation/drmeter/caltrack_model/methodology.md
-        - Example: documentation/drmeter/caltrack_model/example.md
-        - API: documentation/drmeter/caltrack_model/api.md
-        - References: documentation/drmeter/caltrack_model/references.md
-      - New Model: documentation/drmeter/new_model/index.md
-  - Community: community.md
+        - documentation/index.md
+        - documentation/eemeter/index.md
+        - documentation/drmeter/index.md
 
 theme:
   name: "material"
-  logo: "https://opendsm.github.io/opendsm-website/assets/images/common/opendsm-icon-white.svg"
-  features:
-    - content.code.copy
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
-    - navigation.sections
-    - navigation.tabs
-    # - navigation.expand
-    # - navigation.prune
-    # - navigation.path
-    - navigation.top
-    - toc.follow
-    - search.highlight
-    - search.suggest
-    - content.footnote.tooltips
-    
   language: en
 
   palette:
@@ -119,6 +65,25 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mod
+
+  logo: "https://opendsm.github.io/opendsm-website/assets/images/common/opendsm-icon-white.svg"
+
+  features:
+    - content.code.copy
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky       # top row of tabs sticks to the top of the page
+    # - navigation.expand            # default expand all tabs
+    # - navigation.prune
+    # - navigation.path
+    - navigation.top
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.footnote.tooltips
     
 markdown_extensions:
   - pymdownx.highlight:
@@ -153,6 +118,7 @@ markdown_extensions:
 
 extra:
   generator: false
+  # version: mike
 
 extra_javascript:
   - https://cmp.osano.com/16A0DbT9yDNIaQkvZ/af2b9f1f-3ac7-4a18-a99a-e487d04f08e6/osano.js?variant=two
