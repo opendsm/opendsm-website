@@ -18,7 +18,7 @@ brew install lapack
 ```
 Each of the above will also prompt you to set some environment variables with commands like `export LDFLAGS="/some/appropriate/location/"`, so run these commands one at a time and look at the tail end of the output for instruction.
 
-After completing the above (if you are a Mac user), run
+To install the necessary packages, run
 ```python
 python3 -m venv .venv
 . .venv/bin/activate
