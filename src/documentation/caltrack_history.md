@@ -75,7 +75,7 @@ The effort was initiated and led by [Recurve](http://www.recurve.com/), with par
 Regularly held working group meetings provided a forum to present issues, propose test methods, present results and debate and settle on final methods.  These are documented in the CalTRACK GitHub repository as well as in the archives of the “[Project Status](http://www.caltrack.org/project-updates/quick-links-to-the-2018-project-updates)” blog posts from that period.
 
 <figure style="margin-top: 2em">
-  <div style="line-height: 1em;">
+  <div style="line-height: 1.5em;">
     <strong>CalTRACK Continuous Improvement Pathway</strong>
     <img src="site:assets/images/history/caltrack_improvement_pathway.png" alt="CalTRACK continuous improvement pathway">
   </div>
