@@ -35,7 +35,7 @@ The test data contained within the OpenDSM library is derived from [NREL ComStoc
 If working with your own data instead of these samples, please refer directly to the excellent pandas documentation for instructions for loading data (e.g., [pandas.read_csv](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html)).
 
 #### Important notes about data
-- *These models were developed and tested using Fahrenheit temperature. Please convert your temperatures accordingly*
+- *These models were developed and tested using temperature in units of °Fahrenheit. Please convert your temperatures accordingly*
 - *It is expected that all data is trimmed to its appropriate time period (baseline and reporting) and does not contain extraneous datetimes*
     - *The exception to this is that a billing period is assumed to start on the datetime in which it has a value and to end 1 day prior to the next datetime with a value with 1 final empty datetime signifying the end of the year resulting in 13 total datetimes for monthly billing data and 7 for bimonthly billing data*
 
@@ -107,7 +107,7 @@ print(df_baseline_n)
 Also notice the general structure of these dataframes for a single meter. We have three columns:
 
 1. A timezone-aware datetime index.
-2. A temperature column (float) in Fahrenheit (be sure to convert any other units to Fahrenheit first) and must be at least daily interval data.
+2. A temperature column (float) in °Fahrenheit (be sure to convert any other units to °Fahrenheit first) and must be at least daily interval data.
 3. Observed meter usage (float). The example here is electricity data in kWh, but it could also be gas data.
 4. Billing data is reversed from a customer perspective. From a customer perspective, you pay for the month you used energy and so the bill is for the month prior. To model this, the start date should have the usage for a given month
 

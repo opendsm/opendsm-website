@@ -45,7 +45,7 @@ Units can be critically import to model performance. Convert your units accordin
 
 ##### **1.1.2.1 Temperature**
 <div style="padding-left: 20px;" markdown="1">
-Temperature data should in Fahrenheit
+Temperature data should in °Fahrenheit
 </div>
 
 ##### **1.1.2.1 Consumption/Usage**
