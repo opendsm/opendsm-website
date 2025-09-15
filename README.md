@@ -10,6 +10,13 @@ Automatic code documentations assumes google-style docstrings.
 For examples on how to format google-style docstrings, see here: https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
 
 ### To install
+On a Mac with Apple Silicon it may be necessary to first install some relevant libraries that are needed for OpenDSM:
+```
+brew install openblas
+brew install lapack
+```
+Each of the above will also prompt you to set some environment variables with commands like `export LDFLAGS="/some/appropriate/location/"`, so run these commands one at a time and look at the tail end of the output for instruction.
+
 Run
 ```python
 python3 -m venv .venv
