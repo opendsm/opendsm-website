@@ -29,7 +29,12 @@ nav:
   - Install: install.md
   - Documentation:
     - documentation/index.md
-    - History: documentation/history.md
+    - History: 
+      - documentation/history/index.md
+      - CalTRACK:
+        - History: documentation/history/caltrack/history.md
+        - Methodology: documentation/history/caltrack/methodology.md
+        - Technical Appendix: documentation/history/caltrack/technical_appendix.md
     - Philosophy: documentation/philosophy.md
     - General Concepts: documentation/general_concepts.md
     - OpenEEmeter: 
@@ -60,4 +65,9 @@ nav:
         - API: documentation/drmeter/caltrack_model/api.md
         - References: documentation/drmeter/caltrack_model/references.md
       - New Model: documentation/drmeter/new_model/index.md
-  - Community: community.md
+    - Comparison Groups:
+      - documentation/comparison_groups/index.md
+    - EEweather:
+      - documentation/eeweather/index.md
+  - Community: 
+      - community/index.md
