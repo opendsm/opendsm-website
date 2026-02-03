@@ -693,3 +693,29 @@ Portfolio-level bias error expressed as a percent of portfolio savings:
 $$
 FBE_{portfolio} = \frac{\sum_{i=1}^{N} (MB_i)^2}{\sum_{i=1}^{N} U_{save, Qi}}
 $$
+
+<style>
+/* CalTRACK methodology visual hierarchy */
+.md-content article p[data-depth] {
+  margin-bottom: 0.6em;
+}
+.md-content article p[data-depth="3"] { margin-left: 1.5em; }
+.md-content article p[data-depth="4"] { margin-left: 3em; }
+.md-content article p[data-depth="5"] { margin-left: 4.5em; }
+.md-content article p[data-depth="6"] { margin-left: 6em; }
+.md-content article p[data-depth="7"] { margin-left: 7.5em; }
+</style>
+
+<script>
+// Auto-detect numbering depth and add data attributes
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.md-content article p').forEach(function(p) {
+    const text = p.textContent.trim();
+    const match = text.match(/^(\d+(\.\d+)+)\./);
+    if (match) {
+      const depth = match[1].split('.').length;
+      p.setAttribute('data-depth', depth);
+    }
+  });
+});
+</script>
