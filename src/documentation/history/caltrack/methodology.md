@@ -695,26 +695,53 @@ FBE_{portfolio} = \frac{\sum_{i=1}^{N} (MB_i)^2}{\sum_{i=1}^{N} U_{save, Qi}}
 $$
 
 <style>
-/* CalTRACK methodology visual hierarchy */
-.md-content article p[data-depth] {
+.md-content article [data-depth] {
   margin-bottom: 0.6em;
 }
-.md-content article p[data-depth="3"] { margin-left: 1.5em; }
-.md-content article p[data-depth="4"] { margin-left: 3em; }
-.md-content article p[data-depth="5"] { margin-left: 4.5em; }
-.md-content article p[data-depth="6"] { margin-left: 6em; }
-.md-content article p[data-depth="7"] { margin-left: 7.5em; }
+.md-content article [data-depth="3"] { margin-left: 1.5em; }
+.md-content article [data-depth="4"] { margin-left: 3em; }
+.md-content article [data-depth="5"] { margin-left: 4.5em; }
+.md-content article [data-depth="6"] { margin-left: 6em; }
+.md-content article [data-depth="7"] { margin-left: 7.5em; }
+
+/* Tighter min-width for table headers */
+.md-content article table th {
+  min-width: 4rem !important;
+}
 </style>
 
 <script>
-// Auto-detect numbering depth and add data attributes
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.md-content article p').forEach(function(p) {
-    const text = p.textContent.trim();
+// Auto-detect numbering depth and add data attributes for visual hierarchy
+document.addEventListener('DOMContentLoaded', () => {
+  let currentDepth = null;
+
+  const getNumberingDepth = (text) => {
     const match = text.match(/^(\d+(\.\d+)+)\./);
-    if (match) {
-      const depth = match[1].split('.').length;
-      p.setAttribute('data-depth', depth);
+    return match ? match[1].split('.').length : null;
+  };
+
+  document.querySelectorAll('.md-content article > *').forEach(el => {
+    switch (el.tagName) {
+      case 'P':
+        const text = el.textContent.trim();
+        const depth = getNumberingDepth(text);
+
+        if (depth) {
+          currentDepth = depth;
+          el.setAttribute('data-depth', depth);
+        } else if (currentDepth && text) {
+          el.setAttribute('data-depth', currentDepth);
+        }
+        break;
+
+      case 'OL':
+      case 'UL':
+        if (currentDepth) el.setAttribute('data-depth', currentDepth);
+        break;
+
+      case 'H2':
+        currentDepth = null;
+        break;
     }
   });
 });
