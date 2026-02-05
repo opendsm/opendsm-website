@@ -601,7 +601,7 @@ Our results indicate that the quadratic loss function produced the most stable r
 
 ---
 
-## <span id="appendix3-6-5"></span>[3.6.5.](methodology.md#methods3-6-5) Baseline periods.
+## <span id="appendix3-7-5"></span>[3.7.5.](methodology.md#methods3-7-5) Baseline periods.
 
 ### Test 1: Adequacy of single estimated regression for baseline period
 
