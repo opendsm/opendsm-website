@@ -22,7 +22,7 @@ The decision to linearly interpolate up to 6 consecutive missing hours of weathe
 
 ### Test 1: Weather station accuracy
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/65
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/65](https://github.com/CalTRACK-2/caltrack/issues/65)
 
 **Background:**
 
@@ -73,7 +73,7 @@ Our results show that Method A produced the best possible weather station 56% of
 
 ### Test 2: Importance of weather data
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/65
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/65](https://github.com/CalTRACK-2/caltrack/issues/65)
 
 **Background:**
 
@@ -108,7 +108,7 @@ CalTRACK 2.0 will employ Method A as the preferred weather station mapping metho
 
 ## [3.1.3.](methodology.md#methods3-1-3) Models are fit to baseline data in the 365 days immediately prior to the intervention start date. {#appendix3-1-3}
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/68
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/68](https://github.com/CalTRACK-2/caltrack/issues/68)
 
 **Background:**
 
@@ -166,7 +166,7 @@ The results from these empirical results indicate that baseline periods longer t
 
 ## [3.1.4.1.](methodology.md#methods3-1-4-1) Select and qualify balance points for candidate models for each period for each meter. {#appendix3-1-4-1}
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/69
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/69](https://github.com/CalTRACK-2/caltrack/issues/69)
 
 **Background:**
 
@@ -213,7 +213,7 @@ Our empirical results indicate that variable balance points generated fewer inte
 
 ## [3.2.1.](methodology.md#methods3-2-1) A grid search of models is performed using a wide range of candidate balance points. {#appendix3-2-1}
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/72
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/72](https://github.com/CalTRACK-2/caltrack/issues/72)
 
 ### Test 1: Distribution of selected balance points with different grid search ranges
 
@@ -249,7 +249,7 @@ The bar chart below shows the distribution of best-fit HDD balance points for th
 
 ### Test 2: Importance of optimal balance points on estimated savings
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/72
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/72](https://github.com/CalTRACK-2/caltrack/issues/72)
 
 **Background:**
 
@@ -284,7 +284,7 @@ Expand balance point search range to 30-90 F for heating balance points and 30-9
 
 ## [3.2.3.](methodology.md#methods3-2-3) Maximum gap between candidate balance points in the grid search is 3 degrees F or the equivalent in degrees C. {#appendix3-2-3}
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/72
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/72](https://github.com/CalTRACK-2/caltrack/issues/72)
 
 **Background:**
 
@@ -323,7 +323,7 @@ CalTRACK's Billing Period and Daily methods will use a 3 F search increment in t
 
 ### Test 1: Calendar effects and error structure
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/57
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/57](https://github.com/CalTRACK-2/caltrack/issues/57)
 
 **Background:**
 
@@ -384,7 +384,7 @@ Finally, the average residuals were 0.061 for holidays and -0.001 for non-holida
 
 ### Test 2: Calendar effects and aggregated energy savings
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/57
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/57](https://github.com/CalTRACK-2/caltrack/issues/57)
 
 **Background:**
 
@@ -433,7 +433,7 @@ Although adding calendar effects may be significant when estimating daily models
 
 ## [3.4.1.](methodology.md#methods3-4-1) Models using daily data are fit using ordinary least squares. {#appendix3-4-1}
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/57
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/57](https://github.com/CalTRACK-2/caltrack/issues/57)
 
 **Background:**
 
@@ -466,7 +466,7 @@ CalTRACK recommends using an OLS modelling approach instead of robust regression
 
 ## [3.4.3.2.](methodology.md#methods3-4-3-2) Candidate model qualification. {#appendix3-4-3-2}
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/76
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/76](https://github.com/CalTRACK-2/caltrack/issues/76)
 
 **Background:**
 
@@ -523,7 +523,7 @@ Our tests indicate that requiring a P-value screen was superfluous at best and m
 
 ## [3.4.3.3.](methodology.md#methods3-4-3-3) The model with highest adjusted R-squared will be selected as the final model. {#appendix3-4-3-3}
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/62
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/62](https://github.com/CalTRACK-2/caltrack/issues/62)
 
 **Background:**
 
@@ -609,7 +609,7 @@ Our results indicate that the quadratic loss function produced the most stable r
 
 ### Test 1: Adequacy of single estimated regression for baseline period
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/103
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/103](https://github.com/CalTRACK-2/caltrack/issues/103)
 
 **Background:**
 
@@ -647,7 +647,7 @@ The figure below shows a distinct difference between monthly and annual regressi
 
 ### Test 2: Optimal number of regressions in baseline period
 
-Github issue: https://github.com/CalTRACK-2/caltrack/issues/85
+**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/85](https://github.com/CalTRACK-2/caltrack/issues/85)
 
 **Background:**
 
