@@ -1,7 +1,3 @@
----
-render_macros: false
----
-
 # CalTRACK Methods
 
 ---
