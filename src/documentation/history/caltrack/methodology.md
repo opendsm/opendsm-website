@@ -201,7 +201,7 @@ The data requirements to apply CalTRACK methods to a single metered site are lis
 {: data-depth="4"}
 
 <span id="methods2-2-1-2"></span>
-**2.2.1.2.** Number of days of consumption and temperature data missing should not exceed 37 days (10%) for billing and daily methods. For fitting baseline models using the hourly methods, no minimum baseline period length is required. However, baseline consumption data must be available for over 90% of hours in the same calendar month as well as in each of the previous and following calendar months in the previous year. [See Appendix for Details.](#appendix2-2-1-2)
+**2.2.1.2.** Number of days of consumption and temperature data missing should not exceed 37 days (10%) for billing and daily methods. For fitting baseline models using the hourly methods, no minimum baseline period length is required. However, baseline consumption data must be available for over 90% of hours in the same calendar month as well as in each of the previous and following calendar months in the previous year. [See Appendix for Details.](technical_appendix.md#appendix2-2-1-2)
 {: data-depth="4"}
 
 **2.2.1.3.** Data is considered missing if it is clearly marked by the data provider as NULL, NaN, or similar.
@@ -244,7 +244,7 @@ The data requirements to apply CalTRACK methods to a single metered site are lis
 {: data-depth="3"}
 
 <span id="methods2-2-4-1"></span>
-**2.2.4.1** Temperature data may not be missing for more than six consecutive hours. Missing temperature data may be linearly interpolated for up to 6 consecutive missing hours. [See Appendix for Details.](#appendix2-2-4-1)
+**2.2.4.1** Temperature data may not be missing for more than six consecutive hours. Missing temperature data may be linearly interpolated for up to 6 consecutive missing hours. [See Appendix for Details.](technical_appendix.md#appendix2-2-4-1)
 {: data-depth="3"}
 
 **2.2.5.** Data spanning beyond the period should not be used in analysis.
@@ -302,7 +302,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 {: data-depth="2"}
 
 <span id="methods2-4-1"></span>
-**2.4.1.** Weather station to be used is closest within climate zone that meets CalTrack data sufficiency requirements. [See Appendix for Details.](#appendix2-4-1)
+**2.4.1.** Weather station to be used is closest within climate zone that meets CalTrack data sufficiency requirements. [See Appendix for Details.](technical_appendix.md#appendix2-4-1)
 {: data-depth="3"}
 
 **2.4.1.1.** If there are no weather stations within that climate zone, fallback to closest weather station that has complete data.
@@ -335,14 +335,14 @@ In many cases, data quality issues can be resolved by going back to the source t
 {: data-depth="4"}
 
 <span id="methods3-1-3"></span>
-**3.1.3.** Models are fit to baseline data in the 365 days immediately prior to the intervention start date, provided the data sufficiency criteria are met. [See Appendix for Details.](#appendix3-1-3)
+**3.1.3.** Models are fit to baseline data in the 365 days immediately prior to the intervention start date, provided the data sufficiency criteria are met. [See Appendix for Details.](technical_appendix.md#appendix3-1-3)
 {: data-depth="3"}
 
 **3.1.4.** Follow the process outlined below and detailed in subsequent sections:
 {: data-depth="3"}
 
 <span id="methods3-1-4-1"></span>
-**3.1.4.1.** Select and qualify balance points for candidate models for each period for each meter. [See Appendix for Details.](#appendix3-1-4-1)
+**3.1.4.1.** Select and qualify balance points for candidate models for each period for each meter. [See Appendix for Details.](technical_appendix.md#appendix3-1-4-1)
 {: data-depth="4"}
 
 **3.1.4.2.** Use hourly temperature from the matched weather station (11).
@@ -370,7 +370,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 {: data-depth="2"}
 
 <span id="methods3-2-1"></span>
-**3.2.1.** A grid search of models is performed using a wide range of candidate balance points. [See Appendix for Details.](#appendix3-2-1)
+**3.2.1.** A grid search of models is performed using a wide range of candidate balance points. [See Appendix for Details.](technical_appendix.md#appendix3-2-1)
 {: data-depth="3"}
 
 **3.2.1.1.** Recommended cooling balance point range is from 30 to 90 degrees F. For analysis of natural gas consumption, models using cooling degree days are not considered.
@@ -395,7 +395,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 {: data-depth="5"}
 
 <span id="methods3-2-3"></span>
-**3.2.3.** Maximum gap between candidate balance points in the grid search is 3 degrees F or the equivalent in degrees C. [See Appendix for Details.](#appendix3-2-3)
+**3.2.3.** Maximum gap between candidate balance points in the grid search is 3 degrees F or the equivalent in degrees C. [See Appendix for Details.](technical_appendix.md#appendix3-2-3)
 {: data-depth="3"}
 
 **3.3. Computing design matrix for each model.**
@@ -408,7 +408,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 {: data-depth="4"}
 
 <span id="methods3-3-1-2"></span>
-**3.3.1.2.** Independent variables. [See Appendix for Details.](#appendix3-3-1-2)
+**3.3.1.2.** Independent variables. [See Appendix for Details.](technical_appendix.md#appendix3-3-1-2)
 {: data-depth="4"}
 
 **3.3.1.2.1.** Average cooling degree days per day for a usage period.
@@ -529,7 +529,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 {: data-depth="2"}
 
 <span id="methods3-4-1"></span>
-**3.4.1.** Models using daily data are fit using ordinary least squares. [See Appendix for Details.](#appendix3-4-1)
+**3.4.1.** Models using daily data are fit using ordinary least squares. [See Appendix for Details.](technical_appendix.md#appendix3-4-1)
 {: data-depth="3"}
 
 **3.4.2.** Models using billing data are fit using weighted least squares regression. Use the corresponding number of days np as the weight for each billing period.
@@ -573,7 +573,7 @@ In this case, adjusted R-squared is 0 by definition.
 {: data-depth="5"}
 
 <span id="methods3-4-3-2"></span>
-**3.4.3.2.** Candidate model qualification. If each parameter estimate is not negative, then the model qualifies for inclusion in model selection. [See Appendix for Details.](#appendix3-4-3-2)
+**3.4.3.2.** Candidate model qualification. If each parameter estimate is not negative, then the model qualifies for inclusion in model selection. [See Appendix for Details.](technical_appendix.md#appendix3-4-3-2)
 {: data-depth="4"}
 
 **3.4.3.2.1.** $β_H > 0$
@@ -586,7 +586,7 @@ In this case, adjusted R-squared is 0 by definition.
 {: data-depth="5"}
 
 <span id="methods3-4-3-3"></span>
-**3.4.3.3.** The model with highest adjusted R-squared will be selected as the final model. [See Appendix for Details.](#appendix3-4-3-3) Adjusted R-squared will be defined as:
+**3.4.3.3.** The model with highest adjusted R-squared will be selected as the final model. [See Appendix for Details.](technical_appendix.md#appendix3-4-3-3) Adjusted R-squared will be defined as:
 {: data-depth="4"}
 
 **3.4.3.3.1.** $R^2_{adj} = 1 - \frac{\frac{SS_{res}}{df_e}}{\frac{SS_{tot}}{df_t}}$, where
@@ -703,7 +703,7 @@ $$
 {: data-depth="3"}
 
 <span id="methods3-6-5"></span>
-**3.7.5.** Baseline periods. [See Appendix for Details.](#appendix3-6-5) Instead of using a single baseline model for estimating the counterfactual during all times of the year, predicting the counterfactual during any time period will be done using the baseline model for that calendar month ("month-by-month" models). This implies that there can be up to 12 separate models for a particular building - one for predicting the counterfactual in each calendar month. Each model will be fit using baseline data comprising (i) data from the same calendar month in the 365 days prior to the intervention date. These data points will be given full weight when fitting the model, (ii) data from the previous and subsequent calendar months in the 365 days prior to the intervention date. These data points will be given a weight of 0.5 when fitting the model. For example, for a project installed in March 2018, predicting the counterfactual in July 2018 will be done using a model fit to baseline data from June, July and August 2017, with weights of 0.5, 1 and 0.5 assigned to the data points in those three months.
+**3.7.5.** Baseline periods. [See Appendix for Details.](technical_appendix.md#appendix3-6-5) Instead of using a single baseline model for estimating the counterfactual during all times of the year, predicting the counterfactual during any time period will be done using the baseline model for that calendar month ("month-by-month" models). This implies that there can be up to 12 separate models for a particular building - one for predicting the counterfactual in each calendar month. Each model will be fit using baseline data comprising (i) data from the same calendar month in the 365 days prior to the intervention date. These data points will be given full weight when fitting the model, (ii) data from the previous and subsequent calendar months in the 365 days prior to the intervention date. These data points will be given a weight of 0.5 when fitting the model. For example, for a project installed in March 2018, predicting the counterfactual in July 2018 will be done using a model fit to baseline data from June, July and August 2017, with weights of 0.5, 1 and 0.5 assigned to the data points in those three months.
 {: data-depth="3"}
 
 **3.7.5.1.** In some cases, building energy use patterns are consistent from month to month and a single model with a 365 day baseline may be used, as long as the normalized mean bias error (NMBE) for each month in the baseline period is calculated separately and no more than two months have NMBE larger than an acceptable threshold (default, 1%).
