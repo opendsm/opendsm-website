@@ -1,4 +1,6 @@
 ---
+# Disable macros plugin to prevent conflict between Jinja2 comment syntax {# #}
+# and attr_list anchor syntax {#id} used in headings for scroll spy
 render_macros: false
 ---
 
