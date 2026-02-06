@@ -694,12 +694,10 @@ $$
 **3.7.3.** Model foundation in literature. The model is described in these publications:
 {: data-depth="3"}
 
-<div data-depth="3" markdown>
-
 1. Mathieu et al., Quantifying Changes in Building Electric Load, With Application to Demand Response. IEEE Transactions on Smart Grid 2:507-518, 2011
+{: data-depth="3"}
 2. Price P, Methods for Analyzing Electric Load Shape and its Variability. Lawrence Berkeley National Laboratory Report LBNL-3713E, May 2010.
-
-</div>
+{: data-depth="3"}
 
 **3.7.4.** Models are fit to baseline data immediately prior to the baseline end date, provided the data sufficiency criteria are met.
 {: data-depth="3"}
