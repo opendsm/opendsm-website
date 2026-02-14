@@ -9,6 +9,14 @@ extra_css:
   
 plugins:
   - search
+  - blog:
+      blog_dir: community/working_group_updates
+      post_dir: "{blog}/posts"
+      post_url_format: "{date}/{slug}"
+      archive: true
+      categories: false
+      authors: false
+      pagination_per_page: 3
   - awesome-nav
   - macros
   - section-index

@@ -69,5 +69,6 @@ nav:
       - documentation/comparison_groups/index.md
     - EEweather:
       - documentation/eeweather/index.md
-  - Community: 
+  - Community:
       - community/index.md
+      - Working Group Updates: community/working_group_updates/index.md
