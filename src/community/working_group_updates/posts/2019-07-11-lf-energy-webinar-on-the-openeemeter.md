@@ -11,6 +11,4 @@ Phil Ngo, Director of Engineering at Recurve, provides insights into the OpenEEm
 
 ## Webinar Recording
 
-<div style="text-align: center; margin: 20px 0;">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/ucVH130_V6g" frameborder="0" allowfullscreen></iframe>
-</div>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/ucVH130_V6g" frameborder="0" allowfullscreen></iframe>
