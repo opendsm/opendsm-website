@@ -60,7 +60,7 @@ plugins:
 theme:
   name: "material"
   language: en
-  # custom_dir: "src/overrides"
+  custom_dir: "src/overrides"
 
   palette:
     - scheme: default

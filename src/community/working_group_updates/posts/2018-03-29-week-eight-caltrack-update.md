@@ -1,5 +1,6 @@
 ---
 date: 2018-03-29
+description: CalTRACK working group discusses building qualification testing results, establishing CV(RMSE) metrics and thresholds to determine which buildings are suitable for portfolio analysis.
 ---
 
 # Building Qualifications Test Reveals Wide Applicability of CalTRACK Method for Portfolio Analysis

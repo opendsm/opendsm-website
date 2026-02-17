@@ -1,5 +1,6 @@
 ---
 date: 2024-12-09
+description: After two years of collaborative development, OpenEEmeter working group wraps up with new hourly model showing 10x faster processing, improved accuracy, and transition to OpenDSM under Linux Foundation Energy.
 ---
 
 # November 19, 2024 | OpenEEmeter Technical Working Group Meeting — Wrap Up

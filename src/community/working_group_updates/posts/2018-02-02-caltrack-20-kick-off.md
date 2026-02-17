@@ -1,5 +1,6 @@
 ---
 date: 2018-02-02
+description: CalTRACK 2.0 working group kicks off with introductions, homework assignments for GitHub registration, documentation review, and meeting scheduling.
 ---
 
 # CalTRACK 2.0 Kick-Off Meeting

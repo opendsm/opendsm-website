@@ -1,5 +1,6 @@
 ---
 date: 2018-02-19
+description: Week Two concludes discussion of monthly and daily methods updates, presenting six key proposals for weather station selection, baseline periods, balance points, and model selection criteria.
 ---
 
 # Proposed Testing for Monthly & Daily Methods
