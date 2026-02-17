@@ -8,8 +8,6 @@ Thanks to everyone who joined the most recent OpenEEmeter meeting!
 
 After two years of collaborative development through the OpenEEmeter Working Group, we've made significant upgrades to the daily model and now we're approaching the final stages of another significant upgrade to the hourly model. The enhanced capabilities will improve how we measure the impact of demand-side resources across diverse conditions — particularly for customers with solar PV systems.
 
-<!-- more -->
-
 As part of these developments, OpenEEmeter is transitioning to become part of OpenDSM, a new project under Linux Foundation Energy. OpenDSM will serve as an umbrella project that includes not only OpenEEmeter but also GRIDmeter and EEweather, with the potential to add other open-source packages in the future. This organizational change will provide more flexibility and opportunities for collaboration across related energy analytics tools. The project has already unveiled a new logo that symbolizes demand-side management's core mission of reducing peak demand, with design elements representing both load curves and buildings.
 
 In the most recent working group meeting, Travis Sikes presented the latest results from Version 5 of the new hourly model, which shows several key improvements over the earlier CalTRACK model:

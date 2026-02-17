@@ -8,8 +8,6 @@ Thanks to everyone who joined the most recent OpenEEmeter Working Group Meeting.
 
 The meeting began with a discussion of the documentation that has been developed for all of the OpenEEmeter. This documentation can be accessed at the [OpenEEmeter Github site](https://openeemeter.github.io/eemeter/).
 
-<!-- more -->
-
 Documentation is complete for the daily and billing models, and will soon be completed for the hourly model.
 
 Travis Sikes then gave a recap of previous meetings, and addressed a question that came up regarding a change from the OpenEEmeter 3.0 hourly model, which output for each individual hour, to the OpenEEmeter 4.1 hourly model, which outputs 24 hours at a time. Travis explained that this is because with the elastic net approach, each day must have a complete set of features (data) or it must be excluded from the data set.

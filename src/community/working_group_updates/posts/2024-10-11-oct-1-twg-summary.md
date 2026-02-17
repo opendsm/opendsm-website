@@ -8,8 +8,6 @@ Thanks to everyone who joined the most recent OpenEEmeter Working Group Meeting.
 
 In this meeting, the group discussed the latest developments and optimizations for the OpenEEmeter in handling both solar and non-solar data. The meeting began with a recap of progress so far. Adam Scheer reviewed the development of the hourly model and associated documentation, noting significant progress and ongoing work to finalize and document new models.
 
-<!-- more -->
-
 Travis Sikes then explained how changes in the model handle hourly data better, including the incorporation of solar irradiance (GHI) for more accurate modeling of solar PV customers, and how the new model uses an elastic net approach to optimize computational efficiency and incorporate various input data.
 
 There was a discussion of challenges such as temperature bias and how the model requires interpolation to handle missing data. The discussion concluded with a comparison of the new models against CalTRACK 2.0. The new model significant improvements in computational efficiency and better handling of solar data.
