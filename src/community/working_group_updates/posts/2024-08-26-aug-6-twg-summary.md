@@ -25,4 +25,4 @@ The meeting concluded with a discussion of next steps, which include finishing t
 
 Watch the complete presentation below.
 
-<iframe src="https://www.youtube.com/embed/vKzP_kqHyfA" frameborder="0" allowfullscreen="" width="100%" height="400"></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/vKzP_kqHyfA" frameborder="0" allowfullscreen></iframe>

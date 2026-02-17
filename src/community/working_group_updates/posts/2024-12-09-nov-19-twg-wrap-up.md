@@ -37,4 +37,4 @@ We extend our sincere thanks to everyone who participated in the working group o
 
 Watch the complete meeting below.
 
-<iframe src="https://www.youtube.com/embed/eDyR6xwAKl8" frameborder="0" allowfullscreen="" width="100%" height="400"></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/eDyR6xwAKl8" frameborder="0" allowfullscreen></iframe>

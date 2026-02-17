@@ -9,3 +9,9 @@
     min-height: calc(100vh - 200px);
   }
 }
+
+/* Standardize YouTube embed styling - just margins and centering */
+iframe[src*="youtube.com"] {
+  display: block;
+  margin: 20px auto;
+}

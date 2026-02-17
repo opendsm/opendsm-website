@@ -52,9 +52,7 @@ In this upcoming week (starting 2/19), we look forward to beginning the testing 
 
 If you missed last week's meeting, feel free to review it below at your leisure:
 
-<div style="text-align: center; margin: 20px 0;">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/Nn22QZK5oq0" frameborder="0" allowfullscreen></iframe>
-</div>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/Nn22QZK5oq0" frameborder="0" allowfullscreen></iframe>
 
 [Watch the Video on Zoom](https://zoom.us/recording/play/hm5Bk6AT9exzt8W7yLiULso7AcJh0JLcGtD_h5lvcm7RxJjgBJGso6b3a8LkPml7)
 
