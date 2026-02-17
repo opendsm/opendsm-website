@@ -1,5 +1,6 @@
 ---
 date: 2024-08-26
+description: OpenEEmeter working group discusses completed documentation, 24-hour hourly model approach, bias correction strategies, and new daily usage pattern clustering module.
 ---
 
 # OpenEEmeter Technical Working Group Meeting Summary | August 6, 2024

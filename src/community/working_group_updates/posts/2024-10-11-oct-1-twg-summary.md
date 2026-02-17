@@ -1,5 +1,6 @@
 ---
 date: 2024-10-11
+description: Latest OpenEEmeter developments optimize handling of solar and non-solar data with elastic net approach, incorporating solar irradiance for better accuracy and computational efficiency.
 ---
 
 # OpenEEmeter Technical Working Group Meeting Summary | October 1, 2024
