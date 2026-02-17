@@ -4,11 +4,9 @@ date: 2018-02-02
 
 # CalTRACK 2.0 Kick-Off Meeting
 
-![CalTRACK Framework](site:assets/images/community/blog/caltrack-20-kickoff-screenshot.png)
+![CalTRACK Framework](/assets/images/community/blog/caltrack-20-kickoff-screenshot.png)
 
 The CalTRACK 2.0 working group held a successful kick-off meeting and provided attendees with follow-up assignments to prepare for upcoming sessions.
-
-<!-- more -->
 
 ## Meeting Recording
 
