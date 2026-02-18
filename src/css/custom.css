@@ -1,3 +1,23 @@
 .doc-object {
   margin-top: 2.5em;
 }
+
+/* Prevents sidebar scrollbar flash on page load caused by the scrollwrap
+   briefly having insufficient height before layout settles. */
+@media screen and (min-width: 60em) {
+  .md-sidebar__scrollwrap {
+    min-height: calc(100vh - 200px);
+  }
+}
+
+/* Reserve space for the header logo before the external SVG loads,
+   preventing a reflow/repaint flash in Firefox. */
+.md-header__button.md-logo img {
+  width: 1.2rem;
+}
+
+/* Standardize YouTube embed styling - just margins and centering */
+iframe[src*="youtube.com"] {
+  display: block;
+  margin: 20px auto;
+}
