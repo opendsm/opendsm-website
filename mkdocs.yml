@@ -79,9 +79,9 @@ theme:
 
   features:
     - content.code.copy
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky       # top row of tabs sticks to the top of the page
