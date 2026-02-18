@@ -4,11 +4,13 @@
 
 /* Fix sidebar scrollbar issue caused by Osano cookie script interfering
    with Material for MkDocs instant navigation (ajax page loads) */
+/* DISABLED for investigation
 @media screen and (min-width: 60em) {
   .md-sidebar__scrollwrap {
     min-height: calc(100vh - 200px);
   }
 }
+*/
 
 /* Standardize YouTube embed styling - just margins and centering */
 iframe[src*="youtube.com"] {
