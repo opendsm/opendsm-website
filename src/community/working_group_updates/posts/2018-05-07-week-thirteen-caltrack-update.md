@@ -94,6 +94,5 @@ A [sandbox](https://github.com/CalTRACK-2/caltrack/projects/2) has been added to
 2. Review proposals for hourly guidelines on [GitHub](https://github.com/CalTRACK-2/caltrack/issues/85)
 3. The next working meeting is after 3 weeks on 5/23
 
-<video width="100%" controls>
-  <source src="/assets/videos/working_group/caltrackmay3-2018.mp4" type="video/mp4">
-</video>
+!!! info "Video Recording"
+    The video recording for this meeting is not available online. Original filename: `caltrackmay3-2018.mp4`
