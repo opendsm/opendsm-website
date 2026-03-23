@@ -73,7 +73,7 @@ theme:
       primary: light blue
       toggle:
         icon: material/brightness-4
-        name: Switch to light mod
+        name: Switch to light mode
 
   logo: "https://opendsm.github.io/opendsm-website/assets/images/common/opendsm-icon-white.svg"
 
@@ -101,8 +101,6 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.highlight:
-      anchor_linenums: true
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.caret
@@ -120,7 +118,6 @@ markdown_extensions:
   - toc:
       permalink: 🔗
   - sane_lists
-  - footnotes
   - smarty
   - md_in_html
   # consider adding fancylists for sufficiency?

@@ -29,20 +29,19 @@ hide:
     <em>OpenDSM: An open-source python package to develop and implement standard methods for predicting metered energy usage.</em>
 </p>
 
-</p>
-    <p align="center">
-    <a href="https://pypi.python.org/pypi/opendsm" target="_blank">
-        <img src="https://img.shields.io/pypi/v/opendsm.svg" alt="PyPi Version">
-    </a>
-    <a href="https://pypi.org/project/opendsm" target="_blank">
-        <img src="https://img.shields.io/pypi/pyversions/opendsm.svg" alt="Supported Python versions">
-    </a>
-    <a href="https://github.com/opendsm/opendsm" target="_blank">
-        <img src="https://img.shields.io/github/license/opendsm/opendsm.svg" alt="License">
-    </a>
-    <a href="https://github.com/ambv/black" target="_blank">
-        <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style">
-    </a>
+<p align="center">
+<a href="https://pypi.python.org/pypi/opendsm" target="_blank">
+    <img src="https://img.shields.io/pypi/v/opendsm.svg" alt="PyPi Version">
+</a>
+<a href="https://pypi.org/project/opendsm" target="_blank">
+    <img src="https://img.shields.io/pypi/pyversions/opendsm.svg" alt="Supported Python versions">
+</a>
+<a href="https://github.com/opendsm/opendsm" target="_blank">
+    <img src="https://img.shields.io/github/license/opendsm/opendsm.svg" alt="License">
+</a>
+<a href="https://github.com/ambv/black" target="_blank">
+    <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style">
+</a>
 </p>
 
 ---
@@ -79,7 +78,7 @@ Assign comparison groups (CGs) to correct OpenEEmeter models using non-participa
 
 - **Comparison Group Clustering**: Cluster on model error profiles to select unique CG for each treatment meter
 - **Individual Meter Matching**: Create population-level corrections by choosing the nearest *n* meters using Euclidean distance
-- **Stratified Sampling**: Select meters for CG based upon shared characteristics (outdated methdology)
+- **Stratified Sampling**: Select meters for CG based upon shared characteristics (outdated methodology)
 
 <span style="font-size: 0.8em;">
 * Planned feature in future OpenDSM versions

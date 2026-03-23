@@ -15,7 +15,7 @@ sort:
   sections: mixed 
   ignore_case: true
 
-append_unmatched: true
+append_unmatched: false
 
 # nav: 
 #   - getting-started.md
@@ -29,12 +29,7 @@ nav:
   - Install: install.md
   - Documentation:
     - documentation/index.md
-    - History: 
-      - documentation/history/index.md
-      - CalTRACK:
-        - History: documentation/history/caltrack/history.md
-        - Methodology: documentation/history/caltrack/methodology.md
-        - Technical Appendix: documentation/history/caltrack/technical_appendix.md
+    - History: documentation/history/index.md
     - Philosophy: documentation/philosophy.md
     - General Concepts: documentation/general_concepts.md
     - OpenEEmeter: 
@@ -59,11 +54,11 @@ nav:
         - References: documentation/eemeter/billing_model/references.md
     - DRmeter:
       - documentation/drmeter/index.md
-      - CalTRACK Model: 
-        - Methodology: documentation/drmeter/caltrack_model/methodology.md
-        - Example: documentation/drmeter/caltrack_model/example.md
-        - API: documentation/drmeter/caltrack_model/api.md
-        - References: documentation/drmeter/caltrack_model/references.md
+      - TOWT Model: 
+        - Methodology: documentation/drmeter/towt_model/methodology.md
+        - Example: documentation/drmeter/towt_model/example.md
+        - API: documentation/drmeter/towt_model/api.md
+        - References: documentation/drmeter/towt_model/references.md
       - New Model: documentation/drmeter/new_model/index.md
     - Comparison Groups:
       - documentation/comparison_groups/index.md
@@ -72,3 +67,9 @@ nav:
   - Community:
       - community/index.md
       - Working Group Updates: community/working_group_updates/index.md
+  - "CalTRACK 2.1":
+      - caltrack/index.md
+      - History: caltrack/history.md
+      - Methodology: caltrack/methodology.md
+      - Technical Appendix: caltrack/technical_appendix.md
+      - Working Group Updates: caltrack/working_group_updates.md

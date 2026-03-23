@@ -1,0 +1,3 @@
+The time-of-week and temperature model is trained using hourly energy usage intervals and predicts in hourly intervals for use on short-term baselines. 
+
+This model is closely related to the original [LBNL Time-of-Week and Temperature (TOWT) Model](https://eta-publications.lbl.gov/sites/default/files/LBNL-4944E.pdf) as described in the [CalTRACK methodology](site:caltrack). The key difference from the CalTRACK model is that this one is a single month model, not three month weighted.

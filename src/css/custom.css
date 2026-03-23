@@ -16,6 +16,15 @@
   width: 1.2rem;
 }
 
+/* Hide CalTRACK 2.1 from the top tab bar. Hrefs vary by page:
+   "caltrack/", "../caltrack/" from non-caltrack pages;
+   "./" or "../" from caltrack pages (always the last tab). */
+.md-tabs__item:has(> [href$="caltrack/"]),
+.md-tabs__item:last-child:has(> [href="./"]),
+.md-tabs__item:last-child:has(> [href="../"]) {
+  display: none;
+}
+
 /* Standardize YouTube embed styling - just margins and centering */
 iframe[src*="youtube.com"] {
   display: block;

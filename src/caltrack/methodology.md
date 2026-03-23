@@ -1,8 +1,4 @@
-# CalTRACK Methods
-
----
-
-(Version 2.0)
+# CalTRACK 2.1 Methods
 
 ## Section 1: Overview
 

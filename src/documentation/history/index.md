@@ -3,7 +3,7 @@ hide:
  - toc
 ---
 
-OpenDSM's origin lies within the [CalTRACK methodology](site:documentation/history/caltrack/methodology). CalTRACK originated in a working group initiated by California Public Utility Commission (CPUC) in 2012 to track metered savings for pay-for-performance energy efficiency programs. 
+OpenDSM's origin lies within the [CalTRACK methodology](site:caltrack). CalTRACK originated in a working group initiated by California Public Utility Commission (CPUC) in 2012 to track metered savings for pay-for-performance energy efficiency programs. 
 
 The first versions were developed collaboratively by PG&E and other California IOU's in conjunction with the California Energy Commission (CEC), Recurve, and other stakeholders. The goal was to develop reliable and transparent processes to calculate avoided energy use. The models that emerged from this process were the daily/billing models and the hourly model. The daily/billing models were heavily influenced by the Princeton Scorekeeping Method (PRISM)[^1]. Similarly the hourly model was an adapted version of Lawrence Berkeley National Laboratory's Time-of-Week and Temperature (TOWT) model[^2].
 

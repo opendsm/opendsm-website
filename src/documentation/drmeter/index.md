@@ -4,7 +4,7 @@ As an example: demand response events generally occur over the course of a few h
 
 ### Models
 
-#### [CalTRACK Model](site:documentation/drmeter/caltrack_model/methodology)
+#### [TOWT Model](site:documentation/drmeter/towt_model/methodology)
 
 An implementation of the time-of-week and temperature model designed to operate on short-term, hourly data.
 

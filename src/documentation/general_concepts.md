@@ -84,7 +84,7 @@ Because PNRMSE normalizes by IQR, the denominator will always be positive. It wi
 
 ### CVRMSE and PNRMSE Relationship
 
-PNRMSE sufficiency criteria have been derived from PNRMSE's relationship to CVRMSE. 1000 meters were fit and their normalized erro metrics plotted against each other resulting in the following plot.
+PNRMSE sufficiency criteria have been derived from PNRMSE's relationship to CVRMSE. 1000 meters were fit and their normalized error metrics plotted against each other resulting in the following plot.
 
 <div style="text-align: center">
     <img src="site:assets/images/general_concepts/pnrmse_cvrmse_correlation.png" alt="PNRMSE-CVRMSE correlation">
