@@ -62,6 +62,7 @@ nav:
       - New Model: documentation/drmeter/new_model/index.md
     - Comparison Groups:
       - documentation/comparison_groups/index.md
+      - References: documentation/comparison_groups/references.md
     - EEweather:
       - documentation/eeweather/index.md
   - Community:
