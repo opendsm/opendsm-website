@@ -1,0 +1,2519 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://opendsm.energy/documentation/eemeter/daily_model/example/">
+      
+      
+        <link rel="prev" href="../sufficiency/">
+      
+      
+        <link rel="next" href="../api/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Example - OpenDSM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<!-- Add scripts that need to run at the beginning of page load here -->
+<script async
+    src="https://cmp.osano.com/16A0DbT9yDNIaQkvZ/af2b9f1f-3ac7-4a18-a99a-e487d04f08e6/osano.js?variant=two"></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#imports" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="OpenDSM" class="md-header__button md-logo" aria-label="OpenDSM" data-md-component="logo">
+      
+  <img src="https://opendsm.github.io/opendsm-website/assets/images/common/opendsm-icon-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenDSM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Example
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../install/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="../../../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Documentation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../caltrack/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CalTRACK 2.1
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="OpenDSM" class="md-nav__button md-logo" aria-label="OpenDSM" data-md-component="logo">
+      
+  <img src="https://opendsm.github.io/opendsm-website/assets/images/common/opendsm-icon-white.svg" alt="logo">
+
+    </a>
+    OpenDSM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../philosophy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Philosophy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../general_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    OpenEEmeter
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            OpenEEmeter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hourly Model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hourly Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hourly_model/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hourly_model/sufficiency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sufficiency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hourly_model/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hourly_model/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hourly_model/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Daily Model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Daily Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sufficiency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sufficiency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Example
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imports
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loading data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-notes-about-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important notes about data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-data-into-eemeter-data-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading Data into EEmeter Data Objects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predicting-with-the-model-and-calculating-savings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predicting with the Model and Calculating Savings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Serialization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-sufficiency-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic Sufficiency Checking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-rows-138-of-observed-to-nan" class="md-nav__link">
+    <span class="md-ellipsis">
+      set rows 1:38 of observed to nan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="set rows 1:38 of observed to nan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#save-model-to-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save model to json
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model results
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_3" id="__nav_3_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Billing Model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Billing Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../billing_model/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../billing_model/sufficiency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sufficiency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../billing_model/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../billing_model/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../billing_model/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../drmeter/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    DRmeter
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            DRmeter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_1" id="__nav_3_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    TOWT Model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            TOWT Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../drmeter/towt_model/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../drmeter/towt_model/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../drmeter/towt_model/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../drmeter/towt_model/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../drmeter/new_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    New Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../comparison_groups/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Comparison Groups
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Comparison Groups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../comparison_groups/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../eeweather/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EEweather
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../community/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Community
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Community
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/working_group_updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working Group Updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/working_group_updates/archive/2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/working_group_updates/archive/2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2023
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/working_group_updates/archive/2022/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2022
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/working_group_updates/archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2019
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/working_group_updates/archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2018
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../caltrack/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    CalTRACK 2.1
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CalTRACK 2.1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../caltrack/history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../caltrack/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../caltrack/technical_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Technical Appendix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../caltrack/working_group_updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working Group Updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imports
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loading data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#important-notes-about-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important notes about data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-data-into-eemeter-data-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading Data into EEmeter Data Objects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-the-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predicting-with-the-model-and-calculating-savings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Predicting with the Model and Calculating Savings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-serialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Serialization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-sufficiency-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic Sufficiency Checking
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-rows-138-of-observed-to-nan" class="md-nav__link">
+    <span class="md-ellipsis">
+      set rows 1:38 of observed to nan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="set rows 1:38 of observed to nan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#save-model-to-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Save model to json
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model results
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>In this example, we&rsquo;ll walk through creating a Daily Model and predicting usage with it.</p>
+<p>You can find a working example in the <a href="#example-code">Example Code</a> at the bottom of the page.</p>
+<p><span style="font-size: 0.9em;">
+1) This example makes use of Matplotlib. Matplotlib is not a required dependency of OpenDSM.<br>
+2) If you run this example, it will download up to 150 MB of example data from the GitHub repo.
+</span></p>
+<h3 id="imports">Imports<a class="headerlink" href="#imports" title="Permanent link">🔗</a></h3>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt</p>
+<p>import opendsm as odsm
+from opendsm import eemeter as em
+```</p>
+<h3 id="loading-data">Loading data<a class="headerlink" href="#loading-data" title="Permanent link">🔗</a></h3>
+<p>The essential inputs to OpenDSM library functions are the following:</p>
+<ol>
+<li>Meter baseline data named <code>observed</code></li>
+<li>Meter reporting data <code>observed</code></li>
+<li>Temperature data from a nearby weather station for both named <code>temperature</code></li>
+<li>All data is expected to have a timezone-aware datetime index or column named <code>datetime</code></li>
+</ol>
+<p>Users of the library are responsible for obtaining and formatting this data (to get weather data, see <a href="https://github.com/opendsm/eeweather">EEweather</a>, which helps perform site to weather station matching and can pull and cache temperature data directly from public (US) data sources).</p>
+<p>We utilize data classes to store meter data, perform transforms, and validate the data to ensure data compliance. The inputs into these data classes can either be <a href="https://pandas.pydata.org/">pandas</a> <code>DataFrame</code> if initializing the classes directly or <code>Series</code> if initializing the classes using <code>.from_series</code>.</p>
+<p>The test data contained within the OpenDSM library is derived from <a href="https://comstock.nrel.gov/">NREL ComStock</a> simulations.</p>
+<p>If working with your own data instead of these samples, please refer directly to the excellent pandas documentation for instructions for loading data (e.g., <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html">pandas.read_csv</a>).</p>
+<h4 id="important-notes-about-data">Important notes about data<a class="headerlink" href="#important-notes-about-data" title="Permanent link">🔗</a></h4>
+<ul>
+<li><em>These models were developed and tested using temperature in units of °Fahrenheit. Please convert your temperatures accordingly</em></li>
+<li><em>It is expected that all data is trimmed to its appropriate time period (baseline and reporting) and does not contain extraneous datetimes</em></li>
+</ul>
+<p>Let us begin by loading some example data. Here we use a built-in utility function to load some example data.</p>
+<p>This function returns two dataframes of daily electricity data, one for the baseline period and one for the reporting period.</p>
+<p><code>python
+df_baseline, df_reporting =  odsm.test_data.load_test_data("daily_treatment_data")</code></p>
+<p>If we inspect these dataframes, we will notice that there are 100 meters for you to experiment with, indexed by meter id and datetime.</p>
+<p><code>python
+print(df_baseline)</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><code>id      datetime                   temperature      observed
+108618  2018-01-01 00:00:00-06:00    -2.384038  16635.193673
+        2018-01-02 00:00:00-06:00     1.730000  15594.051162
+        2018-01-03 00:00:00-06:00    13.087946  11928.025899
+        2018-01-04 00:00:00-06:00     4.743269  14399.333812
+        2018-01-05 00:00:00-06:00     4.130577  14315.101721
+        ...                                ...           ...
+120841  2018-12-27 00:00:00-06:00    52.010625   1153.749811
+        2018-12-28 00:00:00-06:00    35.270000   1704.076968
+        2018-12-29 00:00:00-06:00    29.630000   2151.225729
+        2018-12-30 00:00:00-06:00    34.250000   1331.123954
+        2018-12-31 00:00:00-06:00    43.311250   1723.397349</code></p>
+</details>
+<p>To simplify things, we will filter down to a single meter for the rest of the example. Let&rsquo;s filter down to the 15th id.</p>
+<p>```python
+n = 15</p>
+<p>id = df_baseline.index.get_level_values(0).unique()[n]</p>
+<p>df_baseline_n = df_baseline.loc[id]
+df_reporting_n = df_reporting.loc[id]
+```</p>
+<p>If we inspect one of these dataframes, we will now notice that only a single meter is present with 365 days of data in each dataframe. </p>
+<p><code>python
+print(df_baseline_n)</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><code>datetime                   temperature     observed
+2018-01-01 00:00:00-06:00   -10.045000  9629.679232
+2018-01-02 00:00:00-06:00    -4.712500  8868.878051
+2018-01-03 00:00:00-06:00    11.352500  6109.322326
+2018-01-04 00:00:00-06:00     0.972500  7557.067633
+2018-01-05 00:00:00-06:00     3.147500  6650.189107
+...                                ...          ...
+2018-12-27 00:00:00-06:00    46.760000  2675.234259
+2018-12-28 00:00:00-06:00    35.323125  3561.451294
+2018-12-29 00:00:00-06:00    26.386250  3247.215055
+2018-12-30 00:00:00-06:00    28.463750  3048.525124
+2018-12-31 00:00:00-06:00    40.345250  3226.933132</code></p>
+</details>
+<p>Also notice the general structure of these dataframes for a single meter. We have three columns:</p>
+<ol>
+<li>A timezone-aware datetime index.</li>
+<li>A temperature column (float) in °Fahrenheit (be sure to convert any other units to °Fahrenheit first).</li>
+<li>Observed meter usage (float). The example here is electricity data in kWh, but it could also be gas data.</li>
+</ol>
+<p>We can stop to plot this data to get a better understanding of the general behavior of this meter.
+```python
+ax = df_baseline_n[&lsquo;observed&rsquo;].plot(label=&rsquo;Observed Usage&rsquo;, color=&rsquo;blue&rsquo;)
+df_baseline_n[&lsquo;temperature&rsquo;].plot(ax=ax, secondary_y=True, label=&rsquo;Temperature (F)&rsquo;, color=&rsquo;orange&rsquo;)</p>
+<p>ax.set_ylabel(&lsquo;Observed Usage (kWh)&rsquo;)
+ax.right_ax.set_ylabel(&lsquo;Temperature (F)&rsquo;)</p>
+<p>ax.legend(loc=&rsquo;upper left&rsquo;)
+ax.right_ax.legend(loc=&rsquo;upper right&rsquo;)</p>
+<p>plt.title(&lsquo;Observed Usage and Temperature in the Baseline Period&rsquo;)
+plt.show()
+```</p>
+<details class="returns">
+<summary>Returns</summary>
+<p><div style="text-align: center; margin-top: 30px">
+    <img src="/assets/images/eemeter/daily_model/example/baseline_data_daily.png" alt="Daily Baseline Data">
+</div></p>
+</details>
+<p>If we observe the data we can see a full year of data with observed usage peaking in the winter and lowering in the summer with warmer temperatures. It&rsquo;s clear that this site is located in a colder climate and uses more electricity in the winter.</p>
+<h3 id="loading-data-into-eemeter-data-objects">Loading Data into EEmeter Data Objects<a class="headerlink" href="#loading-data-into-eemeter-data-objects" title="Permanent link">🔗</a></h3>
+<p>With our sample data loaded into dataframes, we can create our Baseline and Reporting Data objects. Note that only the baseline period is needed to fit a model, but we will use our reporting period data to predict against.</p>
+<p><code>python
+baseline_data = em.DailyBaselineData(df_baseline_n, is_electricity_data=True)
+reporting_data = em.DailyReportingData(df_reporting_n, is_electricity_data=True)</code></p>
+<p>These classes are critical to ensure standardized data loaded into the model. These classes also scan the data to check for data sufficiency and other criteria that might cause a model to be disqualified (unable to build a model of sufficient integrity).</p>
+<p>As a note, you can also instantiate these data classes with two separate meter usage and temperature Series objects, both indexed by timezone-aware datetime.</p>
+<details class="example">
+<summary>Example</summary>
+<p><code>python
+baseline_data = em.DailyBaselineData.from_series(df_baseline_n['observed'], df_baseline_n['temperature'], is_electricity_data=True)</code></p>
+</details>
+<p>With data classes successfully instantiated, we can also check for any disqualifications or warnings before moving on to the model fitting step.</p>
+<p><code>python
+print(f"Disqualifications: {baseline_data.disqualification}")
+print(f"Warnings:          {baseline_data.warnings}")</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><code>Disqualifications: []
+Warnings:          [EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.unable_to_confirm_daily_temperature_sufficiency), 
+                    EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.extreme_values_detected)]</code></p>
+</details>
+<p>From this, we can see that no disqualifications are present but there are some warnings to be aware of as we proceed. Neither of these warnings will necessarily stop us from creating a model.</p>
+<p>Before we move on, also notice that you can access the underlying dataframe in each object like follows to see exactly what will be loaded into the model.</p>
+<p><code>python
+print(baseline_data.df.head())</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><code>datetime                   season  weekday_weekend  temperature  observed
+2018-01-01 00:00:00-06:00  winter  weekday             -10.0450    9629.7
+2018-01-02 00:00:00-06:00  winter  weekday              -4.7125    8868.9
+2018-01-03 00:00:00-06:00  winter  weekday              11.3525    6109.3
+2018-01-04 00:00:00-06:00  winter  weekday               0.9725    7557.1
+2018-01-05 00:00:00-06:00  winter  weekday               3.1475    6650.2</code></p>
+</details>
+<h3 id="creating-the-model">Creating the Model<a class="headerlink" href="#creating-the-model" title="Permanent link">🔗</a></h3>
+<p>The daily model follows the general process of:</p>
+<ol>
+<li>Initialize</li>
+<li>Fit</li>
+<li>Predict</li>
+</ol>
+<p>We can do this easily as follows:</p>
+<p><code>python
+daily_model = em.DailyModel()
+daily_model.fit(baseline_data)</code></p>
+<p>Before we move to predicting against a dataframe, we can actually use the built in plot function (requiring Matplotlib) to plot the performance of the model against the provided data.</p>
+<p><code>python
+daily_model.plot(baseline_data)</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><div style="text-align: center; margin-top: 30px">
+    <img src="/assets/images/eemeter/daily_model/example/daily_baseline_vs_model.png" alt="Daily Baseline Observed vs. Model">
+</div></p>
+</details>
+<p>From this graph we can also observe model splits and model types as described in <a href="/documentation/eemeter/daily_model/methodology/#model-splits">Model Splits</a>. We can observe the following models:</p>
+<ol>
+<li>Summer/Shoulder/Winter - Weekday</li>
+<li>Summer/Shoulder/Winter - Weekend</li>
+</ol>
+<p>This illustrates that the weekends are different enough to warrant their own model compared to the weekdays. Each meter is treated separately and will be given its own unique splits if justified by the data. All of this complexity is handled under the hood, and the model will utilize the correct model when predicting usage automatically.</p>
+<p>We can also use this function to plot the model prediction against the reporting period as follows:</p>
+<p><code>python
+daily_model.plot(reporting_data)</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><div style="text-align: center; margin-top: 30px">
+    <img src="/assets/images/eemeter/daily_model/example/daily_reporting_vs_model.png" alt="Daily Reporting Observed vs. Model">
+</div></p>
+</details>
+<p>In this plot we can see that the site is using significantly less energy in colder temperatures compared to the model / baseline period. Perhaps this site installed an efficiency intervention that saves energy in colder temperatures?</p>
+<h3 id="predicting-with-the-model-and-calculating-savings">Predicting with the Model and Calculating Savings<a class="headerlink" href="#predicting-with-the-model-and-calculating-savings" title="Permanent link">🔗</a></h3>
+<p>With our fit model, we can now predict across a given reporting period as follows:</p>
+<p><code>python
+df_results = daily_model.predict(reporting_data)
+print(df_results.head())</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><code>datetime                    season  day_of_week  weekday_weekend  temperature     observed    predicted  predicted_unc  heating_load  cooling_load  model_split  model_type
+2019-01-01 00:00:00-06:00   winter            2  weekday             -10.0450  6821.633670  8458.769369     403.385708   6145.508305           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+2019-01-02 00:00:00-06:00   winter            3  weekday              -4.7125  5668.980225  7829.167990     403.385708   5515.906926           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+2019-01-03 00:00:00-06:00   winter            4  weekday              11.3525  3122.794390  5960.086410     403.385708   3646.825346           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+2019-01-04 00:00:00-06:00   winter            5  weekday               0.9725  3880.896300  7161.729548     403.385708   4848.468484           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+2019-01-05 00:00:00-06:00   winter            6  weekend               3.1475  3182.209058  5213.370264     285.516312   3858.054437           0.0  we-su_sh_wi  hdd_tidd_cdd_smooth</code></p>
+</details>
+<p>We can also plot the observed usage vs. the predicted usage.</p>
+<p>```python
+ax = df_results[&lsquo;observed&rsquo;].plot(label=&rsquo;Observed Usage&rsquo;, color=&rsquo;blue&rsquo;)
+df_results[&lsquo;predicted&rsquo;].plot(ax=ax, label=&rsquo;Predicted Usage&rsquo;, color=&rsquo;orange&rsquo;)</p>
+<p>ax.set_ylabel(&lsquo;Observed Usage (kWh)&rsquo;)
+ax.legend(loc=&rsquo;upper left&rsquo;)
+plt.title(&lsquo;Observed Usage and Temperature in the Baseline Period&rsquo;)
+plt.show()
+```</p>
+<details class="returns">
+<summary>Returns</summary>
+<p><div style="text-align: center; margin-top: 30px">
+    <img src="/assets/images/eemeter/daily_model/example/predicted_vs_observed_daily.png" alt="Daily Reporting Observed vs. Model">
+</div></p>
+</details>
+<p>From here, we can easily calculate savings by subtracting observed usage from predicted usage.</p>
+<p><code>python
+df_results['savings'] = df_results['predicted'] - df_results['observed']
+print(f"Predicted Usage (kWh):  {round(df_results['predicted'].sum(), 2)}")
+print(f"Observed Usage (kWh):   {round(df_results['observed'].sum(), 2)}")
+print(f"Savings (kWh):          {round(df_results['savings'].sum(), 2)}")</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><code>Predicted Usage (kWh):  1038465.06
+Observed Usage (kWh):    789252.05
+Savings (kWh):           249213.01</code></p>
+</details>
+<h3 id="model-serialization">Model Serialization<a class="headerlink" href="#model-serialization" title="Permanent link">🔗</a></h3>
+<p>After creating a model, we can also serialize it for storage and read it back in later.</p>
+<p><code>python
+saved_model = daily_model.to_json()
+print(saved_model)</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><code>python
+{"submodels": {"wd-su_sh_wi": {"coefficients": {"model_type": "hdd_tidd_cdd_smooth", "intercept": 2313.2610638676033, "hdd_bp": 41.27040090608855, "hdd_beta": 119.44918113103105, "hdd_k": 0.4726274184833831, "cdd_bp": 70.96439586012724, "cdd_beta": 64.46865583811494, "cdd_k": 0.17605359829111333}, "temperature_constraints": {"T_min": -10.045, "T_max": 83.00500000000001, "T_min_seg": 8.94425, "T_max_seg": 81.38}, "f_unc": 403.3857082521867}, "we-su_sh_wi": {"coefficients": {"model_type": "hdd_tidd_cdd_smooth", "intercept": 1355.3158273422803, "hdd_bp": 50.8894292209749, "hdd_beta": 80.73766873918538, "hdd_k": 0.4482831249857758, "cdd_bp": 74.53352300727671, "cdd_beta": 41.0269706642773, "cdd_k": 0.5237054341526147}, "temperature_constraints": {"T_min": -2.7850000000000015, "T_max": 82.34, "T_min_seg": 22.4675, "T_max_seg": 79.7525}, "f_unc": 285.5163122905078}}, "info": {"metrics": {"num_model_params": 14, "wrmse": 218.75309123080092, "n": 365, "n_prime": 125.66853004788871, "ddof": 351, "ddof_autocorr": 111.66853004788871, "observed": {"sum": 1038753.15993621, "mean": 2845.899068318384, "variance": 1143760.7395673955, "std": 1069.4675028103452, "cvstd": 0.37579249198120157, "sum_squared": 3373659320.017336, "median": 2697.2358494980817, "MAD_scaled": 602.7295755197579, "iqr": 953.5552891155535, "skew": 2.221492866364899, "kurtosis": 9.332585130726638}, "predicted": {"sum": 1038740.3421026455, "mean": 2845.863950966152, "variance": 1074489.9131218037, "std": 1036.5760527437453, "cvstd": 0.3642394965479058, "sum_squared": 3348302512.293626, "median": 2627.7907614770256, "MAD_scaled": 464.5595323515464, "iqr": 914.7262255954338, "skew": 1.616695269464077, "kurtosis": 4.280790657230931}, "residuals": {"sum": 12.81783356446158, "mean": 0.03511735223140159, "variance": 47852.91368980268, "std": 218.7530884120329, "cvstd": 6229.202218054072, "sum_squared": 17466313.946906358, "median": 11.83559927083752, "MAD_scaled": 113.71324840144126, "iqr": 154.18635619428915, "skew": 1.3547762272723773, "kurtosis": 15.583344758089789}, "max_error": 1593.5483136788926, "mae": 126.71422886475526, "nmae": 0.044525201288895165, "pnmae": 0.13288608464673915, "medae": 76.1375240548914, "mbe": 0.03511735223140159, "nmbe": 1.233963376366405e-05, "pnmbe": 3.682780918133632e-05, "sse": 17466313.946906358, "mse": 47852.914923031116, "rmse": 218.75309123080092, "rmse_autocorr": 372.8098372555297, "rmse_adj": 223.07303332387448, "rmse_autocorr_adj": 395.4897491902344, "cvrmse": 0.07686607500105763, "cvrmse_autocorr": 0.1309989666906282, "cvrmse_adj": 0.07838402837514766, "cvrmse_autocorr_adj": 0.1389682977843363, "pnrmse": 0.22940787359451376, "pnrmse_autocorr": 0.39096824432836, "pnrmse_adj": 0.23393822662425828, "pnrmse_autocorr_adj": 0.41475282419864834, "r_squared": 0.9582550959309059, "r_squared_adj": 0.9565852997681421, "mape": 0.04085618887177056, "smape": 0.04056430298847941, "wape": 0.04452520128889517, "swape": 0.04452547600292869, "maape": 0.04074758380763742, "nse": 0.9581617787115769, "nnse": 0.9598419212949566, "kge": 0.9627155493651588, "a10": 0.9178082191780822, "a20": 0.9972602739726028, "a30": 1.0, "wi": 0.9890978278885424, "index_of_agreement": 0.9106627590653706, "pearson_r": 0.9789050494970932, "pi": 0.968232858166701, "pi_rating": "excellent", "explained_variance_score": 0.9581617797897993}, "baseline_timezone": "America/Chicago", "disqualification": [], "warnings": [{"qualified_name": "eemeter.sufficiency_criteria.extreme_values_detected", "description": "Extreme values (outside 3x IQR) must be flagged for manual review.", "data": {"n_extreme_values": 8, "median": 2697.2358494980817, "upper_quantile": 3269.296428540127, "lower_quantile": 2315.7411394245737, "lower_bound": -544.9247279220867, "upper_bound": 6129.962295886788, "min_value": 1181.0132889040156, "max_value": 9629.679232340746}}]}, "settings": {"developer_mode": false, "algorithm_choice": "nlopt_sbplx", "initial_guess_algorithm_choice": "nlopt_direct", "full_model": "hdd_tidd_cdd", "allow_smooth_model": true, "alpha_minimum": -100, "alpha_selection": 2, "alpha_final_type": "last", "alpha_final": "adaptive", "final_bounds_scalar": 1, "regularization_alpha": 0.001, "regularization_percent_lasso": 1, "segment_minimum_count": 6, "maximum_slope_oom_scalar": 2, "initial_step_percentage": 0.1, "split_selection": {"criteria": "bic", "penalty_multiplier": 0.24, "penalty_power": 2.061, "allow_separate_summer": true, "allow_separate_shoulder": true, "allow_separate_winter": true, "allow_separate_weekday_weekend": true, "reduce_splits_by_gaussian": true, "reduce_splits_num_std": [1.4, 0.89]}, "season": {"january": "winter", "february": "winter", "march": "shoulder", "april": "shoulder", "may": "shoulder", "june": "summer", "july": "summer", "august": "summer", "september": "summer", "october": "shoulder", "november": "winter", "december": "winter", "options": ["summer", "shoulder", "winter"]}, "weekday_weekend": {"monday": "weekday", "tuesday": "weekday", "wednesday": "weekday", "thursday": "weekday", "friday": "weekday", "saturday": "weekend", "sunday": "weekend", "options": ["weekday", "weekend"]}, "uncertainty_alpha": 0.1, "cvrmse_threshold": 1, "pnrmse_threshold": 1.6}}</code></p>
+</details>
+<p>Afterwards, we can instantiate the model as follows:</p>
+<p><code>python
+loaded_model = em.DailyModel.from_json(saved_model)</code></p>
+<h3 id="automatic-sufficiency-checking">Automatic Sufficiency Checking<a class="headerlink" href="#automatic-sufficiency-checking" title="Permanent link">🔗</a></h3>
+<p>Two of the core features of the OpenDSM Data and Model classes are automatic data sufficiency and model sufficiency checking. This ensures that only acceptable data and models are allowed to be used for making measurements. Let&rsquo;s show an example of how this works by introducing too many NaN values into the observed data of the prior example.</p>
+<p>```python</p>
+<h1 id="set-rows-138-of-observed-to-nan">set rows 1:38 of observed to nan<a class="headerlink" href="#set-rows-138-of-observed-to-nan" title="Permanent link">🔗</a></h1>
+<p>df_baseline_n_dq = df_baseline_n.copy()
+df_baseline_n_dq.loc[df_baseline_n_dq.index[1:38], &ldquo;observed&rdquo;] = np.nan</p>
+<p>baseline_data_DQ = em.DailyBaselineData(df_baseline_n_dq, is_electricity_data=True)
+print(f&rdquo;Disqualifications: {baseline_data_DQ.disqualification}&rdquo;)
+```</p>
+<details class="returns">
+<summary>Returns</summary>
+<p><code>python
+Disqualifications: [
+    EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.too_many_days_with_missing_observed_data),
+    EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.too_many_days_with_missing_joint_data)
+]</code></p>
+</details>
+<p>If this data were to try to be fit on it would return an error by default.</p>
+<p><code>python
+try:
+    daily_model = em.DailyModel().fit(baseline_data_DQ)
+except Exception as e:
+    print(f"Exception: {e}")</code></p>
+<details class="returns">
+<summary>Returns</summary>
+<p><code>python
+Exception: Can't fit model on disqualified baseline data</code></p>
+</details>
+<p>In some circumstances it may still be possible to fit a model on disqualified data for investigative purposes. This can be done by setting the <code>ignore_disqualification</code> flag to True.</p>
+<p><code>python
+daily_model = em.DailyModel().fit(baseline_data_DQ, ignore_disqualification=True)</code></p>
+<p>Please remember that enabling <code>ignore_disqualification</code> or making any changes to the model configuration fundamentally alters the model and such models are <strong>not approved for measurement purposes</strong>.</p>
+<h2 id="example-code">Example Code<a class="headerlink" href="#example-code" title="Permanent link">🔗</a></h2>
+<p>```python
+import numpy as np
+import matplotlib.pyplot as plt</p>
+<p>import opendsm as odsm
+from opendsm import eemeter as em</p>
+<p>df_baseline, df_reporting =  odsm.test_data.load_test_data(&ldquo;daily_treatment_data&rdquo;)</p>
+<p>n = 15</p>
+<p>id = df_baseline.index.get_level_values(0).unique()[n]</p>
+<p>df_baseline_n = df_baseline.loc[id]
+df_reporting_n = df_reporting.loc[id]</p>
+<p>baseline_data = em.DailyBaselineData(df_baseline_n, is_electricity_data=True)
+reporting_data = em.DailyReportingData(df_reporting_n, is_electricity_data=True)</p>
+<p>print(f&rdquo;Disqualifications: {baseline_data.disqualification}&rdquo;)
+print(f&rdquo;Warnings:          {baseline_data.warnings}&rdquo;)</p>
+<p>daily_model = em.DailyModel()
+daily_model.fit(baseline_data)</p>
+<h1 id="save-model-to-json">Save model to json<a class="headerlink" href="#save-model-to-json" title="Permanent link">🔗</a></h1>
+<p>saved_model = daily_model.to_json()
+loaded_model = em.DailyModel.from_json(saved_model)</p>
+<h1 id="model-results">Model results<a class="headerlink" href="#model-results" title="Permanent link">🔗</a></h1>
+<p>daily_model.plot(baseline_data)
+daily_model.plot(reporting_data)</p>
+<p>df_results = daily_model.predict(reporting_data)
+df_results[&lsquo;savings&rsquo;] = df_results[&lsquo;predicted&rsquo;] - df_results[&lsquo;observed&rsquo;]
+print(f&rdquo;Predicted Usage (kWh):  {round(df_results[&lsquo;predicted&rsquo;].sum(), 2)}&rdquo;)
+print(f&rdquo;Observed Usage (kWh):   {round(df_results[&lsquo;observed&rsquo;].sum(), 2)}&rdquo;)
+print(f&rdquo;Savings (kWh):          {round(df_results[&lsquo;savings&rsquo;].sum(), 2)}&rdquo;)
+```</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 4, 2026 23:15:25 UTC">June 4, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+<!-- Add scripts that need to run at the end of page load here -->
+
+
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © OpenDSM a Series of LF Projects, LLC<br> For web site terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org">https://lfprojects.org</a>.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+<!-- Add scripts that need to run afterwards here -->
+
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.footnote.tooltips"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
