@@ -2,7 +2,6 @@
 
 preserve_directory_names: true 
 
-hide: true 
 
 flatten_single_child_sections: true 
 
