@@ -41,14 +41,14 @@ The reporting period should be one year immediately following the blackout perio
 
 #### **1.1.2 Units**
 <div style="padding-left: 20px;" markdown="1">
-Units can be critically import to model performance. Convert your units accordingly.
+Units can be critically important to model performance. Convert your units accordingly.
 
 ##### **1.1.2.1 Temperature**
 <div style="padding-left: 20px;" markdown="1">
 Temperature data should be in °Fahrenheit
 </div>
 
-##### **1.1.2.1 Consumption/Usage**
+##### **1.1.2.2 Consumption/Usage**
 <div style="padding-left: 20px;" markdown="1">
 Consumption data is expected to be in some kind of units of energy
 </div>

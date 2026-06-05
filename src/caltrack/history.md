@@ -34,7 +34,7 @@ PG&E convened a ^^**working group of stakeholders and technical experts**^^, inc
 
 This process led to a consensus around ^^**a method to calculate site-based energy savings**^^ for use to calibrate the site-based weather normalized monthly savings predictions put out by AHU software.
 
-Open Source Meter Development: There was a gap of a year between PHASE II and PHASE III of the CalTRACK process. During this gap, OpenEE / Sustainable Spaces, LLC continued the development of the the CalTRACK methods as an open source code base that was funded in part by the California Energy Commission. This code base resulted in the open source OpenEEmeter platform and is supported and provided as a public resource available for use for both private and commercial applications to all at no cost under a [permissive open-source license](https://www.apache.org/licenses/LICENSE-2.0).
+Open Source Meter Development: There was a gap of a year between PHASE II and PHASE III of the CalTRACK process. During this gap, OpenEE / Sustainable Spaces, LLC continued the development of the CalTRACK methods as an open source code base that was funded in part by the California Energy Commission. This code base resulted in the open source OpenEEmeter platform and is supported and provided as a public resource available for use for both private and commercial applications to all at no cost under a [permissive open-source license](https://www.apache.org/licenses/LICENSE-2.0).
 
 The OpenEEmeter code can be viewed, downloaded, forked, and contributed to at: [~~https://github.com/openeemeter/eemeter/releases​~~](https://github.com/openeemeter/eemeter/releases)
 
