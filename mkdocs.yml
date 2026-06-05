@@ -124,12 +124,15 @@ markdown_extensions:
 
 extra:
   generator: false
-  # version: mike
+  version:
+    provider: mike
+    default: latest
 
 extra_javascript:
   # - https://cmp.osano.com/16A0DbT9yDNIaQkvZ/af2b9f1f-3ac7-4a18-a99a-e487d04f08e6/osano.js?variant=two  # loaded in extrahead instead
   - javascripts/mathjax.js  # For local MathJax configuration
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For MathJax CDN
+  - javascripts/version-selector.js  # Moves the version selector right, next to the palette toggle
 
 copyright: Copyright © OpenDSM a Series of LF Projects, LLC<br>
   For web site terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org">https://lfprojects.org</a>.

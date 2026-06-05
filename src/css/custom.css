@@ -30,3 +30,41 @@ iframe[src*="youtube.com"] {
   display: block;
   margin: 20px auto;
 }
+
+/* Version selector sits at the far right of the header, just left of the
+   palette toggle (relocated there by javascripts/version-selector.js).
+   The flex centering vertically centers the button within its fixed-height
+   box so it lines up with the palette and search icons. */
+.md-header__inner > .md-version {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 0.4rem;
+}
+
+/* Current version styled like the search bar: translucent background, no
+   border, lightening on hover. */
+.md-header__inner > .md-version .md-version__current {
+  margin-left: 0;
+  top: 0;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.1rem;
+  background-color: #00000042;
+  transition: background-color 0.25s;
+}
+
+.md-header__inner > .md-version .md-version__current:hover {
+  background-color: #ffffff1f;
+}
+
+/* Open the version list on click (toggled by version-selector.js), not on hover. */
+.md-header__inner > .md-version:hover .md-version__list {
+  max-height: 0;
+  opacity: 0;
+}
+
+.md-header__inner > .md-version.md-version--open .md-version__list {
+  max-height: 10rem;
+  opacity: 1;
+  transition: max-height 0ms, opacity 0.25s;
+}
