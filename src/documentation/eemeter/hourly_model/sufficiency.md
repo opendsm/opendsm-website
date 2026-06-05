@@ -45,7 +45,7 @@ Units can be critically import to model performance. Convert your units accordin
 
 ##### **1.1.2.1 Temperature**
 <div style="padding-left: 20px;" markdown="1">
-Temperature data should in °Fahrenheit
+Temperature data should be in °Fahrenheit
 </div>
 
 ##### **1.1.2.1 Consumption/Usage**
@@ -97,7 +97,7 @@ If a meter's net metering status changes ***during*** a period, the meter should
 
 ##### **1.1.5.2 Electric Vehicle Status Change**
 <div style="padding-left: 20px;" markdown="1">
-If a meter's elecric vehicle charging status changes ***during*** a period, the meter should be disqualified as an NRE.
+If a meter's electric vehicle charging status changes ***during*** a period, the meter should be disqualified as an NRE.
 </div>
 
 ##### **1.1.5.3 Heuristic-Based Identification**

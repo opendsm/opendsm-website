@@ -116,14 +116,14 @@ We can stop to plot this data to get a better understanding of the general behav
 ```python
 fig, ax1 = plt.subplots(figsize=(7, 5))
 
-color = 'blue'
+color = 'tab:blue'
 ax1.set_xlabel('Datetime')
 ax1.set_ylabel('Observed Usage', color=color)
-ax1.plot(df_baseline_n.index, df_baseline_n['observed'], label='Observed Usage', color='color', marker='o', linestyle='-')
+ax1.plot(df_baseline_n.index, df_baseline_n['observed'], label='Observed Usage', color=color, marker='o', linestyle='-')
 ax1.tick_params(axis='y', labelcolor=color)
 
 ax2 = ax1.twinx()
-color = 'orange'
+color = 'tab:orange'
 ax2.set_ylabel('Temperature (F)', color=color)
 ax2.plot(df_baseline_n.index, df_baseline_n['temperature'], label='Temperature (F)', color=color)
 ax2.tick_params(axis='y', labelcolor=color)
@@ -178,14 +178,14 @@ As these classes are derived from the daily data classes, season and weekday_wee
 ```python
 fig, ax1 = plt.subplots(figsize=(7, 5))
 
-color = 'blue'
+color = 'tab:blue'
 ax1.set_xlabel('Datetime')
 ax1.set_ylabel('Observed Usage', color=color)
 ax1.plot(baseline_data.df.index, baseline_data.df['observed'], label='Observed Usage', color=color, linestyle='-')
 ax1.tick_params(axis='y', labelcolor=color)
 
 ax2 = ax1.twinx()
-color = 'orange'
+color = 'tab:orange'
 ax2.set_ylabel('Temperature (F)', color=color)
 ax2.plot(baseline_data.df.index, baseline_data.df['temperature'], label='Temperature (F)', color=color)
 ax2.tick_params(axis='y', labelcolor=color)
@@ -215,7 +215,7 @@ print(f"Warnings:          {baseline_data.warnings}")
     Warnings:          [EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.unable_to_confirm_daily_temperature_sufficiency)]
     ```
 
-From this, we can see that no disqualifications are present but there are some warnings to be aware of as we proceed. Warnings will necessarily stop us from creating a model.
+From this, we can see that no disqualifications are present but there are some warnings to be aware of as we proceed. Warnings will not stop us from creating a model.
 
 ### Creating the Model
 

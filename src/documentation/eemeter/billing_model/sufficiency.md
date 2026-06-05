@@ -45,7 +45,7 @@ Units can be critically import to model performance. Convert your units accordin
 
 ##### **1.1.2.1 Temperature**
 <div style="padding-left: 20px;" markdown="1">
-Temperature data should in °Fahrenheit
+Temperature data should be in °Fahrenheit
 </div>
 
 ##### **1.1.2.1 Consumption/Usage**
@@ -73,7 +73,7 @@ Predicted energy uncertainty should be aggregated by [summing in quadrature](htt
 
 #### **1.1.4 Location**
 <div style="padding-left: 20px;" markdown="1">
-There are two options for location data, but [Hourly DQ 1.1.4.1](#1141-latitude-and-longitude) is greatly preferred.
+There are two options for location data, but [Billing DQ 1.1.4.1](#1141-latitude-and-longitude) is greatly preferred.
 
 ##### **1.1.4.1 Latitude and Longitude**
 <div style="padding-left: 20px;" markdown="1">
@@ -98,7 +98,7 @@ If a meter's net metering status changes ***during*** a period, the meter should
 
 ##### **1.1.5.2 Electric Vehicle Status Change**
 <div style="padding-left: 20px;" markdown="1">
-If a meter's elecric vehicle charging status changes ***during*** a period, the meter should be disqualified as an NRE.
+If a meter's electric vehicle charging status changes ***during*** a period, the meter should be disqualified as an NRE.
 </div>
 
 ##### **1.1.5.3 Heuristic-Based Identification**
