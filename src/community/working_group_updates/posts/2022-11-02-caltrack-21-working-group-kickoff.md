@@ -7,7 +7,7 @@ description: LF Energy and the OpenEEmeter project team re-launch the CalTRACK w
 
 **[LF Energy](https://www.lfenergy.org/) and the [OpenEEmeter](https://www.lfenergy.org/projects/openeemeter/) project team are pleased to re-launch the CalTRACK working group to incorporate updates to the methods and code and formally enfold CalTRACK under the [OpenEEmeter](https://www.lfenergy.org/projects/openeemeter/) project umbrella.**
 
-![CalTRACK 2.1 Working Group Kick-Off 2022](/assets/images/community/blog/caltrack-21-kickoff-2022.png)
+![CalTRACK 2.1 Working Group Kick-Off 2022](site:assets/images/community/blog/caltrack-21-kickoff-2022.png)
 
 [Get Involved](https://opendsm.energy/community/)
 

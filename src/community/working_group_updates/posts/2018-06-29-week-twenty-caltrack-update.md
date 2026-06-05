@@ -24,11 +24,11 @@ The default Time-Of-Week and Temperature model allows for extended baseline peri
 
 It is evident that base load energy consumption, which is the green portion of the graphs below, is not constant throughout the year. The failure to account for varying base load energy consumption across the baseline period contributes to higher model variance, measured by CVRMSE, in CalTRACK methods.
 
-![Baseload energy consumption across models](/assets/images/community/blog/caltrack-week20-baseload-models.png)
+![Baseload energy consumption across models](site:assets/images/community/blog/caltrack-week20-baseload-models.png)
 
 One potential problem that appears when models are fit with data from limited time periods is that without many data points, they tend to overfit the data. We can see evidence of overfitting by looking at the relationship of model error from within-sample to the model error when applied to out-of-sample data. Large discrepancies between the two values indicate potential overfitting. This relationship is evident in the figure below.
 
-![Overfitting evidence chart](/assets/images/community/blog/caltrack-week20-overfitting.png)
+![Overfitting evidence chart](site:assets/images/community/blog/caltrack-week20-overfitting.png)
 
 **Recommendation:**
 After reviewing the results of the empirical testing, we recommend applying a three-month weighted regression model for residential hourly methods. Twelve models will be fit for each month of the year, with months before and after the month of interest weighted down by 50%. For example, when predicting the counterfactual energy usage for the month of July, the corresponding baseline model will be fit using data from June, July and August of the previous year. The data points from June and August will be assigned a 50% weight compared to the data points from July. This approach accounts for varying energy consumption patterns across months of the reporting period without overfitting the model to limited data.

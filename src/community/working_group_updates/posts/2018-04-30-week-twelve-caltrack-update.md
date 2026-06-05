@@ -9,7 +9,7 @@ description: CalTRACK working group continues discussion of hourly methods, with
 
 During week twelve, we continued our discussion of hourly methods. In the upcoming week, we will analyze test results for hourly methods on [GitHub](https://github.com/CalTRACK-2/caltrack/issues/85). We will also be talking about how to log ideas for future improvements. The standing meeting to discuss hourly methods will be on Thursday, May 3rd at 12:00 (PST).
 
-![CalTRACK hourly methods week 12](/assets/images/community/blog/caltrack-week12-hourly-methods.png)
+![CalTRACK hourly methods week 12](site:assets/images/community/blog/caltrack-week12-hourly-methods.png)
 
 **Homework:**
 

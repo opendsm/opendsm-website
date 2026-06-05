@@ -20,9 +20,9 @@ Topics that must be addressed include:
 
 A proposed model for hourly methods is the TOWT model from Lawrence Berkeley National Labs (LBNL) is shown below.
 
-![CalTRACK TOWT model diagram 1](/assets/images/community/blog/caltrack-week11-towt-model-1.png)
+![CalTRACK TOWT model diagram 1](site:assets/images/community/blog/caltrack-week11-towt-model-1.png)
 
-![CalTRACK TOWT model diagram 2](/assets/images/community/blog/caltrack-week11-towt-model-2.png)
+![CalTRACK TOWT model diagram 2](site:assets/images/community/blog/caltrack-week11-towt-model-2.png)
 
 **Notes:**
 

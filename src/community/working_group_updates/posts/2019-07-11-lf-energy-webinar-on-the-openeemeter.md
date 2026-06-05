@@ -5,7 +5,7 @@ description: Phil Ngo, Director of Engineering at Recurve, provides insights int
 
 # LF Energy Webinar on the OpenEEmeter
 
-![OpenEEmeter Screenshot](/assets/images/community/blog/lf-energy-webinar-screenshot.png){ align=right width=208 style="margin: 5px 0 10px 20px" }
+![OpenEEmeter Screenshot](site:assets/images/community/blog/lf-energy-webinar-screenshot.png){ align=right width=208 style="margin: 5px 0 10px 20px" }
 
 Phil Ngo, Director of Engineering at Recurve, provides insights into the OpenEEmeter and EEweather, which is an open source implementation of the CalTRACK Methods that resides in LF Energy.
 

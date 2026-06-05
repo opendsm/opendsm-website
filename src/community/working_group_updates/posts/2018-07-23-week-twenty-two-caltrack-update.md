@@ -15,7 +15,7 @@ Last week marked the final CalTRACK 2.0 working group meeting. In this meeting w
 
 Empirical testing has shown correlation between energy consumption and season in residential buildings, that can have an effect on the savings error. The CalTRACK 2.0 working group has proposed accounting for this seasonal effect by shortening the 12-month baseline period to 3-month weighted baseline periods. The figure below shows the effect of shortening baseline periods to 3-month on Normalized Mean Bias Error (NMBE) for residential buildings.
 
-![NMBE seasonal effect chart](/assets/images/community/blog/caltrack-week22-nmbe-seasonal.png)
+![NMBE seasonal effect chart](site:assets/images/community/blog/caltrack-week22-nmbe-seasonal.png)
 
 However, shortening an annual baseline to 3-month weighted baselines may not be necessary for all building types. Notably, commercial buildings tend to have a smaller seasonal effect than residential buildings, and may not experience increased NMBE from using a 12-month baseline period.
 
@@ -30,7 +30,7 @@ Since February, the CalTRACK 2.0 process has tackled several major issues. Below
 
 **Task 1:** Updates to CalTRACK daily and billing methods based on feedback from CalTRACK 1.0 users. Some updates include:
 
-![CalTRACK 2.0 Task 1 summary](/assets/images/community/blog/caltrack-week22-task1-summary.png)
+![CalTRACK 2.0 Task 1 summary](site:assets/images/community/blog/caltrack-week22-task1-summary.png)
 
 - Improved weather station mapping.
 - Weighted regression for months in billing period methods.
@@ -39,7 +39,7 @@ Since February, the CalTRACK 2.0 process has tackled several major issues. Below
 
 **Task 2:** Assess the feasibility of a portfolio aggregation approach for calculating savings as well as any effects on savings uncertainty.
 
-![CalTRACK 2.0 Task 2 portfolio uncertainty](/assets/images/community/blog/caltrack-week22-task2-portfolio.png)
+![CalTRACK 2.0 Task 2 portfolio uncertainty](site:assets/images/community/blog/caltrack-week22-task2-portfolio.png)
 
 - For portfolio-based cases, buildings with a high uncertainty metric can still be included in a portfolio as long as the defined portfolio-level uncertainty threshold is not exceeded.
 - For site-based applications, ASHRAE Guideline 14 thresholds were recommended.
@@ -54,7 +54,7 @@ Since February, the CalTRACK 2.0 process has tackled several major issues. Below
 - When price signals are applied to hourly savings estimates, the temporal and locational value of energy efficiency projects can be calculated.
 - Various price signals were analyzed and it was shown that they can provide different values to different types of load shapes based on priorities of the procurer.
 
-![CalTRACK 2.0 Task 4 price signals](/assets/images/community/blog/caltrack-week22-task4-price-signals.png)
+![CalTRACK 2.0 Task 4 price signals](site:assets/images/community/blog/caltrack-week22-task4-price-signals.png)
 
 **CalTRACK 3.0:**
 

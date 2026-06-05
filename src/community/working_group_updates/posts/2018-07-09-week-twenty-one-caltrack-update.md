@@ -7,7 +7,7 @@ description: CalTRACK working group explores how hourly savings can be valued us
 
 **Week Twenty-One CalTRACK Update**
 
-![CalTRACK hourly load shape analysis](/assets/images/community/blog/caltrack-week21-load-shape.png)
+![CalTRACK hourly load shape analysis](site:assets/images/community/blog/caltrack-week21-load-shape.png)
 
 Energy efficiency and other distributed energy resources have the potential to bring value to the grid. The value of energy efficiency in particular has been calculated with averaged assumptions about avoided costs of producing, procuring and distributing energy from fossil fuel infrastructure, as well as other factors in some cases (e.g. avoided emissions, societal benefits etc.).
 
@@ -61,7 +61,7 @@ Load shifting equipment moves energy load from high demand periods to lower dema
 
 In the table below, the home performance, lighting, and load shifting scenarios were compared with different valuation methods. The numbers in this table represent relative value across programs (i.e. they are unit-less), making the comparison of the different methods for a particular measure/program not very meaningful. However, when each row in the table is examined separately, the type of savings that are encouraged by each valuation scheme becomes apparent.
 
-![Matrix of valuation methods vs. scenarios](/assets/images/community/blog/caltrack-week21-valuation-matrix.png)
+![Matrix of valuation methods vs. scenarios](site:assets/images/community/blog/caltrack-week21-valuation-matrix.png)
 
 The valuation scheme will usually be a policy, market or procurement decision that should consider the ultimate outcomes intended — to ensure incentives and motivation can be aligned.
 

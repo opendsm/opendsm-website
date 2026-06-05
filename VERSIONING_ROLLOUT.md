@@ -107,3 +107,7 @@ The current `gh-pages` branch holds a flat, unversioned site. Pushing to `main` 
   files, but any manual `gh-pages` cleanup must keep it.
 - **Backfilled API docs follow the pinned opendsm**, not the version label — pin in `pyproject.toml`
   on the backfill branch.
+- **Always use `site:`-prefixed links for internal pages and assets** (e.g. `site:assets/...`,
+  `site:community/...`), never root-absolute `/assets/...`. The `mkdocs_site_urls` plugin rewrites
+  `site:` to the active version's base (`/X.Y/...`); root-absolute links bypass it and break once the
+  site is served under a version path.
