@@ -11,6 +11,8 @@ extra_css:
   
 plugins:
   - search
+  - social:
+      enabled: !ENV [CI, false]
   - blog:
       blog_dir: community/working_group_updates
       post_dir: "{blog}/posts"
@@ -77,7 +79,7 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
-  logo: "https://opendsm.github.io/opendsm-website/assets/images/common/opendsm-icon-white.svg"
+  logo: assets/images/common/opendsm-icon-white.svg
 
   features:
     - content.code.copy
