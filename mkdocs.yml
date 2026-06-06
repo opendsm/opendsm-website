@@ -6,6 +6,14 @@ repo_url: https://github.com/opendsm/opendsm
 repo_name: opendsm/opendsm
 
 docs_dir: "src"
+
+validation:
+  links:
+    absolute_links: warn
+    unrecognized_links: warn
+  nav:
+    omitted_files: warn
+
 extra_css:
   - "css/custom.css"
   
@@ -80,6 +88,7 @@ theme:
         name: Switch to light mode
 
   logo: assets/images/common/opendsm-icon-white.svg
+  favicon: assets/images/common/opendsm-icon-color.svg
 
   features:
     - content.code.copy
@@ -135,7 +144,8 @@ extra:
 extra_javascript:
   # - https://cmp.osano.com/16A0DbT9yDNIaQkvZ/af2b9f1f-3ac7-4a18-a99a-e487d04f08e6/osano.js?variant=two  # loaded in extrahead instead
   - javascripts/mathjax.js  # For local MathJax configuration
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For MathJax CDN
+  - path: https://unpkg.com/mathjax@3.2.2/es5/tex-chtml.js  # TeX-only CHTML bundle, pinned, loaded async
+    async: true
   - javascripts/version-selector.js  # Moves the version selector right, next to the palette toggle
 
 copyright: Copyright © OpenDSM a Series of LF Projects, LLC<br>

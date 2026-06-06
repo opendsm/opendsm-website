@@ -77,6 +77,7 @@ The current `gh-pages` branch holds a flat, unversioned site. Pushing to `main` 
    git rm -r --quiet assets caltrack community css documentation install javascripts overrides \
      search 404.html index.html objects.inv sitemap.xml sitemap.xml.gz
    git checkout origin/gh-pages -- CNAME   # ensure custom domain is preserved
+   printf 'User-agent: *\nAllow: /\n' > robots.txt && git add robots.txt   # crawlers read /robots.txt at the root
    # leave the mike-managed version dirs, versions.json, and the redirect index.html in place
    git commit -m "Remove pre-mike flat site from gh-pages root" && git push origin gh-pages
    ```
@@ -103,8 +104,10 @@ The current `gh-pages` branch holds a flat, unversioned site. Pushing to `main` 
 
 - **Tags live on this repo, not opendsm.** Releasing opendsm does not auto-publish a docs version;
   tag this repo (or Run workflow) per docs version.
-- **`CNAME` must stay at the `gh-pages` root** for the custom domain. mike preserves existing root
-  files, but any manual `gh-pages` cleanup must keep it.
+- **`CNAME` and `robots.txt` must stay at the `gh-pages` root.** Crawlers only read `/robots.txt`
+  and the custom domain needs `/CNAME`; files committed under `src/` land in a version dir
+  (`/X.Y/...`), not the root. mike preserves existing root files, but any manual `gh-pages` cleanup
+  must keep both. The repo-root `robots.txt` is the source of truth; copy it to the `gh-pages` root.
 - **Backfilled API docs follow the pinned opendsm**, not the version label — pin in `pyproject.toml`
   on the backfill branch.
 - **Always use `site:`-prefixed links for internal pages and assets** (e.g. `site:assets/...`,
