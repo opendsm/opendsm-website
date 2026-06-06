@@ -100,6 +100,53 @@ The current `gh-pages` branch holds a flat, unversioned site. Pushing to `main` 
 3. Actions → Run workflow, selecting that branch as the ref, with `version=X.Y` (leave `alias` blank
    and `set_default` unchecked unless it should become the newest stable).
 
+## Future: auto-publish a doc version when opendsm releases
+
+Once manual versioning is live and stable, automate it so an opendsm release publishes the
+matching doc version with no human step. **Not yet implemented** — it needs a cross-repo token,
+so it's a phase-2 task after go-live.
+
+Design (cross-repo dispatch): an opendsm release fires an event that this repo's deploy workflow
+listens for, then builds the docs with opendsm **pinned to the released tag** and deploys.
+
+**Critical:** the deploy must install `opendsm@<the released tag>`, NOT the pyproject `@master`
+pin. Building a versioned release against `@master` documents the wrong code — the API reference
+silently describes dev (e.g. the 1.2 vs master hourly model differs by ~1000 lines). The `dev`
+build keeps `@master`; only released versions pin.
+
+1. **In the opendsm repo** — add a step to the release workflow (on tag `v*` / published Release)
+   that dispatches to this repo. Needs a fine-grained PAT or GitHub App token with permission to
+   trigger workflows on `opendsm/opendsm-website`, stored as an opendsm secret:
+   ```yaml
+   - name: Trigger docs deploy
+     run: |
+       curl -fsS -X POST \
+         -H "Authorization: Bearer ${{ secrets.DOCS_DISPATCH_TOKEN }}" \
+         -H "Accept: application/vnd.github+json" \
+         https://api.github.com/repos/opendsm/opendsm-website/dispatches \
+         -d '{"event_type":"opendsm-release","client_payload":{"tag":"${{ github.ref_name }}"}}'
+   ```
+
+2. **In this repo** — a workflow listening for that event, which pins opendsm to the released tag
+   before deploying (mirrors the manual `vX.Y.Z` tag path, but the version comes from the payload):
+   ```yaml
+   on:
+     repository_dispatch:
+       types: [opendsm-release]
+   # ... same checkout / python / apt(cairo) / pip install . steps as website_deployment.yaml ...
+   #   - name: Pin opendsm to the released tag
+   #     run: pip install --force-reinstall --no-deps \
+   #       "opendsm @ git+https://github.com/opendsm/opendsm@${{ github.event.client_payload.tag }}"
+   #   - name: Deploy doc version
+   #     run: |
+   #       full="${{ github.event.client_payload.tag }}"; full="${full#v}"
+   #       version="$(echo "$full" | cut -d. -f1-2)"
+   #       mike deploy --push --update-aliases "$version" latest
+   #       mike set-default --push latest
+   ```
+
+This keeps the deploy logic here (mike/`gh-pages`) and the trigger in opendsm (the release event).
+
 ## Gotchas
 
 - **Tags live on this repo, not opendsm.** Releasing opendsm does not auto-publish a docs version;
