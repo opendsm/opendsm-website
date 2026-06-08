@@ -24,7 +24,7 @@ A static peak pricing scheme accounts for increased value of energy savings duri
 **Real-Time Pricing:**
 A Real-Time Pricing scheme assigns a unique load impact multiplier to each hour of the year. The load impact multipliers can be calculated according to locational marginal energy prices (LMPs). The real-time pricing scheme provides the most accurate price signals for energy savings with respect to grid impacts. The Real-Time Pricing scheme generates the most accurate price signals, but requires LMP data and there is uncertainty in hourly prices.
 
-![Comparison of pricing schemes for portfolio-level savings](/assets/images/community/blog/caltrack-week18-pricing-schemes.png)
+![Comparison of pricing schemes for portfolio-level savings](site:assets/images/community/blog/caltrack-week18-pricing-schemes.png)
 
 **Empirical Testing:**
 In the coming weeks, we would like to empirically test methods for calculating portfolio-level energy savings for common use cases. Some use cases include:

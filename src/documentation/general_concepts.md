@@ -70,7 +70,7 @@ $$
 CVRMSE = \frac{RMSE}{\overline{obs}}
 $$
 
-CVRMSE normalizes RMSE by the mean of the observed data over a given period of time, often the baseline for the purposes of model fit sufficiency. Another way to think about CVRMSE is the error as a percentage of average usage. CVRMSE fails as a useful metric when the mean usage is near zero or negative. Unfortunately, this is a common occurance with behind-the-meter generation such as solar PV systems. 
+CVRMSE normalizes RMSE by the mean of the observed data over a given period of time, often the baseline for the purposes of model fit sufficiency. Another way to think about CVRMSE is the error as a percentage of average usage. CVRMSE fails as a useful metric when the mean usage is near zero or negative. Unfortunately, this is a common occurrence with behind-the-meter generation such as solar PV systems. 
 
 ### PNRMSE
 

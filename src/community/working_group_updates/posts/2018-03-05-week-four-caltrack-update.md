@@ -15,7 +15,7 @@ During week 4, we received some interesting results from tests on daily and bill
 
 ## [Weather Station Mapping](https://github.com/CalTRACK-2/caltrack/issues/65)
 
-![Weather station mapping accuracy comparison](/assets/images/community/blog/caltrack-week4-weather-station-mapping.png){ align=right width=320 style="margin: 10px 0 10px 20px" }
+![Weather station mapping accuracy comparison](site:assets/images/community/blog/caltrack-week4-weather-station-mapping.png){ align=right width=320 style="margin: 10px 0 10px 20px" }
 
 Because we do not have access to weather data at the location of each site, the best approach for estimating a site's temperature is to use data from nearby, high-quality weather stations. The most intuitive way to "map" which primary and backup weather stations to use for a site is to simply choose weather stations with the shortest distance to the site. Some argue that this simple method fails to account for the unequal distribution of weather patterns over space. For example, imagine a mountain home is technically closer to a weather station in the desert valley than to another weather station in the mountains. We might expect the house's weather data to be better approximated by the mountain weather station than the desert valley weather station, despite it being further away. To account for this phenomenon, another proposal is to use pre-defined climate zones throughout states to choose the closest primary and backup weather stations that are within that site's climate zone.
 
@@ -37,7 +37,7 @@ The purpose of our weather station mapping methods are to ensure that each site 
 - With the same meter data, we ran the same model but used weather data from a set of 2 weather stations for all 50 states in the USA. There is significant weather diversity in the USA, so these results indicate the effect of inaccurate weather on model prediction.
 - We analyzed the results. In the graphs, there is a dot for each model. This includes a dot for each of the 50 states and one dot for climate zone mapping.
 
-![Temperature data error analysis](/assets/images/community/blog/caltrack-week4-temp-data-error.png)
+![Temperature data error analysis](site:assets/images/community/blog/caltrack-week4-temp-data-error.png)
 
 **Results:**
 
@@ -46,7 +46,7 @@ The purpose of our weather station mapping methods are to ensure that each site 
 
 ## [Maximum Baseline Period Length](https://github.com/CalTRACK-2/caltrack/issues/68)
 
-![Baseline period length barchart](/assets/images/community/blog/caltrack-week4-baseline-period-barchart.png)
+![Baseline period length barchart](site:assets/images/community/blog/caltrack-week4-baseline-period-barchart.png)
 
 There have been discussions about defining a maximum baseline period because excessively long baseline periods may absorb unnecessary variation that could obscure our model predictions. To determine the effect of longer baseline periods, we calculated baselines of 12, 15, 18, 21, and 24 months. The graph below shows that normalized annual consumption (NAC) can be unstable as we increase the baseline period.
 
@@ -59,11 +59,11 @@ There have been discussions about defining a maximum baseline period because exc
 
 A proposed new method for CalTRACK 2.0 is to use variable balance points instead of fixed balance points on the HDD and CDD variables. In the figure below, we can see that buildings tend to cluster at the limits of balance point degree ranges, which implies that some results may be constrained by small search grids. When the degree range is expanded, the results displays a distribution that is closer to Gaussian.
 
-![Degree day balance points grouped barchart](/assets/images/community/blog/caltrack-week4-degree-day-balance-points.png)
+![Degree day balance points grouped barchart](site:assets/images/community/blog/caltrack-week4-degree-day-balance-points.png)
 
 Although expanding the search grid may uncover a balance point that yields a higher R-squared, the figure on the right shows that these results have a nominal impact on model fit. Regardless, variable balance points are advised because they provide better balance point estimates, which have more interpretation value.
 
-![Default vs. expanded balance point range comparison](/assets/images/community/blog/caltrack-week4-balance-point-range.png)
+![Default vs. expanded balance point range comparison](site:assets/images/community/blog/caltrack-week4-balance-point-range.png)
 
 **Recommended Allowable Ranges:**<br>
 HDD: 40-80<br>
@@ -76,7 +76,7 @@ In CalTRACK 1.0, model selection criteria involved:
 1. Filtering out estimators with insignificant p-values (greater than 0.1) and
 2. Choosing model based on the adjusted R squared
 
-![P-value screen analysis](/assets/images/community/blog/caltrack-week4-pvalue-screen.png)
+![P-value screen analysis](site:assets/images/community/blog/caltrack-week4-pvalue-screen.png)
 
 In CalTRACK 2.0, we intend to eliminate the p-value screen and select models strictly on the adjusted R squared. We suggest this change because the p-value screen does not increase our model fit and we lose valuable information on estimators when we drop them due to high p-values, as well as eliminating many weather-sensitive model fits.
 

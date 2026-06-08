@@ -13,7 +13,7 @@ Week six was primarily focused on the building qualification discussions and wil
 
 *Note: Zoom recording links may no longer be accessible.*
 
-![Four types of models for CalTRACK](/assets/images/community/blog/caltrack-week6-four-types-of-models.png){ align=right width=350 style="margin: 10px 0 10px 20px" }
+![Four types of models for CalTRACK](site:assets/images/community/blog/caltrack-week6-four-types-of-models.png){ align=right width=350 style="margin: 10px 0 10px 20px" }
 
 **Review of properties of intercept-only models in PRISM:**<br>
 As we analyze building qualifications, it is useful to review the properties of PRISM intercept-only models to ensure they are properly treated. Here are a few characteristics of intercept-only models:
@@ -29,12 +29,12 @@ As we analyze building qualifications, it is useful to review the properties of 
 - These models are susceptible to poor savings estimates if the previous year was atypical. For example, if a resident did not live in their house for a majority of the previous year, then it may not be a good predictor of energy consumption in the current year
 - Intercept-only models impose an average energy consumption over the entire year. This yearly average may be inappropriate when estimating more granular fluctuations, such as daily or hourly energy consumption
 
-![CalTRACK building qualification metrics table](/assets/images/community/blog/caltrack-week6-metrics-table.png)
+![CalTRACK building qualification metrics table](site:assets/images/community/blog/caltrack-week6-metrics-table.png)
 
 **Description of Each Proposed Metric:**<br>
 During the upcoming week, we will use empirical testing to establish the preferred metric and threshold to determine a building's suitability for CalTrack methods. The two proposed metrics are described below:
 
-![CVRMSE and MAPE formula reference](/assets/images/community/blog/caltrack-week6-cvrmse-mape-formulas.png){ align=right width=300 style="margin: 10px 0 10px 20px" }
+![CVRMSE and MAPE formula reference](site:assets/images/community/blog/caltrack-week6-cvrmse-mape-formulas.png){ align=right width=300 style="margin: 10px 0 10px 20px" }
 
 **Coefficient of Variation Root-Mean-Square-Error (CVRMSE)**<br>
 The CVRMSE is calculated by:

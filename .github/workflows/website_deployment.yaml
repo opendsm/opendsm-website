@@ -2,9 +2,22 @@ name: website deployment
 on:
   push:
     branches:
-      - master 
+      - master
       - main
+    tags:
+      - 'v*'
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version id to deploy (e.g. v1.1). Used for backfilling prior versions.'
+        required: true
+      alias:
+        description: 'Alias to attach (e.g. stable). Leave blank for none.'
+        required: false
+      set_default:
+        description: 'Make this the default (root redirect)?'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -13,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
@@ -20,12 +35,39 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
+      - name: Install image libraries for social cards
+        run: sudo apt-get update && sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
       - run: pip install .
-      - run: mkdocs gh-deploy --force
+      - name: Fetch gh-pages
+        run: git fetch origin gh-pages --depth=1 || true
+
+      - name: Deploy dev (main/master push)
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+        run: mike deploy --push --update-aliases dev
+
+      - name: Deploy release (tag push)
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        run: |
+          full="${GITHUB_REF_NAME#v}"
+          minor="$(echo "$full" | cut -d. -f1-2)"
+          mike deploy --push --update-aliases --title "$minor" "v$minor" stable
+          mike set-default --push stable
+
+      - name: Deploy manual version (workflow_dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          MVER: ${{ github.event.inputs.version }}
+          MALIAS: ${{ github.event.inputs.alias }}
+          MDEFAULT: ${{ github.event.inputs.set_default }}
+        run: |
+          mike deploy --push --update-aliases --title "${MVER#v}" "$MVER" $MALIAS
+          if [ "$MDEFAULT" = "true" ]; then
+            mike set-default --push "${MALIAS:-$MVER}"
+          fi

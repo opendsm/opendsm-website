@@ -7,7 +7,7 @@ description: Week Two concludes discussion of monthly and daily methods updates,
 
 ## Week Two CalTRACK Update
 
-![GitHub Issues Screenshot](/assets/images/community/blog/caltrack-github-issues.png){ align=right width=333 }
+![GitHub Issues Screenshot](site:assets/images/community/blog/caltrack-github-issues.png){ align=right width=333 }
 
 As we complete Week Two (2/12-2/16), we conclude our discussion of "Proposals for Monthly and Daily Methods Updates" and begin testing proposed methods. Here are the six main updates to the daily and monthly methods (click links to jump to [GitHub](https://github.com/CalTRACK-2/caltrack/issues)):
 
