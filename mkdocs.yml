@@ -31,7 +31,6 @@ plugins:
       authors: false
       pagination_per_page: 10
   - awesome-nav
-  - macros
   - section-index
   - site-urls:
       attributes:
