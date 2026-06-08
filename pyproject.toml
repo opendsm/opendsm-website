@@ -33,7 +33,7 @@ dependencies = [
   "mkdocs-site-urls==0.3.1",
   "mkdocstrings==0.30.0",
   "mkdocstrings-python==1.18.2",
-  "pymdown-extensions==10.15",
+  "pymdown-extensions==10.21.3",
   "opendsm @ git+https://github.com/opendsm/opendsm@master",
 ]
 
