@@ -14,7 +14,10 @@ validation:
 
 extra_css:
   - "css/custom.css"
-  
+
+hooks:
+  - hooks/quiet_site_urls.py
+
 plugins:
   - search
   - social:
