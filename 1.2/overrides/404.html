@@ -1,6 +1,30 @@
 {% extends "main.html" %}
 
 {% block content %}
+<script>
+  // GitHub Pages serves this page (the site-root 404) for every unmatched path.
+  // Redirect versionless deep links to the stable (latest) version, preserving the
+  // path; paths already under a known version/alias are left alone (no redirect loop).
+  (function () {
+    var path = window.location.pathname.replace(/^\//, "");
+    var first = path.split("/")[0];
+
+    fetch("/versions.json")
+      .then(function (response) { return response.json(); })
+      .then(function (versions) {
+        var known = {};
+        versions.forEach(function (version) {
+          known[version.version] = true;
+          (version.aliases || []).forEach(function (alias) { known[alias] = true; });
+        });
+
+        if (!known[first]) {
+          window.location.replace("/latest/" + path + window.location.search + window.location.hash);
+        }
+      })
+      .catch(function () {});
+  })();
+</script>
 <div class="md-content__inner md-typeset" style="text-align: center; padding-top: 3rem; padding-bottom: 4rem;">
   <img src="{{ 'assets/images/common/opendsm-icon-color.svg' | url }}" alt="OpenDSM" width="72" style="margin-bottom: 1rem;">
   <h1 style="margin-bottom: 0.5rem;">Page not found</h1>
