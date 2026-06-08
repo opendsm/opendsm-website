@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Version id to deploy (major.minor, e.g. 1.1). Used for backfilling prior versions.'
+        description: 'Version id to deploy (e.g. v1.1). Used for backfilling prior versions.'
         required: true
       alias:
-        description: 'Alias to attach (e.g. latest). Leave blank for none.'
+        description: 'Alias to attach (e.g. stable). Leave blank for none.'
         required: false
       set_default:
         description: 'Make this the default (root redirect)?'
@@ -56,9 +56,9 @@ jobs:
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
         run: |
           full="${GITHUB_REF_NAME#v}"
-          version="$(echo "$full" | cut -d. -f1-2)"
-          mike deploy --push --update-aliases "$version" latest
-          mike set-default --push latest
+          minor="$(echo "$full" | cut -d. -f1-2)"
+          mike deploy --push --update-aliases --title "$minor" "v$minor" stable
+          mike set-default --push stable
 
       - name: Deploy manual version (workflow_dispatch)
         if: github.event_name == 'workflow_dispatch'
@@ -67,7 +67,7 @@ jobs:
           MALIAS: ${{ github.event.inputs.alias }}
           MDEFAULT: ${{ github.event.inputs.set_default }}
         run: |
-          mike deploy --push --update-aliases "$MVER" $MALIAS
+          mike deploy --push --update-aliases --title "${MVER#v}" "$MVER" $MALIAS
           if [ "$MDEFAULT" = "true" ]; then
             mike set-default --push "${MALIAS:-$MVER}"
           fi

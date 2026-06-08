@@ -5,14 +5,14 @@
   // GitHub Pages serves this page (the site-root 404) for every unmatched path.
   // Redirect versionless deep links to the stable version *before* the body
   // renders, so there's no 404 flash. Paths already under a version (numeric,
-  // dev, latest) fall through to the 404 content below. Synchronous on purpose.
+  // dev, stable) fall through to the 404 content below. Synchronous on purpose.
   (function () {
     var path = window.location.pathname.replace(/^\//, "");
     var first = path.split("/")[0];
-    var versioned = /^v?\d/.test(first) || first === "dev" || first === "latest";
+    var versioned = /^v?\d/.test(first) || first === "dev" || first === "stable";
 
     if (path && !versioned) {
-      window.location.replace("/latest/" + path + window.location.search + window.location.hash);
+      window.location.replace("/stable/" + path + window.location.search + window.location.hash);
     }
   })();
 </script>

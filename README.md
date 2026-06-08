@@ -45,16 +45,17 @@ source so the API pages live-reload: `mkdocs serve -a localhost:8001 -w ..`
 ### Versioning
 
 The published site is versioned with [mike](https://github.com/jimporter/mike). Each
-documentation version is `major.minor` and mirrors an opendsm release; patch releases
-(`vX.Y.Z`) refresh the existing `X.Y` version rather than creating a new one. `main` builds
-the `dev` version; the newest stable release carries the `latest` alias, and the site root
-redirects to `latest`. mike orders the version selector itself (`dev` first, then releases
+documentation version is published at `/vX.Y/` (shown as `X.Y` in the version selector) and
+mirrors an opendsm release; patch releases
+(`vX.Y.Z`) refresh the existing `vX.Y` version rather than creating a new one. `main` builds
+the `dev` version; the newest stable release carries the `stable` alias (shown as a badge in
+the version selector), and the site root redirects to `stable`. mike orders the version selector itself (`dev` first, then releases
 newest→oldest).
 
 Deployment runs from `.github/workflows/website_deployment.yaml`:
 
 - push to `main` → builds/refreshes the `dev` version (opendsm `@master`)
-- push a `vX.Y.Z` tag → builds version `X.Y`, moves `latest`, sets it as default
+- push a `vX.Y.Z` tag → builds version `vX.Y`, moves `stable`, sets it as default
 - Actions → **Run workflow** (`workflow_dispatch`) → builds an arbitrary version (for backfilling)
 
 #### Each stable version pins opendsm to its release
@@ -78,10 +79,10 @@ Publishing or refreshing a stable version (e.g. `1.2`):
    git commit -am "Pin opendsm to the 1.2 release"
    git push -f origin version/1.2
    ```
-2. Actions → **Run workflow** on `version/1.2` with `version=1.2`, `alias=latest`, `set_default=true`.
+2. Actions → **Run workflow** on `version/1.2` with `version=v1.2`, `alias=stable`, `set_default=true`.
 
 Backfilling an older version is the same flow on its own `version/X.Y` branch, dispatched with
-`version=X.Y` (leave `alias`/`set_default` unset unless it should become the newest stable).
+`version=vX.Y` (leave `alias`/`set_default` unset unless it should become the newest stable).
 
 #### Local preview
 
@@ -89,7 +90,7 @@ Content and code render with plain `mkdocs serve`. The version-selector dropdown
 when a `versions.json` is reachable, so to preview it either run `mike serve` (after a local
 `mike deploy`), or drop a throwaway gitignored `src/versions.json`:
 ```json
-[{"version": "dev", "title": "dev", "aliases": []}, {"version": "1.2", "title": "1.2", "aliases": ["latest"]}]
+[{"version": "dev", "title": "dev", "aliases": []}, {"version": "v1.2", "title": "v1.2", "aliases": ["stable"]}]
 ```
 
 #### Gotchas
