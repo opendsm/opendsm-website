@@ -7,7 +7,3 @@ As an example: demand response events generally occur over the course of a few h
 #### [TOWT Model](site:documentation/drmeter/towt_model/methodology)
 
 An implementation of the time-of-week and temperature model designed to operate on short-term, hourly data.
-
-#### [New Model](site:documentation/drmeter/new_model)
-
-A derivative of the OpenEEmeter hourly model. This model will be able to accurate measure solar and non-solar meters using short-term, hourly data.

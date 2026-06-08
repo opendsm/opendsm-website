@@ -33,7 +33,7 @@ The building qualification recommendations are dependent on use case:
 
 CVRMSE and FSU are different metrics and are described in this paper: [A Comparison of Approaches to Estimating the Time-Aggregated Uncertainty of Savings Estimated from Meter Data](http://www.iepec.org/2017-proceedings/polopoly_fs/1.3718217.1502901133!/fileserver/file/796649/filename/024.pdf)
 
-![CalTRACK building qualifications results](/assets/images/community/blog/caltrack-week10-building-qualifications.png)
+![CalTRACK building qualifications results](site:assets/images/community/blog/caltrack-week10-building-qualifications.png)
 
 **Goals for Hourly Methods:**
 

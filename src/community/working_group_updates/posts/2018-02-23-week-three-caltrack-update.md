@@ -36,15 +36,15 @@ To ensure effective communication, it is important that we are precise with our 
 
 Below are plots of all the weather stations in several states (New York, Texas, Illinois, Colorado, and California). You can see that California actually has three weather patterns, but in the other states, the weather is remarkably consistent across the state. The next question will be, how much do the variations in the weather matter?
 
-![Weather stations — New York](/assets/images/community/blog/caltrack-week3-weather-stations-new-york.png)
+![Weather stations — New York](site:assets/images/community/blog/caltrack-week3-weather-stations-new-york.png)
 
-![Weather stations — Texas](/assets/images/community/blog/caltrack-week3-weather-stations-texas.png)
+![Weather stations — Texas](site:assets/images/community/blog/caltrack-week3-weather-stations-texas.png)
 
-![Weather stations — Illinois](/assets/images/community/blog/caltrack-week3-weather-stations-illinois.png)
+![Weather stations — Illinois](site:assets/images/community/blog/caltrack-week3-weather-stations-illinois.png)
 
-![Weather stations — California](/assets/images/community/blog/caltrack-week3-weather-stations-california.png)
+![Weather stations — California](site:assets/images/community/blog/caltrack-week3-weather-stations-california.png)
 
-![Weather stations — Colorado](/assets/images/community/blog/caltrack-week3-weather-stations-colorado.png)
+![Weather stations — Colorado](site:assets/images/community/blog/caltrack-week3-weather-stations-colorado.png)
 
 As we enter week 4 (starting 2/26), we will continue to accept data from testing of "Monthly and Daily Methods". Starting on Wednesday (2/28), we will begin accepting proposals for "Building Qualification Parameters". We look forward to reviewing your test results on GitHub!
 
@@ -55,4 +55,4 @@ As we enter week 4 (starting 2/26), we will continue to accept data from testing
 - Continue to contribute to discussions on GitHub Issues on monthly and daily methods and building qualification parameters
 - Working Group Meeting on 3/1
 
-![CalTRACK GitHub activity](/assets/images/community/blog/caltrack-week3-github-activity.png)
+![CalTRACK GitHub activity](site:assets/images/community/blog/caltrack-week3-github-activity.png)

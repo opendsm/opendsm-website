@@ -5,7 +5,7 @@ description: Announcement for a free one-hour CalTRACK training webinar covering
 
 # Webinar: Getting Going with CalTRACK
 
-![CalTRACK training webinar announcement](/assets/images/community/blog/caltrack-training-march-2019.png)
+![CalTRACK training webinar announcement](site:assets/images/community/blog/caltrack-training-march-2019.png)
 
 This one hour training will cover the origin of CalTRACK, the scope and appropriate application of the methods, and how to validate that a tool or approach is a verifiable execution of the standard method.
 

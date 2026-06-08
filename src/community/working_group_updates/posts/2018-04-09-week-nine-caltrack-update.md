@@ -20,7 +20,7 @@ Hourly methods are a new addition in CalTRACK 2.0 and were not in the first vers
 
 - Hourly methods are a more granular time interval than daily or billing period methods. These granular time intervals are valuable for determining the temporal value of energy savings, by associating savings with grid demand and energy price.
 
-![CalTRACK hourly methods value diagram](/assets/images/community/blog/caltrack-week9-hourly-methods-value.png)
+![CalTRACK hourly methods value diagram](site:assets/images/community/blog/caltrack-week9-hourly-methods-value.png)
 
 **Time Of Week and Temperature Models:**
 

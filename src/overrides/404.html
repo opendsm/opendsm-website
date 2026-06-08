@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+
+{% block extrahead %}
+<script>
+  // GitHub Pages serves this page (the site-root 404) for every unmatched path.
+  // Redirect versionless deep links to the stable version *before* the body
+  // renders, so there's no 404 flash. Paths already under a version (numeric,
+  // dev, latest) fall through to the 404 content below. Synchronous on purpose.
+  (function () {
+    var path = window.location.pathname.replace(/^\//, "");
+    var first = path.split("/")[0];
+    var versioned = /^v?\d/.test(first) || first === "dev" || first === "latest";
+
+    if (path && !versioned) {
+      window.location.replace("/latest/" + path + window.location.search + window.location.hash);
+    }
+  })();
+</script>
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="md-content__inner md-typeset" style="text-align: center; padding-top: 3rem; padding-bottom: 4rem;">
+  <img src="{{ 'assets/images/common/opendsm-icon-color.svg' | url }}" alt="OpenDSM" width="72" style="margin-bottom: 1rem;">
+  <h1 style="margin-bottom: 0.5rem;">Page not found</h1>
+  <p>We couldn't find the page you were looking for. It may have moved, or the link may be out of date.</p>
+  <p style="margin-top: 2rem;">
+    <a class="md-button md-button--primary" href="{{ nav.homepage.url | url }}">Go to homepage</a>
+    <a class="md-button" href="{{ 'documentation/' | url }}">Browse documentation</a>
+  </p>
+</div>
+{% endblock %}

@@ -22,7 +22,7 @@ hide:
         <img src="https://img.shields.io/pypi/pyversions/opendsm.svg" alt="Supported Python versions">
     </a>
     <a href="https://github.com/opendsm/opendsm" target="_blank">
-        <img src="https://img.shields.io/github/license/opendsm/opendsm.svg" alt="License">
+        <img src="https://img.shields.io/github/license/opendsm/opendsm" alt="License">
     </a>
     <a href="https://github.com/ambv/black" target="_blank">
         <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style">
@@ -35,6 +35,6 @@ hide:
 
 There are two supported ways to install OpenDSM:
 
--- Install the latest stable release from [PyPI](https://pypi.python.org/pypi/opendsm). This is best for most users.
+- Install the latest stable release from [PyPI](https://pypi.python.org/pypi/opendsm). This is best for most users.
 
--- Build the package from source at [https://github.com/opendsm/opendsm](https://github.com/opendsm/opendsm). This is best for advanced users and developers.
+- Build the package from source at [https://github.com/opendsm/opendsm](https://github.com/opendsm/opendsm). This is best for advanced users and developers.

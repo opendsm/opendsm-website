@@ -1,14 +1,24 @@
 site_name: OpenDSM
+site_description: "Open-source Python library for measuring metered energy savings: standardized billing, daily, and hourly models for demand-side program evaluation."
 site_url: !ENV [SITE_URL, "https://opendsm.energy/"]
 dev_addr: 127.0.0.1:8000
-# repo_url: https://github.com/opendsm/opendsm
 
 docs_dir: "src"
+
+validation:
+  links:
+    absolute_links: warn
+    unrecognized_links: warn
+  nav:
+    omitted_files: warn
+
 extra_css:
   - "css/custom.css"
   
 plugins:
   - search
+  - social:
+      enabled: !ENV [CI, false]
   - blog:
       blog_dir: community/working_group_updates
       post_dir: "{blog}/posts"
@@ -75,7 +85,8 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
-  logo: "https://opendsm.github.io/opendsm-website/assets/images/common/opendsm-icon-white.svg"
+  logo: assets/images/common/opendsm-icon-white.svg
+  favicon: assets/images/common/opendsm-icon-color.svg
 
   features:
     - content.code.copy
@@ -124,12 +135,16 @@ markdown_extensions:
 
 extra:
   generator: false
-  # version: mike
+  version:
+    provider: mike
+    default: latest
 
 extra_javascript:
   # - https://cmp.osano.com/16A0DbT9yDNIaQkvZ/af2b9f1f-3ac7-4a18-a99a-e487d04f08e6/osano.js?variant=two  # loaded in extrahead instead
   - javascripts/mathjax.js  # For local MathJax configuration
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For MathJax CDN
+  - path: https://unpkg.com/mathjax@3.2.2/es5/tex-chtml.js  # TeX-only CHTML bundle, pinned, loaded async
+    async: true
+  - javascripts/version-selector.js  # Moves the version selector right, next to the palette toggle
 
 copyright: Copyright © OpenDSM a Series of LF Projects, LLC<br>
   For web site terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org">https://lfprojects.org</a>.
