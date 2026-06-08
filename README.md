@@ -9,7 +9,6 @@ The website was made using the following:
 - [mkdocs-section-index](https://oprypin.github.io/mkdocs-section-index/)
 - [MkDocs Site URLs](https://octoprint.github.io/mkdocs-site-urls/)
 - [mkdocs-git-revision-date-localized-plugin](https://github.com/timvink/mkdocs-git-revision-date-localized-plugin)
-- [Mkdocs-Macros](https://mkdocs-macros-plugin.readthedocs.io/en/latest/)
 - [mike](https://github.com/jimporter/mike) (documentation versioning)
 
 Automatic code documentations assumes google-style docstrings. 
