@@ -58,7 +58,6 @@ nav:
         - Example: documentation/drmeter/towt_model/example.md
         - API: documentation/drmeter/towt_model/api.md
         - References: documentation/drmeter/towt_model/references.md
-      - New Model: documentation/drmeter/new_model/index.md
     - Comparison Groups:
       - documentation/comparison_groups/index.md
       - References: documentation/comparison_groups/references.md
