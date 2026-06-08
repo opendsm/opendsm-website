@@ -33,7 +33,7 @@ dependencies = [
   "mkdocstrings-python==1.18.2",
   "pygments==2.20.0",
   "pymdown-extensions==10.21.3",
-  "opendsm @ git+https://github.com/opendsm/opendsm@master",
+  "opendsm @ git+https://github.com/opendsm/opendsm@504ee898aa75cb747d463baf10e034a3091526d2",
 ]
 
 [tool.hatch.metadata]
