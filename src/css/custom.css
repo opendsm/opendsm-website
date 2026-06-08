@@ -31,6 +31,11 @@ iframe[src*="youtube.com"] {
   margin: 20px auto;
 }
 
+/* Hide the repo stars/forks counts next to the header source link. */
+.md-source__facts {
+  display: none;
+}
+
 /* Version selector sits at the far right of the header, just left of the
    palette toggle (relocated there by javascripts/version-selector.js).
    The flex centering vertically centers the button within its fixed-height

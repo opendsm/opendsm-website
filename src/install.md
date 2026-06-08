@@ -22,7 +22,7 @@ hide:
         <img src="https://img.shields.io/pypi/pyversions/opendsm.svg" alt="Supported Python versions">
     </a>
     <a href="https://github.com/opendsm/opendsm" target="_blank">
-        <img src="https://img.shields.io/github/license/opendsm/opendsm.svg" alt="License">
+        <img src="https://img.shields.io/github/license/opendsm/opendsm" alt="License">
     </a>
     <a href="https://github.com/ambv/black" target="_blank">
         <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style">
