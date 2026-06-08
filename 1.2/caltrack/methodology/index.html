@@ -1,0 +1,2616 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Open-source Python library for measuring metered energy savings: standardized billing, daily, and hourly models for demand-side program evaluation.">
+      
+      
+      
+        <link rel="canonical" href="https://opendsm.energy/1.2/caltrack/methodology/">
+      
+      
+        <link rel="prev" href="../history/">
+      
+      
+        <link rel="next" href="../technical_appendix/">
+      
+      
+      <link rel="icon" href="../../assets/images/common/opendsm-icon-color.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Methodology - OpenDSM</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Methodology - OpenDSM" >
+      
+        <meta  property="og:description"  content="Open-source Python library for measuring metered energy savings: standardized billing, daily, and hourly models for demand-side program evaluation." >
+      
+        <meta  property="og:image"  content="https://opendsm.energy/1.2/assets/images/social/caltrack/methodology.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://opendsm.energy/1.2/caltrack/methodology/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Methodology - OpenDSM" >
+      
+        <meta  name="twitter:description"  content="Open-source Python library for measuring metered energy savings: standardized billing, daily, and hourly models for demand-side program evaluation." >
+      
+        <meta  name="twitter:image"  content="https://opendsm.energy/1.2/assets/images/social/caltrack/methodology.png" >
+      
+    
+    
+<!-- Add scripts that need to run at the beginning of page load here -->
+<script async
+    src="https://cmp.osano.com/16A0DbT9yDNIaQkvZ/af2b9f1f-3ac7-4a18-a99a-e487d04f08e6/osano.js?variant=two"></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#caltrack-21-methods" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OpenDSM" class="md-header__button md-logo" aria-label="OpenDSM" data-md-component="logo">
+      
+  <img src="../../assets/images/common/opendsm-icon-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenDSM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Methodology
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/opendsm/opendsm" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opendsm/opendsm
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../install/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Install
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../documentation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Documentation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CalTRACK 2.1
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OpenDSM" class="md-nav__button md-logo" aria-label="OpenDSM" data-md-component="logo">
+      
+  <img src="../../assets/images/common/opendsm-icon-white.svg" alt="logo">
+
+    </a>
+    OpenDSM
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/opendsm/opendsm" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opendsm/opendsm
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../documentation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/philosophy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Philosophy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/general_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../documentation/eemeter/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    OpenEEmeter
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            OpenEEmeter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hourly Model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hourly Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/hourly_model/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/hourly_model/sufficiency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sufficiency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/hourly_model/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/hourly_model/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/hourly_model/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Daily Model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Daily Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/daily_model/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/daily_model/sufficiency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sufficiency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/daily_model/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/daily_model/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/daily_model/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_3" id="__nav_3_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Billing Model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Billing Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/billing_model/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/billing_model/sufficiency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sufficiency
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/billing_model/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/billing_model/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eemeter/billing_model/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../documentation/drmeter/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    DRmeter
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            DRmeter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_1" id="__nav_3_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    TOWT Model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            TOWT Model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/drmeter/towt_model/methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/drmeter/towt_model/example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/drmeter/towt_model/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/drmeter/towt_model/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/drmeter/new_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    New Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../documentation/comparison_groups/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Comparison Groups
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Comparison Groups
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/comparison_groups/references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    References
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../documentation/eeweather/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EEweather
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../community/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Community
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Community
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/working_group_updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working Group Updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Archive
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Archive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/working_group_updates/archive/2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2024
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/working_group_updates/archive/2023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2023
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/working_group_updates/archive/2022/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2022
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/working_group_updates/archive/2019/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2019
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/working_group_updates/archive/2018/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2018
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    CalTRACK 2.1
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            CalTRACK 2.1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 1: Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 2: Data Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3a-modeling-billing-and-daily-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 3(a): Modeling - Billing and Daily Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3b-modeling-hourly-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 3(b): Modeling - Hourly Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4: Aggregation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Technical Appendix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working_group_updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working Group Updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#section-1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 1: Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-2-data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 2: Data Management
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3a-modeling-billing-and-daily-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 3(a): Modeling - Billing and Daily Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-3b-modeling-hourly-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 3(b): Modeling - Hourly Methods
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-4-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4: Aggregation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="caltrack-21-methods">CalTRACK 2.1 Methods<a class="headerlink" href="#caltrack-21-methods" title="Permanent link">🔗</a></h1>
+<h2 id="section-1-overview">Section 1: Overview<a class="headerlink" href="#section-1-overview" title="Permanent link">🔗</a></h2>
+<p data-depth="2"><strong>1.1. Introduction.</strong></p>
+<p data-depth="3"><strong>1.1.1.</strong> CalTRACK is a set of methods for estimating avoided energy use (AEU), related to the implementation of one or more energy efficiency measures, such as an energy efficiency retrofit or a consumer behavior modification. CalTRACK methods yield whole building, site-level savings outputs. Portfolio-level savings confidence is measured by aggregating the performance of a number of individual sites and calculating portfolio fractional savings uncertainty. The primary CalTRACK use case is energy efficiency procurement (such as Pay-for-Performance and Non-Wires Alternatives). As such, key considerations are replicability and availability of data. The methods described in this document require only commonly-available site-level meter and weather data.</p>
+<p data-depth="3"><strong>1.1.2.</strong> CalTRACK methods will be familiar to energy efficiency measurement and verification (M&amp;V) practitioners and program evaluators (EM&amp;V). These methods are similar to ASHRAE Guideline 14, IPMVP Option C, and the Uniform Methods Project (UMP). In addition to a long history of use in project and program evaluation, these approaches draw on a methodological foundation developed in the more general statistical literature on piecewise linear regression or segmented regression for policy analysis and effect estimates that is used in fields as diverse as public health, medical research, and econometrics.</p>
+<p data-depth="3"><strong>1.1.3.</strong> CalTRACK methods are developed through a consensus process, organized as a series of &ldquo;sprints&rdquo; and versioned (e.g., 1.0, 2.0, etc.). Older versions are archived for reference, but new versions should be considered to reflect the consensus guidance of the working group. As a rule, CalTRACK methods are designed to inform a technical audience of practitioners, however, where useful, a pragmatic effort is made to provide specific policy guidance when doing so facilitates reproducibility.</p>
+<p data-depth="3"><strong>1.1.4.</strong> In the methodological appendix, this document also references more detailed descriptions of testing procedures and alternative approaches that have already or have not yet been tested. In all cases, the CalTRACK technical working group has sought to justify technical and procedural choices using referenceable and reproducible empirical analysis.</p>
+<p data-depth="3"><strong>1.1.5.</strong> This is a &ldquo;living&rdquo; document, in the sense that the working group continues to meet to propose, test, discuss, and enact changes to the methods. As such, recommendations may change as additional evidence arises supporting new approaches or challenging current approaches. The CalTRACK methods are version controlled to allow users to pin their programs, policies, or analysis to a particular instantiation of the methods. However, given that the latest version will always reflect what the working group believes to be the most complete and well-tested approaches, users of the CalTRACK methods are encouraged to create policies which make room for continued incorporation of methodological improvements.</p>
+<p data-depth="3"><strong>1.1.6.</strong> To further assist with referenceability and versioning, this document provides a numbering scheme to facilitate referencing the methods. As the numbering scheme may change as the methods are tested and refined, it should be used in combination with a document version to prevent ambiguity.</p>
+<p data-depth="3"><strong>1.1.7.</strong> The CalTRACK methods are designed to be general enough to implement using any general-purpose programming language and are not required to be deployed with any particular software implementation. To the extent that code samples do appear in this document, they are intended as to be used as pseudo-code.</p>
+<p data-depth="2"><strong>1.2. Participation in methods development.</strong></p>
+<p data-depth="3"><strong>1.2.1.</strong> The technical working group meetings are open to all and technical contribution is highly encouraged. Efforts to propose changes which are in-scope (see 1.3.2), and empirically and replicably tested will generally be met with interest and engagement. Efforts to propose changes which are out-of-scope (see 1.3.3), are discouraged.</p>
+<p data-depth="3"><strong>1.2.2.</strong> Ongoing discussions within the technical working group can be followed in the CalTRACK Github Issues section, which should reference particular proposed changes to this document. These are also noted and linked where applicable in this document.</p>
+<p data-depth="3"><strong>1.2.3.</strong> Interested parties may sign up to participate in the CalTRACK technical working group proceedings by registering at http://www.caltrack.org.</p>
+<p data-depth="2"><strong>1.3. Scope.</strong></p>
+<p data-depth="3"><strong>1.3.1.</strong> Some items have been considered to be generally in-scope for CalTRACK methods development.</p>
+<p data-depth="4"><strong>1.3.1.1.</strong> Technical clarifications or improvements to existing methods.</p>
+<p data-depth="4"><strong>1.3.1.2.</strong> Methods for calculating uncertainty or establishing criteria for use cases.</p>
+<p data-depth="4"><strong>1.3.1.3.</strong> Empirical tests to evaluate methodological choices and assumptions.</p>
+<p data-depth="3"><strong>1.3.2.</strong> Some items have, to date, been considered out-of-scope for CalTRACK methods development:</p>
+<p data-depth="4"><strong>1.3.2.1.</strong> Pooled analysis.</p>
+<p data-depth="4"><strong>1.3.2.2.</strong> Data sources which prove to be impossible to entirely standardize, such as measures performed.</p>
+<p data-depth="4"><strong>1.3.2.3.</strong> Measure attribution.</p>
+<p data-depth="4"><strong>1.3.2.4.</strong> Programming language or implementation-specific constraints.</p>
+<p data-depth="4"><strong>1.3.2.5.</strong> Proprietary, closed-source, or restrictively-licensed algorithms, procedures, or content.</p>
+<p data-depth="4"><strong>1.3.2.6.</strong> Analysis or evidence based in datasets which cannot be otherwise replicated by working group members.</p>
+<p data-depth="2"><strong>1.4. Definitions.</strong></p>
+<p data-depth="3"><strong>1.4.1.</strong> Project. An event, action, or set of measures implemented which is expected to have some effect on building energy consumption, such as a retrofit, performance or installation of a measure, or a behavioral intervention.</p>
+<p data-depth="3"><strong>1.4.2.</strong> Baseline period. A period of time during which data is gathered to calculate the relationship between metered consumption and weather conditions prior to a project.</p>
+<p data-depth="3"><strong>1.4.3.</strong> Reporting period. A period of time during which meter and weather data is gathered following a project to calculate the avoided energy use.</p>
+<p data-depth="3"><strong>1.4.4.</strong> Intervention period. A period of time between the end of the baseline period and the beginning of the reporting period in which a project is being installed. The intervention period is typically removed from the analysis because of erratic energy use during project installation. If a behavior intervention, the intervention period is typically one day. If multiple project dates are given, e.g., for multiple measure installations, use the earliest intervention date as project start date and the latest date as the project completion date. Recommend flagging for review if dates are more than one year apart.</p>
+<p data-depth="3"><strong>1.4.5.</strong> Avoided Energy Use. The difference between (1) energy use predictions derived from a baseline energy model in conjunction with weather data during the reporting period, and (2) actual energy use observed in a reporting period.</p>
+<p data-depth="3"><strong>1.4.6.</strong> Procurer. The party that buys energy savings stemming from energy efficiency interventions, usually a utility.</p>
+<p data-depth="3"><strong>1.4.7.</strong> Aggregator. The party that supplies energy savings projects to a procuring entity and generally takes on the associated performance risk.</p>
+<p data-depth="3"><strong>1.4.8.</strong> Site. An endpoint on the grid where energy consumption is monitored by one or more physical meters.</p>
+<p data-depth="3"><strong>1.4.9.</strong> Energy consumption. A value derived from a physical meter based on the amount delivered over particular intervals of time.</p>
+<h2 id="section-2-data-management">Section 2: Data Management<a class="headerlink" href="#section-2-data-management" title="Permanent link">🔗</a></h2>
+<p data-depth="2"><strong>2.1. Data Inputs.</strong></p>
+<p data-depth="2">The data requirements to apply CalTRACK methods to a single metered site are listed in this section. These represent the &ldquo;ideal&rdquo;. Additional constraints and sufficiency requirements follow in section (2.2) and considerations for handling missing or incomplete data follow.</p>
+<p data-depth="3"><strong>2.1.1.</strong> Energy consumption data (meter data). This data must have the following qualities:</p>
+<p data-depth="4"><strong>2.1.1.1.</strong> Periods of usage, usage during those periods. Can be provided as billing data or as AMI data.</p>
+<p data-depth="4"><strong>2.1.1.2.</strong> May be combined from multiple sources or accounts.</p>
+<p data-depth="4"><strong>2.1.1.3.</strong> Must be converted to units of energy consumption, not supplied volume. This can be achieved, for example, by using a therm factor conversion.</p>
+<p data-depth="4"><strong>2.1.1.4.</strong> Must be subject to the constraints outlined in 2.2.</p>
+<p data-depth="4"><strong>2.1.1.5.</strong> Flag or directional indicator for presence of net metering.</p>
+<p data-depth="3"><strong>2.1.2.</strong> Set of candidate weather station sites. Each weather station should have the following data available:</p>
+<p data-depth="4"><strong>2.1.2.1.</strong> Weather station site latitude and longitude coordinates.</p>
+<p data-depth="4"><strong>2.1.2.2.</strong> Climate zones information if needed in weather station matching (see 2.4).</p>
+<p data-depth="4"><strong>2.1.2.3.</strong> IECC Climate Zone.</p>
+<p data-depth="4"><strong>2.1.2.4.</strong> IECC Moisture Regime.</p>
+<p data-depth="4"><strong>2.1.2.5.</strong> Building America Climate Zone.</p>
+<p data-depth="4"><strong>2.1.2.6.</strong> California Building Climate Zone Area (if site is in the state of California).</p>
+<p data-depth="4"><strong>2.1.2.7.</strong> Observed dry-bulb temperature data, subject to the data requirements outlined in 2.2.</p>
+<p data-depth="3"><strong>2.1.3.</strong> Project data.</p>
+<p data-depth="4"><strong>2.1.3.1.</strong> Date(s).</p>
+<p data-depth="5"><strong>2.1.3.1.1.</strong> Project start date. The date of the beginning of the intervention period (see 1.4.4) during which energy use will be ignored. If the exact start date is not known, an estimate may be used in place of a recorded start date. The estimate should err on the side of an earlier start date.</p>
+<p data-depth="5"><strong>2.1.3.1.2.</strong> Intervention completion date. The date of the end of the intervention period. This date marks the beginning of the reporting period (see 1.4.3). If the exact completion date is not known, an estimate may be used in place of a recorded completion date. The estimate should err on the side of a later start date.</p>
+<p data-depth="5"><strong>2.1.3.1.3.</strong> Intervention active date. For certain interventions without a defined &ldquo;project start&rdquo; (e.g. behavioral interventions), the date when a behavioral intervention(s) became active. Use this as the intervention completion date as well.</p>
+<p data-depth="5"><strong>2.1.3.1.4.</strong> Baseline period end. Either the project start date or the intervention active date, depending on intervention type.</p>
+<p data-depth="3"><strong>2.1.4.</strong> Building site data.</p>
+<p data-depth="4"><strong>2.1.4.1.</strong> Latitude and longitude coordinates. Should be four decimal places or more.</p>
+<p data-depth="5"><strong>2.1.4.1.1.</strong> In the absence of a high quality geocode, the latitude and longitude coordinates of the centroid of the ZIP Code Tabulation Area (ZCTA) may be used instead. ZCTA should be used in preference to ZIP code, as ZIP codes are not associated with geographic boundaries (see https://www.census.gov/geo/reference/zctas.html).</p>
+<p data-depth="3"><strong>2.1.5.</strong> Climate zone (see 2.1.2.2).</p>
+<p data-depth="3"><strong>2.1.6.</strong> Time zone.</p>
+<p data-depth="2"><strong>2.2. Data constraints.</strong></p>
+<p data-depth="3"><strong>2.2.1.</strong> Missing values and data sufficiency for baseline period.</p>
+<p data-depth="4"><strong>2.2.1.1.</strong> Consumption and temperature data should be sufficient to allow for a 365-day baseline period.</p>
+<p data-depth="4"><span id="methods2-2-1-2"></span>
+<strong>2.2.1.2.</strong> Number of days of consumption and temperature data missing should not exceed 37 days (10%) for billing and daily methods. For fitting baseline models using the hourly methods, no minimum baseline period length is required. However, baseline consumption data must be available for over 90% of hours in the same calendar month as well as in each of the previous and following calendar months in the previous year. <a href="../technical_appendix/#appendix2-2-1-2">See Appendix for Details.</a></p>
+<p data-depth="4"><strong>2.2.1.3.</strong> Data is considered missing if it is clearly marked by the data provider as NULL, NaN, or similar.</p>
+<p data-depth="4"><strong>2.2.1.4.</strong> Values of 0 are considered missing for electricity data, but not gas data.</p>
+<p data-depth="3"><strong>2.2.2.</strong> Daily data is considered sufficient for baseline period under the following conditions:</p>
+<p data-depth="4"><strong>2.2.2.1.</strong> If summing to daily usage from higher frequency interval data, no more than 50% of high-frequency values should be missing. Missing values should be filled in with average of non-missing values (e.g., for hourly data, 24 * average hourly usage).</p>
+<p data-depth="4"><strong>2.2.2.2.</strong> Although this is more common in billing data than in interval data, if periods are estimated they should be combined with subsequent periods.</p>
+<p data-depth="4"><strong>2.2.2.3.</strong> If daily average temperatures are calculated by averaging higher frequency temperature data, no more than 50% of high-frequency temperature values should be missing.</p>
+<p data-depth="3"><strong>2.2.3.</strong> Billing data is considered sufficient for baseline period under the following conditions:</p>
+<p data-depth="4"><strong>2.2.3.1.</strong> Estimated periods values should be combined with next period up to a 70-day limit. Estimated periods are counted as missing data for the purpose of determining data sufficiency to limit the number of estimated reads used for analysis.</p>
+<p data-depth="4"><strong>2.2.3.2.</strong> If average temperatures for billing periods are calculated by averaging higher frequency temperature data, the high-frequency temperature data must cover 90% of each averaged billing period.</p>
+<p data-depth="4"><strong>2.2.3.3.</strong> If daily average temperatures are calculated by averaging higher frequency temperature data, no more than 50% of high-frequency temperature values should be missing.</p>
+<p data-depth="4"><strong>2.2.3.4.</strong> Off-cycle reads (spanning less than 25 days) should be dropped from analysis. These readings typically occur due to meter reading problems or changes in occupancy.</p>
+<p data-depth="4"><strong>2.2.3.5.</strong> For pseudo-monthly billing cycles, periods spanning more than 35 days should be dropped from analysis. For bi-monthly billing cycles, periods spanning more than 70 days should be dropped from the analysis.</p>
+<p data-depth="3"><strong>2.2.4.</strong> Hourly temperature data is considered sufficient under the following conditions:</p>
+<p data-depth="3"><span id="methods2-2-4-1"></span>
+<strong>2.2.4.1</strong> Temperature data may not be missing for more than six consecutive hours. Missing temperature data may be linearly interpolated for up to 6 consecutive missing hours. <a href="../technical_appendix/#appendix2-2-4-1">See Appendix for Details.</a></p>
+<p data-depth="3"><strong>2.2.5.</strong> Data spanning beyond the period should not be used in analysis.</p>
+<p data-depth="3"><strong>2.2.6.</strong> Projects should be excluded if net metering (i.e., for photovoltaics or other on-site generation) status changes during the baseline period.</p>
+<p data-depth="4"><strong>2.2.6.1.</strong> Exception: Future efforts may provide the ability to access sub-meter data that may allow for backing out onsite generation and storage to arrive at savings. Currently, this data is not readily obtained.</p>
+<p data-depth="3"><strong>2.2.7.</strong> Projects should be flagged if electric vehicle charging is installed during the baseline period.</p>
+<p data-depth="2"><strong>2.3. Guidelines for handling data quality issues.</strong></p>
+<p data-depth="2">In many cases, data quality issues can be resolved by going back to the source to resolve issues in export or transfer. This guidance is a second line of defense for handling or correcting for common data issues, and are provided in the hope of mitigating the myriad issues and discrepancies which arise using different methods for data cleaning.</p>
+<p data-depth="3"><strong>2.3.1.</strong> Impossible dates.</p>
+<p data-depth="4"><strong>2.3.1.1.</strong> If conducting billing analysis, and if day of month is impossible (e.g., 32nd of Jan), use first of month.</p>
+<p data-depth="4"><strong>2.3.1.2.</strong> If month (e.g., 13) or year (e.g. 2051) is impossible flag the date and remove it from the dataset. Check for mis-coding, such as 2015 -&gt; 2051.</p>
+<p data-depth="3"><strong>2.3.2.</strong> Duplicated meter or temperature records.</p>
+<p data-depth="4"><strong>2.3.2.1.</strong> Combine available versions into a single time series by dropping duplicate records, using the most complete version possible. If a record for a particular timestamp conflicts with another version, flag the project for possible existence of multiple meters or submeters. If this is confirmed, the usage from multiple meters may be aggregated.</p>
+<p data-depth="3"><strong>2.3.3.</strong> Ensure that meter and temperature data is using matching and correct timezone and daylight-savings handling across all data sources.</p>
+<p data-depth="3"><strong>2.3.4.</strong> NOAA weather is sampled roughly hourly with minute-level timestamps. This should be converted to hourly by first computing a minute-resolution time series using near interpolation of data points with a limit of 60 minutes, then downsampling to hourly temperature by taking mean of linearly-interpolated minute-level readings.</p>
+<p data-depth="3"><strong>2.3.5.</strong> Negative meter data values should be flagged for review as they indicate the possible unreported presence of net metering.</p>
+<p data-depth="3"><strong>2.3.6.</strong> Extreme values: Usage values that are more than three interquartile ranges larger than the median usage should be flagged as outliers and manually reviewed.</p>
+<p data-depth="3"><strong>2.3.7.</strong> Generally recommend an audit for dataset completeness using expected counts of sites, meters, and projects.</p>
+<p data-depth="3"><strong>2.3.8.</strong> Roll up data if not given with expected frequency.</p>
+<p data-depth="2"><strong>2.4. Matching a site to a weather station.</strong></p>
+<p data-depth="3"><span id="methods2-4-1"></span>
+<strong>2.4.1.</strong> Weather station to be used is closest within climate zone that meets CalTrack data sufficiency requirements. <a href="../technical_appendix/#appendix2-4-1">See Appendix for Details.</a></p>
+<p data-depth="4"><strong>2.4.1.1.</strong> If there are no weather stations within that climate zone, fallback to closest weather station that has complete data.</p>
+<p data-depth="3"><strong>2.4.2.</strong> Matches further than 200 km should be flagged for review, as these distant matches may sacrifice interpretability of the model.</p>
+<h2 id="section-3a-modeling-billing-and-daily-methods">Section 3(a): Modeling - Billing and Daily Methods<a class="headerlink" href="#section-3a-modeling-billing-and-daily-methods" title="Permanent link">🔗</a></h2>
+<p data-depth="2"><strong>3.1. Overview of usage per day model strategy.</strong></p>
+<p data-depth="3"><strong>3.1.1.</strong> Model intuition.</p>
+<p data-depth="4"><strong>3.1.1.1.</strong> Building is modeled as base load, heating load, and cooling load. Heating load and cooling load are assumed to have a linear relationship with heating and cooling demand, as approximated by heating and cooling degree days, beyond particular heating and cooling balance points.</p>
+<p data-depth="3"><strong>3.1.2.</strong> Model foundations in literature. Modeling does not strictly adhere to these methods, but draws from them for inspiration.</p>
+<p data-depth="4"><strong>3.1.2.1.</strong> PRISM.</p>
+<p data-depth="4"><strong>3.1.2.2.</strong> Uniform Methods Project for Whole Home Building Analysis.</p>
+<p data-depth="4"><strong>3.1.2.3.</strong> California Evaluation Project.</p>
+<p data-depth="3"><span id="methods3-1-3"></span>
+<strong>3.1.3.</strong> Models are fit to baseline data in the 365 days immediately prior to the intervention start date, provided the data sufficiency criteria are met. <a href="../technical_appendix/#appendix3-1-3">See Appendix for Details.</a></p>
+<p data-depth="3"><strong>3.1.4.</strong> Follow the process outlined below and detailed in subsequent sections:</p>
+<p data-depth="4"><span id="methods3-1-4-1"></span>
+<strong>3.1.4.1.</strong> Select and qualify balance points for candidate models for each period for each meter. <a href="../technical_appendix/#appendix3-1-4-1">See Appendix for Details.</a></p>
+<p data-depth="4"><strong>3.1.4.2.</strong> Use hourly temperature from the matched weather station (11).</p>
+<p data-depth="4"><strong>3.1.4.3.</strong> Compute design matrixes, fit, and qualify all candidate models.</p>
+<p data-depth="4"><strong>3.1.4.4.</strong> Select best candidate model.</p>
+<p data-depth="4"><strong>3.1.4.5.</strong> Compute estimated values.</p>
+<p data-depth="4"><strong>3.1.4.6.</strong> Compute measured values.</p>
+<p data-depth="4"><strong>3.1.4.7.</strong> Compute savings.</p>
+<p data-depth="4"><strong>3.1.4.8.</strong> Aggregate across sites.</p>
+<p data-depth="2"><strong>3.2. Select and qualify balance points.</strong></p>
+<p data-depth="3"><span id="methods3-2-1"></span>
+<strong>3.2.1.</strong> A grid search of models is performed using a wide range of candidate balance points. <a href="../technical_appendix/#appendix3-2-1">See Appendix for Details.</a></p>
+<p data-depth="4"><strong>3.2.1.1.</strong> Recommended cooling balance point range is from 30 to 90 degrees F. For analysis of natural gas consumption, models using cooling degree days are not considered.</p>
+<p data-depth="4"><strong>3.2.1.2.</strong> Recommended heating balance point range is from 30 to 90 degrees F.</p>
+<p data-depth="3"><strong>3.2.2.</strong> Constraints and qualification. Only model balance points or balance point combinations for which:</p>
+<p data-depth="4"><strong>3.2.2.1.</strong> Cooling balance point <span class="arithmatex">\(\geq\)</span> heating balance point.</p>
+<p data-depth="4"><strong>3.2.2.2.</strong> Have enough numbers of non-zero degree days. This is in order to avoid overfitting in the case where only a few days exist with usage and nonzero degree-days, and the usage happens by chance to be unusually high on those days.</p>
+<p data-depth="5"><strong>3.2.2.2.1.</strong> At least 10 days with non-zero degree days per year. This requirement does not apply when using billing data.</p>
+<p data-depth="5"><strong>3.2.2.2.2.</strong> At least 20 degree days per year.</p>
+<p data-depth="3"><span id="methods3-2-3"></span>
+<strong>3.2.3.</strong> Maximum gap between candidate balance points in the grid search is 3 degrees F or the equivalent in degrees C. <a href="../technical_appendix/#appendix3-2-3">See Appendix for Details.</a></p>
+<p data-depth="2"><strong>3.3. Computing design matrix for each model.</strong></p>
+<p data-depth="3"><strong>3.3.1.</strong> Basic structure applies to analysis using both daily and billing periods.</p>
+<p data-depth="4"><strong>3.3.1.1.</strong> Dependent variable: average usage per day for a usage period.</p>
+<p data-depth="4"><span id="methods3-3-1-2"></span>
+<strong>3.3.1.2.</strong> Independent variables. <a href="../technical_appendix/#appendix3-3-1-2">See Appendix for Details.</a></p>
+<p data-depth="5"><strong>3.3.1.2.1.</strong> Average cooling degree days per day for a usage period.</p>
+<p data-depth="5"><strong>3.3.1.2.2.</strong> Average heating degree days per day for a usage period.</p>
+<p data-depth="4"><strong>3.3.1.3.</strong> Fitted model parameters.</p>
+<p data-depth="5"><strong>3.3.1.3.1.</strong> <span class="arithmatex">\(μ\)</span> intercept (interpreted as daily base load).</p>
+<p data-depth="5"><strong>3.3.1.3.2.</strong> <span class="arithmatex">\(β_H\)</span> is the slope.</p>
+<p data-depth="5"><strong>3.3.1.3.3.</strong> <span class="arithmatex">\(β_C\)</span> is the slope.</p>
+<p data-depth="3"><strong>3.3.2.</strong> Equation: <span class="arithmatex">\(UPD_{p,i} = μ + β_{H,i}*HDD_p + β_{C,i}*CDD_p + ε_{p,i}\)</span>, where:</p>
+<p data-depth="4"><strong>3.3.2.1.</strong> <span class="arithmatex">\(UPD_{p,i}\)</span> is average use (gas in therms, electricity in kWh) per day during period <span class="arithmatex">\(p\)</span> for site <span class="arithmatex">\(i\)</span>.</p>
+<p data-depth="4"><strong>3.3.2.2.</strong> <span class="arithmatex">\(μ\)</span> is the mean use for site <span class="arithmatex">\(i\)</span>, or intercept.</p>
+<p data-depth="4"><strong>3.3.2.3.</strong> <span class="arithmatex">\(β_{H,i}\)</span> is the heating coefficient for site <span class="arithmatex">\(i\)</span>. It represents the incremental change in energy use per day for every additional heating degree day.</p>
+<p data-depth="4"><strong>3.3.2.4.</strong> <span class="arithmatex">\(β_{C,i}\)</span> is the cooling coefficient for site <span class="arithmatex">\(i\)</span>. It represents the incremental change in energy use per day for every additional cooling degree day.</p>
+<p data-depth="4"><strong>3.3.2.5.</strong> <span class="arithmatex">\(HDD_p\)</span> is the average number of heating degree days per day in period <span class="arithmatex">\(p\)</span>, which is a function of the selected balance point temperature, the average daily temperatures from the weather station matched to site <span class="arithmatex">\(i\)</span> during the period <span class="arithmatex">\(p\)</span>, and the number of days in period <span class="arithmatex">\(p\)</span> with matched usage and weather data for site <span class="arithmatex">\(i\)</span>.</p>
+<p data-depth="4"><strong>3.3.2.6.</strong> <span class="arithmatex">\(CDD_p\)</span> is the average number of cooling degree days per day in period <span class="arithmatex">\(p\)</span>, which is a function of the selected balance point temperature, the average daily temperatures from the weather station matched to site <span class="arithmatex">\(i\)</span> during the period <span class="arithmatex">\(p\)</span>, and the number of days in period <span class="arithmatex">\(p\)</span> with matched usage and weather data for site <span class="arithmatex">\(i\)</span>.</p>
+<p data-depth="4"><strong>3.3.2.7.</strong> <span class="arithmatex">\(n\)</span> is the site specific random error term for a given period.</p>
+<p data-depth="3"><strong>3.3.3.</strong> Computing average usage per day (UPD) for each period.</p>
+<p data-depth="4"><strong>3.3.3.1.</strong> <span class="arithmatex">\(UPD_p = \frac{1}{n_p} * Σ(U_d)\)</span>, where</p>
+<p data-depth="4"><strong>3.3.3.2.</strong> <span class="arithmatex">\(UPD_p\)</span> is the average use per day for a given period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="4"><strong>3.3.3.3.</strong> <span class="arithmatex">\(Σ(U_d)\)</span> is the sum of all daily use values <span class="arithmatex">\(U_d\)</span> for a given period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="4"><strong>3.3.3.4.</strong> <span class="arithmatex">\(n_p\)</span> is the total number of days for which daily use values <span class="arithmatex">\(U_d\)</span> were available in period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="4"><strong>3.3.3.5.</strong> Boundaries between days should occur at midnight of the local time zone.</p>
+<p data-depth="3"><strong>3.3.4.</strong> Cooling degree days for each particular balance point.</p>
+<p data-depth="4"><strong>3.3.4.1.</strong> CDD values are calculated as follows:</p>
+<p data-depth="5"><strong>3.3.4.1.1.</strong> <span class="arithmatex">\(CDD_p = \frac{1}{n_{d,p}} * Σ(max(avg(T_d) - CDD_b, 0))\)</span>, where</p>
+<p data-depth="5"><strong>3.3.4.1.2.</strong> <span class="arithmatex">\(CDD_p\)</span> = Cooling degree days for period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="5"><strong>3.3.4.1.3.</strong> <span class="arithmatex">\(CDD_b\)</span> = the CDD balance point that provides best model fit.</p>
+<p data-depth="5"><strong>3.3.4.1.4.</strong> <span class="arithmatex">\(n_{d,p}\)</span> is the total number of days elapsed between the start time of the period <span class="arithmatex">\(p\)</span> and the end time of the period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="5"><strong>3.3.4.1.5.</strong> <span class="arithmatex">\(Σ()\)</span> = the sum of values in () over each day <span class="arithmatex">\(d\)</span> in period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="5"><strong>3.3.4.1.6.</strong> <span class="arithmatex">\(max()\)</span> = the maximum of the two values in ().</p>
+<p data-depth="5"><strong>3.3.4.1.7.</strong> <span class="arithmatex">\(avg(T_d)\)</span> = the average temperature for day <span class="arithmatex">\(d\)</span>.</p>
+<p data-depth="3"><strong>3.3.5.</strong> Heating degree days for each particular balance point.</p>
+<p data-depth="4"><strong>3.3.5.1.</strong> HDD values are calculated as follows:</p>
+<p data-depth="5"><strong>3.3.5.1.1.</strong> <span class="arithmatex">\(HDD_p = \frac{1}{n_{d,p}} * Σ(max(HDD_b - avg(T_d), 0))\)</span>, where</p>
+<p data-depth="5"><strong>3.3.5.1.2.</strong> <span class="arithmatex">\(HDD_p\)</span> = Average heating degree days per day for period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="5"><strong>3.3.5.1.3.</strong> <span class="arithmatex">\(HDD_b\)</span> = the HDD balance point that provides best model fit.</p>
+<p data-depth="5"><strong>3.3.5.1.4.</strong> <span class="arithmatex">\(n_{d,p}\)</span> is the total number of days elapsed between the start time of the period <span class="arithmatex">\(p\)</span> and the end time of the period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="5"><strong>3.3.5.1.5.</strong> <span class="arithmatex">\(Σ()\)</span> = the sum of values in () over each day <span class="arithmatex">\(d\)</span> in period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="5"><strong>3.3.5.1.6.</strong> <span class="arithmatex">\(max()\)</span> = the maximum of the two values in ().</p>
+<p data-depth="5"><strong>3.3.5.1.7.</strong> <span class="arithmatex">\(avg(T_d)\)</span> = the average temperature for day <span class="arithmatex">\(d\)</span>.</p>
+<p data-depth="2"><strong>3.4. Fit candidate models.</strong></p>
+<p data-depth="3"><span id="methods3-4-1"></span>
+<strong>3.4.1.</strong> Models using daily data are fit using ordinary least squares. <a href="../technical_appendix/#appendix3-4-1">See Appendix for Details.</a></p>
+<p data-depth="3"><strong>3.4.2.</strong> Models using billing data are fit using weighted least squares regression. Use the corresponding number of days np as the weight for each billing period.</p>
+<p data-depth="3"><strong>3.4.3.</strong> For each meter at each site, the choice must be made between using one of the single parameter models (just HDD or CDD) or combined models (HDD and CDD). This choice is called model selection. A range of candidate models is fitted for each qualified balance point, then the most appropriate single qualified model, as estimated using the metric below, is used to calculate estimated quantities.</p>
+<p data-depth="4"><strong>3.4.3.1.</strong> Given the selected balance point ranges, all combinations of candidate balance points are tried. Models are as follows:</p>
+<p data-depth="5"><strong>3.4.3.1.1.</strong> HDD and CDD (electricity only):</p>
+<div class="arithmatex">\[
+UPD_{p,i} = μ_i + β_{H,i}*HDD_p + β_{C,i}*CDD_p + ε_{p,i}
+\]</div>
+<p data-depth="5"><strong>3.4.3.1.2.</strong> HDD only:</p>
+<div class="arithmatex">\[
+UPD_{p,i} = μ_i + β_{H,i}*HDD_p + ε_{p,i}
+\]</div>
+<p data-depth="5"><strong>3.4.3.1.3.</strong> CDD only: (electricity only):</p>
+<div class="arithmatex">\[
+UPD_{p,i} = μ_i + β_{C,i}*CDD_p+ ε_{p,i}
+\]</div>
+<p data-depth="5"><strong>3.4.3.1.4.</strong> Intercept-only:</p>
+<div class="arithmatex">\[
+UPD_{p,i} = μ_i + ε_{p,i}
+\]</div>
+<p data-depth="5">In this case, adjusted R-squared is 0 by definition.</p>
+<p data-depth="4"><span id="methods3-4-3-2"></span>
+<strong>3.4.3.2.</strong> Candidate model qualification. If each parameter estimate is not negative, then the model qualifies for inclusion in model selection. <a href="../technical_appendix/#appendix3-4-3-2">See Appendix for Details.</a></p>
+<p data-depth="5"><strong>3.4.3.2.1.</strong> <span class="arithmatex">\(β_H &gt; 0\)</span></p>
+<p data-depth="5"><strong>3.4.3.2.2.</strong> <span class="arithmatex">\(β_C &gt; 0\)</span></p>
+<p data-depth="5"><strong>3.4.3.2.3.</strong> <span class="arithmatex">\(μ_i &gt; 0\)</span></p>
+<p data-depth="4"><span id="methods3-4-3-3"></span>
+<strong>3.4.3.3.</strong> The model with highest adjusted R-squared will be selected as the final model. <a href="../technical_appendix/#appendix3-4-3-3">See Appendix for Details.</a> Adjusted R-squared will be defined as:</p>
+<p data-depth="5"><strong>3.4.3.3.1.</strong> <span class="arithmatex">\(R^2_{adj} = 1 - \frac{\frac{SS_{res}}{df_e}}{\frac{SS_{tot}}{df_t}}\)</span>, where</p>
+<p data-depth="5"><strong>3.4.3.3.2.</strong> <span class="arithmatex">\(SS_{res}\)</span> is the sum of squares of residuals.</p>
+<p data-depth="5"><strong>3.4.3.3.3.</strong> <span class="arithmatex">\(df_e\)</span> is the degrees of freedom of the estimate of the underlying population error variance, and is calculated using <span class="arithmatex">\((P - c - 1)\)</span>, where <span class="arithmatex">\(P\)</span> is the number of periods (e.g. days or billing periods) in the baseline used to estimate the model and <span class="arithmatex">\(c\)</span> is the number of explanatory variables, not including the intercept term.</p>
+<p data-depth="5"><strong>3.4.3.3.4.</strong> <span class="arithmatex">\(SS_{tot}\)</span> is the total sum of squares</p>
+<p data-depth="5"><strong>3.4.3.3.5.</strong> <span class="arithmatex">\(df_t\)</span> is the degrees of freedom of the estimate of the population variance of the dependent variable, and is calculated as <span class="arithmatex">\((P - 1)\)</span>, were <span class="arithmatex">\(P\)</span> is the number of periods (e.g. days or billing periods) in the baseline used to estimate the model.</p>
+<p data-depth="2"><strong>3.5. Missing Data in Reporting Period.</strong></p>
+<p data-depth="3"><strong>3.5.1.</strong> Missing temperature values and data sufficiency for reporting period.</p>
+<p data-depth="4"><strong>3.5.1.1.</strong> If a day is missing a temperature value, the corresponding consumption value for that day should be masked.</p>
+<p data-depth="4"><strong>3.5.1.2.</strong> If daily average temperatures are calculated by averaging higher frequency temperature data, no more than 50% of high-frequency temperature values should be missing.</p>
+<p data-depth="4"><strong>3.5.1.3.</strong> Missing values should be filled in with average of non-missing values (e.g., for hourly data, average hourly temperature).</p>
+<p data-depth="4"><strong>3.5.1.4.</strong> Data is considered missing if it is clearly marked by the data provider as NULL, NaN, or similar.</p>
+<p data-depth="3"><strong>3.5.2.</strong> Missing consumption values and data sufficiency for reporting period.</p>
+<p data-depth="4"><strong>3.5.2.1.</strong> If a day is missing a consumption value, the corresponding counterfactual value for that day should be masked.</p>
+<p data-depth="4"><strong>3.5.2.2.</strong> Data is considered missing if it is clearly marked by the data provider as NULL, NaN, or similar.</p>
+<p data-depth="4"><strong>3.5.2.1.</strong> Values of 0 are considered missing for electricity data, but not gas data.</p>
+<p data-depth="3"><strong>3.5.3.</strong> Estimating counterfactual usage when temperature data is missing.</p>
+<p data-depth="4"><strong>3.5.3.1.</strong> Counterfactual usage is not calculated when daily temperature data is missing, pending further methodological discussion.</p>
+<p data-depth="3"><strong>3.5.4.</strong> Estimating avoided energy usage when consumption data is missing.</p>
+<p data-depth="4"><strong>3.5.4.1.</strong> Avoided energy use is not calculated when consumption data is missing.</p>
+<p data-depth="3"><strong>3.5.5.</strong> Billing data in the reporting period.</p>
+<p data-depth="4"><strong>3.5.5.1.</strong> Estimated periods values should be combined with next period up to a 70-day limit.</p>
+<p data-depth="4"><strong>3.5.5.2.</strong> If average temperatures for billing periods are calculated by averaging higher frequency temperature data, the high-frequency temperature data must cover 90% of each averaged billing period.</p>
+<p data-depth="4"><strong>3.5.5.3.</strong> Off-cycle reads (spanning less than 25 days) should be combined with next period up to a 70 day limit. These readings typically occur due to meter reading problems or changes in occupancy.</p>
+<p data-depth="4"><strong>3.5.5.4.</strong> For monthly billing cycles, periods spanning more than 35 days should be flagged for review. For bi-monthly billing cycles, periods spanning more than 70 days should be flagged for review.</p>
+<p data-depth="3"><strong>3.5.6.</strong> Projects should be excluded if net metering (i.e., for photovoltaics or other on-site generation) status changes during the reporting period.</p>
+<p data-depth="4"><strong>3.5.6.1.</strong> Exception: Future efforts may provide the ability to access sub-meter data that may allow for backing out onsite generation and storage to arrive at savings. Currently, this data is not readily obtained.</p>
+<p data-depth="2"><strong>3.6. Computing derived quantities for billing and daily.</strong></p>
+<p data-depth="3"><strong>3.6.1.</strong> Avoided energy use (AEU) for each time period in the reporting period is calculated as follows.</p>
+<div class="arithmatex">\[
+AEU_{p,i} = n_p * (μ_i + β_{H,i}*HDD_p + β_{C,i}*CDD_p - UPD_p)
+\]</div>
+<p data-depth="4"><strong>3.6.1.1.</strong> The coefficients <span class="arithmatex">\(μ_i\)</span>, <span class="arithmatex">\(β_{H,i}\)</span>, <span class="arithmatex">\(β_{C,i}\)</span> are those from the final model.</p>
+<p data-depth="4"><strong>3.6.1.2.</strong> <span class="arithmatex">\(HDD_p\)</span> and <span class="arithmatex">\(CDD_p\)</span> are calculated using weather data in the reporting period according to guidelines in Section 3.3.</p>
+<p data-depth="4"><strong>3.6.1.3.</strong> <span class="arithmatex">\(UPD_p\)</span> is the usage per day calculated for a period <span class="arithmatex">\(p\)</span> using the same procedure as in Section 3.3.3.</p>
+<h2 id="section-3b-modeling-hourly-methods">Section 3(b): Modeling - Hourly Methods<a class="headerlink" href="#section-3b-modeling-hourly-methods" title="Permanent link">🔗</a></h2>
+<p data-depth="3"><strong>3.7.2.</strong> CalTRACK implementation. CalTRACK recommends the use of the TOWT model with standardization of certain user-defined inputs to model hourly load and energy savings.</p>
+<p data-depth="3"><strong>3.7.3.</strong> Model foundation in literature. The model is described in these publications:</p>
+<div data-depth="3">
+<ol>
+<li>Mathieu et al., Quantifying Changes in Building Electric Load, With Application to Demand Response. IEEE Transactions on Smart Grid 2:507-518, 2011</li>
+<li>Price P, Methods for Analyzing Electric Load Shape and its Variability. Lawrence Berkeley National Laboratory Report LBNL-3713E, May 2010.</li>
+</ol>
+</div>
+<p data-depth="3"><strong>3.7.4.</strong> Models are fit to baseline data immediately prior to the baseline end date, provided the data sufficiency criteria are met.</p>
+<p data-depth="3"><span id="methods3-7-5"></span>
+<strong>3.7.5.</strong> Baseline periods. <a href="../technical_appendix/#appendix3-7-5">See Appendix for Details.</a> Instead of using a single baseline model for estimating the counterfactual during all times of the year, predicting the counterfactual during any time period will be done using the baseline model for that calendar month (&ldquo;month-by-month&rdquo; models). This implies that there can be up to 12 separate models for a particular building - one for predicting the counterfactual in each calendar month. Each model will be fit using baseline data comprising (i) data from the same calendar month in the 365 days prior to the intervention date. These data points will be given full weight when fitting the model, (ii) data from the previous and subsequent calendar months in the 365 days prior to the intervention date. These data points will be given a weight of 0.5 when fitting the model. For example, for a project installed in March 2018, predicting the counterfactual in July 2018 will be done using a model fit to baseline data from June, July and August 2017, with weights of 0.5, 1 and 0.5 assigned to the data points in those three months.</p>
+<p data-depth="4"><strong>3.7.5.1.</strong> In some cases, building energy use patterns are consistent from month to month and a single model with a 365 day baseline may be used, as long as the normalized mean bias error (NMBE) for each month in the baseline period is calculated separately and no more than two months have NMBE larger than an acceptable threshold (default, 1%).</p>
+<p data-depth="4"><strong>3.7.5.2.</strong> A single model with a 365 day baseline may also be used if temperature coverage in the baseline period is insufficient. In particular, if either of these conditions is satisfied:</p>
+<div class="arithmatex">\[
+T_{min, reporting} &lt; T_{min, baseline} - 0.1 * (T_{max, baseline} - T_{min, baseline})
+\]</div>
+<p data-depth="4">or</p>
+<div class="arithmatex">\[
+T_{max, reporting} &gt; T_{max, baseline} + 0.1 * (T_{max, baseline} - T_{min, baseline})
+\]</div>
+<p data-depth="4">where, the subscripts min and max refer to the minimum and maximum temperatures in the baseline and reporting periods.</p>
+<p data-depth="3"><strong>3.7.6.</strong> The following procedures (3.7-3.11) will be applied separately for each &ldquo;month-by-month&rdquo; model or to the full 365-day model.</p>
+<p data-depth="2"><strong>3.8. Occupancy estimation.</strong></p>
+<p data-depth="3"><strong>3.8.1.</strong> Overview. The sensitivity of building energy use to temperature may vary depending on the &ldquo;occupancy&rdquo; status. This is handled in the Time-Of-Week and Temperature model by segmenting the times-of-week into periods of high load and low load (also referred to as occupied/unoccupied, although the states may not necessarily correspond to occupancy changes). The segmentation is accomplished using the residuals of a HDD-CDD model developed as follows.</p>
+<p data-depth="3"><strong>3.8.2.</strong> Time-of-week. A week is divided into 168 hourly time-of-week intervals starting on Monday. For example, interval 1 is from midnight to 1 a.m. on Monday morning, interval 2 is from 1 a.m.-2 a.m. and so on. Dummy variables <span class="arithmatex">\(TOW_p\)</span> (and consequently separate coefficients <span class="arithmatex">\(\alpha_i\)</span>) are included in the model for each time of week.</p>
+<p data-depth="3"><strong>3.8.3.</strong> Regression to determine occupancy status. A single HDD and CDD weighted least squares (WLS) model is fit to the baseline dataset (defined pursuant to 3.6.5) using fixed balance points (50 for heating and 65 for cooling):</p>
+<div class="arithmatex">\[
+UPH_{pi} = \mu_i + \beta_{Hi}HDH50_p + \beta_{Ci}CDH65_p + \epsilon_{pi}
+\]</div>
+<p data-depth="3">where</p>
+<p data-depth="4"><strong>3.8.3.1.</strong> <span class="arithmatex">\(UPH_{pi}\)</span> is the usage per hour for period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="4"><strong>3.8.3.2.</strong> <span class="arithmatex">\(\mu_i\)</span> is the mean use for the site.</p>
+<p data-depth="4"><strong>3.8.3.3.</strong> <span class="arithmatex">\(\beta_{H_i}\)</span> is the heating coefficient.</p>
+<p data-depth="4"><strong>3.8.3.4.</strong> <span class="arithmatex">\(HDH50_p\)</span> is the heating degree-hour with a 50-degree balance point.</p>
+<p data-depth="4"><strong>3.8.3.5.</strong> <span class="arithmatex">\(\beta_{C_i}\)</span> is the cooling coefficient.</p>
+<p data-depth="4"><strong>3.8.3.6.</strong> <span class="arithmatex">\(CDH65_p\)</span> is the cooling degree hour with a 65-degree balance point.</p>
+<p data-depth="3"><strong>3.8.4.</strong> The predictions of this model are calculated for each data point in the baseline period. A prediction is flagged as an underprediction if the actual measured value exceeds the prediction. The data points are then grouped by the time-of-week and the percentage of underpredictions for each time-of week is calculated. If this value exceeds 65%, then the corresponding time-of-week is flagged as &ldquo;Occupied,&rdquo; otherwise, it is flagged as &ldquo;Unoccupied.&rdquo; These flags are expressed in a binary variable (0/1) for the unoccupied and occupied modes, respectively.</p>
+<p data-depth="2"><strong>3.9. Temperature variables.</strong></p>
+<p data-depth="3"><strong>3.9.1.</strong> For each data point in the baseline dataset, the outdoor air temperature is used to calculate up to 7 new binned features using the following algorithm:</p>
+<p data-depth="4"><strong>3.9.1.1.</strong> Six bin endpoints <span class="arithmatex">\(B_n\)</span> are defined at 30, 45, 55, 65, 75 and 90 degrees Fahrenheit, which define 7 temperature bins (&lt;30, 30-45, 45-55, 55-65, 65-75, 75-90, &gt;90).</p>
+<p data-depth="4"><strong>3.9.1.2.</strong> These bin endpoints are validated for each model by counting the number of hours with temperatures within these bins. Bins with fewer than 20 hours are combined with the next closest bin by dropping the larger bin endpoint, except for the largest bin, where the lower endpoint is dropped. The <span class="arithmatex">\(N\)</span> valid bin endpoints are then used to develop the binned temperature features.</p>
+<p data-depth="4"><strong>3.9.1.3.</strong> If the temperature <span class="arithmatex">\(T_p &gt; B_1\)</span>, then the first temperature feature <span class="arithmatex">\(Tc_{1, p} = B_1\)</span> and the algorithm proceeds to the next step. Otherwise, <span class="arithmatex">\(Tc_{1, p} = T_p\)</span>, and <span class="arithmatex">\(Tc_{n, p} = 0\)</span>, for <span class="arithmatex">\(n = 2...N\)</span>, and the algorithm ends.</p>
+<p data-depth="4"><strong>3.9.1.4.</strong> For <span class="arithmatex">\(n = 2...N\)</span>, if the temperature <span class="arithmatex">\(T_p &gt; B_n\)</span>, then <span class="arithmatex">\(Tc_{n, p} = B_n - B_{n-1}\)</span> and the algorithm proceeds to the next <span class="arithmatex">\(n\)</span>. Otherwise, <span class="arithmatex">\(Tc_{n, p} = T_p - B_{n-1}\)</span>, and <span class="arithmatex">\(Tc_{n, p} = 0\)</span>, for <span class="arithmatex">\(n = (n+1)...N\)</span>, and the algorithm ends.</p>
+<p data-depth="4"><strong>3.9.1.5.</strong> If the temperature <span class="arithmatex">\(T_p &gt; B_N\)</span>, then the last temperature feature <span class="arithmatex">\(Tc_{N+1, p} = T_p - B_N\)</span>, and equal to zero otherwise.</p>
+<p data-depth="3"><strong>3.9.2.</strong> Example of temperature binning outputs using the default temperature bin endpoints:</p>
+<table>
+<thead>
+<tr>
+<th>Bin:</th>
+<th>&lt;30</th>
+<th>30-45</th>
+<th>45-55</th>
+<th>55-65</th>
+<th>65-75</th>
+<th>75-90</th>
+<th>&gt;90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(T_p\)</span></td>
+<td><span class="arithmatex">\(T_{1,p}\)</span></td>
+<td><span class="arithmatex">\(T_{2,p}\)</span></td>
+<td><span class="arithmatex">\(T_{3,p}\)</span></td>
+<td><span class="arithmatex">\(T_{4,p}\)</span></td>
+<td><span class="arithmatex">\(T_{5,p}\)</span></td>
+<td><span class="arithmatex">\(T_{6,p}\)</span></td>
+<td><span class="arithmatex">\(T_{7,p}\)</span></td>
+</tr>
+<tr>
+<td>20</td>
+<td>20</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>40</td>
+<td>30</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>50</td>
+<td>30</td>
+<td>15</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>60</td>
+<td>30</td>
+<td>15</td>
+<td>10</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>70</td>
+<td>30</td>
+<td>15</td>
+<td>10</td>
+<td>10</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>80</td>
+<td>30</td>
+<td>15</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>100</td>
+<td>30</td>
+<td>15</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>15</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p data-depth="2"><strong>3.10. Compute Design Matrix.</strong></p>
+<p data-depth="3"><strong>3.10.1.</strong> The following structure applies to the hourly design matrix.</p>
+<p data-depth="4"><strong>3.10.1.1.</strong> Dependent variable: total energy consumption per hour.</p>
+<p data-depth="4"><strong>3.10.1.2.</strong> Independent variables:</p>
+<p data-depth="5"><strong>3.10.1.2.1.</strong> Seven (or fewer) temperature features developed according to Section 3.9.</p>
+<p data-depth="5"><strong>3.10.1.2.2.</strong> 168 binary dummy variables indicating the time-of-week.</p>
+<p data-depth="5"><strong>3.10.1.2.3.</strong> An occupancy binary variable developed according to Section 3.8 interacted with the temperature and time-of-week variables.</p>
+<p data-depth="4"><strong>3.10.1.3.</strong> Fitted model parameters.</p>
+<p data-depth="5"><strong>3.10.1.3.1.</strong> Seven (or fewer) temperature coefficients for the occupied mode and seven (or fewer) temperature coefficients for the unoccupied mode.</p>
+<p data-depth="5"><strong>3.10.1.3.2.</strong> 168 time-of-week coefficients for the occupied mode and 168 time-of-week coefficients for the unoccupied mode.</p>
+<p data-depth="5"><strong>3.10.1.3.3.</strong> No separate intercept term is used in this regression.</p>
+<p data-depth="2"><strong>3.11. Fit Models.</strong></p>
+<p data-depth="3"><strong>3.11.1.</strong> Model specification. One weighted least squares (WLS) regression is fit to the data with the following specification:</p>
+<div class="arithmatex">\[
+UPH_{pi} = \sum \alpha_t TOWp + \sum \beta_{T, n} Tc_{n, p} + \sum occupied \alpha_t TOWp + \sum occupied \beta_{T, n} Tc_{n, p} + \epsilon_{pi}
+\]</div>
+<p data-depth="3"><strong>3.11.2.</strong> Weights are assigned to the data points from different calendar months in accordance with Section 3.7.5.</p>
+<p data-depth="2"><strong>3.12. Computing derived quantities for hourly methods.</strong></p>
+<p data-depth="3"><strong>3.12.1.</strong> Avoided energy use (AEU) for each time period in the reporting period is calculated as follows:</p>
+<div class="arithmatex">\[
+AEU_{pi} = \sum \alpha_t TOWp + \sum \beta_{T, n} Tc_{n, p} + \sum occupied \alpha_t TOWp + \sum occupied \beta_{T, n} Tc_{n, p} - UPH_p
+\]</div>
+<h2 id="section-4-aggregation">Section 4: Aggregation<a class="headerlink" href="#section-4-aggregation" title="Permanent link">🔗</a></h2>
+<p data-depth="2"><strong>4.1. Aggregating results for individual time periods.</strong></p>
+<p data-depth="3"><strong>4.1.1.</strong> In many cases, it may be desired to report results at an aggregated time scale (e.g. annual energy savings), rather than for specific time periods. This may be done by simply adding the period specific results.</p>
+<div class="arithmatex">\[
+AEU_{total,P} = \sum_{p=1}^{P}(AEU_{p,i})
+\]</div>
+<p data-depth="3"><strong>4.1.2.</strong> CalTRACK does not explicitly support annualizing results. For example, if avoided energy use <span class="arithmatex">\(AEU_{total,8}\)</span> is calculated for 8 monthly periods, then the annual savings cannot be estimated as <span class="arithmatex">\(AEU_{total,12} = (AEU_{total,8} * \frac{12}{8})\)</span>, as this may yield biased estimates for interventions that yield seasonal savings. However, at the discretion of the procurer, such values may be used for intermediate reporting.</p>
+<p data-depth="2"><strong>4.2. Aggregating multiple site-level results.</strong></p>
+<p data-depth="3"><strong>4.2.1.</strong> Multiple site-level results may be aggregated by adding metered savings that occurred during the same time periods.</p>
+<div class="arithmatex">\[
+AEU_{p,S} = \sum_{i=1}^{S}(AEU_{p,i})
+\]</div>
+<p data-depth="2"><strong>4.3. Portfolio Uncertainty.</strong></p>
+<p data-depth="3"><strong>4.3.1.</strong> CalTRACK recommends approaching the uncertainty in avoided energy use on a case-by-case basis, depending on the objectives of the procurement or program.</p>
+<p data-depth="3"><strong>4.3.2.</strong> Portfolio use case.</p>
+<p data-depth="4"><strong>4.3.2.1.</strong> For use cases where confidence in portfolio-level performance is required (e.g. aggregator-driven pay-for-performance, non-wires alternatives (NWA) procurements), a building-level Coefficient of Variation of the Root Mean Squared Error (CV(RMSE)) threshold of 100% is recommended as a default, but this requirement may be waived at the discretion of the procurer.</p>
+<p data-depth="4"><strong>4.3.2.2.</strong> CV(RMSE) is calculated as follows:</p>
+<div class="arithmatex">\[
+CV(RMSE) = \frac{\sqrt{\frac{\sum_{p=1}^{P}(U_p-\hat{U_p})^{2}}{P-c}}}{\overline{U}}
+\]</div>
+<p data-depth="5"><strong>4.3.2.2.1.</strong> <span class="arithmatex">\(U_p\)</span> is the total measured energy use during period <span class="arithmatex">\(p\)</span>.</p>
+<p data-depth="5"><strong>4.3.2.2.2.</strong> <span class="arithmatex">\(\hat{U}\)</span> is the predicted energy use during period p.</p>
+<p data-depth="5"><strong>4.3.2.2.3.</strong> <span class="arithmatex">\(\overline{U}\)</span> is the mean energy use during the baseline period.</p>
+<p data-depth="5"><strong>4.3.2.2.4.</strong> <span class="arithmatex">\(P\)</span> is the total number of periods (e.g. days or billing periods) in the baseline used to estimate the model.</p>
+<p data-depth="5"><strong>4.3.2.2.5.</strong> <span class="arithmatex">\(c\)</span> is the number of explanatory variables in the baseline model (not including the intercept).</p>
+<p data-depth="4"><strong>4.3.2.3.</strong> The portfolio-level fractional savings uncertainty (FSU) should be reported when using portfolio aggregation. Fractional savings uncertainty thresholds may be set by the procurer depending on the use case. For example, an NWA procurement may require less than 15% uncertainty, while a pay-for-performance program may require 25%. An alternative approach could use a discount rate based on the uncertainty of a portfolio.</p>
+<p data-depth="4"><strong>4.3.2.4.</strong> Site-level FSU is calculated as follows using a modified version of the ASHRAE Guideline 14 formulation:</p>
+<div class="arithmatex">\[
+FSU_i = \frac{\Delta U_{save, Qi}}{U_{save, Qi}} = \frac{t(aM^2 + bM + d)CV(RMSE)*\sqrt{\frac{P}{P'}(1+\frac{2}{P'})\frac{1}{Q}})}{F}
+\]</div>
+<p data-depth="4">Where:</p>
+<p data-depth="5"><strong>4.3.2.4.1.</strong> <span class="arithmatex">\(FSU_i\)</span> is the fractional savings uncertainty in the baseline model predictions for the reporting period (this is also the fractional savings uncertainty of the avoided energy use, assuming that the metered consumption is accurate).</p>
+<p data-depth="5"><strong>4.3.2.4.2.</strong> <span class="arithmatex">\(t\)</span> is the t-statistic, which is a function of the required confidence level (usually 90%) and the degrees of freedom of the baseline model <span class="arithmatex">\((P-c)\)</span>.</p>
+<p data-depth="5"><strong>4.3.2.4.3.</strong> <span class="arithmatex">\(M\)</span> is the number of months in the reporting period.</p>
+<p data-depth="5"><strong>4.3.2.4.4.</strong> <span class="arithmatex">\(Q\)</span> is the number of periods (e.g. days or billing periods) in the reporting period.</p>
+<p data-depth="5"><strong>4.3.2.4.5.</strong> <span class="arithmatex">\(F\)</span> is the savings fraction, defined as the energy savings during <span class="arithmatex">\(q\)</span> periods in the reporting period divided by the predicted baseline usage during that same period:</p>
+<div class="arithmatex">\[
+\frac{U_{save, Qi}}{U_{baseline, Qi}}
+\]</div>
+<p data-depth="5"><strong>4.3.2.4.6.</strong> <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(b\)</span> and <span class="arithmatex">\(d\)</span> are empirical coefficients proposed by Sun and Baltazar [2013] to handle problems with autocorrelated residuals in time series energy use data.</p>
+<p data-depth="5">For billing data, <span class="arithmatex">\(a = -0.00022, b = 0.03306, d = 0.94054\)</span>.</p>
+<p data-depth="5">For daily data, <span class="arithmatex">\(a = -0.00024, b = 0.03535, d = 1.00286\)</span>.</p>
+<p data-depth="4"><strong>4.3.2.5.</strong> Site-level FSU from multiple projects can be aggregated to portfolio-level FSU as follows:</p>
+<div class="arithmatex">\[
+FSU_{portfolio} = \frac{\sqrt{\sum_{i=1}^{N} (\Delta U_{save, Qi})^2}}{\sum_{i=1}^{N} U_{save, Qi}}
+\]</div>
+<p data-depth="4"><strong>4.3.2.6.</strong> Bias. While aggregation can dramatically reduce portfolio-level savings uncertainty, it does not eliminate inherent systemic biases due to the use of non-linear models, implementation variance, imbalanced application of non-routine adjustments, unaccounted for independent variables, or population trends.</p>
+<p data-depth="5"><strong>4.3.2.6.1.</strong> Portfolio-level bias from modeling should be reported using the fractional bias error defined as follows:</p>
+<p data-depth="5">Mean bias for a single site:</p>
+<div class="arithmatex">\[
+MB_{i} = \frac{1}{P}\sum_{p=1}^{P}(y_p-\widehat{y_p})
+\]</div>
+<p data-depth="5">Portfolio-level bias error expressed as a percent of portfolio savings:</p>
+<div class="arithmatex">\[
+FBE_{portfolio} = \frac{\sum_{i=1}^{N} (MB_i)^2}{\sum_{i=1}^{N} U_{save, Qi}}
+\]</div>
+<style>
+.md-content article [data-depth] {
+  margin-bottom: 0.6em;
+}
+.md-content article [data-depth="3"] { margin-left: 1.5em; }
+.md-content article [data-depth="4"] { margin-left: 3em; }
+.md-content article [data-depth="5"] { margin-left: 4.5em; }
+.md-content article [data-depth="6"] { margin-left: 6em; }
+.md-content article [data-depth="7"] { margin-left: 7.5em; }
+
+/* Tighter min-width for table headers */
+.md-content article table th {
+  min-width: 4rem !important;
+}
+</style>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 5, 2026 23:41:17 UTC">June 5, 2026</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+<!-- Add scripts that need to run at the end of page load here -->
+
+
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © OpenDSM a Series of LF Projects, LLC<br> For web site terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org">https://lfprojects.org</a>.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+<!-- Add scripts that need to run afterwards here -->
+
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.follow", "search.highlight", "search.suggest", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3.2.2/es5/tex-chtml.js" async></script>
+      
+        <script src="../../javascripts/version-selector.js"></script>
+      
+    
+  </body>
+</html>
