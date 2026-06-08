@@ -60,6 +60,7 @@ plugins:
             docstring_section_style: table
   - git-revision-date-localized:
       enable_creation_date: false
+      enable_parallel_processing: false
       type: date
       fallback_to_build_date: true
       exclude:
