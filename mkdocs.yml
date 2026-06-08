@@ -137,6 +137,7 @@ markdown_extensions:
   # consider adding fancylists for sufficiency?
 
 extra:
+  scope: /   # shared preference scope across versions (palette persists when switching)
   generator: false
   version:
     provider: mike
