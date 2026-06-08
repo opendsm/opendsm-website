@@ -5,7 +5,7 @@ description: Recap of the CalTRACK 2.0 kick-off meeting with homework assignment
 
 # CalTRACK 2.0 Kick-Off Meeting
 
-![CalTRACK 2.0 kick-off meeting screenshot](/assets/images/community/blog/caltrack-20-kickoff-screenshot.png){ align=right width=263 style="margin: 10px 0 10px 40px" }
+![CalTRACK 2.0 kick-off meeting screenshot](site:assets/images/community/blog/caltrack-20-kickoff-screenshot.png){ align=right width=263 style="margin: 10px 0 10px 40px" }
 
 Thank you to everyone for contributing to a very successful kick off meeting yesterday!
 

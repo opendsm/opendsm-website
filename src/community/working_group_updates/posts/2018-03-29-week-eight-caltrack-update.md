@@ -21,7 +21,7 @@ The final comments on daily and billing period methods have been received. The n
 
 The CalTRACK methods are equipped to normalize for weather's effect on a building's energy consumption. The methods become unreliable when a building's energy consumption patterns are instead correlated with non-weather variables. For example, irrigation pumps are used on an agricultural cycle rather than in response to temperature changes. It is reasonable to expect higher energy consumption during the growing season and an analyst may suggest re-specifying the model to control for these seasonal variations. Without modification, existing billing and daily CalTRACK models cannot accommodate these nuanced cases. For this reason, buildings that are not well-specified by the CalTRACK model should be identified and removed from portfolios because they have significant effects on portfolio uncertainty. This issue can be tracked on [GitHub Issue #71](https://github.com/CalTRACK-2/caltrack/issues/71).
 
-![CV(RMSE) Analysis](/assets/images/community/blog/caltrack-building-qualifications-cvrmse.png){ align=right width=400 style="margin: 10px 0 10px 20px" }
+![CV(RMSE) Analysis](site:assets/images/community/blog/caltrack-building-qualifications-cvrmse.png){ align=right width=400 style="margin: 10px 0 10px 20px" }
 
 ## Building Qualification Metric
 
@@ -36,7 +36,7 @@ To evaluate a building's qualification status, a metric and a thresholds should 
 
 Building type can be a useful identifier for aggregators to determine a building's suitability for a portfolio. In figure 1, the relationship between energy consumption and CV(RMSE) is measured by building type. The size of each dot corresponds with the number of meters per building type.
 
-![Building Type Analysis](/assets/images/community/blog/caltrack-building-type-analysis.png)
+![Building Type Analysis](site:assets/images/community/blog/caltrack-building-type-analysis.png)
 
 The CalTRACK methods will be most effective for buildings in region A, which have relatively low energy consumption and low CV(RMSE). Buildings in region B are high energy consumers. These buildings often have a single meter tracking consumption for various sub-buildings with mixed uses, which make it difficult to quantify the effect of an energy-efficiency intervention on overall consumption. These buildings will likely require custom M&V and not qualify for CalTRACK. The buildings in region C have high CV(RMSE). The high CV(RMSE) is likely due to correlation in energy usage that is not specified in the model, such as seasonality. These models should not qualify for CalTRACK.
 
@@ -44,7 +44,7 @@ The CalTRACK methods will be most effective for buildings in region A, which hav
 
 Due to differences in model quality, portfolio size, and building type between aggregator datasets, it is difficult to establish a universally applicable building-level CV(RMSE) cut-off. The graphs below visualize the relationship between building-level CV(RMSE), portfolio uncertainty, and building attrition. The various graphs show these relationships with different building types and portfolio sizes. While analyzing the graphs, consider that procurers and aggregators tend to be more concerned with portfolio-level uncertainty and building attrition than the building-level CV(RMSE), especially for pay-for-performance programs and Non-Wires Alternatives procurements.
 
-![Portfolio Uncertainty Analysis](/assets/images/community/blog/caltrack-portfolio-uncertainty.png)
+![Portfolio Uncertainty Analysis](site:assets/images/community/blog/caltrack-portfolio-uncertainty.png)
 
 The results show that strict building-level thresholds of 25% CV(RMSE) result in low portfolio uncertainty, but significant building attrition. Also, the results vary depending on the portfolio size and building type. From an aggregators perspective, it may be preferable to adopt a less restrictive building-level CV(RMSE) threshold and focus on minimizing building attrition with respect to a strict portfolio uncertainty threshold.
 

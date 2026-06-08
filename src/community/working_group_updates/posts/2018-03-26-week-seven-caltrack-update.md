@@ -13,7 +13,7 @@ Thursday, March 29th at 12:00 (PST) in which we will cover:
 1. Final discussion of building qualification methods
 2. Introductory discussion on Hourly Methods
 
-![CalTRACK week 7 building qualifications meeting](/assets/images/community/blog/caltrack-week7-building-qualifications.jpeg){ align=right width=300 style="margin: 10px 0 10px 20px" }
+![CalTRACK week 7 building qualifications meeting](site:assets/images/community/blog/caltrack-week7-building-qualifications.jpeg){ align=right width=300 style="margin: 10px 0 10px 20px" }
 
 During week seven of CalTRACK, consideration of building qualification methods continued. This week's working group meeting will conclude the discussion of building qualification methods and launch the testing period. Comments or test results should be added on [GitHub issues](https://github.com/CalTRACK-2/caltrack/issues) early next week to ensure they can be considered before proposals are finalized.
 

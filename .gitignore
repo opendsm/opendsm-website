@@ -155,6 +155,9 @@ venv.bak/
 
 # mkdocs documentation
 /site
+# Local-only stub for previewing the mike version selector under `mkdocs serve`;
+# mike generates the real versions.json on the gh-pages branch.
+/src/versions.json
 
 # mypy
 .mypy_cache/

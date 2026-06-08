@@ -5,7 +5,7 @@ description: Announcement for the February 7, 2023 CalTRACK working group meetin
 
 # Upcoming CalTRACK Methods Meeting (Feb 7th)
 
-![CalTRACK working group meeting announcement](/assets/images/community/blog/caltrack-meeting-feb-2023.png)
+![CalTRACK working group meeting announcement](site:assets/images/community/blog/caltrack-meeting-feb-2023.png)
 
 Join the CalTRACK working group to help improve the CalTRACK methods and the LF Energy OpenEEmeter open-source software. This working group is comprised of many of the leading users of these methods and code. Come join the process!
 

@@ -78,7 +78,7 @@ Solar irradiance is only required for the solar hourly model. If solar irradianc
 
 #### Supplemental Data (R&D Only)
 
-The hourly model was specifically designed to be easily extended with supplemental data. These data could be pump or EV charging schedules. Any inputs will be treated with a linear response. Inputs can be either time series or catagorical, but cannot contain any missing values. The [Correlation-based Imputation](#correlation-based-imputation) methodology is *not* used on supplemental data because it cannot be known if the imputation methodology makes sense for any arbitrary input.
+The hourly model was specifically designed to be easily extended with supplemental data. These data could be pump or EV charging schedules. Any inputs will be treated with a linear response. Inputs can be either time series or categorical, but cannot contain any missing values. The [Correlation-based Imputation](#correlation-based-imputation) methodology is *not* used on supplemental data because it cannot be known if the imputation methodology makes sense for any arbitrary input.
 
 <span style="color: orange;"><strong>Use of Supplemental Data is not approved by the working group for measurement.</strong></span> <br>
 This is meant to be a development feature to make it easier to improve the hourly model by testing proposed inputs.

@@ -19,7 +19,7 @@ As energy efficiency finds its legs as a grid resource, time dependent savings w
 3. Several "time-of-week" independent variables (one for each hour of the week) are included in the main linear regression model to capture hourly load variation. For example, a restaurant may regularly consume more energy on Friday nights because the restaurant has more customers on Friday nights. This type of variation will be controlled for by the "time-of-week" covariate.
 4. The temperature covariate uses 7 bins of fixed temperature ranges instead of employing a grid search to find the balance points. Due to higher amounts of data in hourly methods, the fixed temperature ranges provide a simpler solution without significant drawbacks.
 
-![TOWT load patterns for different building types](/assets/images/community/blog/caltrack-week14-towt-load-patterns.png)
+![TOWT load patterns for different building types](site:assets/images/community/blog/caltrack-week14-towt-load-patterns.png)
 
 **Weaknesses:**
 

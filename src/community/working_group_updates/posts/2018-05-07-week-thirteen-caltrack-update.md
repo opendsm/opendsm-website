@@ -9,7 +9,7 @@ description: CalTRACK working group discusses hourly methods proposals covering 
 
 During week thirteen, the CalTRACK working group discussed proposals for hourly methods in the standing meeting. The discussions included helpful suggestions of other reference materials as well as variations that may be appropriate for different applications of hourly methods and suggested improvements in CalTRACK 2.0's documentation. The video from May 3, 2018 is provided at the end of this post.
 
-![CalTRACK TOWT modeling approach](/assets/images/community/blog/caltrack-week13-towt-approach.png)
+![CalTRACK TOWT modeling approach](site:assets/images/community/blog/caltrack-week13-towt-approach.png)
 
 ## Hourly Methods
 

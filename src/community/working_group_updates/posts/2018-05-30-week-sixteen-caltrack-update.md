@@ -7,7 +7,7 @@ description: CalTRACK working group finalizes site-specific hourly methods inclu
 
 **Week Sixteen CalTRACK Update**
 
-![CalTRACK hourly methods finalized](/assets/images/community/blog/caltrack-week16-hourly-methods.png)
+![CalTRACK hourly methods finalized](site:assets/images/community/blog/caltrack-week16-hourly-methods.png)
 
 During the standing meeting on 5/24, the working group finalized hourly methods for calculating hourly energy savings and commenced discussion on aggregating hourly savings into portfolio load shapes. The finalized hourly methods and an introduction on aggregating portfolio load shapes are outlined below.
 
