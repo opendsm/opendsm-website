@@ -1,17 +1,16 @@
 [build-system]
-requires = ["hatchling>=1.25"]
+requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
 [project]
-name = "opendsm-website-prerelease"
+name = "opendsm-website"
 version = "0.1.0"
-description = "Website prerelease for OpenDSM"
+description = "Documentation website for OpenDSM"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "Apache-2.0" }
+license = "Apache-2.0"
 authors = [{ name = "opendsm", email = "opendsm@lists.lfenergy.org" }]
 classifiers = [
-  "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -19,20 +18,21 @@ classifiers = [
 
 dependencies = [
   "griffe==1.14.0",
+  "markdown==3.10.2",
+  "mike==2.1.3",
   "mkdocs==1.6.1",
   "mkdocs-autorefs==1.4.3",
   "mkdocs-awesome-nav==3.2.0",
   "mkdocs-get-deps==0.2.0",
   "mkdocs-git-revision-date-localized-plugin==1.4.7",
   "mkdocs-macros-plugin==1.3.9",
-  "mike==2.1.3",
-  "mkdocs-material==9.6.20",
+  "mkdocs-material[imaging]==9.6.20",
   "mkdocs-material-extensions==1.3.1",
-  "mkdocs-material[imaging]",
   "mkdocs-section-index==0.3.10",
   "mkdocs-site-urls==0.3.1",
   "mkdocstrings==0.30.0",
   "mkdocstrings-python==1.18.2",
+  "pygments==2.20.0",
   "pymdown-extensions==10.21.3",
   "opendsm @ git+https://github.com/opendsm/opendsm@master",
 ]
@@ -41,10 +41,10 @@ dependencies = [
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]  # Adjust if your importable package is elsewhere
+packages = ["src"]
 
 [project.urls]
 Homepage = "https://lfenergy.org/projects/opendsm"
 Documentation = "https://opendsm.energy"
-Repository = "http://github.com/opendsm/opendsm"
-Issues = "http://github.com/opendsm/opendsm/issues"
+Repository = "https://github.com/opendsm/opendsm-website"
+Issues = "https://github.com/opendsm/opendsm-website/issues"
