@@ -109,6 +109,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#model-theory" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1209,6 +1214,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1220,6 +1238,74 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#occupancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Occupancy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temperature-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temperature response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1850,6 +1936,65 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#occupancy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Occupancy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temperature-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temperature response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Single model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1866,8 +2011,66 @@
 
   <h1>Methodology</h1>
 
-<p>The time-of-week and temperature model is trained using hourly energy usage intervals and predicts in hourly intervals for use on short-term baselines. </p>
-<p>This model is closely related to the original <a href="https://eta-publications.lbl.gov/sites/default/files/LBNL-4944E.pdf">LBNL Time-of-Week and Temperature (TOWT) Model</a> as described in the <a href="/dev/caltrack">CalTRACK methodology</a>. The key difference from the CalTRACK model is that this one is a single month model, not three month weighted.</p>
+<p>The time-of-week and temperature demand response model is trained using hourly energy usage intervals and predicts in
+hourly intervals, for use on short-term baselines.</p>
+<p>The model is a time-of-week and temperature (TOWT) model, closely related to the original
+<a href="https://eta-publications.lbl.gov/sites/default/files/LBNL-4944E.pdf">LBNL TOWT model</a>.</p>
+<h2 id="model-theory">Model Theory<a class="headerlink" href="#model-theory" title="Permanent link">🔗</a></h2>
+<p>The model predicts hourly usage from three sources of variation:</p>
+<ul>
+<li><strong>Hour of week</strong> — the week is divided into 168 hourly intervals (starting Monday), capturing the
+  recurring weekly load shape.</li>
+<li><strong>Outdoor dry-bulb temperature</strong> — a binned temperature response.</li>
+<li><strong>Occupancy state</strong> — whether the building is in a high-load (&ldquo;occupied&rdquo;) or low-load
+  (&ldquo;unoccupied&rdquo;) mode for a given time of week.</li>
+</ul>
+<p>A separate prediction is produced for each combination of hour-of-week and occupancy state — so, for
+example, Tuesday 7 pm, Friday 3 am, and Sunday 7 pm each get their own fitted behavior.</p>
+<div style="text-align: center; margin-top: 30px">
+    <img src="/dev/assets/images/drmeter/towt_model/methodology/weekly_load_shape.png" alt="Average weekly load shape by hour of week" style="width:75%">
+</div>
+
+<h3 id="occupancy">Occupancy<a class="headerlink" href="#occupancy" title="Permanent link">🔗</a></h3>
+<p>Occupancy is not supplied as an input; the model infers it from the baseline data. Each of the 168
+hours of the week is classified as either &ldquo;occupied&rdquo; (a high-load mode) or &ldquo;unoccupied&rdquo; (a low-load
+mode), and that classification is what lets the model treat, say, a weekday business afternoon
+differently from the same building overnight.</p>
+<p>The classification is made by first fitting a simple weather-only regression of usage against heating
+and cooling effects, with fixed reference temperatures (cooling above 65 °F, heating below 50 °F). For
+every hour of the week, the model then looks at how the actual usage sits relative to that weather-only
+expectation. If more than 65% of the observations for an hour of the week fall <em>below</em> the weather-only
+prediction, that hour is marked unoccupied; otherwise — when a meaningful share of observations run
+<em>above</em> what weather alone explains — it is marked occupied. The intuition is that hours where usage
+routinely exceeds the simple weather baseline correspond to periods of activity, while hours that sit
+at or below it correspond to a building&rsquo;s idle state.</p>
+<h3 id="temperature-response">Temperature response<a class="headerlink" href="#temperature-response" title="Permanent link">🔗</a></h3>
+<p>Within each occupancy mode the response to outdoor temperature is captured with a binned (piecewise)
+scheme rather than a single slope, so the model can bend at the temperatures where heating and cooling
+behavior changes. Candidate bin edges at 30, 45, 55, 65, 75, and 90 °F divide the temperature range
+into segments. The bins are fit <strong>separately for occupied and unoccupied</strong> hours, allowing the two
+modes to respond to temperature in different ways. Where a candidate bin holds too few temperature
+readings to be estimated reliably, it is merged inward from the extremes, so sparsely populated cold or
+hot bins do not destabilize the fit.</p>
+<h3 id="model-components">Model components<a class="headerlink" href="#model-components" title="Permanent link">🔗</a></h3>
+<p>The fitted model is a sum of components, each capturing a distinct &ldquo;bucket&rdquo; of consumption:</p>
+<ol>
+<li>Temperature-independent (&ldquo;always-on&rdquo;) load across all hours of the week.</li>
+<li>Temperature-dependent usage during <strong>unoccupied</strong> hours.</li>
+<li>Additional temperature-independent usage during <strong>occupied</strong> hours.</li>
+<li>Additional temperature-dependent usage during <strong>occupied</strong> hours.</li>
+</ol>
+<div style="text-align: center; margin-top: 30px">
+    <img src="/dev/assets/images/drmeter/towt_model/methodology/towt_equation.png" alt="TOWT model equation" style="width:90%">
+</div>
+
+<p>The occupancy classification, temperature binning, and the full hourly design matrix are specified in
+Sections 3.8–3.10 of the <a href="/dev/caltrack/methodology/">CalTRACK 2.1 Methods</a>.</p>
+<h3 id="single-model">Single model<a class="headerlink" href="#single-model" title="Permanent link">🔗</a></h3>
+<p>Demand-response baselines are short, so this model fits a <strong>single</strong> TOWT model over the entire
+baseline period.</p>
+<hr />
+<p>Additional details can be found in the <a href="/dev/caltrack/methodology/">CalTRACK 2.1 Methods</a> and the
+<a href="/dev/caltrack/technical_appendix/">Technical Appendix</a>.</p>
 
 
 
@@ -1888,7 +2091,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 23, 2026 04:17:33 UTC">March 23, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 9, 2026 22:30:29 UTC">June 9, 2026</span>
   </span>
 
     
