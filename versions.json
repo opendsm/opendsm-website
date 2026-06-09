@@ -1,10 +1,5 @@
 [
   {
-    "version": "instant-test",
-    "title": "instant-test",
-    "aliases": []
-  },
-  {
     "version": "dev",
     "title": "dev",
     "aliases": []
