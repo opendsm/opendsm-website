@@ -37,13 +37,13 @@ Building energy consumption generally has a strong response to temperature, whic
 Usage can vary significantly and discontinuously as temperature changes. To model this behavior, the hourly model utilizes fixed temperature bins. Within each temperature bin, temperatures are given unique slopes and intercepts. This means that each temperature bin can respond linearly to the usage within its bin edges. The exact bin edges are shown in the figure below.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/temperature_bins.png" alt="Temperature bins", style="width:50%">
+    <img src="site:assets/images/eemeter/hourly_model/temperature_bins.png" alt="Temperature bins" style="width:50%">
 </div>
 
 At very low and high temperatures, a building's energy usage can start changing dramatically even within a temperature bin. This can happen for a number of reasons but HVAC is a primary driver. For example, at high temperatures an air conditioner can be in normal operation, be under increased load as inhabitants decrease the temperature, or be at maximum capacity. Each of these scenarios results in a different energy usage profile. Our model accounts for these swift changes by giving the lowest and highest populated temperature bins an additional non-linear components.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/nonlinear_temperature_effects.png" alt="Non-linear temperature effects", style="width:70%">
+    <img src="site:assets/images/eemeter/hourly_model/nonlinear_temperature_effects.png" alt="Non-linear temperature effects" style="width:70%">
 </div>
 
 By adding the linear temperature response with the positive and negative exponentials, each fit with their own unique coefficients, it's not hard to imagine the complexity that this structure could model.
@@ -53,7 +53,7 @@ By adding the linear temperature response with the positive and negative exponen
 Due to people's behavior (among other drivers), time-of-day, day-of-week, and month can completely change how a building uses energy. The hourly model creates one hot vectors using day-of-week and month. Time-of-day need not be considered because of the [24-hour fit/predict structure](#basic-fitpredict-structure). Creating one hot vectors for all combinations of day-of-week and month would undoubtedly create an overfit model in some circumstances, so the hourly model has a preprocessing routine to cluster the median daily usage profiles of all 365 days by day-of-week and month. Full details of this methodology can be found in the [References](site:documentation/eemeter/hourly_model/references). This procedure allows for the algorithm to automatically combine days in which energy consumption is similar and to separate those that are not.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/temporal_clusters.png" alt="Temporal clusters", style="width:100%">
+    <img src="site:assets/images/eemeter/hourly_model/temporal_clusters.png" alt="Temporal clusters" style="width:100%">
 </div>
 
 In this example, the building has a clear difference in energy consumption depending on if the day of week is Wednesday or any other day of the week. This is likely a commercial building that shuts down on Wednesdays.
@@ -63,7 +63,7 @@ In this example, the building has a clear difference in energy consumption depen
 Temperature bins and temporal clusters can interact in unexpected ways. An office building, for example, might decrease their AC set point during off-hours when the temperature is high. The hourly model accounts for this by using the interaction between temperature, temperature bins, and temporal clusters. This means that the model has several different temperature reponse variables: global temperature response and a temperature response for all temporal clusters. The model calculates the combination of the global temperature response with the temporal cluster temperature responses.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/temp_interactions.png" alt="Temperature - temporal cluster - temperature bin interactions", style="width:85%">
+    <img src="site:assets/images/eemeter/hourly_model/temp_interactions.png" alt="Temperature - temporal cluster - temperature bin interactions" style="width:85%">
 </div>
 
 In this example, the building has decreased usage during the weekend and completely different behavior between weekdays and weekends in high temperature weather.
@@ -98,13 +98,13 @@ Inputs into the model are provided through a dataframe to the appropriate data c
 It is rare to look at how the hourly model predicts for any given hour due to the high variance in hourly interval data, but let's first look at the first 2 weeks in July for this solar, residential meter in its baseline period.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/real_example.png" alt="Real world example", style="width:85%">
+    <img src="site:assets/images/eemeter/hourly_model/real_example.png" alt="Real world example" style="width:85%">
 </div>
 
 Here it looks like the model is performing fairly well, but this is only 672 hours out of a 8760 hour baseline year. Because of the large day-to-day variance, if we were to plot the entire year, it would be very difficult to glean any information from the smudge of a plot. Instead, let's see what it looks like as a seasonal, hour-of-week loadshape.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/real_example_loadshape.png" alt="Real world loadshape example", style="width:100%">
+    <img src="site:assets/images/eemeter/hourly_model/real_example_loadshape.png" alt="Real world loadshape example" style="width:100%">
 </div>
 
 The seasonal, hour-of-week loadshape does confirm our prior assessment of how well the model is fitting the baseline data.

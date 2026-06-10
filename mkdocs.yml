@@ -17,6 +17,7 @@ extra_css:
 
 hooks:
   - hooks/quiet_site_urls.py
+  - hooks/version_pins.py
 
 plugins:
   - search
@@ -93,6 +94,7 @@ theme:
 
   features:
     - content.code.copy
+    # Do NOT enable navigation.instant — it conflicts with the Osano consent script. See README.
     # - navigation.instant
     # - navigation.instant.prefetch
     # - navigation.instant.progress

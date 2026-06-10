@@ -18,6 +18,9 @@ on:
         description: 'Make this the default (root redirect)?'
         type: boolean
         default: false
+      freeze_date:
+        description: 'Override dependency freeze date (YYYY-MM-DD) for a deprecated install page. Leave blank to derive from PyPI.'
+        required: false
 
 permissions:
   contents: write
@@ -66,6 +69,7 @@ jobs:
           MVER: ${{ github.event.inputs.version }}
           MALIAS: ${{ github.event.inputs.alias }}
           MDEFAULT: ${{ github.event.inputs.set_default }}
+          OPENDSM_FREEZE_DATE: ${{ github.event.inputs.freeze_date }}
         run: |
           mike deploy --push --update-aliases --title "${MVER#v}" "$MVER" $MALIAS
           if [ "$MDEFAULT" = "true" ]; then

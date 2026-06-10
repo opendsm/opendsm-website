@@ -31,9 +31,8 @@ differently from the same building overnight.
 The classification is made by first fitting a simple weather-only regression of usage against heating
 and cooling effects, with fixed reference temperatures (cooling above 65 °F, heating below 50 °F). For
 every hour of the week, the model then looks at how the actual usage sits relative to that weather-only
-expectation. If more than 65% of the observations for an hour of the week fall *below* the weather-only
-prediction, that hour is marked unoccupied; otherwise — when a meaningful share of observations run
-*above* what weather alone explains — it is marked occupied. The intuition is that hours where usage
+expectation. If more than 65% of the observations for an hour of the week fall *above* the weather-only
+prediction, that hour is marked occupied; otherwise it is marked unoccupied. The intuition is that hours where usage
 routinely exceeds the simple weather baseline correspond to periods of activity, while hours that sit
 at or below it correspond to a building's idle state.
 
@@ -56,9 +55,9 @@ The fitted model is a sum of components, each capturing a distinct "bucket" of c
 3. Additional temperature-independent usage during **occupied** hours.
 4. Additional temperature-dependent usage during **occupied** hours.
 
-<div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/drmeter/towt_model/methodology/towt_equation.png" alt="TOWT model equation" style="width:90%">
-</div>
+$$
+UPH_{pi} = \sum \alpha_t TOWp + \sum \beta_{T, n} Tc_{n, p} + \sum occupied \alpha_t TOWp + \sum occupied \beta_{T, n} Tc_{n, p} + \epsilon_{pi}
+$$
 
 The occupancy classification, temperature binning, and the full hourly design matrix are specified in
 Sections 3.8–3.10 of the [CalTRACK 2.1 Methods](site:caltrack/methodology/).

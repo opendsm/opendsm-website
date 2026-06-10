@@ -83,6 +83,25 @@ Publishing or refreshing a stable version (e.g. `1.2`):
 Backfilling an older version is the same flow on its own `version/X.Y` branch, dispatched with
 `version=vX.Y` (leave `alias`/`set_default` unset unless it should become the newest stable).
 
+#### Deprecating a superseded version
+
+The install page and the version/Python badges pin themselves at build time. The
+`hooks/version_pins.py` hook reads the *installed* opendsm version and its supported
+Python versions, then checks PyPI: if a newer release line exists, the version is treated
+as superseded and its install page renders the pinned command
+(`uv pip install "opendsm==X.Y.Z" --exclude-newer <date>`), links the release tag, switches
+the badges to static values, and adds a deprecation note. The freeze date is the successor
+line's release date, read from PyPI.
+
+So deprecating a version needs no page edits — only the `pyproject.toml` opendsm pin you
+already set on its `version/X.Y` branch. Two overrides exist:
+
+- When an intermediate line was skipped, add it to `SUPERSEDED_BY` in
+  `hooks/version_pins.py` (e.g. `"1.0": "1.2"` freezes 1.0 to 1.2's release date rather than
+  the abandoned 1.1).
+- To force a date for a one-off build, set the `OPENDSM_FREEZE_DATE` env var (the
+  `freeze_date` workflow_dispatch input wires it through).
+
 #### Local preview
 
 Content and code render with plain `mkdocs serve`. The version-selector dropdown only appears
@@ -99,3 +118,29 @@ when a `versions.json` is reachable, so to preview it either run `mike serve` (a
   to the active version's base; absolute links break once served under a version path.
 - `CNAME` and `robots.txt` live at the **`gh-pages` root**, not under `src/` (which would land in
   a version directory). A manual `gh-pages` cleanup must preserve both.
+
+#### Do not enable `navigation.instant` — it conflicts with Osano (investigated, settled)
+
+`navigation.instant` is deliberately off and should stay off as long as the Osano cookie-consent
+script (`src/overrides/main.html`) is loaded. This was investigated end-to-end; the conflict is
+architectural and cannot be cleanly fixed. Don't repeat the investigation.
+
+Instant loading turns the site into an SPA — on every internal navigation it removes the old
+`[data-md-component=container]` subtree and inserts the new page's, rather than doing a full reload.
+Osano's bundle runs a `MutationObserver` on `document.documentElement` (the whole tree), and on every
+`childList` change it (a) re-scans all added nodes to enforce script/cookie/iframe blocking, and (b)
+re-renders its consent widget when one of its required nodes is removed. Instant nav fires both on
+*every* navigation: the widget re-render is a visible consent-banner **flash**, and the full re-scan of
+the incoming page is a multi-second **cursor stall** on large pages (e.g. the CalTRACK technical
+appendix). Confirmed by reading both Material's instant-nav code and the Osano bundle; Osano injects no
+`<style>`/`<link>`, so this is not a CSS-preservation problem — the trigger is the DOM mutation itself.
+
+Why it can't be fixed: Osano's observer scope and behavior are hardcoded in its bundle and *are* its
+consent-enforcement — suppressing or narrowing the observer defeats the compliance function it exists
+for. Self-hosting a patched `osano.js` would freeze a compliance-critical, frequently-updated,
+obfuscated third-party script and require perpetual re-patching, with real compliance-drift and
+security risk. Neither is an acceptable trade for snappier navigation on a docs site.
+
+Conclusion: instant nav is incompatible with any document-wide consent/observer script like Osano.
+If the goal was avoiding the version selector's first-load late-paint, solve that without instant nav
+(see the `version-box-static` approach), or accept it.
