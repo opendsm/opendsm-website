@@ -12,17 +12,17 @@ measurement), while a **flag** asks an expert to take a closer look.
 
 ## 2.1 Data Inputs
 
-The inputs required to apply the hourly methods to a site.
+The inputs required to apply the hourly model to a site. These represent the "ideal". Additional requirements follow in Section 2.2.
 
 <div style="padding-left: 20px;" markdown="1">
 
 #### **2.1.1 Energy consumption (meter) data**
 <div style="padding-left: 20px;" markdown="1">
-- **2.1.1.1** Periods of usage and usage during those periods (billing or AMI data).
+- **2.1.1.1** Periods of usage and usage during those periods (AMI data).
 - **2.1.1.2** May be combined from multiple sources or accounts.
-- **2.1.1.3** Must be in units of energy consumption, not supplied volume (e.g. apply a therm factor).
+- **2.1.1.3** Must be in units of energy consumption, not supplied volume.
 - **2.1.1.4** Subject to the constraints in 2.2.
-- **2.1.1.5** A flag or directional indicator for the presence of net metering.
+- **2.1.1.5** A flag or directional indicator for the presence of net metering. 
 </div>
 
 #### **2.1.2 Candidate weather stations**
@@ -102,6 +102,7 @@ Data spanning beyond the baseline period should not be used in analysis.
 #### **2.2.6 Net-metering status change**
 <div style="padding-left: 20px;" markdown="1">
 Exclude projects whose net-metering status changes during the baseline period.
+
 - **2.2.6.1** Exception: future efforts may allow sub-meter data to back out on-site generation; this
   data is not currently readily obtained.
 </div>
@@ -172,6 +173,7 @@ Roll up data not provided at the expected frequency.
 #### **2.4.1 Closest qualifying station**
 <div style="padding-left: 20px;" markdown="1">
 Use the closest weather station within the climate zone that meets CalTRACK sufficiency requirements.
+
 - **2.4.1.1** If there are no stations within that climate zone, fall back to the closest station with
   complete data.
 </div>

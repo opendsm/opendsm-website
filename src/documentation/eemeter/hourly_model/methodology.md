@@ -78,6 +78,15 @@ adjacent months, so the transition from one month to the next is smooth.
     <img src="site:assets/images/eemeter/hourly_model/methodology/monthly_model_weight.png" alt="Monthly model weighting" style="width:75%">
 </div>
 
+### Limitations
+
+The biggest limitation of this model is that it is not designed to function on sites with solar PV systems.
+The model will not fail completely because solar irradiance is highly correlated with both temperature and 
+time of year, but it will only do so in a very broad sense. If the training data that it was fit on was
+largely cloudy in the spring and fall; it will predict the average cloudy day from its training data. It is
+highly suggested that users adopt the newer OpenDSM hourly model which is built explicitly with solar PV sites
+in mind.
+
 ---
 
 Additional details can be found in the [CalTRACK 2.1 Methods](site:caltrack/methodology/) and the
