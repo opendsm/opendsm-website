@@ -2039,9 +2039,8 @@ differently from the same building overnight.</p>
 <p>The classification is made by first fitting a simple weather-only regression of usage against heating
 and cooling effects, with fixed reference temperatures (cooling above 65 °F, heating below 50 °F). For
 every hour of the week, the model then looks at how the actual usage sits relative to that weather-only
-expectation. If more than 65% of the observations for an hour of the week fall <em>below</em> the weather-only
-prediction, that hour is marked unoccupied; otherwise — when a meaningful share of observations run
-<em>above</em> what weather alone explains — it is marked occupied. The intuition is that hours where usage
+expectation. If more than 65% of the observations for an hour of the week fall <em>above</em> the weather-only
+prediction, that hour is marked occupied; otherwise it is marked unoccupied. The intuition is that hours where usage
 routinely exceeds the simple weather baseline correspond to periods of activity, while hours that sit
 at or below it correspond to a building&rsquo;s idle state.</p>
 <h3 id="temperature-response">Temperature response<a class="headerlink" href="#temperature-response" title="Permanent link">🔗</a></h3>
