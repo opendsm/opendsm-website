@@ -1,5 +1,3 @@
-<object data="site:assets/reference_docs/hourly_model_report.pdf" type="application/pdf", style="min-height:80vh;width:100%">
-    <embed src="site:assets/reference_docs/hourly_model_report.pdf" type="application/pdf", style="min-height:80vh;width:100%" />
-</object>
-
-[PDF Link](site:assets/reference_docs/hourly_model_report.pdf)
+The hourly model implements the CalTRACK hourly methods. For the full specification and rationale, see
+the [CalTRACK 2.1 Methods](site:caltrack/methodology/) and the
+[Technical Appendix](site:caltrack/technical_appendix/).

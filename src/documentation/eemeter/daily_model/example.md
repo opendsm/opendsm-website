@@ -4,7 +4,8 @@ You can find a working example in the [Example Code](#example-code) at the botto
 
 <span style="font-size: 0.9em;">
 1) This example makes use of Matplotlib. Matplotlib is not a required dependency of OpenDSM.<br>
-2) If you run this example, it will download up to 150 MB of example data from the GitHub repo.
+2) OpenDSM 1.0 requires `pandas<3`.<br>
+3) The example data is downloaded from the OpenDSM repository (see the fetch step below).
 </span>
 
 ### Imports
@@ -38,7 +39,21 @@ If working with your own data instead of these samples, please refer directly to
 - *These models were developed and tested using temperature in units of °Fahrenheit. Please convert your temperatures accordingly*
 - *It is expected that all data is trimmed to its appropriate time period (baseline and reporting) and does not contain extraneous datetimes*
 
-Let us begin by loading some example data. Here we use a built-in utility function to load some example data.
+The built-in `load_test_data` utility reads bundled example data. In OpenDSM 1.0 it looks for that data
+in the package's data directory, so fetch the files into place once:
+
+```python
+import requests
+from opendsm.common import test_data
+
+test_data.data_dir.mkdir(parents=True, exist_ok=True)
+for fname in ["hourly_data_2.parquet", "attribution.txt"]:
+    dest = test_data.data_dir / fname
+    if not dest.exists():
+        r = requests.get(f"https://raw.githubusercontent.com/opendsm/opendsm/v1.0.0/data/{fname}")
+        r.raise_for_status()
+        dest.write_bytes(r.content)
+```
 
 This function returns two dataframes of daily electricity data, one for the baseline period and one for the reporting period.
 
@@ -238,11 +253,11 @@ print(df_results.head())
 ??? Returns
     ```                             
     datetime                    season  day_of_week  weekday_weekend  temperature     observed    predicted  predicted_unc  heating_load  cooling_load  model_split  model_type
-    2019-01-01 00:00:00-06:00   winter            2  weekday             -10.0450  6821.633670  8458.769369     403.385708   6145.508305           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
-    2019-01-02 00:00:00-06:00   winter            3  weekday              -4.7125  5668.980225  7829.167990     403.385708   5515.906926           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
-    2019-01-03 00:00:00-06:00   winter            4  weekday              11.3525  3122.794390  5960.086410     403.385708   3646.825346           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
-    2019-01-04 00:00:00-06:00   winter            5  weekday               0.9725  3880.896300  7161.729548     403.385708   4848.468484           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
-    2019-01-05 00:00:00-06:00   winter            6  weekend               3.1475  3182.209058  5213.370264     285.516312   3858.054437           0.0  we-su_sh_wi  hdd_tidd_cdd_smooth
+    2019-01-01 00:00:00-06:00   winter            2  weekday             -10.0450  6821.633670  8458.769369     401.546328   6145.508305           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+    2019-01-02 00:00:00-06:00   winter            3  weekday              -4.7125  5668.980225  7829.167990     401.546328   5515.906926           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+    2019-01-03 00:00:00-06:00   winter            4  weekday              11.3525  3122.794390  5960.086410     401.546328   3646.825346           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+    2019-01-04 00:00:00-06:00   winter            5  weekday               0.9725  3880.896300  7161.729548     401.546328   4848.468484           0.0  wd-su_sh_wi  hdd_tidd_cdd_smooth             
+    2019-01-05 00:00:00-06:00   winter            6  weekend               3.1475  3182.209058  5213.370264     284.369996   3858.054437           0.0  we-su_sh_wi  hdd_tidd_cdd_smooth
     ```
 
 We can also plot the observed usage vs. the predicted usage.
@@ -289,7 +304,7 @@ print(saved_model)
 
 ??? Returns
     ```python
-    {"submodels": {"wd-su_sh_wi": {"coefficients": {"model_type": "hdd_tidd_cdd_smooth", "intercept": 2313.2610638676033, "hdd_bp": 41.27040090608855, "hdd_beta": 119.44918113103105, "hdd_k": 0.4726274184833831, "cdd_bp": 70.96439586012724, "cdd_beta": 64.46865583811494, "cdd_k": 0.17605359829111333}, "temperature_constraints": {"T_min": -10.045, "T_max": 83.00500000000001, "T_min_seg": 8.94425, "T_max_seg": 81.38}, "f_unc": 403.3857082521867}, "we-su_sh_wi": {"coefficients": {"model_type": "hdd_tidd_cdd_smooth", "intercept": 1355.3158273422803, "hdd_bp": 50.8894292209749, "hdd_beta": 80.73766873918538, "hdd_k": 0.4482831249857758, "cdd_bp": 74.53352300727671, "cdd_beta": 41.0269706642773, "cdd_k": 0.5237054341526147}, "temperature_constraints": {"T_min": -2.7850000000000015, "T_max": 82.34, "T_min_seg": 22.4675, "T_max_seg": 79.7525}, "f_unc": 285.5163122905078}}, "info": {"metrics": {"num_model_params": 14, "wrmse": 218.75309123080092, "n": 365, "n_prime": 125.66853004788871, "ddof": 351, "ddof_autocorr": 111.66853004788871, "observed": {"sum": 1038753.15993621, "mean": 2845.899068318384, "variance": 1143760.7395673955, "std": 1069.4675028103452, "cvstd": 0.37579249198120157, "sum_squared": 3373659320.017336, "median": 2697.2358494980817, "MAD_scaled": 602.7295755197579, "iqr": 953.5552891155535, "skew": 2.221492866364899, "kurtosis": 9.332585130726638}, "predicted": {"sum": 1038740.3421026455, "mean": 2845.863950966152, "variance": 1074489.9131218037, "std": 1036.5760527437453, "cvstd": 0.3642394965479058, "sum_squared": 3348302512.293626, "median": 2627.7907614770256, "MAD_scaled": 464.5595323515464, "iqr": 914.7262255954338, "skew": 1.616695269464077, "kurtosis": 4.280790657230931}, "residuals": {"sum": 12.81783356446158, "mean": 0.03511735223140159, "variance": 47852.91368980268, "std": 218.7530884120329, "cvstd": 6229.202218054072, "sum_squared": 17466313.946906358, "median": 11.83559927083752, "MAD_scaled": 113.71324840144126, "iqr": 154.18635619428915, "skew": 1.3547762272723773, "kurtosis": 15.583344758089789}, "max_error": 1593.5483136788926, "mae": 126.71422886475526, "nmae": 0.044525201288895165, "pnmae": 0.13288608464673915, "medae": 76.1375240548914, "mbe": 0.03511735223140159, "nmbe": 1.233963376366405e-05, "pnmbe": 3.682780918133632e-05, "sse": 17466313.946906358, "mse": 47852.914923031116, "rmse": 218.75309123080092, "rmse_autocorr": 372.8098372555297, "rmse_adj": 223.07303332387448, "rmse_autocorr_adj": 395.4897491902344, "cvrmse": 0.07686607500105763, "cvrmse_autocorr": 0.1309989666906282, "cvrmse_adj": 0.07838402837514766, "cvrmse_autocorr_adj": 0.1389682977843363, "pnrmse": 0.22940787359451376, "pnrmse_autocorr": 0.39096824432836, "pnrmse_adj": 0.23393822662425828, "pnrmse_autocorr_adj": 0.41475282419864834, "r_squared": 0.9582550959309059, "r_squared_adj": 0.9565852997681421, "mape": 0.04085618887177056, "smape": 0.04056430298847941, "wape": 0.04452520128889517, "swape": 0.04452547600292869, "maape": 0.04074758380763742, "nse": 0.9581617787115769, "nnse": 0.9598419212949566, "kge": 0.9627155493651588, "a10": 0.9178082191780822, "a20": 0.9972602739726028, "a30": 1.0, "wi": 0.9890978278885424, "index_of_agreement": 0.9106627590653706, "pearson_r": 0.9789050494970932, "pi": 0.968232858166701, "pi_rating": "excellent", "explained_variance_score": 0.9581617797897993}, "baseline_timezone": "America/Chicago", "disqualification": [], "warnings": [{"qualified_name": "eemeter.sufficiency_criteria.extreme_values_detected", "description": "Extreme values (outside 3x IQR) must be flagged for manual review.", "data": {"n_extreme_values": 8, "median": 2697.2358494980817, "upper_quantile": 3269.296428540127, "lower_quantile": 2315.7411394245737, "lower_bound": -544.9247279220867, "upper_bound": 6129.962295886788, "min_value": 1181.0132889040156, "max_value": 9629.679232340746}}]}, "settings": {"developer_mode": false, "algorithm_choice": "nlopt_sbplx", "initial_guess_algorithm_choice": "nlopt_direct", "full_model": "hdd_tidd_cdd", "allow_smooth_model": true, "alpha_minimum": -100, "alpha_selection": 2, "alpha_final_type": "last", "alpha_final": "adaptive", "final_bounds_scalar": 1, "regularization_alpha": 0.001, "regularization_percent_lasso": 1, "segment_minimum_count": 6, "maximum_slope_oom_scalar": 2, "initial_step_percentage": 0.1, "split_selection": {"criteria": "bic", "penalty_multiplier": 0.24, "penalty_power": 2.061, "allow_separate_summer": true, "allow_separate_shoulder": true, "allow_separate_winter": true, "allow_separate_weekday_weekend": true, "reduce_splits_by_gaussian": true, "reduce_splits_num_std": [1.4, 0.89]}, "season": {"january": "winter", "february": "winter", "march": "shoulder", "april": "shoulder", "may": "shoulder", "june": "summer", "july": "summer", "august": "summer", "september": "summer", "october": "shoulder", "november": "winter", "december": "winter", "options": ["summer", "shoulder", "winter"]}, "weekday_weekend": {"monday": "weekday", "tuesday": "weekday", "wednesday": "weekday", "thursday": "weekday", "friday": "weekday", "saturday": "weekend", "sunday": "weekend", "options": ["weekday", "weekend"]}, "uncertainty_alpha": 0.1, "cvrmse_threshold": 1, "pnrmse_threshold": 1.6}}
+    {"submodels": {"wd-su_sh_wi": {"coefficients": {"model_type": "hdd_tidd_cdd_smooth", "intercept": 2313.2610638676033, "hdd_bp": 41.27040090608855, "hdd_beta": 119.44918113103105, "hdd_k": 0.4726274184833831, "cdd_bp": 70.96439586012724, "cdd_beta": 64.46865583811494, "cdd_k": 0.17605359829111333}, "temperature_constraints": {"T_min": -10.045, "T_max": 83.00500000000001, "T_min_seg": 8.94425, "T_max_seg": 81.38}, "f_unc": 401.5463282936641}, "we-su_sh_wi": {"coefficients": {"model_type": "hdd_tidd_cdd_smooth", "intercept": 1355.3158273422803, "hdd_bp": 50.8894292209749, "hdd_beta": 80.73766873918538, "hdd_k": 0.4482831249857758, "cdd_bp": 74.53352300727671, "cdd_beta": 41.0269706642773, "cdd_k": 0.5237054341526147}, "temperature_constraints": {"T_min": -2.7850000000000015, "T_max": 82.34, "T_min_seg": 22.4675, "T_max_seg": 79.7525}, "f_unc": 284.3699959206411}}, "info": {"error": {"wRMSE": 218.75309123080092, "RMSE": 218.75309123080092, "MAE": 126.71422886475526, "CVRMSE": 0.07686607500105763, "PNRMSE": 0.07375898051910441}, "baseline_timezone": "America/Chicago", "disqualification": [], "warnings": [{"qualified_name": "eemeter.sufficiency_criteria.unable_to_confirm_daily_temperature_sufficiency", "description": "Cannot confirm that pre-aggregated temperature data had sufficient hours kept", "data": {}}, {"qualified_name": "eemeter.sufficiency_criteria.extreme_values_detected", "description": "Extreme values (greater than (median + (3 * IQR)), must be flagged for manual review.", "data": {"n_extreme_values": 10, "median": 2697.2358494980817, "upper_quantile": 3269.296428540127, "lower_quantile": 2315.7411394245737, "extreme_value_limit": 5557.901716844743, "max_value": 9629.679232340746}}]}, "settings": {"developer_mode": false, "algorithm_choice": "nlopt_sbplx", "initial_guess_algorithm_choice": "nlopt_direct", "full_model": "hdd_tidd_cdd", "allow_smooth_model": true, "alpha_minimum": -100, "alpha_selection": 2, "alpha_final_type": "last", "alpha_final": "adaptive", "final_bounds_scalar": 1, "regularization_alpha": 0.001, "regularization_percent_lasso": 1, "segment_minimum_count": 6, "maximum_slope_oom_scalar": 2, "initial_step_percentage": 0.1, "split_selection": {"criteria": "bic", "penalty_multiplier": 0.24, "penalty_power": 2.061, "allow_separate_summer": true, "allow_separate_shoulder": true, "allow_separate_winter": true, "allow_separate_weekday_weekend": true, "reduce_splits_by_gaussian": true, "reduce_splits_num_std": [1.4, 0.89]}, "season": {"january": "winter", "february": "winter", "march": "shoulder", "april": "shoulder", "may": "shoulder", "june": "summer", "july": "summer", "august": "summer", "september": "summer", "october": "shoulder", "november": "winter", "december": "winter", "options": ["summer", "shoulder", "winter"]}, "weekday_weekend": {"monday": "weekday", "tuesday": "weekday", "wednesday": "weekday", "thursday": "weekday", "friday": "weekday", "saturday": "weekend", "sunday": "weekend", "options": ["weekday", "weekend"]}, "uncertainty_alpha": 0.1, "cvrmse_threshold": 1}}
     ```
 
 Afterwards, we can instantiate the model as follows:
@@ -346,8 +361,19 @@ Please remember that enabling `ignore_disqualification` or making any changes to
 import numpy as np
 import matplotlib.pyplot as plt
 
+import requests
 import opendsm as odsm
 from opendsm import eemeter as em
+from opendsm.common import test_data
+
+# OpenDSM 1.0's loader expects the example data in its data directory; fetch it once.
+test_data.data_dir.mkdir(parents=True, exist_ok=True)
+for fname in ["hourly_data_2.parquet", "attribution.txt"]:
+    dest = test_data.data_dir / fname
+    if not dest.exists():
+        r = requests.get(f"https://raw.githubusercontent.com/opendsm/opendsm/v1.0.0/data/{fname}")
+        r.raise_for_status()
+        dest.write_bytes(r.content)
 
 df_baseline, df_reporting =  odsm.test_data.load_test_data("daily_treatment_data")
 

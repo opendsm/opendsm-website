@@ -1,6 +1,24 @@
 The daily model is trained using daily energy usage intervals and predicts in daily intervals.
 
-One of the key requirements of the daily model is to be able to disaggregate daily heating and cooling loads.
+The daily model follows the CalTRACK daily methods. One of the key requirements of the daily model is to be able to disaggregate daily heating and cooling loads.
+
+## Model Modes
+
+The daily model runs in one of two modes, selected with the `model` parameter:
+
+- **`CalTRACK 2.1`** implements the **CalTRACK 2.1** daily model described on this page.
+- **`CalTRACK 2.0`** is nearly identical to the **CalTRACK 2.0** daily model, but far more efficient.
+
+```python
+from opendsm.eemeter.models.daily import DailyModel
+
+current_model = DailyModel()                  # CalTRACK 2.1 (default)
+legacy_model = DailyModel(model="legacy")     # CalTRACK 2.0
+```
+
+The CalTRACK 2.1 methods are documented in the [CalTRACK 2.1 Methods](site:caltrack/methodology/) and
+[Technical Appendix](site:caltrack/technical_appendix/). For the CalTRACK 2.0 reference implementation,
+see the [CalTRACK Compliance overview](https://eemeter.readthedocs.io/caltrack_compliance.html).
 
 ## Model Theory
 

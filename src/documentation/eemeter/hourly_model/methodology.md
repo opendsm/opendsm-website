@@ -1,114 +1,84 @@
-The hourly model is trained using hourly energy usage intervals and predicts in hourly intervals. 
+The hourly model is trained using hourly energy usage intervals and predicts in hourly intervals.
 
-The hourly model has two, closely related variations: a non-solar and a solar model. The only difference between the two is that the solar model requires an additional solar irradiance input. For the purposes of this page, we will describe the solar model, but explanations are the same for the non-solar model except for the solar section.
+The hourly model is the **CalTRACK hourly model**: a time-of-week and temperature (TOWT) model with
+temperature and occupancy binning, closely related to the original
+[LBNL TOWT model](https://eta-publications.lbl.gov/sites/default/files/LBNL-4944E.pdf).
 
 ## Model Theory
 
-### Model Algorithm
+The model predicts hourly usage from three sources of variation:
 
-The hourly model is built using an [elastic net regression framework](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html). During the development of the hourly model many algorithms and methodologies were considered including neural nets; however, elastic net regression proved to be the perfect blend of accurate and efficient.
+- **Hour of week** — the week is divided into 168 hourly intervals (starting Monday), capturing the
+  recurring weekly load shape.
+- **Outdoor dry-bulb temperature** — a binned temperature response.
+- **Occupancy state** — whether the building is in a high-load ("occupied") or low-load
+  ("unoccupied") mode for a given time of week.
 
-The elastic net regression technique uses a linear regression model with regularization. Regularization enhances predictive capabilities by performing feature selection to limit unnecessary model complexity while maximizing model accuracy. Elastic net regression is itself the combination of [lasso regression](https://en.wikipedia.org/wiki/Lasso_(statistics)) and [ridge regression](https://en.wikipedia.org/wiki/Ridge_regression). 
-
-[Lasso regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html) penalizes the absolute magnitude of model coefficients which has the effect of pushing those coefficients towards zero unless the balanced by an increase in model error in the form of sum of squares error. By pushing coefficients to zero when they do not help the model, the lasso component acts as the feature selection component.
-
-[Ridge regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html) penalizes the square of the model coefficients which has the effect of more harshly penalizing large coefficients thereby pulling the coefficients closer together in magnitude. This is one approach to handling multicollinearity as correlated variables will end up having similar coefficients.
-
-The hourly model relies heavily on feature selection to avoid overfitting with the goal of making a well-fit model. To prevent underfitting, we utilize [Model Inputs](#model-inputs) that are correlated with usage.
-
-<div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/fit_issues.png" alt="Fit issues">
-</div>
-
-### Basic Fit/Predict Structure
-
-The input structure to the elastic net framework has been set up such that each hour of usage is informed by all 24 hours of the day. This inherently considers leading and lagging effects of all variables but most importantly temperature. This means that the model innately accounts for phenomena such as thermal lag and precooling if they are regularly part of a building’s usage behavior.
-
-### Model Inputs
-
-#### Correlation-based Imputation
-
-Inputs into the elastic net framework are required to be complete with no missing values. This is unrealistic for inputs into the hourly model so a correlation-based imputation methodology was developed to impute missing values for standard inputs. Autocorrelation is performed on each input and using the largest peaks (most correlated leads/lags) missing values are imputed using the most correlated values around them in time. Additional details can be found in the [References](site:documentation/eemeter/hourly_model/references).
-
-#### Temperature
-
-Building energy consumption generally has a strong response to temperature, which varies considerably in different geographic regimes with different heating and/or cooling needs. For this reason, hourly temperature is a required input. To further clarify, hourly temperatures are the mean hourly outdoor dry-bulb temperature as measured at the nearest weather station within the same climate zone. Getting this information is handled in `EEweather`. 
-
-Usage can vary significantly and discontinuously as temperature changes. To model this behavior, the hourly model utilizes fixed temperature bins. Within each temperature bin, temperatures are given unique slopes and intercepts. This means that each temperature bin can respond linearly to the usage within its bin edges. The exact bin edges are shown in the figure below.
+A separate prediction is produced for each combination of hour-of-week and occupancy state — so, for
+example, Tuesday 7 pm, Friday 3 am, and Sunday 7 pm each get their own fitted behavior.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/temperature_bins.png" alt="Temperature bins", style="width:50%">
+    <img src="site:assets/images/eemeter/hourly_model/methodology/weekly_load_shape.png" alt="Average weekly load shape by hour of week" style="width:75%">
 </div>
 
-At very low and high temperatures, a building's energy usage can start changing dramatically even within a temperature bin. This can happen for a number of reasons but HVAC is a primary driver. For example, at high temperatures an air conditioner can be in normal operation, be under increased load as inhabitants decrease the temperature, or be at maximum capacity. Each of these scenarios results in a different energy usage profile. Our model accounts for these swift changes by giving the lowest and highest populated temperature bins an additional non-linear components.
+### Occupancy
+
+Occupancy is not supplied as an input; the model infers it from the baseline data. Each of the 168
+hours of the week is classified as either "occupied" (a high-load mode) or "unoccupied" (a low-load
+mode), and that classification is what lets the model treat, say, a weekday business afternoon
+differently from the same building overnight.
+
+The classification is made by first fitting a simple weather-only regression of usage against heating
+and cooling effects, with fixed reference temperatures (cooling above 65 °F, heating below 50 °F). For
+every hour of the week, the model then looks at how the actual usage sits relative to that weather-only
+expectation. If more than 65% of the observations for an hour of the week fall *above* the weather-only
+prediction, that hour is marked occupied; otherwise it is marked unoccupied. The intuition is that hours where usage
+routinely exceeds the simple weather baseline correspond to periods of activity, while hours that sit
+at or below it correspond to a building's idle state.
+
+### Temperature response
+
+Within each occupancy mode the response to outdoor temperature is captured with a binned (piecewise)
+scheme rather than a single slope, so the model can bend at the temperatures where heating and cooling
+behavior changes. Candidate bin edges at 30, 45, 55, 65, 75, and 90 °F divide the temperature range
+into segments. The bins are fit **separately for occupied and unoccupied** hours, allowing the two
+modes to respond to temperature in different ways. Where a candidate bin holds too few temperature
+readings to be estimated reliably, it is merged inward from the extremes, so sparsely populated cold or
+hot bins do not destabilize the fit.
+
+### Model components
+
+The fitted model is a sum of components, each capturing a distinct "bucket" of consumption:
+
+1. Temperature-independent ("always-on") load across all hours of the week.
+2. Temperature-dependent usage during **unoccupied** hours.
+3. Additional temperature-independent usage during **occupied** hours.
+4. Additional temperature-dependent usage during **occupied** hours.
+
+$$
+UPH_{pi} = \sum \alpha_t TOWp + \sum \beta_{T, n} Tc_{n, p} + \sum occupied \alpha_t TOWp + \sum occupied \beta_{T, n} Tc_{n, p} + \epsilon_{pi}
+$$
+
+The occupancy classification, temperature binning, and the full hourly design matrix are specified in
+Sections 3.8–3.10 of the [CalTRACK 2.1 Methods](site:caltrack/methodology/).
+
+### Monthly models
+
+Building energy consumption changes through the year, so the annual model is stitched together from
+monthly models — a separate hourly model is fit for each month.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/nonlinear_temperature_effects.png" alt="Non-linear temperature effects", style="width:70%">
+    <img src="site:assets/images/eemeter/hourly_model/methodology/monthly_load_shapes.png" alt="Weekly load shape for each month" style="width:55%">
 </div>
 
-By adding the linear temperature response with the positive and negative exponentials, each fit with their own unique coefficients, it's not hard to imagine the complexity that this structure could model.
-
-#### Temporal Features
-
-Due to people's behavior (among other drivers), time-of-day, day-of-week, and month can completely change how a building uses energy. The hourly model creates one hot vectors using day-of-week and month. Time-of-day need not be considered because of the [24-hour fit/predict structure](#basic-fitpredict-structure). Creating one hot vectors for all combinations of day-of-week and month would undoubtedly create an overfit model in some circumstances, so the hourly model has a preprocessing routine to cluster the median daily usage profiles of all 365 days by day-of-week and month. Full details of this methodology can be found in the [References](site:documentation/eemeter/hourly_model/references). This procedure allows for the algorithm to automatically combine days in which energy consumption is similar and to separate those that are not.
+Each monthly model is fit with a weighting that emphasizes its own month and tapers off across the
+adjacent months, so the transition from one month to the next is smooth.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/temporal_clusters.png" alt="Temporal clusters", style="width:100%">
+    <img src="site:assets/images/eemeter/hourly_model/methodology/monthly_model_weight.png" alt="Monthly model weighting" style="width:75%">
 </div>
-
-In this example, the building has a clear difference in energy consumption depending on if the day of week is Wednesday or any other day of the week. This is likely a commercial building that shuts down on Wednesdays.
-
-#### Temperature Bin - Temporal Cluster - Temperature Interactions
-
-Temperature bins and temporal clusters can interact in unexpected ways. An office building, for example, might decrease their AC set point during off-hours when the temperature is high. The hourly model accounts for this by using the interaction between temperature, temperature bins, and temporal clusters. This means that the model has several different temperature reponse variables: global temperature response and a temperature response for all temporal clusters. The model calculates the combination of the global temperature response with the temporal cluster temperature responses.
-
-<div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/temp_interactions.png" alt="Temperature - temporal cluster - temperature bin interactions", style="width:85%">
-</div>
-
-In this example, the building has decreased usage during the weekend and completely different behavior between weekdays and weekends in high temperature weather.
-
-#### Solar Irradiance (Optional)
-
-It is unsurprising that buildings with solar PV generation respond to solar irradiance. Therefore, to model a building with solar PV production well requires a solar irradiance covariate as an input. The solar model expects a Global Horizontal Irradiance (GHI) time series to act as that covariate. GHI provides a direct proxy for solar generation, being approximately linearly proportional to PV production. The model assumes a linear response to GHI that is the same across all hours of the year.
-
-It is currently up to the user to obtain their own GHI data. This can be done with free, but delayed, sources such as [NREL](https://nsrdb.nrel.gov/) or through a commercial service. The irradiance data should be location-specific either by weather station or directly over the meter location. Clearsky GHI should not be used as it neglects cloud cover which will impact PV production.
-
-Solar irradiance is only required for the solar hourly model. If solar irradiance is not provided, the hourly model defaults to using the non-solar model. 
-
-#### Supplemental Data (R&D Only)
-
-The hourly model was specifically designed to be easily extended with supplemental data. These data could be pump or EV charging schedules. Any inputs will be treated with a linear response. Inputs can be either time series or categorical, but cannot contain any missing values. The [Correlation-based Imputation](#correlation-based-imputation) methodology is *not* used on supplemental data because it cannot be known if the imputation methodology makes sense for any arbitrary input.
-
-<span style="color: orange;"><strong>Use of Supplemental Data is not approved by the working group for measurement.</strong></span> <br>
-This is meant to be a development feature to make it easier to improve the hourly model by testing proposed inputs.
-
-### Robust, Adaptive Outlier Downweighting
-
-While the majority of the time Sum of Squares Error (SSE) is the optimal metric to minimize to obtain the best model, there are instances where it is less effective at creating predictive models in data containing influential outliers. The hourly model handles these outliers by downweighting them using a robust, adaptive loss function and procedure on a per hour basis.
-
-### Model Fit
-
-Inputs into the model are provided through a dataframe to the appropriate data class. Internally, the model converts the inputs into a form appropriate for the underlying [elastic net regression framework](#model-algorithm). When the model is fit, each site will receive its own unique model fit and coefficients.
 
 ---
 
-## Real Data Example
-
-It is rare to look at how the hourly model predicts for any given hour due to the high variance in hourly interval data, but let's first look at the first 2 weeks in July for this solar, residential meter in its baseline period.
-
-<div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/real_example.png" alt="Real world example", style="width:85%">
-</div>
-
-Here it looks like the model is performing fairly well, but this is only 672 hours out of a 8760 hour baseline year. Because of the large day-to-day variance, if we were to plot the entire year, it would be very difficult to glean any information from the smudge of a plot. Instead, let's see what it looks like as a seasonal, hour-of-week loadshape.
-
-<div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/hourly_model/real_example_loadshape.png" alt="Real world loadshape example", style="width:100%">
-</div>
-
-The seasonal, hour-of-week loadshape does confirm our prior assessment of how well the model is fitting the baseline data.
-
-<div style="text-align: left; font-size: 0.9em; color: #888; margin-top: 40px;">
-    For additional information and validation details, see <a href="site:documentation/eemeter/hourly_model/references/">References</a>.
-</div>
+Additional details can be found in the [CalTRACK 2.1 Methods](site:caltrack/methodology/) and the
+[Technical Appendix](site:caltrack/technical_appendix/).

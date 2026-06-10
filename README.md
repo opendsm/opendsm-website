@@ -83,6 +83,25 @@ Publishing or refreshing a stable version (e.g. `1.2`):
 Backfilling an older version is the same flow on its own `version/X.Y` branch, dispatched with
 `version=vX.Y` (leave `alias`/`set_default` unset unless it should become the newest stable).
 
+#### Deprecating a superseded version
+
+The install page and the version/Python badges pin themselves at build time. The
+`hooks/version_pins.py` hook reads the *installed* opendsm version and its supported
+Python versions, then checks PyPI: if a newer release line exists, the version is treated
+as superseded and its install page renders the pinned command
+(`uv pip install "opendsm==X.Y.Z" --exclude-newer <date>`), links the release tag, switches
+the badges to static values, and adds a deprecation note. The freeze date is the successor
+line's release date, read from PyPI.
+
+So deprecating a version needs no page edits — only the `pyproject.toml` opendsm pin you
+already set on its `version/X.Y` branch. Two overrides exist:
+
+- When an intermediate line was skipped, add it to `SUPERSEDED_BY` in
+  `hooks/version_pins.py` (e.g. `"1.0": "1.2"` freezes 1.0 to 1.2's release date rather than
+  the abandoned 1.1).
+- To force a date for a one-off build, set the `OPENDSM_FREEZE_DATE` env var (the
+  `freeze_date` workflow_dispatch input wires it through).
+
 #### Local preview
 
 Content and code render with plain `mkdocs serve`. The version-selector dropdown only appears

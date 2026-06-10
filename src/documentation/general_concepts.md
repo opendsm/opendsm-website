@@ -72,30 +72,6 @@ $$
 
 CVRMSE normalizes RMSE by the mean of the observed data over a given period of time, often the baseline for the purposes of model fit sufficiency. Another way to think about CVRMSE is the error as a percentage of average usage. CVRMSE fails as a useful metric when the mean usage is near zero or negative. Unfortunately, this is a common occurrence with behind-the-meter generation such as solar PV systems. 
 
-### PNRMSE
+### Model Disqualification
 
-Percentile normalized RMSE (PNRMSE) is a more recent measure of performance. PNRMSE normalizes by the [IQR](https://en.wikipedia.org/wiki/Interquartile_range) of the observed data over a given period of time.
-
-$$
-PNRMSE = \frac{RMSE}{obs_{IQR}}
-$$
-
-Because PNRMSE normalizes by IQR, the denominator will always be positive. It will also stay at a reasonable magnitude for all meters with variation in their usage. It can be thought of as how large the error is relative to the variance of the observed data. There is still the possibility that a meter which has very little variation could still fail the PNRMSE threshold requirement for model sufficiency; this is why we use CVRMSE and PNRMSE together.
-
-### CVRMSE and PNRMSE Relationship
-
-PNRMSE sufficiency criteria have been derived from PNRMSE's relationship to CVRMSE. 1000 meters were fit and their normalized error metrics plotted against each other resulting in the following plot.
-
-<div style="text-align: center">
-    <img src="site:assets/images/general_concepts/pnrmse_cvrmse_correlation.png" alt="PNRMSE-CVRMSE correlation">
-</div>
-
-From this fit, it was determined that at a CVRMSE of 1.0, PNRMSE is 1.6, and at a CVRMSE of 1.4, PNRMSE is about 2.2. 
-
-### Combined Disqualification
-
-All models use a combination of CVRMSE and PNRMSE to disqualify models. This is done permissively. A model need only be qualified under one of the model sufficiency criteria. To visualize this, the following figure was generated assuming the hourly model thresholds.
-
-<div style="text-align: center">
-    <img src="site:assets/images/general_concepts/disqualification_example.png" alt="Disqualification Example">
-</div>
+Models are disqualified for measurement when their adjusted CVRMSE exceeds the threshold defined in each model's sufficiency criteria.

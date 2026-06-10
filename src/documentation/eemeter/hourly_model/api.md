@@ -1,4 +1,4 @@
-::: opendsm.eemeter.models.hourly
+::: opendsm.eemeter.models.hourly_caltrack
     options:
       show_submodules: true
       members:

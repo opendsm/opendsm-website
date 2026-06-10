@@ -1,5 +1,11 @@
 The billing model uses the [daily model](site:documentation/eemeter/daily_model/methodology) with small configuration changes and billing (monthly or bimonthly) interval data.
 
+It applies the legacy (**CalTRACK 2.0**) daily method to billing-period data. See the
+[CalTRACK 2.1 Methods](site:caltrack/methodology/) and the
+[Technical Appendix](site:caltrack/technical_appendix/) for the underlying methods, and the
+[CalTRACK Compliance overview](https://eemeter.readthedocs.io/caltrack_compliance.html) for the
+CalTRACK 2.0 reference.
+
 ## Model Theory
 
 ### Converting from billing data to daily data
