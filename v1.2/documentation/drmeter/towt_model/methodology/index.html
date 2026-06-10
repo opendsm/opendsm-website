@@ -2038,9 +2038,8 @@ differently from the same building overnight.</p>
 <p>The classification is made by first fitting a simple weather-only regression of usage against heating
 and cooling effects, with fixed reference temperatures (cooling above 65 °F, heating below 50 °F). For
 every hour of the week, the model then looks at how the actual usage sits relative to that weather-only
-expectation. If more than 65% of the observations for an hour of the week fall <em>below</em> the weather-only
-prediction, that hour is marked unoccupied; otherwise — when a meaningful share of observations run
-<em>above</em> what weather alone explains — it is marked occupied. The intuition is that hours where usage
+expectation. If more than 65% of the observations for an hour of the week fall <em>above</em> the weather-only
+prediction, that hour is marked occupied; otherwise it is marked unoccupied. The intuition is that hours where usage
 routinely exceeds the simple weather baseline correspond to periods of activity, while hours that sit
 at or below it correspond to a building&rsquo;s idle state.</p>
 <h3 id="temperature-response">Temperature response<a class="headerlink" href="#temperature-response" title="Permanent link">🔗</a></h3>
@@ -2059,10 +2058,9 @@ hot bins do not destabilize the fit.</p>
 <li>Additional temperature-independent usage during <strong>occupied</strong> hours.</li>
 <li>Additional temperature-dependent usage during <strong>occupied</strong> hours.</li>
 </ol>
-<div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/drmeter/towt_model/methodology/towt_equation.png" alt="TOWT model equation" style="width:90%">
-</div>
-
+<div class="arithmatex">\[
+UPH_{pi} = \sum \alpha_t TOWp + \sum \beta_{T, n} Tc_{n, p} + \sum occupied \alpha_t TOWp + \sum occupied \beta_{T, n} Tc_{n, p} + \epsilon_{pi}
+\]</div>
 <p>The occupancy classification, temperature binning, and the full hourly design matrix are specified in
 Sections 3.8–3.10 of the <a href="/v1.2/caltrack/methodology/">CalTRACK 2.1 Methods</a>.</p>
 <h3 id="single-model">Single model<a class="headerlink" href="#single-model" title="Permanent link">🔗</a></h3>
@@ -2091,7 +2089,7 @@ baseline period.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 9, 2026 22:30:29 UTC">June 9, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 10, 2026 04:23:33 UTC">June 10, 2026</span>
   </span>
 
     

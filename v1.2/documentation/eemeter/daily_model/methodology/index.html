@@ -2101,7 +2101,7 @@
 <h3 id="model-shape-and-balance-points">Model Shape and Balance Points<a class="headerlink" href="#model-shape-and-balance-points" title="Permanent link">🔗</a></h3>
 <p>The daily model, at its core, utilizes a piecewise linear regression model that predicts energy usage relative to temperature. The model determines temperature balance points at which energy usage starts changing relative to temperature.</p>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/daily_model/basic_model.png" alt="Daily model", style="width:85%">
+    <img src="/v1.2/assets/images/eemeter/daily_model/basic_model.png" alt="Daily model" style="width:85%">
 </div>
 
 <h4 id="nomenclature">Nomenclature<a class="headerlink" href="#nomenclature" title="Permanent link">🔗</a></h4>
@@ -2119,19 +2119,19 @@
 <li>Temperature Independent Load</li>
 </ul>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes", style="width:75%">
+    <img src="/v1.2/assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes" style="width:75%">
 </div>
 
 <h4 id="smooth-transitions">Smooth Transitions<a class="headerlink" href="#smooth-transitions" title="Permanent link">🔗</a></h4>
 <p>The daily model is designed to allow smooth transitions between model regimes. There are many reasons why a smooth transition might be favorable, but one example of this is inlet water temperature into a water heater. In this example, more energy will be required as the temperature decreases, which will be a smooth transition.</p>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/daily_model/smoothed_winter.png" alt="Smooth winter transition", style="width:85%">
+    <img src="/v1.2/assets/images/eemeter/daily_model/smoothed_winter.png" alt="Smooth winter transition" style="width:85%">
 </div>
 
 <h4 id="robust-adaptive-outlier-downweighting">Robust, Adaptive Outlier Downweighting<a class="headerlink" href="#robust-adaptive-outlier-downweighting" title="Permanent link">🔗</a></h4>
 <p>While the majority of the time Sum of Squares Error (SSE) is the optimal metric to minimize to obtain the best model, there are instances where it is less effective at creating predictive models in data containing influential outliers. The daily model handles these outliers by downweighting them using a robust, adaptive loss function and procedure.</p>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/daily_model/outliers.png" alt="Downweighted outliers", style="width:85%">
+    <img src="/v1.2/assets/images/eemeter/daily_model/outliers.png" alt="Downweighted outliers" style="width:85%">
 </div>
 
 <h4 id="model-fit">Model Fit<a class="headerlink" href="#model-fit" title="Permanent link">🔗</a></h4>
@@ -2150,7 +2150,7 @@
 <li>Smoothing parameter is pushed to 0 (no smoothing)</li>
 </ul>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/daily_model/lasso_penalization.png" alt="Lasso penalization", style="width:85%">
+    <img src="/v1.2/assets/images/eemeter/daily_model/lasso_penalization.png" alt="Lasso penalization" style="width:85%">
 </div>
 
 <h3 id="model-splits">Model Splits<a class="headerlink" href="#model-splits" title="Permanent link">🔗</a></h3>
@@ -2170,7 +2170,7 @@
 </ol>
 <p>This provides a standardized process for splitting the model to better predict energy usage by certain time periods (if the benefit outweighs the additional model complexity).</p>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/daily_model/split_model_season.png" alt="Model split by season", style="width:85%">
+    <img src="/v1.2/assets/images/eemeter/daily_model/split_model_season.png" alt="Model split by season" style="width:85%">
 </div>
 
 <hr />
@@ -2183,7 +2183,7 @@
 <li>Weekend model: an all-season model with significant usage decrease compared to the weekday models.</li>
 </ol>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/daily_model/real_example.png" alt="Real world example", style="width:85%">
+    <img src="/v1.2/assets/images/eemeter/daily_model/real_example.png" alt="Real world example" style="width:85%">
 </div>
 
 <div style="text-align: left; font-size: 0.9em; color: #888; margin-top: 40px;">
@@ -2209,7 +2209,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 5, 2025 04:06:10 UTC">September 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 10, 2026 04:23:33 UTC">June 10, 2026</span>
   </span>
 
     
