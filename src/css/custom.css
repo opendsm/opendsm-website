@@ -25,6 +25,14 @@
   display: none;
 }
 
+/* Hide CalTRACK 2.1 from the nav drawer (used on small screens) the same way.
+   The match keys on a link ending in "caltrack/", which only the top-level
+   section link is on other pages; on CalTRACK pages its link is relative
+   ("..") and is left intact, so the section keeps its own drawer nav there. */
+.md-nav__item--nested:has(> .md-nav__container > [href$="caltrack/"]) {
+  display: none;
+}
+
 /* Standardize YouTube embed styling - just margins and centering */
 iframe[src*="youtube.com"] {
   display: block;
