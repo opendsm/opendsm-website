@@ -17,6 +17,7 @@ extra_css:
 
 hooks:
   - hooks/quiet_site_urls.py
+  - hooks/version_pins.py
 
 plugins:
   - search
