@@ -2558,16 +2558,16 @@ the CalTRACK 2.1 section numbers, with further detail in the
 measurement), while a <strong>flag</strong> asks an expert to take a closer look.</p>
 <hr />
 <h2 id="21-data-inputs">2.1 Data Inputs<a class="headerlink" href="#21-data-inputs" title="Permanent link">🔗</a></h2>
-<p>The inputs required to apply the hourly methods to a site.</p>
+<p>The inputs required to apply the hourly model to a site. These represent the &ldquo;ideal&rdquo;. Additional requirements follow in Section 2.2.</p>
 <div style="padding-left: 20px;">
 <h4 id="211-energy-consumption-meter-data"><strong>2.1.1 Energy consumption (meter) data</strong><a class="headerlink" href="#211-energy-consumption-meter-data" title="Permanent link">🔗</a></h4>
 <div style="padding-left: 20px;">
 <ul>
-<li><strong>2.1.1.1</strong> Periods of usage and usage during those periods (billing or AMI data).</li>
+<li><strong>2.1.1.1</strong> Periods of usage and usage during those periods (AMI data).</li>
 <li><strong>2.1.1.2</strong> May be combined from multiple sources or accounts.</li>
-<li><strong>2.1.1.3</strong> Must be in units of energy consumption, not supplied volume (e.g. apply a therm factor).</li>
+<li><strong>2.1.1.3</strong> Must be in units of energy consumption, not supplied volume.</li>
 <li><strong>2.1.1.4</strong> Subject to the constraints in 2.2.</li>
-<li><strong>2.1.1.5</strong> A flag or directional indicator for the presence of net metering.</li>
+<li><strong>2.1.1.5</strong> A flag or directional indicator for the presence of net metering. </li>
 </ul>
 </div>
 <h4 id="212-candidate-weather-stations"><strong>2.1.2 Candidate weather stations</strong><a class="headerlink" href="#212-candidate-weather-stations" title="Permanent link">🔗</a></h4>
@@ -2649,9 +2649,11 @@ measurement), while a <strong>flag</strong> asks an expert to take a closer look
 </div>
 <h4 id="226-net-metering-status-change"><strong>2.2.6 Net-metering status change</strong><a class="headerlink" href="#226-net-metering-status-change" title="Permanent link">🔗</a></h4>
 <div style="padding-left: 20px;">
-<p>Exclude projects whose net-metering status changes during the baseline period.
-- <strong>2.2.6.1</strong> Exception: future efforts may allow sub-meter data to back out on-site generation; this
-  data is not currently readily obtained.</p>
+<p>Exclude projects whose net-metering status changes during the baseline period.</p>
+<ul>
+<li><strong>2.2.6.1</strong> Exception: future efforts may allow sub-meter data to back out on-site generation; this
+  data is not currently readily obtained.</li>
+</ul>
 </div>
 <h4 id="227-electric-vehicle-charging"><strong>2.2.7 Electric-vehicle charging</strong><a class="headerlink" href="#227-electric-vehicle-charging" title="Permanent link">🔗</a></h4>
 <div style="padding-left: 20px;">
@@ -2705,9 +2707,11 @@ measurement), while a <strong>flag</strong> asks an expert to take a closer look
 <div style="padding-left: 20px;">
 <h4 id="241-closest-qualifying-station"><strong>2.4.1 Closest qualifying station</strong><a class="headerlink" href="#241-closest-qualifying-station" title="Permanent link">🔗</a></h4>
 <div style="padding-left: 20px;">
-<p>Use the closest weather station within the climate zone that meets CalTRACK sufficiency requirements.
-- <strong>2.4.1.1</strong> If there are no stations within that climate zone, fall back to the closest station with
-  complete data.</p>
+<p>Use the closest weather station within the climate zone that meets CalTRACK sufficiency requirements.</p>
+<ul>
+<li><strong>2.4.1.1</strong> If there are no stations within that climate zone, fall back to the closest station with
+  complete data.</li>
+</ul>
 </div>
 <h4 id="242-distant-matches"><strong>2.4.2 Distant matches</strong><a class="headerlink" href="#242-distant-matches" title="Permanent link">🔗</a></h4>
 <div style="padding-left: 20px;">
@@ -2760,7 +2764,7 @@ these reporting-specific rules.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 10, 2026 15:19:17 UTC">June 10, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 10, 2026 20:08:03 UTC">June 10, 2026</span>
   </span>
 
     
