@@ -6,7 +6,7 @@ window.MathJax = {
         processEnvironments: true
     },
     chtml: {
-        scale: 0.9
+        scale: 0.85
     },
     options: {
         ignoreHtmlClass: ".*|",
