@@ -1870,13 +1870,12 @@
     <em>OpenDSM: An open-source python package to develop and implement standard methods for predicting metered energy usage.</em>
 </p>
 
-<p></p>
-    <p align="center">
-    <a href="https://pypi.python.org/pypi/opendsm" target="_blank">
-        <img src="https://img.shields.io/pypi/v/opendsm.svg" alt="PyPi Version">
+<p align="center">
+    <a href="https://pypi.org/project/opendsm/1.0.0/" target="_blank">
+        <img src="https://img.shields.io/badge/pypi-v1.0.0-blue.svg" alt="PyPi Version">
     </a>
-    <a href="https://pypi.org/project/opendsm" target="_blank">
-        <img src="https://img.shields.io/pypi/pyversions/opendsm.svg" alt="Supported Python versions">
+    <a href="https://pypi.org/project/opendsm/1.0.0/" target="_blank">
+        <img src="https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue.svg" alt="Supported Python versions">
     </a>
     <a href="https://github.com/opendsm/opendsm" target="_blank">
         <img src="https://img.shields.io/github/license/opendsm/opendsm" alt="License">
@@ -1884,18 +1883,25 @@
     <a href="https://github.com/ambv/black" target="_blank">
         <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style">
     </a>
-</p></p>
+</p>
+
 <hr />
 <h1 id="installing-opendsm">Installing OpenDSM<a class="headerlink" href="#installing-opendsm" title="Permanent link">🔗</a></h1>
 <p>There are two supported ways to install OpenDSM:</p>
 <ul>
 <li>
-<p>Install the latest stable release from <a href="https://pypi.python.org/pypi/opendsm">PyPI</a>. This is best for most users.</p>
+<p>Install the <code>1.0.0</code> release from <a href="https://pypi.python.org/pypi/opendsm">PyPI</a>, resolving dependencies as they stood at the successor&rsquo;s release date. This is best for most users.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;opendsm==1.0.0&quot;</span><span class="w"> </span>--exclude-newer<span class="w"> </span><span class="m">2025</span>-07-10
+</span></code></pre></div>
 </li>
 <li>
-<p>Build the package from source at <a href="https://github.com/opendsm/opendsm">https://github.com/opendsm/opendsm</a>. This is best for advanced users and developers.</p>
+<p>Build the package from source at the <a href="https://github.com/opendsm/opendsm/releases/tag/v1.0.0">v1.0.0 release tag</a>. This is best for advanced users and developers.</p>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deprecated releases are provided as-is, without ongoing support or maintenance.</p>
+</div>
 
 
 
