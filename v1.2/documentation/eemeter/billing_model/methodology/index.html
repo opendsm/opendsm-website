@@ -1045,69 +1045,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#model-shape-and-balance-points" class="md-nav__link">
+  <a href="#configuration-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Model Shape and Balance Points
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Model Shape and Balance Points">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Concepts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-archetypes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Archetypes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#smooth-transitions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Smooth Transitions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#robust-adaptive-outlier-downweighting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Robust, Adaptive Outlier Downweighting
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-fit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Fit
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-splits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Splits
+      Configuration Changes
     </span>
   </a>
   
@@ -2013,69 +1953,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#model-shape-and-balance-points" class="md-nav__link">
+  <a href="#configuration-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Model Shape and Balance Points
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Model Shape and Balance Points">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Concepts
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-archetypes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Archetypes
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#smooth-transitions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Smooth Transitions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#robust-adaptive-outlier-downweighting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Robust, Adaptive Outlier Downweighting
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-fit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Fit
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-splits" class="md-nav__link">
-    <span class="md-ellipsis">
-      Model Splits
+      Configuration Changes
     </span>
   </a>
   
@@ -2118,59 +1998,16 @@
 <h3 id="converting-from-billing-data-to-daily-data">Converting from billing data to daily data<a class="headerlink" href="#converting-from-billing-data-to-daily-data" title="Permanent link">🔗</a></h3>
 <p>The billing model intakes billing data and calculates the average energy usage for each given period. For example if a bill covers 31 days and uses 93 therms total, then each day would be given 3 therms of usage. A billing period is assumed to start on the datetime in which it has a value and to end 1 day prior to the next datetime with a value with 1 final empty datetime signifying the end of the year resulting in 13 total datetimes for monthly billing data and 7 for bimonthly billing data. Pulling the temperature from <code>EEweather</code> ensures that each day&rsquo;s mean temperature is correct.</p>
 <p>From here, the data is treated as daily interval data and uses the daily model internally.</p>
-<h3 id="model-shape-and-balance-points">Model Shape and Balance Points<a class="headerlink" href="#model-shape-and-balance-points" title="Permanent link">🔗</a></h3>
-<p>The daily model, at its core, utilizes a piecewise linear regression model that predicts energy usage relative to temperature. The model determines temperature balance points at which energy usage starts changing relative to temperature.</p>
-<div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/billing_model/basic_model.png" alt="Billing Model" style="width:85%">
-</div>
-
-<h4 id="key-concepts">Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">🔗</a></h4>
+<h3 id="configuration-changes">Configuration Changes<a class="headerlink" href="#configuration-changes" title="Permanent link">🔗</a></h3>
+<p>The model shape, balance points, nomenclature, archetypes, and fitting procedure are those of the <a href="/v1.2/documentation/eemeter/daily_model/methodology/">daily model</a> and are not repeated here. The billing model differs in the following ways:</p>
 <ul>
-<li><strong>Balance Points</strong>: Outdoor temperature thresholds beyond which heating and cooling effects are observed.</li>
-<li><strong>Heating and Cooling Coefficients</strong>: Rate of increase of energy use per change in temperature beyond the balance points.</li>
-<li><strong>Temperature Independent Load</strong>: The regression intercept (height of the flat line in the diagram).</li>
-<li><strong>Billing Data</strong>: Because the billing data is converted to daily data, plots will show lines of data points where the usage is the same over a range of temperatures seen during that period.</li>
+<li><strong><a href="/v1.2/documentation/eemeter/daily_model/methodology/#smooth-transitions">Smooth Transitions</a></strong>: disabled.</li>
+<li><strong><a href="/v1.2/documentation/eemeter/daily_model/methodology/#robust-adaptive-outlier-downweighting">Robust, Adaptive Outlier Downweighting</a></strong>: disabled.</li>
+<li><strong><a href="/v1.2/documentation/eemeter/daily_model/methodology/#model-splits">Model Splits</a></strong>: disabled.</li>
 </ul>
-<h4 id="model-archetypes">Model Archetypes<a class="headerlink" href="#model-archetypes" title="Permanent link">🔗</a></h4>
-<p>Based on the site behavior, there are four different model types that may be generated:</p>
-<ul>
-<li>Heating and Cooling Loads</li>
-<li>Heating Only Load</li>
-<li>Cooling Only Load</li>
-<li>Temperature Independent Load</li>
-</ul>
-<div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes" style="width:75%">
-</div>
-
-<h4 id="smooth-transitions">Smooth Transitions<a class="headerlink" href="#smooth-transitions" title="Permanent link">🔗</a></h4>
-<p>The billing model disables this feature of the <a href="/v1.2/documentation/eemeter/daily_model/methodology/#smooth-transitions">daily model</a>.</p>
-<h4 id="robust-adaptive-outlier-downweighting">Robust, Adaptive Outlier Downweighting<a class="headerlink" href="#robust-adaptive-outlier-downweighting" title="Permanent link">🔗</a></h4>
-<p>The billing model disables this feature of the <a href="/v1.2/documentation/eemeter/daily_model/methodology/#robust-adaptive-outlier-downweighting">daily model</a>.</p>
-<h4 id="model-fit">Model Fit<a class="headerlink" href="#model-fit" title="Permanent link">🔗</a></h4>
-<p>When the model is fit, each site will receive its own unique model fit and coefficients. The general model fitting process is as follows:</p>
-<ol>
-<li>Balance points are estimated with a global optimization algorithm.</li>
-<li>Sum of Squares Error (SSE) is minimized with Lasso-inspired penalization.</li>
-<li>The best model type is determined (ex. cooling load only model) using the penalized SSE.</li>
-</ol>
-<p>The Lasso-inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:</p>
-<ul>
-<li>Slopes are pushed to 0</li>
-<li>Intercept is pushed to 0</li>
-<li>Balance points are pushed together</li>
-<li>Balance points are pushed towards the nearest edge (most extreme temperature)</li>
-</ul>
-<div style="text-align: center; margin-top: 30px">
-    <img src="/v1.2/assets/images/eemeter/billing_model/lasso_penalization.png" alt="Lasso penalization" style="width:85%">
-</div>
-
-<p>At this point the billing model is now fit and can be used for prediction.</p>
-<h3 id="model-splits">Model Splits<a class="headerlink" href="#model-splits" title="Permanent link">🔗</a></h3>
-<p>The billing model disables this feature of the <a href="/v1.2/documentation/eemeter/daily_model/methodology/#model-splits">daily model</a>.</p>
 <hr />
 <h2 id="real-data-example">Real Data Example<a class="headerlink" href="#real-data-example" title="Permanent link">🔗</a></h2>
-<p>Here are 6 examples of how the billing model performs on real data.</p>
+<p>Here are 6 examples of how the billing model performs on real data. Because the billing data is converted to daily data, the plots show lines of data points where the usage is the same over the range of temperatures seen during each billing period.</p>
 <div style="text-align: center; margin-top: 30px">
     <img src="/v1.2/assets/images/eemeter/billing_model/real_examples.png" alt="Real world examples">
 </div>
@@ -2198,7 +2035,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2026 00:22:59 UTC">July 27, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2026 03:13:13 UTC">July 27, 2026</span>
   </span>
 
     

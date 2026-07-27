@@ -2167,7 +2167,7 @@
 <h4 id="contrasting-current-usage-with-prior-usage">Contrasting Current Usage with Prior Usage<a class="headerlink" href="#contrasting-current-usage-with-prior-usage" title="Permanent link">🔗</a></h4>
 <p>This method involves simply comparing the current year&rsquo;s usage vs. the previous year. Although this is quickly done and leverages real meter data, it disregards the difference in conditions between the two years - in particular, temperature - which can have a huge impact on the energy usage at a site.</p>
 <h4 id="randomized-control-trial">Randomized Control Trial<a class="headerlink" href="#randomized-control-trial" title="Permanent link">🔗</a></h4>
-<p>This method involves finding &ldquo;nearly identical&rdquo; sites that are not receiving interventions and comparing the energy usage to those receiving interventions. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding &ldquo;nearly identical&rdquo; buildings to match with those receiving interventions. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.</p>
+<p>This method involves finding groups of &ldquo;nearly identical&rdquo; sites, randomly assigning the intervention within them, and comparing the energy usage of sites receiving interventions to those that did not. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding &ldquo;nearly identical&rdquo; buildings to randomly assign the intervention across. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.</p>
 <h4 id="estimate-usage-with-a-model">Estimate Usage with a Model<a class="headerlink" href="#estimate-usage-with-a-model" title="Permanent link">🔗</a></h4>
 <p>This method involves using a model to predict energy usage and then comparing it to the actual usage to determine savings. With EEmeter, this approach relies entirely on temperature and meter data to create a model that can be used to predict energy usage. </p>
 <p>The pros of this method include:</p>
@@ -2203,9 +2203,9 @@ CVRMSE = \frac{RMSE}{\overline{obs}}
 <div class="arithmatex">\[
 PNRMSE = \frac{RMSE}{obs_{IQR}}
 \]</div>
-<p>Because PNRMSE normalizes by IQR, the denominator will always be positive. It will also stay at a reasonable magnitude for all meters with variation in their usage. It can be thought of as how large the error is relative to the variance of the observed data. There is still the possibility that a meter which has very little variation could still fail the PNRMSE threshold requirement for model sufficiency; this is why we use CVRMSE and PNRMSE together.</p>
+<p>Because PNRMSE normalizes by IQR, the denominator will always be positive. It will also stay at a reasonable magnitude for all meters with variation in their usage. It can be thought of as how large the error is relative to the spread of the observed data. There is still the possibility that a meter which has very little variation could fail the PNRMSE threshold requirement for model sufficiency; this is why we use CVRMSE and PNRMSE together.</p>
 <h3 id="cvrmse-and-pnrmse-relationship">CVRMSE and PNRMSE Relationship<a class="headerlink" href="#cvrmse-and-pnrmse-relationship" title="Permanent link">🔗</a></h3>
-<p>PNRMSE sufficiency criteria have been derived from PNRMSE&rsquo;s relationship to CVRMSE. 1000 meters were fit and their normalized error metrics plotted against each other resulting in the following plot.</p>
+<p>PNRMSE sufficiency criteria have been derived from PNRMSE&rsquo;s relationship to CVRMSE. 1,000 meters were fit and their normalized error metrics plotted against each other resulting in the following plot.</p>
 <div style="text-align: center">
     <img src="/v1.2/assets/images/general_concepts/pnrmse_cvrmse_correlation.png" alt="PNRMSE-CVRMSE correlation">
 </div>
@@ -2236,7 +2236,7 @@ PNRMSE = \frac{RMSE}{obs_{IQR}}
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2026 00:22:59 UTC">July 27, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2026 03:13:13 UTC">July 27, 2026</span>
   </span>
 
     

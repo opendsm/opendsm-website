@@ -759,9 +759,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#temperature-bin-temporal-cluster-temperature-interactions" class="md-nav__link">
+  <a href="#temperature-temperature-bin-temporal-cluster-interactions" class="md-nav__link">
     <span class="md-ellipsis">
-      Temperature Bin - Temporal Cluster - Temperature Interactions
+      Temperature - Temperature Bin - Temporal Cluster Interactions
     </span>
   </a>
   
@@ -2086,9 +2086,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#temperature-bin-temporal-cluster-temperature-interactions" class="md-nav__link">
+  <a href="#temperature-temperature-bin-temporal-cluster-interactions" class="md-nav__link">
     <span class="md-ellipsis">
-      Temperature Bin - Temporal Cluster - Temperature Interactions
+      Temperature - Temperature Bin - Temporal Cluster Interactions
     </span>
   </a>
   
@@ -2171,9 +2171,9 @@
 <p>The hourly model has two, closely related variations: a non-solar and a solar model. The only difference between the two is that the solar model requires an additional solar irradiance input. For the purposes of this page, we will describe the solar model, but explanations are the same for the non-solar model except for the solar section.</p>
 <h2 id="model-theory">Model Theory<a class="headerlink" href="#model-theory" title="Permanent link">🔗</a></h2>
 <h3 id="model-algorithm">Model Algorithm<a class="headerlink" href="#model-algorithm" title="Permanent link">🔗</a></h3>
-<p>The hourly model is built using an <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html">elastic net regression framework</a>. During the development of the hourly model many algorithms and methodologies were considered including neural nets; however, elastic net regression proved to be the perfect blend of accurate and efficient.</p>
+<p>The hourly model is built using an <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html">elastic net regression framework</a>. During the development of the hourly model many algorithms and methodologies were considered including neural nets; however, elastic net regression proved to be the perfect blend of accuracy and efficiency.</p>
 <p>The elastic net regression technique uses a linear regression model with regularization. Regularization enhances predictive capabilities by performing feature selection to limit unnecessary model complexity while maximizing model accuracy. Elastic net regression is itself the combination of <a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">lasso regression</a> and <a href="https://en.wikipedia.org/wiki/Ridge_regression">ridge regression</a>. </p>
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html">Lasso regression</a> penalizes the absolute magnitude of model coefficients which has the effect of pushing those coefficients towards zero unless the balanced by an increase in model error in the form of sum of squares error. By pushing coefficients to zero when they do not help the model, the lasso component acts as the feature selection component.</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html">Lasso regression</a> penalizes the absolute magnitude of model coefficients which has the effect of pushing those coefficients towards zero unless balanced by an increase in model error in the form of sum of squares error. By pushing coefficients to zero when they do not help the model, the lasso component acts as the feature selection component.</p>
 <p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html">Ridge regression</a> penalizes the square of the model coefficients which has the effect of more harshly penalizing large coefficients thereby pulling the coefficients closer together in magnitude. This is one approach to handling multicollinearity as correlated variables will end up having similar coefficients.</p>
 <p>The hourly model relies heavily on feature selection to avoid overfitting with the goal of making a well-fit model. To prevent underfitting, we utilize <a href="#model-inputs">Model Inputs</a> that are correlated with usage.</p>
 <div style="text-align: center; margin-top: 30px">
@@ -2184,29 +2184,29 @@
 <p>The input structure to the elastic net framework has been set up such that each hour of usage is informed by all 24 hours of the day. This inherently considers leading and lagging effects of all variables but most importantly temperature. This means that the model innately accounts for phenomena such as thermal lag and precooling if they are regularly part of a building’s usage behavior.</p>
 <h3 id="model-inputs">Model Inputs<a class="headerlink" href="#model-inputs" title="Permanent link">🔗</a></h3>
 <h4 id="correlation-based-imputation">Correlation-based Imputation<a class="headerlink" href="#correlation-based-imputation" title="Permanent link">🔗</a></h4>
-<p>Inputs into the elastic net framework are required to be complete with no missing values. This is unrealistic for inputs into the hourly model so a correlation-based imputation methodology was developed to impute missing values for standard inputs. Autocorrelation is performed on each input and using the largest peaks (most correlated leads/lags) missing values are imputed using the most correlated values around them in time. Additional details can be found in the <a href="/v1.2/documentation/eemeter/hourly_model/references">References</a>.</p>
+<p>Inputs into the elastic net framework are required to be complete with no missing values. This is unrealistic for inputs into the hourly model so a correlation-based imputation methodology was developed to impute missing values for standard inputs. Autocorrelation is performed on each input and, using the largest peaks (most correlated leads/lags), missing values are imputed using the most correlated values around them in time. Additional details can be found in the <a href="/v1.2/documentation/eemeter/hourly_model/references/">References</a>.</p>
 <h4 id="temperature">Temperature<a class="headerlink" href="#temperature" title="Permanent link">🔗</a></h4>
-<p>Building energy consumption generally has a strong response to temperature, which varies considerably in different geographic regimes with different heating and/or cooling needs. For this reason, hourly temperature is a required input. To further clarify, hourly temperatures are the mean hourly outdoor dry-bulb temperature as measured at the nearest weather station within the same climate zone. Getting this information is handled in <code>EEweather</code>. </p>
-<p>Usage can vary significantly and discontinuously as temperature changes. To model this behavior, the hourly model utilizes fixed temperature bins. Within each temperature bin, temperatures are given unique slopes and intercepts. This means that each temperature bin can respond linearly to the usage within its bin edges. The exact bin edges are shown in the figure below.</p>
+<p>Building energy consumption generally has a strong response to temperature, which varies considerably in different geographic regions with different heating and/or cooling needs. For this reason, hourly temperature is a required input. To further clarify, hourly temperatures are the mean hourly outdoor dry-bulb temperature as measured at the nearest weather station within the same climate zone. Getting this information is handled in <code>EEweather</code>. </p>
+<p>Usage can vary significantly and discontinuously as temperature changes. To model this behavior, the hourly model utilizes fixed temperature bins. Within each temperature bin, temperatures are given unique slopes and intercepts. This means that usage can respond linearly to temperature within each bin&rsquo;s edges. The exact bin edges are shown in the figure below.</p>
 <div style="text-align: center; margin-top: 30px">
     <img src="/v1.2/assets/images/eemeter/hourly_model/temperature_bins.png" alt="Temperature bins" style="width:50%">
 </div>
 
-<p>At very low and high temperatures, a building&rsquo;s energy usage can start changing dramatically even within a temperature bin. This can happen for a number of reasons but HVAC is a primary driver. For example, at high temperatures an air conditioner can be in normal operation, be under increased load as inhabitants decrease the temperature, or be at maximum capacity. Each of these scenarios results in a different energy usage profile. Our model accounts for these swift changes by giving the lowest and highest populated temperature bins an additional non-linear components.</p>
+<p>At very low and high temperatures, a building&rsquo;s energy usage can start changing dramatically even within a temperature bin. This can happen for a number of reasons but HVAC is a primary driver. For example, at high temperatures an air conditioner can be in normal operation, be under increased load as inhabitants decrease the temperature, or be at maximum capacity. Each of these scenarios results in a different energy usage profile. Our model accounts for these swift changes by giving the lowest and highest populated temperature bins additional non-linear components.</p>
 <div style="text-align: center; margin-top: 30px">
     <img src="/v1.2/assets/images/eemeter/hourly_model/nonlinear_temperature_effects.png" alt="Non-linear temperature effects" style="width:70%">
 </div>
 
-<p>By adding the linear temperature response with the positive and negative exponentials, each fit with their own unique coefficients, it&rsquo;s not hard to imagine the complexity that this structure could model.</p>
+<p>By adding the linear temperature response to the positive and negative exponentials, each fit with their own unique coefficients, it&rsquo;s not hard to imagine the complexity that this structure could model.</p>
 <h4 id="temporal-features">Temporal Features<a class="headerlink" href="#temporal-features" title="Permanent link">🔗</a></h4>
-<p>Due to people&rsquo;s behavior (among other drivers), time-of-day, day-of-week, and month can completely change how a building uses energy. The hourly model creates one hot vectors using day-of-week and month. Time-of-day need not be considered because of the <a href="#basic-fitpredict-structure">24-hour fit/predict structure</a>. Creating one hot vectors for all combinations of day-of-week and month would undoubtedly create an overfit model in some circumstances, so the hourly model has a preprocessing routine to cluster the median daily usage profiles of all 365 days by day-of-week and month. Full details of this methodology can be found in the <a href="/v1.2/documentation/eemeter/hourly_model/references">References</a>. This procedure allows for the algorithm to automatically combine days in which energy consumption is similar and to separate those that are not.</p>
+<p>Due to people&rsquo;s behavior (among other drivers), time-of-day, day-of-week, and month can completely change how a building uses energy. The hourly model creates one hot vectors using day-of-week and month. Time-of-day need not be considered because of the <a href="#basic-fitpredict-structure">24-hour fit/predict structure</a>. Creating one hot vectors for all combinations of day-of-week and month would undoubtedly create an overfit model in some circumstances, so the hourly model has a preprocessing routine to cluster the median daily usage profiles of all 365 days by day-of-week and month. Full details of this methodology can be found in the <a href="/v1.2/documentation/eemeter/hourly_model/references/">References</a>. This procedure allows for the algorithm to automatically combine days in which energy consumption is similar and to separate those that are not.</p>
 <div style="text-align: center; margin-top: 30px">
     <img src="/v1.2/assets/images/eemeter/hourly_model/temporal_clusters.png" alt="Temporal clusters" style="width:100%">
 </div>
 
 <p>In this example, the building has a clear difference in energy consumption depending on if the day of week is Wednesday or any other day of the week. This is likely a commercial building that shuts down on Wednesdays.</p>
-<h4 id="temperature-bin-temporal-cluster-temperature-interactions">Temperature Bin - Temporal Cluster - Temperature Interactions<a class="headerlink" href="#temperature-bin-temporal-cluster-temperature-interactions" title="Permanent link">🔗</a></h4>
-<p>Temperature bins and temporal clusters can interact in unexpected ways. An office building, for example, might decrease their AC set point during off-hours when the temperature is high. The hourly model accounts for this by using the interaction between temperature, temperature bins, and temporal clusters. This means that the model has several different temperature reponse variables: global temperature response and a temperature response for all temporal clusters. The model calculates the combination of the global temperature response with the temporal cluster temperature responses.</p>
+<h4 id="temperature-temperature-bin-temporal-cluster-interactions">Temperature - Temperature Bin - Temporal Cluster Interactions<a class="headerlink" href="#temperature-temperature-bin-temporal-cluster-interactions" title="Permanent link">🔗</a></h4>
+<p>Temperature bins and temporal clusters can interact in unexpected ways. An office building, for example, might decrease their AC set point during off-hours when the temperature is high. The hourly model accounts for this by using the interaction between temperature, temperature bins, and temporal clusters. This means that the model has several different temperature response variables: global temperature response and a temperature response for all temporal clusters. The model calculates the combination of the global temperature response with the temporal cluster temperature responses.</p>
 <div style="text-align: center; margin-top: 30px">
     <img src="/v1.2/assets/images/eemeter/hourly_model/temp_interactions.png" alt="Temperature - temporal cluster - temperature bin interactions" style="width:85%">
 </div>
@@ -2231,7 +2231,7 @@ This is meant to be a development feature to make it easier to improve the hourl
     <img src="/v1.2/assets/images/eemeter/hourly_model/real_example.png" alt="Real world example" style="width:85%">
 </div>
 
-<p>Here it looks like the model is performing fairly well, but this is only 672 hours out of a 8760 hour baseline year. Because of the large day-to-day variance, if we were to plot the entire year, it would be very difficult to glean any information from the smudge of a plot. Instead, let&rsquo;s see what it looks like as a seasonal, hour-of-week loadshape.</p>
+<p>Here it looks like the model is performing fairly well, but this is only 336 hours out of an 8760-hour baseline year. Because of the large day-to-day variance, if we were to plot the entire year, it would be very difficult to glean any information from the smudge of a plot. Instead, let&rsquo;s see what it looks like as a seasonal, hour-of-week loadshape.</p>
 <div style="text-align: center; margin-top: 30px">
     <img src="/v1.2/assets/images/eemeter/hourly_model/real_example_loadshape.png" alt="Real world loadshape example" style="width:100%">
 </div>
@@ -2260,7 +2260,7 @@ This is meant to be a development feature to make it easier to improve the hourl
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 10, 2026 15:16:13 UTC">June 10, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2026 03:13:13 UTC">July 27, 2026</span>
   </span>
 
     
