@@ -44,6 +44,8 @@ plugins:
         python:
           paths: [..]
           options:
+            extensions:
+            - hooks/strip_license_docstrings.py
             show_bases: false
             show_if_no_docstring: true
             show_root_heading: false
