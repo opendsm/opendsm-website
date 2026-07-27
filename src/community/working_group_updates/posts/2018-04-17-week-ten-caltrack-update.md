@@ -9,7 +9,7 @@ description: CalTRACK working group finalizes building qualification recommendat
 
 The CalTRACK working group finalized discussions on Building Qualifications during the first half of Thursday's (4/12) meeting and dove into the hourly methods during the second half. Bill Koran from SBW consulting provided a helpful overview of hourly models and the [ECAM energy data analysis tool](http://www.sbwconsulting.com/ecam/). The major findings of this meeting are summarized below:
 
-[Video of 4/12/2018 Meeting](https://zoom.us/recording/share/zcpH5sfM4WSOZBgAlJISMJV3UoQ-cKNRQTvz11TyjBawIumekTziMw)
+*Video of 4/12/2018 Meeting — Zoom recording no longer available.*
 
 **Building Qualification Observations and Recommendations:**
 

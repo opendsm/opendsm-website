@@ -36,7 +36,7 @@ The test data contained within the OpenDSM library is derived from [NREL ComStoc
 If working with your own data instead of these samples, please refer directly to the excellent pandas documentation for instructions for loading data (e.g., [pandas.read_csv](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html)).
 
 #### Important notes about data
-- *These models were developed and tested using temperature in units of °Fahrenheit. Please convert your temperatures accordingly*
+- *These models were developed and tested using temperature in units of °F. Please convert your temperatures accordingly*
 - *It is expected that all data is trimmed to its appropriate time period (baseline and reporting) and does not contain extraneous datetimes*
     - *The exception to this is that a billing period is assumed to start on the datetime in which it has a value and to end 1 day prior to the next datetime with a value with 1 final empty datetime signifying the end of the year resulting in 13 total datetimes for monthly billing data and 7 for bimonthly billing data*
 

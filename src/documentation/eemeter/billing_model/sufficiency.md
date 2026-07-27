@@ -21,89 +21,89 @@ Many sufficiency criteria are duplicated between the various models, but for the
 There are some checks that should be performed which cannot be performed within the confines of the data or model classes, but are critical for valid measurements
 <div style="padding-left: 20px;" markdown="1">
 
-#### **1.1.1 Period Definition**
+#### **1.1.1: Period Definition**
 <div style="padding-left: 20px;" markdown="1">
 
-##### **1.1.1.1 Blackout Period**
+##### **1.1.1.1: Blackout Period**
 <div style="padding-left: 20px;" markdown="1">
 The blackout period should be known, or at least estimated, and excluded from being included in the data.
 </div>
 
-##### **1.1.1.2 Baseline Period**  ·  CalTRACK 2.2.1.1
+##### **1.1.1.2: Baseline Period**  ·  CalTRACK 2.2.1.1
 <div style="padding-left: 20px;" markdown="1">
 The baseline period should be one year immediately prior to the blackout period
 </div>
 
-##### **1.1.1.3 Reporting Period**
+##### **1.1.1.3: Reporting Period**
 <div style="padding-left: 20px;" markdown="1">
 The reporting period should be one year immediately following the blackout period
 </div>
 
 </div>
 
-#### **1.1.2 Units**
+#### **1.1.2: Units**
 <div style="padding-left: 20px;" markdown="1">
 Units can be critically important to model performance. Convert your units accordingly.
 
-##### **1.1.2.1 Temperature**
+##### **1.1.2.1: Temperature**
 <div style="padding-left: 20px;" markdown="1">
-Temperature data should be in °Fahrenheit
+Temperature data should be in °F
 </div>
 
-##### **1.1.2.2 Consumption/Usage**  ·  CalTRACK 2.1.1.3
+##### **1.1.2.2: Consumption/Usage**  ·  CalTRACK 2.1.1.3
 <div style="padding-left: 20px;" markdown="1">
 Consumption data is expected to be in some kind of units of energy
 </div>
 
 </div>
 
-#### **1.1.3 Model Results**
+#### **1.1.3: Model Results**
 <div style="padding-left: 20px;" markdown="1">
 
-##### **1.1.3.1 Predicted Energy Aggregation**
+##### **1.1.3.1: Predicted Energy Aggregation**
 <div style="padding-left: 20px;" markdown="1">
 Predicted energy can be aggregated through simple summation
 </div>
 
-##### **1.1.3.2 Predicted Energy Uncertainty Aggregation**
+##### **1.1.3.2: Predicted Energy Uncertainty Aggregation**
 <div style="padding-left: 20px;" markdown="1">
 Predicted energy uncertainty should be aggregated by [summing in quadrature](https://en.wikipedia.org/wiki/Pythagorean_addition)
 </div>
 
 </div>
 
-#### **1.1.4 Location**
+#### **1.1.4: Location**
 <div style="padding-left: 20px;" markdown="1">
 There are two options for location data, but [Billing DQ 1.1.4.1](#1141-latitude-and-longitude) is greatly preferred.
 
-##### **1.1.4.1 Latitude and Longitude**  ·  CalTRACK 2.1.4.1 {#1141-latitude-and-longitude}
+##### **1.1.4.1: Latitude and Longitude**  ·  CalTRACK 2.1.4.1 {#1141-latitude-and-longitude}
 <div style="padding-left: 20px;" markdown="1">
 Latitude and longitude should be known to three decimal places
 <br><span style="color: #888; font-size: 0.9em;">Note: CalTRACK 2.1.4.1 specifies four or more decimal places.</span>
 </div>
 
-##### **1.1.4.2 ZIP Code Tabulation Area (ZCTA)**  ·  CalTRACK 2.1.4.1.1
+##### **1.1.4.2: ZIP Code Tabulation Area (ZCTA)**  ·  CalTRACK 2.1.4.1.1
 <div style="padding-left: 20px;" markdown="1">
 If absolutely necessary, the centroid of the ZCTA may be used in place of latitude and longitude
 </div>
 
 </div>
 
-#### **1.1.5 Non-Routine Events**
+#### **1.1.5: Non-Routine Events**
 <div style="padding-left: 20px;" markdown="1">
 Identifying and addressing non-routine events (NRE) is a best practice for making measurements, but is not required by OpenDSM.
 
-##### **1.1.5.1 Net Metering Status Change**  ·  CalTRACK 2.2.6
+##### **1.1.5.1: Net Metering Status Change**  ·  CalTRACK 2.2.6
 <div style="padding-left: 20px;" markdown="1">
 If a meter's net metering status changes ***during*** a period, the meter should be disqualified as an NRE. Negative meter data is indicative of net metering, but a meter may have an undersized system and remain positive at all datetimes.
 </div>
 
-##### **1.1.5.2 Electric Vehicle Status Change**  ·  CalTRACK 2.2.7
+##### **1.1.5.2: Electric Vehicle Status Change**  ·  CalTRACK 2.2.7
 <div style="padding-left: 20px;" markdown="1">
 If a meter's electric vehicle charging status changes ***during*** a period, the meter should be disqualified as an NRE.
 </div>
 
-##### **1.1.5.3 Heuristic-Based Identification**  ·  CalTRACK 2.3.6
+##### **1.1.5.3: Heuristic-Based Identification**  ·  CalTRACK 2.3.6
 <div style="padding-left: 20px;" markdown="1">
 Observed values which fall outside of $[Q_1 - 3\times IQR, Q_3 + 3\times IQR]$, a modification of the general [1.5 IQR Rule](https://en.wikipedia.org/wiki/Interquartile_range), can be investigated for disqualification as an NRE.
 </div>
@@ -233,7 +233,7 @@ The reporting period must meet the [Common](#12-common) sufficiency criteria.
 
 ---
 
-## **2. Model Sufficiency**
+## 2. Model Sufficiency
 A fit billing model must meet the [CVRMSE](site:documentation/general_concepts/#cvrmse) criterion to be qualified for measurement.
 
 ### **2.1 CVRMSE**

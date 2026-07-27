@@ -15,8 +15,8 @@ The model predicts hourly usage from three sources of variation:
 - **Occupancy state** — whether the building is in a high-load ("occupied") or low-load
   ("unoccupied") mode for a given time of week.
 
-A separate prediction is produced for each combination of hour-of-week and occupancy state — so, for
-example, Tuesday 7 pm, Friday 3 am, and Sunday 7 pm each get their own fitted behavior.
+A separate prediction is produced for each hour of the week, each carrying its inferred occupancy
+state — so, for example, Tuesday 7 pm, Friday 3 am, and Sunday 7 pm each get their own fitted behavior.
 
 <div style="text-align: center; margin-top: 30px">
     <img src="site:assets/images/drmeter/towt_model/methodology/weekly_load_shape.png" alt="Average weekly load shape by hour of week" style="width:75%">
@@ -57,7 +57,7 @@ The fitted model is a sum of components, each capturing a distinct "bucket" of c
 4. Additional temperature-dependent usage during **occupied** hours.
 
 $$
-UPH_{pi} = \underbrace{\sum \alpha_t TOW_p + \sum \beta_{T, n} Tc_{n, p}}_{\text{unoccupied}} + \underbrace{\sum \alpha_t TOW_p + \sum \beta_{T, n} Tc_{n, p}}_{\text{occupied}} + \epsilon_{pi}
+UPH_{pi} = \underbrace{\sum \alpha_{t,u} TOW_p + \sum \beta_{T,n,u} Tc_{n, p}}_{\text{unoccupied}} + \underbrace{\sum \alpha_{t,o} TOW_p + \sum \beta_{T,n,o} Tc_{n, p}}_{\text{occupied}} + \epsilon_{pi}
 $$
 
 The occupancy classification, temperature binning, and the full hourly design matrix are specified in

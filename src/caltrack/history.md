@@ -36,13 +36,13 @@ This process led to a consensus around ^^**a method to calculate site-based ener
 
 Open Source Meter Development: There was a gap of a year between PHASE II and PHASE III of the CalTRACK process. During this gap, OpenEE / Sustainable Spaces, LLC continued the development of the CalTRACK methods as an open source code base that was funded in part by the California Energy Commission. This code base resulted in the open source OpenEEmeter platform and is supported and provided as a public resource available for use for both private and commercial applications to all at no cost under a [permissive open-source license](https://www.apache.org/licenses/LICENSE-2.0).
 
-The OpenEEmeter code can be viewed, downloaded, forked, and contributed to at: [~~https://github.com/openeemeter/eemeter/releases~~](https://github.com/openeemeter/eemeter/releases)
+The OpenEEmeter code was released publicly on GitHub (openeemeter/eemeter, since moved to the [opendsm organization](https://github.com/opendsm/opendsm)).
 
-A detailed set of documentation is maintained at: [~~https://www.recurve.com/open-source/how-it-works~~](https://www.recurve.com/open-source/how-it-works)
+A detailed set of documentation was maintained on the Recurve website (no longer available).
 
 ## PHASE III
 
-At the end of 2015, PG&E reconvened the CalTRACK working group to further refine current methods, and the OpenEEmeter implementation of those methods for use in the AHU program, and P4P Pilots. It was decided that the best process for testing the CalTRACK methods and the OpenEEmeter code base would be through a multiparty beta test using real past AHU meter data. The beta test[^1] plan that was agreed to by the working group can be found [~~here~~](http://www.caltrack.org/caltrack-beta-test-plan.html).
+At the end of 2015, PG&E reconvened the CalTRACK working group to further refine current methods, and the OpenEEmeter implementation of those methods for use in the AHU program, and P4P Pilots. It was decided that the best process for testing the CalTRACK methods and the OpenEEmeter code base would be through a multiparty beta test using real past AHU meter data. The beta test[^1] plan agreed to by the working group was published on caltrack.org (no longer available).
 
 The objectives (and exclusions) were listed in the plan as:
 
@@ -53,13 +53,13 @@ The objectives (and exclusions) were listed in the plan as:
 
 The working group, and three beta testers, spent approximately 7 months executing on the Beta Process resulting in a narrowing of the variance between outcomes and generating a set of extremely detailed specifications that were the work product of all three firms involved.
 
-* [~~Data Preparation~~](https://github.com/impactlab/caltrack-betatest/tree/master/data-prep)
-* [~~Monthly Analysis Methods~~](https://github.com/impactlab/caltrack-betatest/blob/master/analysis/monthly/Site-level_Monthly_Gross_Savings_Analysis_Methods.ipynb)
-* [~~Savings Aggregation~~](https://github.com/impactlab/caltrack-betatest/blob/master/aggregation/Portfolio_savings_aggregation_methods.ipynb)
-* [~~GitHub Repo with all BETA Code and Results~~](https://github.com/impactlab/caltrack-betatest)
-* [~~Complete Open Source CODE for CalTRACK / OpenEEmeter~~](https://github.com/openeemeter/eemeter)
+* Data preparation specification
+* Monthly analysis methods specification
+* Savings aggregation methods specification
+* Beta test code and results (GitHub repository)
+* Complete open-source code for CalTRACK / OpenEEmeter
 
-These work products are to a level of specificity that is unique in M&V.  The project has now evolved from pseudo code to actual code, which is provided in the complete and functioning OpenEEmeter.  
+These work products were hosted in the impactlab/caltrack-betatest and openeemeter GitHub repositories; the original links are no longer maintained. They are to a level of specificity that is unique in M&V.  The project has now evolved from pseudo code to actual code, which is provided in the complete and functioning OpenEEmeter.  
 
 ## PHASE IV
 
@@ -82,7 +82,7 @@ Regularly held working group meetings provided a forum to present issues, propos
 
 ## PHASE V
 
-In early 2019, the [~~Energy Market Methods Consortium (EM2)~~](https://www.energymarketmethods.org/) was formed to govern the CalTRACK process as well as two related working groups.
+In early 2019, the Energy Market Methods Consortium (EM2) was formed to govern the CalTRACK process as well as two related working groups.
 
 Building on the earlier collaboration of CalTRACK, the Energy Market Methods Consortium (EM2) is focused on representation from industry stakeholders who are committed to collaboration on methods designed to reduce the costs of scaling demand-side energy programs and procurements.
 

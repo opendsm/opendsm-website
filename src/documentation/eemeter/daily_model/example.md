@@ -36,7 +36,7 @@ The test data contained within the OpenDSM library is derived from [NREL ComStoc
 If working with your own data instead of these samples, please refer directly to the excellent pandas documentation for instructions for loading data (e.g., [pandas.read_csv](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html)).
 
 #### Important notes about data
-- *These models were developed and tested using temperature in units of °Fahrenheit. Please convert your temperatures accordingly*
+- *These models were developed and tested using temperature in units of °F. Please convert your temperatures accordingly*
 - *It is expected that all data is trimmed to its appropriate time period (baseline and reporting) and does not contain extraneous datetimes*
 
 The built-in `load_test_data` utility reads bundled example data. In OpenDSM 1.0 it looks for that data

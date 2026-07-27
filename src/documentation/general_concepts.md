@@ -29,7 +29,7 @@ This method involves simply comparing the current year's usage vs. the previous 
 
 #### Randomized Control Trial
 
-This method involves finding "nearly identical" sites that are not receiving interventions and comparing the energy usage to those receiving interventions. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding "nearly identical" buildings to match with those receiving interventions. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.
+This method involves finding groups of "nearly identical" sites, randomly assigning the intervention within them, and comparing the energy usage of sites receiving interventions to those that did not. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding "nearly identical" buildings to randomly assign the intervention across. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.
 
 #### Estimate Usage with a Model
 
