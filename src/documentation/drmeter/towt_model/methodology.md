@@ -57,7 +57,7 @@ The fitted model is a sum of components, each capturing a distinct "bucket" of c
 4. Additional temperature-dependent usage during **occupied** hours.
 
 $$
-UPH_{pi} = \sum \alpha_t TOWp + \sum \beta_{T, n} Tc_{n, p} + \sum occupied \alpha_t TOWp + \sum occupied \beta_{T, n} Tc_{n, p} + \epsilon_{pi}
+UPH_{pi} = \underbrace{\sum \alpha_t TOW_p + \sum \beta_{T, n} Tc_{n, p}}_{\text{unoccupied}} + \underbrace{\sum \alpha_t TOW_p + \sum \beta_{T, n} Tc_{n, p}}_{\text{occupied}} + \epsilon_{pi}
 $$
 
 The occupancy classification, temperature binning, and the full hourly design matrix are specified in

@@ -7,7 +7,7 @@ The daily model follows the CalTRACK daily methods. One of the key requirements 
 The daily model runs in one of two modes, selected with the `model` parameter:
 
 - **`CalTRACK 2.1`** implements the **CalTRACK 2.1** daily model described on this page.
-- **`CalTRACK 2.0`** is nearly identical to the **CalTRACK 2.0** daily model, but far more efficient.
+- **`CalTRACK 2.0`** is nearly identical to the original CalTRACK 2.0 daily model, but far more efficient.
 
 ```python
 from opendsm.eemeter.models.daily import DailyModel
@@ -27,7 +27,7 @@ see the [CalTRACK Compliance overview](https://eemeter.readthedocs.io/caltrack_c
 The daily model, at its core, utilizes a piecewise linear regression model that predicts energy usage relative to temperature. The model determines temperature balance points at which energy usage starts changing relative to temperature.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/basic_model.png" alt="Daily model", style="width:85%">
+    <img src="site:assets/images/eemeter/daily_model/basic_model.png" alt="Daily model" style="width:85%">
 </div>
 
 #### Nomenclature
@@ -46,7 +46,7 @@ Based on the site behavior, there are four different model types that may be gen
 - Temperature Independent Load
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes", style="width:75%">
+    <img src="site:assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes" style="width:75%">
 </div>
 
 #### Smooth Transitions
@@ -54,7 +54,7 @@ Based on the site behavior, there are four different model types that may be gen
 The daily model is designed to allow smooth transitions between model regimes. There are many reasons why a smooth transition might be favorable, but one example of this is inlet water temperature into a water heater. In this example, more energy will be required as the temperature decreases, which will be a smooth transition.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/smoothed_winter.png" alt="Smooth winter transition", style="width:85%">
+    <img src="site:assets/images/eemeter/daily_model/smoothed_winter.png" alt="Smooth winter transition" style="width:85%">
 </div>
 
 #### Robust, Adaptive Outlier Downweighting
@@ -62,7 +62,7 @@ The daily model is designed to allow smooth transitions between model regimes. T
 While the majority of the time Sum of Squares Error (SSE) is the optimal metric to minimize to obtain the best model, there are instances where it is less effective at creating predictive models in data containing influential outliers. The daily model handles these outliers by downweighting them using a robust, adaptive loss function and procedure.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/outliers.png" alt="Downweighted outliers", style="width:85%">
+    <img src="site:assets/images/eemeter/daily_model/outliers.png" alt="Downweighted outliers" style="width:85%">
 </div>
 
 #### Model Fit
@@ -70,10 +70,10 @@ While the majority of the time Sum of Squares Error (SSE) is the optimal metric 
 When the model is fit, each site will receive its own unique model fit and coefficients. The general model fitting process is as follows:
 
 1. Balance points are estimated with a global optimization algorithm.
-2. Sum of Squares Error (SSE) is minimized with Lasso inspired penalization.
+2. Sum of Squares Error (SSE) is minimized with Lasso-inspired penalization.
 3. The best model type is determined (ex. cooling load only model) using the penalized SSE.
 
-The Lasso inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:
+The Lasso-inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:
 
 - Slopes are pushed to 0
 - Intercept is pushed to 0
@@ -82,7 +82,7 @@ The Lasso inspired penalization means that increased model complexity must be ju
 - Smoothing parameter is pushed to 0 (no smoothing)
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/lasso_penalization.png" alt="Lasso penalization", style="width:85%">
+    <img src="site:assets/images/eemeter/daily_model/lasso_penalization.png" alt="Lasso penalization" style="width:85%">
 </div>
 
 ### Model Splits
@@ -107,7 +107,7 @@ The general process is as follows:
 This provides a standardized process for splitting the model to better predict energy usage by certain time periods (if the benefit outweighs the additional model complexity).
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/split_model_season.png" alt="Model split by season", style="width:85%">
+    <img src="site:assets/images/eemeter/daily_model/split_model_season.png" alt="Model split by season" style="width:85%">
 </div>
 
 ---
@@ -123,7 +123,7 @@ In this real example, we have three models:
 3. Weekend model: an all-season model with significant usage decrease compared to the weekday models.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/daily_model/real_example.png" alt="Real world example", style="width:85%">
+    <img src="site:assets/images/eemeter/daily_model/real_example.png" alt="Real world example" style="width:85%">
 </div>
 
 <div style="text-align: left; font-size: 0.9em; color: #888; margin-top: 40px;">

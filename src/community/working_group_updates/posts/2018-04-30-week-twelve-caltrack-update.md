@@ -14,6 +14,6 @@ During week twelve, we continued our discussion of hourly methods. In the upcomi
 **Homework:**
 
 1. Use Hourly Method Tools on test data
-2. Report findings on [Github](https://github.com/CalTRACK-2/caltrack/issues)
+2. Report findings on [GitHub](https://github.com/CalTRACK-2/caltrack/issues)
 3. Offer test criteria for hourly models
 4. Attend standing meeting on Thursday, May 3rd at 12:00 (PST)

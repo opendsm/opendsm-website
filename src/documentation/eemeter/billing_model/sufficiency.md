@@ -1,4 +1,4 @@
-# Sufficiency Criteria<br><div style="text-align: left; font-size: 0.5em; color: #888; ; margin-bottom: -2.3em;">Last updated: OpenDSM 1.0</div>
+# Sufficiency Criteria<br><div style="text-align: left; font-size: 0.5em; color: #888; margin-bottom: -2.3em;">Last updated: OpenDSM 1.0</div>
 
 Most sufficiency criteria derive their origins from the CalTRACK specifications. OpenDSM uses its own
 reference numbers; the corresponding CalTRACK 2.1 rule is cited inline after each criterion for
@@ -148,7 +148,7 @@ At least 50% of high-frequency data must be valid. Missing data must be imputed 
 
 ##### **1.2.6.1: Minimum Billing Period**  ·  CalTRACK 2.2.3.4
 <div style="padding-left: 20px;" markdown="1">
-All billing periods must be greater or equal than 25 days
+All billing periods must be greater than or equal to 25 days
 </div>
 
 ##### **1.2.6.2: Maximum Billing Period**  ·  CalTRACK 2.2.3.5
@@ -158,7 +158,7 @@ All billing periods must be less than or equal to 35 days (if monthly cadence) o
 
 ##### **1.2.6.3: Combining Estimated Periods**  ·  CalTRACK 2.2.3.1
 <div style="padding-left: 20px;" markdown="1">
-Estimated periods should be combined with the next period up to a 70 day limit. Estimated periods are considered as missing data for the purpose of determining data sufficiency.
+Estimated periods should be combined with the next period up to a 70-day limit. Estimated periods are considered as missing data for the purpose of determining data sufficiency.
 </div>
 
 </div>

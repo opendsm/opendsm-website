@@ -13,7 +13,7 @@ As we complete Week Two (2/12-2/16), we conclude our discussion of "Proposals fo
 
 ### [Criteria for choosing weather stations](https://github.com/CalTRACK-2/caltrack/issues/65)
 
-- There is still deliberation regarding this topic. CalTrack 1.0's methods chose weather station based on the closest weather station in a unit's climatic zone.
+- There is still deliberation regarding this topic. CalTRACK 1.0's methods chose weather station based on the closest weather station in a unit's climatic zone.
 - An evaluation of weather station quality should be included in weather station mapping because data quality varies between weather stations
 
 ### [Adjustment to monthly data for models](https://github.com/CalTRACK-2/caltrack/issues/67)
@@ -27,7 +27,7 @@ As we complete Week Two (2/12-2/16), we conclude our discussion of "Proposals fo
 
 ### [Include search grid to determine balance points on Monthly Methods](https://github.com/CalTRACK-2/caltrack/issues/69)
 
-- Previously, we only used search grid to determine balance points in Daily Methods. We plan to expand this to Monthly Methods in CalTrack 2.0
+- Previously, we only used search grid to determine balance points in Daily Methods. We plan to expand this to Monthly Methods in CalTRACK 2.0
 
 ### [Expand Balance Point Search Range](https://github.com/CalTRACK-2/caltrack/issues/72)
 

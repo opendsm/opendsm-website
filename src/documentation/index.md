@@ -5,7 +5,7 @@ hide:
 
 ## Modules
 
-### [OpenEEmeter](site:documentation/eemeter)
+### [EEmeter](site:documentation/eemeter)
 
 Create long-term models fit on historical data to generate predictions of energy consumption
 
@@ -15,7 +15,7 @@ Create short-term models fit on historical data to generate predictions of energ
 
 ### Comparison Groups
 
-Assign comparison groups (CGs) to correct OpenEEmeter models using non-participant population through one of the following methods
+Assign comparison groups (CGs) to correct EEmeter models using non-participant population through one of the following methods
 
 <span style="font-size: 0.8em;">
 * Planned feature in future OpenDSM versions

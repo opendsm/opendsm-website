@@ -7,7 +7,7 @@ description: OpenEEmeter working group discusses completed documentation, 24-hou
 
 Thanks to everyone who joined the most recent OpenEEmeter Working Group Meeting.
 
-The meeting began with a discussion of the documentation that has been developed for all of the OpenEEmeter. This documentation can be accessed at the [OpenEEmeter Github site](https://openeemeter.github.io/eemeter/).
+The meeting began with a discussion of the documentation that has been developed for all of the OpenEEmeter. This documentation can be accessed at the [OpenEEmeter GitHub site](https://openeemeter.github.io/eemeter/).
 
 Documentation is complete for the daily and billing models, and will soon be completed for the hourly model.
 
@@ -25,4 +25,4 @@ The meeting concluded with a discussion of next steps, which include finishing t
 
 Watch the complete presentation below.
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/vKzP_kqHyfA" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/dJb0j_TgC5w" frameborder="0" allowfullscreen></iframe>

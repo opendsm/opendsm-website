@@ -31,7 +31,7 @@ nav:
     - History: documentation/history/index.md
     - Philosophy: documentation/philosophy.md
     - General Concepts: documentation/general_concepts.md
-    - OpenEEmeter: 
+    - EEmeter:
       - documentation/eemeter/index.md
       - Hourly Model:
         - Methodology: documentation/eemeter/hourly_model/methodology.md

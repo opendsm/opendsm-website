@@ -1,4 +1,4 @@
-The billing model uses the [daily model](site:documentation/eemeter/daily_model/methodology) with small configuration changes and billing (monthly or bimonthly) interval data.
+The billing model uses the [daily model](site:documentation/eemeter/daily_model/methodology/) with small configuration changes and billing (monthly or bimonthly) interval data.
 
 It applies the legacy (**CalTRACK 2.0**) daily method to billing-period data. See the
 [CalTRACK 2.1 Methods](site:caltrack/methodology/) and the
@@ -19,7 +19,7 @@ From here, the data is treated as daily interval data and uses the daily model i
 The daily model, at its core, utilizes a piecewise linear regression model that predicts energy usage relative to temperature. The model determines temperature balance points at which energy usage starts changing relative to temperature.
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/billing_model/basic_model.png" alt="Billing Model", style="width:85%">
+    <img src="site:assets/images/eemeter/billing_model/basic_model.png" alt="Billing Model" style="width:85%">
 </div>
 
 #### Key Concepts
@@ -39,7 +39,7 @@ Based on the site behavior, there are four different model types that may be gen
 - Temperature Independent Load
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes", style="width:75%">
+    <img src="site:assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes" style="width:75%">
 </div>
 
 #### Smooth Transitions
@@ -55,10 +55,10 @@ The billing model disables this feature of the [daily model](site:documentation/
 When the model is fit, each site will receive its own unique model fit and coefficients. The general model fitting process is as follows:
 
 1. Balance points are estimated with a global optimization algorithm.
-2. Sum of Squares Error (SSE) is minimized with Lasso regression inspired penalization.
+2. Sum of Squares Error (SSE) is minimized with Lasso-inspired penalization.
 3. The best model type is determined (ex. cooling load only model) using the penalized SSE.
 
-The Lasso inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:
+The Lasso-inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:
 
 - Slopes are pushed to 0
 - Intercept is pushed to 0
@@ -66,7 +66,7 @@ The Lasso inspired penalization means that increased model complexity must be ju
 - Balance points are pushed towards the nearest edge (most extreme temperature)
 
 <div style="text-align: center; margin-top: 30px">
-    <img src="site:assets/images/eemeter/billing_model/lasso_penalization.png" alt="Lasso penalization", style="width:85%">
+    <img src="site:assets/images/eemeter/billing_model/lasso_penalization.png" alt="Lasso penalization" style="width:85%">
 </div>
 
 At this point the billing model is now fit and can be used for prediction.

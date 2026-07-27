@@ -56,7 +56,7 @@ The fitted model is a sum of components, each capturing a distinct "bucket" of c
 4. Additional temperature-dependent usage during **occupied** hours.
 
 $$
-UPH_{pi} = \sum \alpha_t TOWp + \sum \beta_{T, n} Tc_{n, p} + \sum occupied \alpha_t TOWp + \sum occupied \beta_{T, n} Tc_{n, p} + \epsilon_{pi}
+UPH_{pi} = \underbrace{\sum \alpha_t TOW_p + \sum \beta_{T, n} Tc_{n, p}}_{\text{unoccupied}} + \underbrace{\sum \alpha_t TOW_p + \sum \beta_{T, n} Tc_{n, p}}_{\text{occupied}} + \epsilon_{pi}
 $$
 
 The occupancy classification, temperature binning, and the full hourly design matrix are specified in
@@ -82,7 +82,7 @@ adjacent months, so the transition from one month to the next is smooth.
 
 The biggest limitation of this model is that it is not designed to function on sites with solar PV systems.
 The model will not fail completely because solar irradiance is highly correlated with both temperature and 
-time of year, but it will only do so in a very broad sense. If the training data that it was fit on was
+time of year, but it will only capture solar effects in a very broad sense. If the training data that it was fit on was
 largely cloudy in the spring and fall; it will predict the average cloudy day from its training data. It is
 highly suggested that users adopt the newer OpenDSM hourly model which is built explicitly with solar PV sites
 in mind.

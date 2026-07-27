@@ -28,5 +28,3 @@
       members:
       - DailyBaselineData
       - DailyReportingData
-
-example:

@@ -25,6 +25,6 @@ The discussion of building qualifications is scheduled to close on March 14th, s
 **Homework for Participants:**
 
 1. Attend the standing, bi-weekly meeting on Thursday, March 15th at 12:00 PST
-2. Review [Github](https://github.com/CalTRACK-2/caltrack/issues) and provide feedback on any relevant issues. This will be the last week for suggesting [building qualification](https://github.com/CalTRACK-2/caltrack/issues/71) test plans.
+2. Review [GitHub](https://github.com/CalTRACK-2/caltrack/issues) and provide feedback on any relevant issues. This will be the last week for suggesting [building qualification](https://github.com/CalTRACK-2/caltrack/issues/71) test plans.
 
 ![CalTRACK building qualification metrics overview](site:assets/images/community/blog/caltrack-week5-building-qualification-metrics.png)

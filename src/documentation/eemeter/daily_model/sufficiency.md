@@ -1,4 +1,4 @@
-# Sufficiency Criteria<br><div style="text-align: left; font-size: 0.5em; color: #888; ; margin-bottom: -2.3em;">Last updated: OpenDSM 1.0</div>
+# Sufficiency Criteria<br><div style="text-align: left; font-size: 0.5em; color: #888; margin-bottom: -2.3em;">Last updated: OpenDSM 1.0</div>
 
 Most sufficiency criteria derive their origins from the CalTRACK specifications. OpenDSM uses its own
 reference numbers; the corresponding CalTRACK 2.1 rule is cited inline after each criterion for

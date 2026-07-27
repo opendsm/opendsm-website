@@ -28,7 +28,7 @@ Next steps:
 
 Watch the full presentation and download the slides below.
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/1k2_Q27P2FY" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/8ttpmA_g-OM" frameborder="0" allowfullscreen></iframe>
 
 ![OpenEEmeter Working Group Meeting 9 slides](site:assets/images/community/blog/working-group-9.png)
 

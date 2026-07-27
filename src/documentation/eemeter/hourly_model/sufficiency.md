@@ -1,4 +1,4 @@
-# Sufficiency Criteria<br><div style="text-align: left; font-size: 0.5em; color: #888; ; margin-bottom: -2.3em;">CalTRACK 2.1 hourly methods</div>
+# Sufficiency Criteria<br><div style="text-align: left; font-size: 0.5em; color: #888; margin-bottom: -2.3em;">CalTRACK 2.1 hourly methods</div>
 
 The hourly model's data sufficiency criteria follow the
 [CalTRACK 2.1 Methods](site:caltrack/methodology/), Section 2 (Data Management); the numbers below are

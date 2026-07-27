@@ -19,9 +19,9 @@ Within the realm of energy efficiency, there are many different ways to calculat
 
 #### Deemed Savings / Engineering Estimates
 
-This method involves contrasting the current condition of the building with the future condition of the building. This may mean comparing an existing refrigeration system with a newly installed one that is twice as efficient, or perhaps estimating the impact of behavioral changes at a site that is adapting new working procedures.
+This method involves contrasting the current condition of the building with the future condition of the building. This may mean comparing an existing refrigeration system with a newly installed one that is twice as efficient, or perhaps estimating the impact of behavioral changes at a site that is adopting new working procedures.
 
-The fundamental problem with this method is that it involves many assumptions. For example, what if the house that just installed the ultra-efficient refrigerator moves their old one into the garage? What if workers do not adapt the new working procedures as expected? Engineers and analysts can attempt to increase the accuracy of their calculations by spending more time tuning calculations to a specific site, but this increases overhead and takes time without any guarantee of increasing accuracy.
+The fundamental problem with this method is that it involves many assumptions. For example, what if the house that just installed the ultra-efficient refrigerator moves their old one into the garage? What if workers do not adopt the new working procedures as expected? Engineers and analysts can attempt to increase the accuracy of their calculations by spending more time tuning calculations to a specific site, but this increases overhead and takes time without any guarantee of increasing accuracy.
 
 #### Contrasting Current Usage with Prior Usage
 
@@ -29,7 +29,7 @@ This method involves simply comparing the current year's usage vs. the previous 
 
 #### Randomized Control Trial
 
-This method involves finding "nearly identical" sites that are not receiving interventions and comparing the energy usage to those receiving interventions. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding "nearly identical" building to match with those receiving interventions. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.
+This method involves finding "nearly identical" sites that are not receiving interventions and comparing the energy usage to those receiving interventions. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding "nearly identical" buildings to match with those receiving interventions. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.
 
 #### Estimate Usage with a Model
 
@@ -42,7 +42,7 @@ The pros of this method include:
 - No need for finding "nearly identical" buildings.
 - Method is suitable for most buildings.
 
-In addition, when using EEmeter with default configuration, users can be assured of consistent methods to determine energy savings. This is a fundamentally important point when calculating energy savings - consistency. If five different people come up with five different answers, which one do you trust? If estimates are coming from parties that stand to benefit from higher savings estimates (such as energy service companies, engineers, contractors, etc), these numbers are even harder to trust. By using standardized methods, the savings calculations are deterministic and avoid dangerous assumptions.
+In addition, when using EEmeter with default configuration, users can be assured of consistent methods to determine energy savings. This is a fundamentally important point when calculating energy savings - consistency. If five different people come up with five different answers, which one do you trust? If estimates are coming from parties that stand to benefit from higher savings estimates (such as energy service companies, engineers, contractors, etc.), these numbers are even harder to trust. By using standardized methods, the savings calculations are deterministic and avoid dangerous assumptions.
 
 ### Intervention Lifecycle
 
@@ -58,9 +58,9 @@ When calculating savings from an intervention, it is important to define tempora
 
 ## Error Metrics
 
-There are many possible error metrics that can be used to assess model performance. Within OpenDSM, three are commonly used: root mean squared error [RMSE](https://en.wikipedia.org/wiki/Root_mean_square_deviation), mean absolute error [MAE](https://en.wikipedia.org/wiki/Mean_absolute_error), and mean bias error [MBE](https://en.wikipedia.org/wiki/Mean_signed_deviation). Each metrics has its own set of pros and cons, and the choice of which should be used is dependent on the question being asked.
+There are many possible error metrics that can be used to assess model performance. Within OpenDSM, three are commonly used: root mean squared error [RMSE](https://en.wikipedia.org/wiki/Root_mean_square_deviation), mean absolute error [MAE](https://en.wikipedia.org/wiki/Mean_absolute_error), and mean bias error [MBE](https://en.wikipedia.org/wiki/Mean_signed_deviation). Each metric has its own set of pros and cons, and the choice of which should be used is dependent on the question being asked.
 
-For model acceptance, OpenDSM uses RMSE. However, we cannot use RMSE without normalizing it because we must use generalized cutoff criteria. RMSE's magnitude depends upon the baseline data from which the model is fit from. How to normalize the RMSE to make it reflect general model fit performance is not a simple matter though.
+For model acceptance, OpenDSM uses RMSE. However, we cannot use RMSE without normalizing it because we must use generalized cutoff criteria. RMSE's magnitude depends upon the baseline data from which the model is fit. How to normalize the RMSE to make it reflect general model fit performance is not a simple matter though.
 
 ### CVRMSE
 

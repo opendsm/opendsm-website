@@ -23,4 +23,4 @@ Thanks again to Travis and Armin for leading the group through the latest result
 
 Watch the full presentation below.
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/rsEeHsGHX7s" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/niX6sBcYzYQ" frameborder="0" allowfullscreen></iframe>
