@@ -9,7 +9,7 @@ description: CalTRACK working group reviews three methods for calculating portfo
 
 Our second week of discussion on hourly portfolios included a working group meeting. You can watch the full meeting here:
 
-[June 7, 2018 Working Group Meeting](https://zoom.us/recording/play/Usc9gUTwqE_QcoXCiMvKR2IN5DV4znELusfkGC7Ua7sR3qxj7HuQ5IMUteVE9Va-)
+*June 7, 2018 Working Group Meeting — Zoom recording no longer available.*
 
 The value of hourly energy savings varies by use case. As such, the CalTRACK framework should be flexible to accommodate for the priorities of different use cases. A load impact factor assigns more value to energy savings during certain hours of the reporting period. For example, if a utility values energy savings 3 times more from 4–8 PM, then hourly energy savings will be multiplied by a load impact factor of three during the hours of 4–8 PM for each day of the reporting period. Each use case may need to define the load impact factors according to their desired outcomes.
 

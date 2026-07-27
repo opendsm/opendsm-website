@@ -1,5 +1,10 @@
 # CalTRACK 2.1 Methods
 
+!!! warning "Historical document"
+    CalTRACK 2.1 is the final version of the CalTRACK methods and is preserved here as a historical record; the working group no longer convenes and references to ongoing processes below reflect the time of writing.
+
+    CalTRACK has been superseded by [OpenDSM](site:documentation/history/).
+
 ## Section 1: Overview
 
 **1.1. Introduction.**

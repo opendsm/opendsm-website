@@ -59,19 +59,15 @@ Create short-term models fit on historical data to generate predictions of energ
 
 - **Hourly Model**: All demand response models require at least hourly resolution data
 
-### Comparison Groups
+### [Comparison Groups](site:documentation/comparison_groups)*
 
-Assign comparison groups (CGs) to correct EEmeter models using a non-participant population through one of the following methods
+Assign comparison groups (CGs) to correct EEmeter and DRmeter models using a non-participant population through one of the following methods
 
 - **Comparison Group Clustering**: Cluster on model error profiles to select unique CG for each treatment meter
 - **Individual Meter Matching**: Create population-level corrections by choosing the nearest *n* meters using Euclidean distance
-- **Stratified Sampling**: Select meters for CG based upon shared characteristics (outdated methodology)
+- **Stratified Sampling**: Select meters for CG based upon shared characteristics
 
-<span style="font-size: 0.8em;">
-* Planned feature in future OpenDSM versions
-</span>
-
-### [EEweather](https://github.com/opendsm/eeweather)
+### [EEweather](https://github.com/opendsm/eeweather)*
 
 Get the most appropriate weather data for a location
 
@@ -80,5 +76,5 @@ Get the most appropriate weather data for a location
 - **Reliable Data Sources**: Utilizes US Census Bureau, NOAA NCDC, and NREL as primary data sources
 
 <span style="font-size: 0.8em;">
-* Planned integration in future OpenDSM versions
+* Part of OpenDSM, but not yet fully developed; a well-defined API is planned for a future version
 </span>

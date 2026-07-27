@@ -9,7 +9,7 @@ description: The final CalTRACK 2.0 working group meeting recaps hourly methods 
 
 Last week marked the final CalTRACK 2.0 working group meeting. In this meeting we discussed an update to hourly methods, an overview of our progress during CalTRACK 2.0, and suggestions for CalTRACK 3.0. You can view the final meeting at the following link:
 
-[July 19, 2018 Working Group Meeting](https://zoom.us/recording/play/HOdJrkjRaxBsI1NR4x1IxRY_o_iv3JElhTI9ukaqO24EFqPlXphMP0TMTrXF_y6a?continueMode=true&startTime=1532026959000&autoplay=true)
+*July 19, 2018 Working Group Meeting — Zoom recording no longer available.*
 
 **Hourly Methods Update:**
 

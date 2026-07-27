@@ -3,6 +3,10 @@ hide:
  - toc
 ---
 
+## Background
+
+If you are new to OpenDSM, start with [General Concepts](site:documentation/general_concepts/), which introduces the vocabulary used throughout these docs (counterfactuals, baseline and reporting periods, error metrics). [Philosophy](site:documentation/philosophy/) explains the design constraints all OpenDSM models share, and [History](site:documentation/history/) traces their origins in the CalTRACK methods.
+
 ## Modules
 
 ### [EEmeter](site:documentation/eemeter)
@@ -13,18 +17,14 @@ Create long-term models fit on historical data to generate predictions of energy
 
 Create short-term models fit on historical data to generate predictions of energy consumption 
 
-### Comparison Groups
+### [Comparison Groups](site:documentation/comparison_groups)*
 
-Assign comparison groups (CGs) to correct EEmeter models using non-participant population through one of the following methods
+Assign comparison groups (CGs) to correct EEmeter and DRmeter models using a non-participant population through one of the following methods
 
-<span style="font-size: 0.8em;">
-* Planned feature in future OpenDSM versions
-</span>
-
-### [EEweather](https://github.com/opendsm/eeweather)
+### [EEweather](https://github.com/opendsm/eeweather)*
 
 Get the most appropriate weather data for a location
 
 <span style="font-size: 0.8em;">
-* Planned integration in future OpenDSM versions
+* Part of OpenDSM, but not yet fully developed; a well-defined API is planned for a future version
 </span>

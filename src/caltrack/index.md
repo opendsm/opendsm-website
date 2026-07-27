@@ -5,7 +5,12 @@ hide:
 
 # CalTRACK
 
-CalTRACK is the foundational methodology from which OpenDSM evolved. CalTRACK itself has been deprecated and is superseded by [OpenDSM](site:), which is now the definitive authority. These pages are retained from the now defunct CalTRACK website to ensure a complete history of OpenDSM (and CalTRACK) for posterity. 
+!!! warning "Historical document"
+    These pages are retained from the now defunct CalTRACK website to ensure a complete history of OpenDSM (and CalTRACK) for posterity.
+
+    CalTRACK has been superseded by [OpenDSM](site:), which is now the definitive authority.
+
+CalTRACK is the foundational methodology from which OpenDSM evolved.
 
 <div class="grid cards" markdown>
 

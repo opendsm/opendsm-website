@@ -19,11 +19,7 @@ As promised - here is your homework in preparation for the next meeting. Let us 
 4. Post specific issues on [GitHub CalTRACK-2 - Issues](https://github.com/CalTRACK-2/caltrack/issues)
 
 **Catch up:**<br>
-If you missed the meeting – you can view it here:
+If you missed the meeting:
 
 !!! info "Video Recording"
     The video recording for this meeting is not available online. Original filename: `gmt20180201-170311_mcgee-youn_1760x900_371.mp4`
-
-[CalTRACK 2.0 Kick off meeting](https://zoom.us/recording/play/4Ebq7MRrvKBMDMoS6nkBreta_Fx2-uRAu4QKirnKY54sJX-QzvDLMEqYlyzQdgBk)
-
-*Note: Zoom recording links may no longer be accessible.*
