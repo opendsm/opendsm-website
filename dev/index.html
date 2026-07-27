@@ -108,7 +108,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#key-features-include" class="md-skip">
+        <a href="#key-features" class="md-skip">
           Skip to content
         </a>
       
@@ -426,28 +426,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features-include" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features include:
+      Key Features
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-modules" class="md-nav__link">
+  <a href="#modules" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Modules
+      Modules
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core Modules">
+    <nav class="md-nav" aria-label="Modules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#openeemeter" class="md-nav__link">
+  <a href="#eemeter" class="md-nav__link">
     <span class="md-ellipsis">
-      OpenEEmeter
+      EEmeter
     </span>
   </a>
   
@@ -663,7 +663,7 @@
   
   
   <span class="md-ellipsis">
-    OpenEEmeter
+    EEmeter
     
   </span>
   
@@ -680,7 +680,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
-            OpenEEmeter
+            EEmeter
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1936,28 +1936,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#key-features-include" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features include:
+      Key Features
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-modules" class="md-nav__link">
+  <a href="#modules" class="md-nav__link">
     <span class="md-ellipsis">
-      Core Modules
+      Modules
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core Modules">
+    <nav class="md-nav" aria-label="Modules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#openeemeter" class="md-nav__link">
+  <a href="#eemeter" class="md-nav__link">
     <span class="md-ellipsis">
-      OpenEEmeter
+      EEmeter
     </span>
   </a>
   
@@ -2038,7 +2038,7 @@
 </p>
 
 <p align="center">
-    <em>OpenDSM: An open-source python package to develop and implement standard methods for predicting metered energy usage.</em>
+    <em>OpenDSM: An open-source Python package to develop and implement standard methods for predicting metered energy usage.</em>
 </p>
 
 <p align="center">
@@ -2058,16 +2058,16 @@
 
 <hr />
 <p>OpenDSM (formerly OpenEEmeter) is an open-source library (<a href="https://github.com/opendsm/opendsm">source code</a>) used to measure the impacts of demand-side programs by using historical data to fit models and then create predictions (counterfactuals) to compare to post-intervention, observed energy usage.</p>
-<h2 id="key-features-include">Key Features include:<a class="headerlink" href="#key-features-include" title="Permanent link">🔗</a></h2>
+<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">🔗</a></h2>
 <ul>
 <li><strong>Open Source</strong>: All code is open source, making OpenDSM an excellent choice for measuring energy savings when results must be transparent and reproducible.</li>
-<li><strong>Fast</strong>: A key tenet of OpenDSM modules are to be highly efficient, critical when there are millions of meters to be modeled. </li>
+<li><strong>Fast</strong>: A key tenet of OpenDSM modules is to be highly efficient, critical when there are millions of meters to be modeled.</li>
 <li><strong>Easy and Intuitive</strong>: The API interface is inspired by <a href="https://scikit-learn.org/stable">scikit-learn</a>, a well-known data science package for building models. Just fit and predict.</li>
 <li><strong>Pandas DataFrame Support</strong>: Input data and predictions use pandas DataFrames, a well-known format for data scientists and engineers.</li>
 <li><strong>Model Serialization and Deserialization</strong>: Models can be serialized into dictionaries or json objects, saved, and deserialized later.</li>
 </ul>
-<h2 id="core-modules">Core Modules<a class="headerlink" href="#core-modules" title="Permanent link">🔗</a></h2>
-<h3 id="openeemeter"><a href="/dev/documentation/eemeter">OpenEEmeter</a><a class="headerlink" href="#openeemeter" title="Permanent link">🔗</a></h3>
+<h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">🔗</a></h2>
+<h3 id="eemeter"><a href="/dev/documentation/eemeter">EEmeter</a><a class="headerlink" href="#eemeter" title="Permanent link">🔗</a></h3>
 <p>Create long-term models fit on historical data to generate predictions of energy consumption</p>
 <ul>
 <li><strong>Models to Fit Your Data</strong>: Billing, daily, and hourly models, depending on the time-series resolution</li>
@@ -2080,7 +2080,7 @@
 <li><strong>Hourly Model</strong>: All demand response models require at least hourly resolution data</li>
 </ul>
 <h3 id="comparison-groups">Comparison Groups<a class="headerlink" href="#comparison-groups" title="Permanent link">🔗</a></h3>
-<p>Assign comparison groups (CGs) to correct OpenEEmeter models using non-participant population through one of the following methods</p>
+<p>Assign comparison groups (CGs) to correct EEmeter models using a non-participant population through one of the following methods</p>
 <ul>
 <li><strong>Comparison Group Clustering</strong>: Cluster on model error profiles to select unique CG for each treatment meter</li>
 <li><strong>Individual Meter Matching</strong>: Create population-level corrections by choosing the nearest <em>n</em> meters using Euclidean distance</li>

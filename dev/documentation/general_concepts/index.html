@@ -731,7 +731,7 @@
   
   
   <span class="md-ellipsis">
-    OpenEEmeter
+    EEmeter
     
   </span>
   
@@ -748,7 +748,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
-            OpenEEmeter
+            EEmeter
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2162,12 +2162,12 @@
 <h3 id="quantifying-energy-savings">Quantifying Energy Savings<a class="headerlink" href="#quantifying-energy-savings" title="Permanent link">🔗</a></h3>
 <p>Within the realm of energy efficiency, there are many different ways to calculate energy savings. The fundamental problem in calculating energy savings is the production of a &ldquo;counterfactual&rdquo;. What would the energy usage have been in the absence of a specific intervention such as a new HVAC system? This is impossible to truly know, but several techniques are commonly used to accomplish this.</p>
 <h4 id="deemed-savings-engineering-estimates">Deemed Savings / Engineering Estimates<a class="headerlink" href="#deemed-savings-engineering-estimates" title="Permanent link">🔗</a></h4>
-<p>This method involves contrasting the current condition of the building with the future condition of the building. This may mean comparing an existing refrigeration system with a newly installed one that is twice as efficient, or perhaps estimating the impact of behavioral changes at a site that is adapting new working procedures.</p>
-<p>The fundamental problem with this method is that it involves many assumptions. For example, what if the house that just installed the ultra-efficient refrigerator moves their old one into the garage? What if workers do not adapt the new working procedures as expected? Engineers and analysts can attempt to increase the accuracy of their calculations by spending more time tuning calculations to a specific site, but this increases overhead and takes time without any guarantee of increasing accuracy.</p>
+<p>This method involves contrasting the current condition of the building with the future condition of the building. This may mean comparing an existing refrigeration system with a newly installed one that is twice as efficient, or perhaps estimating the impact of behavioral changes at a site that is adopting new working procedures.</p>
+<p>The fundamental problem with this method is that it involves many assumptions. For example, what if the house that just installed the ultra-efficient refrigerator moves their old one into the garage? What if workers do not adopt the new working procedures as expected? Engineers and analysts can attempt to increase the accuracy of their calculations by spending more time tuning calculations to a specific site, but this increases overhead and takes time without any guarantee of increasing accuracy.</p>
 <h4 id="contrasting-current-usage-with-prior-usage">Contrasting Current Usage with Prior Usage<a class="headerlink" href="#contrasting-current-usage-with-prior-usage" title="Permanent link">🔗</a></h4>
 <p>This method involves simply comparing the current year&rsquo;s usage vs. the previous year. Although this is quickly done and leverages real meter data, it disregards the difference in conditions between the two years - in particular, temperature - which can have a huge impact on the energy usage at a site.</p>
 <h4 id="randomized-control-trial">Randomized Control Trial<a class="headerlink" href="#randomized-control-trial" title="Permanent link">🔗</a></h4>
-<p>This method involves finding &ldquo;nearly identical&rdquo; sites that are not receiving interventions and comparing the energy usage to those receiving interventions. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding &ldquo;nearly identical&rdquo; building to match with those receiving interventions. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.</p>
+<p>This method involves finding &ldquo;nearly identical&rdquo; sites that are not receiving interventions and comparing the energy usage to those receiving interventions. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding &ldquo;nearly identical&rdquo; buildings to match with those receiving interventions. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.</p>
 <h4 id="estimate-usage-with-a-model">Estimate Usage with a Model<a class="headerlink" href="#estimate-usage-with-a-model" title="Permanent link">🔗</a></h4>
 <p>This method involves using a model to predict energy usage and then comparing it to the actual usage to determine savings. With EEmeter, this approach relies entirely on temperature and meter data to create a model that can be used to predict energy usage. </p>
 <p>The pros of this method include:</p>
@@ -2177,7 +2177,7 @@
 <li>No need for finding &ldquo;nearly identical&rdquo; buildings.</li>
 <li>Method is suitable for most buildings.</li>
 </ul>
-<p>In addition, when using EEmeter with default configuration, users can be assured of consistent methods to determine energy savings. This is a fundamentally important point when calculating energy savings - consistency. If five different people come up with five different answers, which one do you trust? If estimates are coming from parties that stand to benefit from higher savings estimates (such as energy service companies, engineers, contractors, etc), these numbers are even harder to trust. By using standardized methods, the savings calculations are deterministic and avoid dangerous assumptions.</p>
+<p>In addition, when using EEmeter with default configuration, users can be assured of consistent methods to determine energy savings. This is a fundamentally important point when calculating energy savings - consistency. If five different people come up with five different answers, which one do you trust? If estimates are coming from parties that stand to benefit from higher savings estimates (such as energy service companies, engineers, contractors, etc.), these numbers are even harder to trust. By using standardized methods, the savings calculations are deterministic and avoid dangerous assumptions.</p>
 <h3 id="intervention-lifecycle">Intervention Lifecycle<a class="headerlink" href="#intervention-lifecycle" title="Permanent link">🔗</a></h3>
 <p>When calculating savings from an intervention, it is important to define temporal periods as these impact how we train and use our model. For a typical efficiency intervention, we will define three periods:</p>
 <div style="text-align: center">
@@ -2190,8 +2190,8 @@
 <li><strong>Reporting Period</strong>: The post-blackout period in which we can compare the model counterfactual to the observed energy usage to calculate savings. Reporting periods for efficiency projects typically last at least 365 days but may go far beyond this. For demand response, the reporting period is typically just the event day.</li>
 </ul>
 <h2 id="error-metrics">Error Metrics<a class="headerlink" href="#error-metrics" title="Permanent link">🔗</a></h2>
-<p>There are many possible error metrics that can be used to assess model performance. Within OpenDSM, three are commonly used: root mean squared error <a href="https://en.wikipedia.org/wiki/Root_mean_square_deviation">RMSE</a>, mean absolute error <a href="https://en.wikipedia.org/wiki/Mean_absolute_error">MAE</a>, and mean bias error <a href="https://en.wikipedia.org/wiki/Mean_signed_deviation">MBE</a>. Each metrics has its own set of pros and cons, and the choice of which should be used is dependent on the question being asked.</p>
-<p>For model acceptance, OpenDSM uses RMSE. However, we cannot use RMSE without normalizing it because we must use generalized cutoff criteria. RMSE&rsquo;s magnitude depends upon the baseline data from which the model is fit from. How to normalize the RMSE to make it reflect general model fit performance is not a simple matter though.</p>
+<p>There are many possible error metrics that can be used to assess model performance. Within OpenDSM, three are commonly used: root mean squared error <a href="https://en.wikipedia.org/wiki/Root_mean_square_deviation">RMSE</a>, mean absolute error <a href="https://en.wikipedia.org/wiki/Mean_absolute_error">MAE</a>, and mean bias error <a href="https://en.wikipedia.org/wiki/Mean_signed_deviation">MBE</a>. Each metric has its own set of pros and cons, and the choice of which should be used is dependent on the question being asked.</p>
+<p>For model acceptance, OpenDSM uses RMSE. However, we cannot use RMSE without normalizing it because we must use generalized cutoff criteria. RMSE&rsquo;s magnitude depends upon the baseline data from which the model is fit. How to normalize the RMSE to make it reflect general model fit performance is not a simple matter though.</p>
 <h3 id="cvrmse">CVRMSE<a class="headerlink" href="#cvrmse" title="Permanent link">🔗</a></h3>
 <p>The coefficient of variation of the root mean squared error (CVRMSE) is one way to normalize a model&rsquo;s error. </p>
 <div class="arithmatex">\[
@@ -2236,7 +2236,7 @@ PNRMSE = \frac{RMSE}{obs_{IQR}}
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 8, 2026 19:58:41 UTC">June 8, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2026 00:25:03 UTC">July 27, 2026</span>
   </span>
 
     

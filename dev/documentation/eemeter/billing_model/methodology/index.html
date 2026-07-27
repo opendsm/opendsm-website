@@ -575,7 +575,7 @@
   
   
   <span class="md-ellipsis">
-    OpenEEmeter
+    EEmeter
     
   </span>
   
@@ -592,7 +592,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
-            OpenEEmeter
+            EEmeter
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2113,7 +2113,7 @@
 
   <h1>Methodology</h1>
 
-<p>The billing model uses the <a href="/dev/documentation/eemeter/daily_model/methodology">daily model</a> with small configuration changes and billing (monthly or bimonthly) interval data.</p>
+<p>The billing model uses the <a href="/dev/documentation/eemeter/daily_model/methodology/">daily model</a> with small configuration changes and billing (monthly or bimonthly) interval data.</p>
 <h2 id="model-theory">Model Theory<a class="headerlink" href="#model-theory" title="Permanent link">🔗</a></h2>
 <h3 id="converting-from-billing-data-to-daily-data">Converting from billing data to daily data<a class="headerlink" href="#converting-from-billing-data-to-daily-data" title="Permanent link">🔗</a></h3>
 <p>The billing model intakes billing data and calculates the average energy usage for each given period. For example if a bill covers 31 days and uses 93 therms total, then each day would be given 3 therms of usage. A billing period is assumed to start on the datetime in which it has a value and to end 1 day prior to the next datetime with a value with 1 final empty datetime signifying the end of the year resulting in 13 total datetimes for monthly billing data and 7 for bimonthly billing data. Pulling the temperature from <code>EEweather</code> ensures that each day&rsquo;s mean temperature is correct.</p>
@@ -2151,10 +2151,10 @@
 <p>When the model is fit, each site will receive its own unique model fit and coefficients. The general model fitting process is as follows:</p>
 <ol>
 <li>Balance points are estimated with a global optimization algorithm.</li>
-<li>Sum of Squares Error (SSE) is minimized with Lasso regression inspired penalization.</li>
+<li>Sum of Squares Error (SSE) is minimized with Lasso-inspired penalization.</li>
 <li>The best model type is determined (ex. cooling load only model) using the penalized SSE.</li>
 </ol>
-<p>The Lasso inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:</p>
+<p>The Lasso-inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:</p>
 <ul>
 <li>Slopes are pushed to 0</li>
 <li>Intercept is pushed to 0</li>
@@ -2198,7 +2198,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 10, 2026 15:15:14 UTC">June 10, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2026 00:25:03 UTC">July 27, 2026</span>
   </span>
 
     

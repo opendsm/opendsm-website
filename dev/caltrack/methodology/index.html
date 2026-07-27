@@ -565,7 +565,7 @@
   
   
   <span class="md-ellipsis">
-    OpenEEmeter
+    EEmeter
     
   </span>
   
@@ -582,7 +582,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
-            OpenEEmeter
+            EEmeter
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2002,7 +2002,7 @@
 <p data-depth="3"><strong>1.1.7.</strong> The CalTRACK methods are designed to be general enough to implement using any general-purpose programming language and are not required to be deployed with any particular software implementation. To the extent that code samples do appear in this document, they are intended as to be used as pseudo-code.</p>
 <p data-depth="2"><strong>1.2. Participation in methods development.</strong></p>
 <p data-depth="3"><strong>1.2.1.</strong> The technical working group meetings are open to all and technical contribution is highly encouraged. Efforts to propose changes which are in-scope (see 1.3.2), and empirically and replicably tested will generally be met with interest and engagement. Efforts to propose changes which are out-of-scope (see 1.3.3), are discouraged.</p>
-<p data-depth="3"><strong>1.2.2.</strong> Ongoing discussions within the technical working group can be followed in the CalTRACK Github Issues section, which should reference particular proposed changes to this document. These are also noted and linked where applicable in this document.</p>
+<p data-depth="3"><strong>1.2.2.</strong> Ongoing discussions within the technical working group can be followed in the CalTRACK GitHub Issues section, which should reference particular proposed changes to this document. These are also noted and linked where applicable in this document.</p>
 <p data-depth="3"><strong>1.2.3.</strong> Interested parties may sign up to participate in the CalTRACK technical working group proceedings by registering at http://www.caltrack.org.</p>
 <p data-depth="2"><strong>1.3. Scope.</strong></p>
 <p data-depth="3"><strong>1.3.1.</strong> Some items have been considered to be generally in-scope for CalTRACK methods development.</p>
@@ -2093,7 +2093,7 @@
 <p data-depth="3"><strong>2.3.8.</strong> Roll up data if not given with expected frequency.</p>
 <p data-depth="2"><strong>2.4. Matching a site to a weather station.</strong></p>
 <p data-depth="3"><span id="methods2-4-1"></span>
-<strong>2.4.1.</strong> Weather station to be used is closest within climate zone that meets CalTrack data sufficiency requirements. <a href="../technical_appendix/#appendix2-4-1">See Appendix for Details.</a></p>
+<strong>2.4.1.</strong> Weather station to be used is closest within climate zone that meets CalTRACK data sufficiency requirements. <a href="../technical_appendix/#appendix2-4-1">See Appendix for Details.</a></p>
 <p data-depth="4"><strong>2.4.1.1.</strong> If there are no weather stations within that climate zone, fallback to closest weather station that has complete data.</p>
 <p data-depth="3"><strong>2.4.2.</strong> Matches further than 200 km should be flagged for review, as these distant matches may sacrifice interpretability of the model.</p>
 <h2 id="section-3a-modeling-billing-and-daily-methods">Section 3(a): Modeling - Billing and Daily Methods<a class="headerlink" href="#section-3a-modeling-billing-and-daily-methods" title="Permanent link">🔗</a></h2>
@@ -2109,7 +2109,7 @@
 <p data-depth="3"><strong>3.1.4.</strong> Follow the process outlined below and detailed in subsequent sections:</p>
 <p data-depth="4"><span id="methods3-1-4-1"></span>
 <strong>3.1.4.1.</strong> Select and qualify balance points for candidate models for each period for each meter. <a href="../technical_appendix/#appendix3-1-4-1">See Appendix for Details.</a></p>
-<p data-depth="4"><strong>3.1.4.2.</strong> Use hourly temperature from the matched weather station (11).</p>
+<p data-depth="4"><strong>3.1.4.2.</strong> Use hourly temperature from the matched weather station (see <a href="/dev/documentation/eeweather">EEweather</a>).</p>
 <p data-depth="4"><strong>3.1.4.3.</strong> Compute design matrixes, fit, and qualify all candidate models.</p>
 <p data-depth="4"><strong>3.1.4.4.</strong> Select best candidate model.</p>
 <p data-depth="4"><strong>3.1.4.5.</strong> Compute estimated values.</p>
@@ -2139,23 +2139,23 @@
 <p data-depth="5"><strong>3.3.1.3.1.</strong> <span class="arithmatex">\(μ\)</span> intercept (interpreted as daily base load).</p>
 <p data-depth="5"><strong>3.3.1.3.2.</strong> <span class="arithmatex">\(β_H\)</span> is the slope.</p>
 <p data-depth="5"><strong>3.3.1.3.3.</strong> <span class="arithmatex">\(β_C\)</span> is the slope.</p>
-<p data-depth="3"><strong>3.3.2.</strong> Equation: <span class="arithmatex">\(UPD_{p,i} = μ + β_{H,i}*HDD_p + β_{C,i}*CDD_p + ε_{p,i}\)</span>, where:</p>
+<p data-depth="3"><strong>3.3.2.</strong> Equation: <span class="arithmatex">\(UPD_{p,i} = μ + β_{H,i} \cdot HDD_p + β_{C,i} \cdot CDD_p + ε_{p,i}\)</span>, where:</p>
 <p data-depth="4"><strong>3.3.2.1.</strong> <span class="arithmatex">\(UPD_{p,i}\)</span> is average use (gas in therms, electricity in kWh) per day during period <span class="arithmatex">\(p\)</span> for site <span class="arithmatex">\(i\)</span>.</p>
 <p data-depth="4"><strong>3.3.2.2.</strong> <span class="arithmatex">\(μ\)</span> is the mean use for site <span class="arithmatex">\(i\)</span>, or intercept.</p>
 <p data-depth="4"><strong>3.3.2.3.</strong> <span class="arithmatex">\(β_{H,i}\)</span> is the heating coefficient for site <span class="arithmatex">\(i\)</span>. It represents the incremental change in energy use per day for every additional heating degree day.</p>
 <p data-depth="4"><strong>3.3.2.4.</strong> <span class="arithmatex">\(β_{C,i}\)</span> is the cooling coefficient for site <span class="arithmatex">\(i\)</span>. It represents the incremental change in energy use per day for every additional cooling degree day.</p>
 <p data-depth="4"><strong>3.3.2.5.</strong> <span class="arithmatex">\(HDD_p\)</span> is the average number of heating degree days per day in period <span class="arithmatex">\(p\)</span>, which is a function of the selected balance point temperature, the average daily temperatures from the weather station matched to site <span class="arithmatex">\(i\)</span> during the period <span class="arithmatex">\(p\)</span>, and the number of days in period <span class="arithmatex">\(p\)</span> with matched usage and weather data for site <span class="arithmatex">\(i\)</span>.</p>
 <p data-depth="4"><strong>3.3.2.6.</strong> <span class="arithmatex">\(CDD_p\)</span> is the average number of cooling degree days per day in period <span class="arithmatex">\(p\)</span>, which is a function of the selected balance point temperature, the average daily temperatures from the weather station matched to site <span class="arithmatex">\(i\)</span> during the period <span class="arithmatex">\(p\)</span>, and the number of days in period <span class="arithmatex">\(p\)</span> with matched usage and weather data for site <span class="arithmatex">\(i\)</span>.</p>
-<p data-depth="4"><strong>3.3.2.7.</strong> <span class="arithmatex">\(n\)</span> is the site specific random error term for a given period.</p>
+<p data-depth="4"><strong>3.3.2.7.</strong> <span class="arithmatex">\(ε_{p,i}\)</span> is the site specific random error term for a given period.</p>
 <p data-depth="3"><strong>3.3.3.</strong> Computing average usage per day (UPD) for each period.</p>
-<p data-depth="4"><strong>3.3.3.1.</strong> <span class="arithmatex">\(UPD_p = \frac{1}{n_p} * Σ(U_d)\)</span>, where</p>
+<p data-depth="4"><strong>3.3.3.1.</strong> <span class="arithmatex">\(UPD_p = \frac{1}{n_p} \cdot Σ(U_d)\)</span>, where</p>
 <p data-depth="4"><strong>3.3.3.2.</strong> <span class="arithmatex">\(UPD_p\)</span> is the average use per day for a given period <span class="arithmatex">\(p\)</span>.</p>
 <p data-depth="4"><strong>3.3.3.3.</strong> <span class="arithmatex">\(Σ(U_d)\)</span> is the sum of all daily use values <span class="arithmatex">\(U_d\)</span> for a given period <span class="arithmatex">\(p\)</span>.</p>
 <p data-depth="4"><strong>3.3.3.4.</strong> <span class="arithmatex">\(n_p\)</span> is the total number of days for which daily use values <span class="arithmatex">\(U_d\)</span> were available in period <span class="arithmatex">\(p\)</span>.</p>
 <p data-depth="4"><strong>3.3.3.5.</strong> Boundaries between days should occur at midnight of the local time zone.</p>
 <p data-depth="3"><strong>3.3.4.</strong> Cooling degree days for each particular balance point.</p>
 <p data-depth="4"><strong>3.3.4.1.</strong> CDD values are calculated as follows:</p>
-<p data-depth="5"><strong>3.3.4.1.1.</strong> <span class="arithmatex">\(CDD_p = \frac{1}{n_{d,p}} * Σ(max(avg(T_d) - CDD_b, 0))\)</span>, where</p>
+<p data-depth="5"><strong>3.3.4.1.1.</strong> <span class="arithmatex">\(CDD_p = \frac{1}{n_{d,p}} \cdot Σ(max(avg(T_d) - CDD_b, 0))\)</span>, where</p>
 <p data-depth="5"><strong>3.3.4.1.2.</strong> <span class="arithmatex">\(CDD_p\)</span> = Cooling degree days for period <span class="arithmatex">\(p\)</span>.</p>
 <p data-depth="5"><strong>3.3.4.1.3.</strong> <span class="arithmatex">\(CDD_b\)</span> = the CDD balance point that provides best model fit.</p>
 <p data-depth="5"><strong>3.3.4.1.4.</strong> <span class="arithmatex">\(n_{d,p}\)</span> is the total number of days elapsed between the start time of the period <span class="arithmatex">\(p\)</span> and the end time of the period <span class="arithmatex">\(p\)</span>.</p>
@@ -2164,7 +2164,7 @@
 <p data-depth="5"><strong>3.3.4.1.7.</strong> <span class="arithmatex">\(avg(T_d)\)</span> = the average temperature for day <span class="arithmatex">\(d\)</span>.</p>
 <p data-depth="3"><strong>3.3.5.</strong> Heating degree days for each particular balance point.</p>
 <p data-depth="4"><strong>3.3.5.1.</strong> HDD values are calculated as follows:</p>
-<p data-depth="5"><strong>3.3.5.1.1.</strong> <span class="arithmatex">\(HDD_p = \frac{1}{n_{d,p}} * Σ(max(HDD_b - avg(T_d), 0))\)</span>, where</p>
+<p data-depth="5"><strong>3.3.5.1.1.</strong> <span class="arithmatex">\(HDD_p = \frac{1}{n_{d,p}} \cdot Σ(max(HDD_b - avg(T_d), 0))\)</span>, where</p>
 <p data-depth="5"><strong>3.3.5.1.2.</strong> <span class="arithmatex">\(HDD_p\)</span> = Average heating degree days per day for period <span class="arithmatex">\(p\)</span>.</p>
 <p data-depth="5"><strong>3.3.5.1.3.</strong> <span class="arithmatex">\(HDD_b\)</span> = the HDD balance point that provides best model fit.</p>
 <p data-depth="5"><strong>3.3.5.1.4.</strong> <span class="arithmatex">\(n_{d,p}\)</span> is the total number of days elapsed between the start time of the period <span class="arithmatex">\(p\)</span> and the end time of the period <span class="arithmatex">\(p\)</span>.</p>
@@ -2179,15 +2179,15 @@
 <p data-depth="4"><strong>3.4.3.1.</strong> Given the selected balance point ranges, all combinations of candidate balance points are tried. Models are as follows:</p>
 <p data-depth="5"><strong>3.4.3.1.1.</strong> HDD and CDD (electricity only):</p>
 <div class="arithmatex">\[
-UPD_{p,i} = μ_i + β_{H,i}*HDD_p + β_{C,i}*CDD_p + ε_{p,i}
+UPD_{p,i} = μ_i + β_{H,i} \cdot HDD_p + β_{C,i} \cdot CDD_p + ε_{p,i}
 \]</div>
 <p data-depth="5"><strong>3.4.3.1.2.</strong> HDD only:</p>
 <div class="arithmatex">\[
-UPD_{p,i} = μ_i + β_{H,i}*HDD_p + ε_{p,i}
+UPD_{p,i} = μ_i + β_{H,i} \cdot HDD_p + ε_{p,i}
 \]</div>
-<p data-depth="5"><strong>3.4.3.1.3.</strong> CDD only: (electricity only):</p>
+<p data-depth="5"><strong>3.4.3.1.3.</strong> CDD only (electricity only):</p>
 <div class="arithmatex">\[
-UPD_{p,i} = μ_i + β_{C,i}*CDD_p+ ε_{p,i}
+UPD_{p,i} = μ_i + β_{C,i} \cdot CDD_p+ ε_{p,i}
 \]</div>
 <p data-depth="5"><strong>3.4.3.1.4.</strong> Intercept-only:</p>
 <div class="arithmatex">\[
@@ -2205,7 +2205,7 @@ UPD_{p,i} = μ_i + ε_{p,i}
 <p data-depth="5"><strong>3.4.3.3.2.</strong> <span class="arithmatex">\(SS_{res}\)</span> is the sum of squares of residuals.</p>
 <p data-depth="5"><strong>3.4.3.3.3.</strong> <span class="arithmatex">\(df_e\)</span> is the degrees of freedom of the estimate of the underlying population error variance, and is calculated using <span class="arithmatex">\((P - c - 1)\)</span>, where <span class="arithmatex">\(P\)</span> is the number of periods (e.g. days or billing periods) in the baseline used to estimate the model and <span class="arithmatex">\(c\)</span> is the number of explanatory variables, not including the intercept term.</p>
 <p data-depth="5"><strong>3.4.3.3.4.</strong> <span class="arithmatex">\(SS_{tot}\)</span> is the total sum of squares</p>
-<p data-depth="5"><strong>3.4.3.3.5.</strong> <span class="arithmatex">\(df_t\)</span> is the degrees of freedom of the estimate of the population variance of the dependent variable, and is calculated as <span class="arithmatex">\((P - 1)\)</span>, were <span class="arithmatex">\(P\)</span> is the number of periods (e.g. days or billing periods) in the baseline used to estimate the model.</p>
+<p data-depth="5"><strong>3.4.3.3.5.</strong> <span class="arithmatex">\(df_t\)</span> is the degrees of freedom of the estimate of the population variance of the dependent variable, and is calculated as <span class="arithmatex">\((P - 1)\)</span>, where <span class="arithmatex">\(P\)</span> is the number of periods (e.g. days or billing periods) in the baseline used to estimate the model.</p>
 <p data-depth="2"><strong>3.5. Missing Data in Reporting Period.</strong></p>
 <p data-depth="3"><strong>3.5.1.</strong> Missing temperature values and data sufficiency for reporting period.</p>
 <p data-depth="4"><strong>3.5.1.1.</strong> If a day is missing a temperature value, the corresponding consumption value for that day should be masked.</p>
@@ -2215,7 +2215,7 @@ UPD_{p,i} = μ_i + ε_{p,i}
 <p data-depth="3"><strong>3.5.2.</strong> Missing consumption values and data sufficiency for reporting period.</p>
 <p data-depth="4"><strong>3.5.2.1.</strong> If a day is missing a consumption value, the corresponding counterfactual value for that day should be masked.</p>
 <p data-depth="4"><strong>3.5.2.2.</strong> Data is considered missing if it is clearly marked by the data provider as NULL, NaN, or similar.</p>
-<p data-depth="4"><strong>3.5.2.1.</strong> Values of 0 are considered missing for electricity data, but not gas data.</p>
+<p data-depth="4"><strong>3.5.2.3.</strong> Values of 0 are considered missing for electricity data, but not gas data.</p>
 <p data-depth="3"><strong>3.5.3.</strong> Estimating counterfactual usage when temperature data is missing.</p>
 <p data-depth="4"><strong>3.5.3.1.</strong> Counterfactual usage is not calculated when daily temperature data is missing, pending further methodological discussion.</p>
 <p data-depth="3"><strong>3.5.4.</strong> Estimating avoided energy usage when consumption data is missing.</p>
@@ -2223,14 +2223,14 @@ UPD_{p,i} = μ_i + ε_{p,i}
 <p data-depth="3"><strong>3.5.5.</strong> Billing data in the reporting period.</p>
 <p data-depth="4"><strong>3.5.5.1.</strong> Estimated periods values should be combined with next period up to a 70-day limit.</p>
 <p data-depth="4"><strong>3.5.5.2.</strong> If average temperatures for billing periods are calculated by averaging higher frequency temperature data, the high-frequency temperature data must cover 90% of each averaged billing period.</p>
-<p data-depth="4"><strong>3.5.5.3.</strong> Off-cycle reads (spanning less than 25 days) should be combined with next period up to a 70 day limit. These readings typically occur due to meter reading problems or changes in occupancy.</p>
+<p data-depth="4"><strong>3.5.5.3.</strong> Off-cycle reads (spanning less than 25 days) should be combined with next period up to a 70-day limit. These readings typically occur due to meter reading problems or changes in occupancy.</p>
 <p data-depth="4"><strong>3.5.5.4.</strong> For monthly billing cycles, periods spanning more than 35 days should be flagged for review. For bi-monthly billing cycles, periods spanning more than 70 days should be flagged for review.</p>
 <p data-depth="3"><strong>3.5.6.</strong> Projects should be excluded if net metering (i.e., for photovoltaics or other on-site generation) status changes during the reporting period.</p>
 <p data-depth="4"><strong>3.5.6.1.</strong> Exception: Future efforts may provide the ability to access sub-meter data that may allow for backing out onsite generation and storage to arrive at savings. Currently, this data is not readily obtained.</p>
 <p data-depth="2"><strong>3.6. Computing derived quantities for billing and daily.</strong></p>
 <p data-depth="3"><strong>3.6.1.</strong> Avoided energy use (AEU) for each time period in the reporting period is calculated as follows.</p>
 <div class="arithmatex">\[
-AEU_{p,i} = n_p * (μ_i + β_{H,i}*HDD_p + β_{C,i}*CDD_p - UPD_p)
+AEU_{p,i} = n_p \cdot (μ_i + β_{H,i} \cdot HDD_p + β_{C,i} \cdot CDD_p - UPD_p)
 \]</div>
 <p data-depth="4"><strong>3.6.1.1.</strong> The coefficients <span class="arithmatex">\(μ_i\)</span>, <span class="arithmatex">\(β_{H,i}\)</span>, <span class="arithmatex">\(β_{C,i}\)</span> are those from the final model.</p>
 <p data-depth="4"><strong>3.6.1.2.</strong> <span class="arithmatex">\(HDD_p\)</span> and <span class="arithmatex">\(CDD_p\)</span> are calculated using weather data in the reporting period according to guidelines in Section 3.3.</p>
@@ -2261,7 +2261,7 @@ T_{max, reporting} &gt; T_{max, baseline} + 0.1 * (T_{max, baseline} - T_{min, b
 <p data-depth="2"><strong>3.8. Occupancy estimation.</strong></p>
 <p data-depth="3"><strong>3.8.1.</strong> Overview. The sensitivity of building energy use to temperature may vary depending on the &ldquo;occupancy&rdquo; status. This is handled in the Time-Of-Week and Temperature model by segmenting the times-of-week into periods of high load and low load (also referred to as occupied/unoccupied, although the states may not necessarily correspond to occupancy changes). The segmentation is accomplished using the residuals of a HDD-CDD model developed as follows.</p>
 <p data-depth="3"><strong>3.8.2.</strong> Time-of-week. A week is divided into 168 hourly time-of-week intervals starting on Monday. For example, interval 1 is from midnight to 1 a.m. on Monday morning, interval 2 is from 1 a.m.-2 a.m. and so on. Dummy variables <span class="arithmatex">\(TOW_p\)</span> (and consequently separate coefficients <span class="arithmatex">\(\alpha_i\)</span>) are included in the model for each time of week.</p>
-<p data-depth="3"><strong>3.8.3.</strong> Regression to determine occupancy status. A single HDD and CDD weighted least squares (WLS) model is fit to the baseline dataset (defined pursuant to 3.6.5) using fixed balance points (50 for heating and 65 for cooling):</p>
+<p data-depth="3"><strong>3.8.3.</strong> Regression to determine occupancy status. A single HDD and CDD weighted least squares (WLS) model is fit to the baseline dataset (defined pursuant to 3.7.5) using fixed balance points (50 for heating and 65 for cooling):</p>
 <div class="arithmatex">\[
 UPH_{pi} = \mu_i + \beta_{Hi}HDH50_p + \beta_{Ci}CDH65_p + \epsilon_{pi}
 \]</div>
@@ -2405,7 +2405,7 @@ AEU_{pi} = \sum \alpha_t TOWp + \sum \beta_{T, n} Tc_{n, p} + \sum occupied \alp
 <div class="arithmatex">\[
 AEU_{total,P} = \sum_{p=1}^{P}(AEU_{p,i})
 \]</div>
-<p data-depth="3"><strong>4.1.2.</strong> CalTRACK does not explicitly support annualizing results. For example, if avoided energy use <span class="arithmatex">\(AEU_{total,8}\)</span> is calculated for 8 monthly periods, then the annual savings cannot be estimated as <span class="arithmatex">\(AEU_{total,12} = (AEU_{total,8} * \frac{12}{8})\)</span>, as this may yield biased estimates for interventions that yield seasonal savings. However, at the discretion of the procurer, such values may be used for intermediate reporting.</p>
+<p data-depth="3"><strong>4.1.2.</strong> CalTRACK does not explicitly support annualizing results. For example, if avoided energy use <span class="arithmatex">\(AEU_{total,8}\)</span> is calculated for 8 monthly periods, then the annual savings cannot be estimated as <span class="arithmatex">\(AEU_{total,12} = (AEU_{total,8} \cdot \frac{12}{8})\)</span>, as this may yield biased estimates for interventions that yield seasonal savings. However, at the discretion of the procurer, such values may be used for intermediate reporting.</p>
 <p data-depth="2"><strong>4.2. Aggregating multiple site-level results.</strong></p>
 <p data-depth="3"><strong>4.2.1.</strong> Multiple site-level results may be aggregated by adding metered savings that occurred during the same time periods.</p>
 <div class="arithmatex">\[
@@ -2420,14 +2420,14 @@ AEU_{p,S} = \sum_{i=1}^{S}(AEU_{p,i})
 CV(RMSE) = \frac{\sqrt{\frac{\sum_{p=1}^{P}(U_p-\hat{U_p})^{2}}{P-c}}}{\overline{U}}
 \]</div>
 <p data-depth="5"><strong>4.3.2.2.1.</strong> <span class="arithmatex">\(U_p\)</span> is the total measured energy use during period <span class="arithmatex">\(p\)</span>.</p>
-<p data-depth="5"><strong>4.3.2.2.2.</strong> <span class="arithmatex">\(\hat{U}\)</span> is the predicted energy use during period p.</p>
+<p data-depth="5"><strong>4.3.2.2.2.</strong> <span class="arithmatex">\(\hat{U_p}\)</span> is the predicted energy use during period <span class="arithmatex">\(p\)</span>.</p>
 <p data-depth="5"><strong>4.3.2.2.3.</strong> <span class="arithmatex">\(\overline{U}\)</span> is the mean energy use during the baseline period.</p>
 <p data-depth="5"><strong>4.3.2.2.4.</strong> <span class="arithmatex">\(P\)</span> is the total number of periods (e.g. days or billing periods) in the baseline used to estimate the model.</p>
 <p data-depth="5"><strong>4.3.2.2.5.</strong> <span class="arithmatex">\(c\)</span> is the number of explanatory variables in the baseline model (not including the intercept).</p>
 <p data-depth="4"><strong>4.3.2.3.</strong> The portfolio-level fractional savings uncertainty (FSU) should be reported when using portfolio aggregation. Fractional savings uncertainty thresholds may be set by the procurer depending on the use case. For example, an NWA procurement may require less than 15% uncertainty, while a pay-for-performance program may require 25%. An alternative approach could use a discount rate based on the uncertainty of a portfolio.</p>
 <p data-depth="4"><strong>4.3.2.4.</strong> Site-level FSU is calculated as follows using a modified version of the ASHRAE Guideline 14 formulation:</p>
 <div class="arithmatex">\[
-FSU_i = \frac{\Delta U_{save, Qi}}{U_{save, Qi}} = \frac{t(aM^2 + bM + d)CV(RMSE)*\sqrt{\frac{P}{P'}(1+\frac{2}{P'})\frac{1}{Q}})}{F}
+FSU_i = \frac{\Delta U_{save, Qi}}{U_{save, Qi}} = \frac{t \cdot (aM^2 + bM + d) \cdot CV(RMSE) \cdot \sqrt{\frac{P}{P'}(1+\frac{2}{P'})\frac{1}{Q}}}{F}
 \]</div>
 <p data-depth="4">Where:</p>
 <p data-depth="5"><strong>4.3.2.4.1.</strong> <span class="arithmatex">\(FSU_i\)</span> is the fractional savings uncertainty in the baseline model predictions for the reporting period (this is also the fractional savings uncertainty of the avoided energy use, assuming that the metered consumption is accurate).</p>
@@ -2453,7 +2453,7 @@ MB_{i} = \frac{1}{P}\sum_{p=1}^{P}(y_p-\widehat{y_p})
 \]</div>
 <p data-depth="5">Portfolio-level bias error expressed as a percent of portfolio savings:</p>
 <div class="arithmatex">\[
-FBE_{portfolio} = \frac{\sum_{i=1}^{N} (MB_i)^2}{\sum_{i=1}^{N} U_{save, Qi}}
+FBE_{portfolio} = \frac{\sum_{i=1}^{N} MB_i}{\sum_{i=1}^{N} U_{save, Qi}}
 \]</div>
 <style>
 .md-content article [data-depth] {
@@ -2490,7 +2490,7 @@ FBE_{portfolio} = \frac{\sum_{i=1}^{N} (MB_i)^2}{\sum_{i=1}^{N} U_{save, Qi}}
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 8, 2026 19:58:41 UTC">June 8, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2026 00:25:03 UTC">July 27, 2026</span>
   </span>
 
     
