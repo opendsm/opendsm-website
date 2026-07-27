@@ -575,7 +575,7 @@
   
   
   <span class="md-ellipsis">
-    OpenEEmeter
+    EEmeter
     
   </span>
   
@@ -592,7 +592,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
-            OpenEEmeter
+            EEmeter
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2113,7 +2113,7 @@
 
   <h1>Methodology</h1>
 
-<p>The billing model uses the <a href="/v1.0/documentation/eemeter/daily_model/methodology">daily model</a> with small configuration changes and billing (monthly or bimonthly) interval data.</p>
+<p>The billing model uses the <a href="/v1.0/documentation/eemeter/daily_model/methodology/">daily model</a> with small configuration changes and billing (monthly or bimonthly) interval data.</p>
 <p>It applies the legacy (<strong>CalTRACK 2.0</strong>) daily method to billing-period data. See the
 <a href="/v1.0/caltrack/methodology/">CalTRACK 2.1 Methods</a> and the
 <a href="/v1.0/caltrack/technical_appendix/">Technical Appendix</a> for the underlying methods, and the
@@ -2126,7 +2126,7 @@ CalTRACK 2.0 reference.</p>
 <h3 id="model-shape-and-balance-points">Model Shape and Balance Points<a class="headerlink" href="#model-shape-and-balance-points" title="Permanent link">🔗</a></h3>
 <p>The daily model, at its core, utilizes a piecewise linear regression model that predicts energy usage relative to temperature. The model determines temperature balance points at which energy usage starts changing relative to temperature.</p>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.0/assets/images/eemeter/billing_model/basic_model.png" alt="Billing Model", style="width:85%">
+    <img src="/v1.0/assets/images/eemeter/billing_model/basic_model.png" alt="Billing Model" style="width:85%">
 </div>
 
 <h4 id="key-concepts">Key Concepts<a class="headerlink" href="#key-concepts" title="Permanent link">🔗</a></h4>
@@ -2145,7 +2145,7 @@ CalTRACK 2.0 reference.</p>
 <li>Temperature Independent Load</li>
 </ul>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.0/assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes", style="width:75%">
+    <img src="/v1.0/assets/images/eemeter/common/model_archetypes.png" alt="Different model archetypes" style="width:75%">
 </div>
 
 <h4 id="smooth-transitions">Smooth Transitions<a class="headerlink" href="#smooth-transitions" title="Permanent link">🔗</a></h4>
@@ -2156,10 +2156,10 @@ CalTRACK 2.0 reference.</p>
 <p>When the model is fit, each site will receive its own unique model fit and coefficients. The general model fitting process is as follows:</p>
 <ol>
 <li>Balance points are estimated with a global optimization algorithm.</li>
-<li>Sum of Squares Error (SSE) is minimized with Lasso regression inspired penalization.</li>
+<li>Sum of Squares Error (SSE) is minimized with Lasso-inspired penalization.</li>
 <li>The best model type is determined (ex. cooling load only model) using the penalized SSE.</li>
 </ol>
-<p>The Lasso inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:</p>
+<p>The Lasso-inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:</p>
 <ul>
 <li>Slopes are pushed to 0</li>
 <li>Intercept is pushed to 0</li>
@@ -2167,7 +2167,7 @@ CalTRACK 2.0 reference.</p>
 <li>Balance points are pushed towards the nearest edge (most extreme temperature)</li>
 </ul>
 <div style="text-align: center; margin-top: 30px">
-    <img src="/v1.0/assets/images/eemeter/billing_model/lasso_penalization.png" alt="Lasso penalization", style="width:85%">
+    <img src="/v1.0/assets/images/eemeter/billing_model/lasso_penalization.png" alt="Lasso penalization" style="width:85%">
 </div>
 
 <p>At this point the billing model is now fit and can be used for prediction.</p>
@@ -2203,7 +2203,7 @@ CalTRACK 2.0 reference.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 10, 2026 15:19:17 UTC">June 10, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2026 00:11:13 UTC">July 27, 2026</span>
   </span>
 
     
