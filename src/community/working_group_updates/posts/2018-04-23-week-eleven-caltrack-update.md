@@ -32,5 +32,5 @@ A proposed model for hourly methods is the TOWT model from Lawrence Berkeley Nat
 **Homework:**
 
 1. Use Hourly Method Tools on test data
-2. Report findings on [Github](https://github.com/CalTRACK-2/caltrack/issues)
+2. Report findings on [GitHub](https://github.com/CalTRACK-2/caltrack/issues)
 3. Offer test criteria for hourly models

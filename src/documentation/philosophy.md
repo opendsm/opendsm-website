@@ -9,7 +9,7 @@ Models are developed assuming that minimal information will be available for any
 
 Any additional information must be broadly available to be considered for addition into any OpenDSM models. This means that these models will inherently be statistical in nature, although informed by our engineering and domain knowledge.
 
-Temperature inputs are expected to be in °Fahrenheit. Failure to convert your units properly can result in erroneous models.
+Temperature inputs are expected to be in °F. Failure to convert your units properly can result in erroneous models.
 
 ### Model Performance
 

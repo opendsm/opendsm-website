@@ -22,7 +22,7 @@ from opendsm import eemeter as em
 The essential inputs to OpenDSM library functions are the following:
 
 1. Meter baseline data named `observed`
-2. Meter reporting data `observed`
+2. Meter reporting data named `observed`
 3. Temperature data from a nearby weather station for both named `temperature`
 4. All data is expected to have a timezone-aware datetime index or column named `datetime`
 
@@ -44,7 +44,7 @@ Let us begin by loading some example data. Here we use a built-in utility functi
 This function returns two dataframes of monthly billing electricity data, one for the baseline period and one for the reporting period.
 
 ```python
-df_baseline, df_reporting =  odsm.test_data.load_test_data("monthly_treatment_data")
+df_baseline, df_reporting = odsm.test_data.load_test_data("monthly_treatment_data")
 ```
 
 If we inspect these dataframes, we will notice that there are 100 meters for you to experiment with, indexed by meter id and datetime.
@@ -107,9 +107,10 @@ print(df_baseline_n)
 Also notice the general structure of these dataframes for a single meter. We have three columns:
 
 1. A timezone-aware datetime index.
-2. A temperature column (float) in °Fahrenheit (be sure to convert any other units to °Fahrenheit first) and must be at least daily interval data.
+2. A temperature column (float) in °F (be sure to convert any other units to °F first) and must be at least daily interval data.
 3. Observed meter usage (float). The example here is electricity data in kWh, but it could also be gas data.
-4. Billing data is reversed from a customer perspective. From a customer perspective, you pay for the month you used energy and so the bill is for the month prior. To model this, the start date should have the usage for a given month
+
+Note that billing data is reversed from a customer perspective. From a customer perspective, you pay for the month you used energy and so the bill is for the month prior. To model this, the start date should have the usage for a given month.
 
 We can stop to plot this data to get a better understanding of the general behavior of this meter.
 
@@ -157,7 +158,7 @@ In the case of the billing model, these classes also perform the observed averag
 print(baseline_data.df)
 ```
 
-???Returns
+??? Returns
     ```
     datetime                   season weekday_weekend  temperature     observed
     2018-01-01 00:00:00-06:00  winter         weekday   -10.045000  4629.919385
@@ -337,7 +338,7 @@ baseline_data_DQ = em.BillingBaselineData(df_baseline_n_dq, is_electricity_data=
 print(f"Disqualifications: {baseline_data_DQ.disqualification}")
 ```
 
-???Returns
+??? Returns
     ```python
     Disqualifications: [
         EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.offcycle_reads_in_billing_monthly_data), 
@@ -354,7 +355,7 @@ except Exception as e:
     print(f"Exception: {e}")
 ```
 
-???Returns
+??? Returns
     ```python
     Exception: Can't fit model on disqualified baseline data
     ```
@@ -375,7 +376,7 @@ import matplotlib.pyplot as plt
 import opendsm as odsm
 from opendsm import eemeter as em
 
-df_baseline, df_reporting =  odsm.test_data.load_test_data("monthly_treatment_data")
+df_baseline, df_reporting = odsm.test_data.load_test_data("monthly_treatment_data")
 
 n = 15
 

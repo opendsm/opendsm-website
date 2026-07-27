@@ -1,4 +1,4 @@
-# Sufficiency Criteria<br><div style="text-align: left; font-size: 0.5em; color: #888; ; margin-bottom: -2.3em;">Last updated: OpenDSM 1.2</div>
+# Sufficiency Criteria<br><div style="text-align: left; font-size: 0.5em; color: #888; margin-bottom: -2.3em;">Last updated: OpenDSM 1.2</div>
 
 Most sufficiency criteria derive their origins from the CalTRACK specifications. Old reference numbers to the CalTRACK specifications are no longer valid and the new reference numbers should be used when discussing OpenDSM. A remnant of the old CalTRACK specifications is that there are two types of checks performed, disqualification and warnings. Disqualification is a hard line that means meters should not be used for measurement. A warning is purely for experts to take a deeper look at the data to possibly disqualify them. Only explicit disqualifications will be defined herein.
 
@@ -146,7 +146,7 @@ At least 50% of high-frequency data must be valid. Missing data must be imputed 
 
 ##### **1.2.6.1: Minimum Billing Period**
 <div style="padding-left: 20px;" markdown="1">
-All billing periods must be greater or equal than 25 days
+All billing periods must be greater than or equal to 25 days
 </div>
 
 ##### **1.2.6.2: Maximum Billing Period**
@@ -156,7 +156,7 @@ All billing periods must be less than or equal to 35 days (if monthly cadence) o
 
 ##### **1.2.6.3: Combining Estimated Periods**
 <div style="padding-left: 20px;" markdown="1">
-Estimated periods should be combined with the next period up to a 70 day limit. Estimated periods are considered as missing data for the purpose of determining data sufficiency.
+Estimated periods should be combined with the next period up to a 70-day limit. Estimated periods are considered as missing data for the purpose of determining data sufficiency.
 </div>
 
 </div>

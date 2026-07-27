@@ -26,7 +26,7 @@ hide:
 </p>
 
 <p align="center">
-    <em>OpenDSM: An open-source python package to develop and implement standard methods for predicting metered energy usage.</em>
+    <em>OpenDSM: An open-source Python package to develop and implement standard methods for predicting metered energy usage.</em>
 </p>
 
 <!-- opendsm-badges -->
@@ -35,17 +35,17 @@ hide:
 
 OpenDSM (formerly OpenEEmeter) is an open-source library ([source code](https://github.com/opendsm/opendsm)) used to measure the impacts of demand-side programs by using historical data to fit models and then create predictions (counterfactuals) to compare to post-intervention, observed energy usage.
 
-## Key Features include:
+## Key Features
 
 - **Open Source**: All code is open source, making OpenDSM an excellent choice for measuring energy savings when results must be transparent and reproducible.
-- **Fast**: A key tenet of OpenDSM modules are to be highly efficient, critical when there are millions of meters to be modeled. 
+- **Fast**: A key tenet of OpenDSM modules is to be highly efficient, critical when there are millions of meters to be modeled.
 - **Easy and Intuitive**: The API interface is inspired by [scikit-learn](https://scikit-learn.org/stable), a well-known data science package for building models. Just fit and predict.
 - **Pandas DataFrame Support**: Input data and predictions use pandas DataFrames, a well-known format for data scientists and engineers.
 - **Model Serialization and Deserialization**: Models can be serialized into dictionaries or json objects, saved, and deserialized later.
 
-## Core Modules
+## Modules
 
-### [OpenEEmeter](site:documentation/eemeter)
+### [EEmeter](site:documentation/eemeter)
 
 Create long-term models fit on historical data to generate predictions of energy consumption
 
@@ -61,7 +61,7 @@ Create short-term models fit on historical data to generate predictions of energ
 
 ### Comparison Groups
 
-Assign comparison groups (CGs) to correct OpenEEmeter models using non-participant population through one of the following methods
+Assign comparison groups (CGs) to correct EEmeter models using a non-participant population through one of the following methods
 
 - **Comparison Group Clustering**: Cluster on model error profiles to select unique CG for each treatment meter
 - **Individual Meter Matching**: Create population-level corrections by choosing the nearest *n* meters using Euclidean distance

@@ -19,4 +19,4 @@ For future work, the team will continue to focus on the challenge of overfitting
 
 Watch the full presentation below.
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/P8QUs7WKCJ0" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/_Ad098GdRcw" frameborder="0" allowfullscreen></iframe>

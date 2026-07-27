@@ -19,4 +19,4 @@ Next steps include fixing temperature bias (including determining if binning is 
 
 Watch the full discussion below.
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/bd6cbRbngBA" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/aKFXCJbUeuI" frameborder="0" allowfullscreen></iframe>

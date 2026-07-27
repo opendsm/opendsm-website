@@ -25,6 +25,6 @@ Join the working group to get access by clicking this link:
 
 Watch the full meeting below.
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/WIWGv6Z0BV8" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/GYQOPgPZzFE" frameborder="0" allowfullscreen></iframe>
 
 [Download meeting slides (PDF)](site:assets/reference_docs/working_group/meeting_5_lfe_openeemeter_wgmtg_3-7-2023.pdf)
