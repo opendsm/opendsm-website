@@ -9,7 +9,7 @@ description: CalTRACK working group validates the Time-of-Week and Temperature m
 
 Over the past three weeks, CalTRACK methods testing has revolved around issues that need resolution to facilitate pay-for-performance using hourly savings. In particular, the focus has been on (i) testing and validating the Time-Of-Week and Temperature model for residential buildings and (ii) scenario analysis of different valuation methods for hourly savings. Other working group members (particularly Home Energy Analytics) contributed significant empirical results that will help in improving the robustness of the CalTRACK methods. This type of participation is the foundation for improving CalTRACK methods. Thank you for the great work!
 
-[June 28, 2018 Working Group Recording](https://zoom.us/recording/play/_Ajmtqse5ZWXziv3J2Lah3PQrro9lgf096EABdVCY5_4fKHla9eQdOdC-Qkm486e?continueMode=true&startTime=1530212566000&autoplay=true)
+*June 28, 2018 Working Group Recording — Zoom recording no longer available.*
 
 ## Hourly Methods Improvements
 

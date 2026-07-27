@@ -29,7 +29,7 @@ This method involves simply comparing the current year's usage vs. the previous 
 
 #### Randomized Control Trial
 
-This method involves finding "nearly identical" sites that are not receiving interventions and comparing the energy usage to those receiving interventions. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding "nearly identical" buildings to match with those receiving interventions. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.
+This method involves finding groups of "nearly identical" sites, randomly assigning the intervention within them, and comparing the energy usage of sites receiving interventions to those that did not. This side steps the temporal issue of different conditions in each year, but also introduces new challenges with finding "nearly identical" buildings to randomly assign the intervention across. This can be difficult since no building is truly identical with its energy usage, but this can be compensated for with higher sample sizes and is best for residential programs.
 
 #### Estimate Usage with a Model
 
@@ -80,11 +80,11 @@ $$
 PNRMSE = \frac{RMSE}{obs_{IQR}}
 $$
 
-Because PNRMSE normalizes by IQR, the denominator will always be positive. It will also stay at a reasonable magnitude for all meters with variation in their usage. It can be thought of as how large the error is relative to the variance of the observed data. There is still the possibility that a meter which has very little variation could still fail the PNRMSE threshold requirement for model sufficiency; this is why we use CVRMSE and PNRMSE together.
+Because PNRMSE normalizes by IQR, the denominator will always be positive. It will also stay at a reasonable magnitude for all meters with variation in their usage. It can be thought of as how large the error is relative to the spread of the observed data. There is still the possibility that a meter which has very little variation could fail the PNRMSE threshold requirement for model sufficiency; this is why we use CVRMSE and PNRMSE together.
 
 ### CVRMSE and PNRMSE Relationship
 
-PNRMSE sufficiency criteria have been derived from PNRMSE's relationship to CVRMSE. 1000 meters were fit and their normalized error metrics plotted against each other resulting in the following plot.
+PNRMSE sufficiency criteria have been derived from PNRMSE's relationship to CVRMSE. 1,000 meters were fit and their normalized error metrics plotted against each other resulting in the following plot.
 
 <div style="text-align: center">
     <img src="site:assets/images/general_concepts/pnrmse_cvrmse_correlation.png" alt="PNRMSE-CVRMSE correlation">

@@ -1,5 +1,8 @@
 # Working Group Updates
 
+!!! warning "Historical document"
+    This page is an archive of the 2018–2019 (CalTRACK 2.0-era) posts only. The working group process resumed in 2022 for CalTRACK 2.1 and later OpenDSM development; those updates live in the [community working group updates](site:community/working_group_updates/).
+
 The CalTRACK working group met semi-regularly from February 2018 through July 2019. These posts document the evolution of the CalTRACK methods through the working group process.
 
 ## 2019

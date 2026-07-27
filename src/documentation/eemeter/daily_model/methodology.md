@@ -69,9 +69,9 @@ The Lasso-inspired penalization means that increased model complexity must be ju
 
 ### Model Splits
 
-The process described above is effective but may have shortcomings in real life data if energy usage changes fundamentally during different time periods.
+The process described above is effective but may have shortcomings in real-life data if energy usage changes fundamentally during different time periods.
 
-For example, what if a site is more populated during a particular season (for example, a Summer House or Ski Lodge) or during weekdays (for example, offices and most homes). This may result in models that fail to accurately predict energy usage because they are trying to account for all time periods at once.
+For example, what if a site is more populated during a particular season (e.g. a summer house or ski lodge) or during weekdays (e.g. offices and most homes). This may result in models that fail to accurately predict energy usage because they are trying to account for all time periods at once.
 
 <div style="display: flex; justify-content: center; margin-top: 30px">
     <img src="site:assets/images/eemeter/daily_model/season_problems.png" alt="Seasonal misalignment" style="max-width: 50%">
@@ -84,7 +84,7 @@ The general process is as follows:
 
 1. Create submodels using all possible splits of season/weekday|weekend.
 2. Calculate modified BIC (Bayesian Information Criterion) for each preliminary combination.
-3. Select best combination with the smallest BICmod.
+3. Select the best combination with the smallest modified BIC.
 
 This provides a standardized process for splitting the model to better predict energy usage by certain time periods (if the benefit outweighs the additional model complexity).
 
@@ -101,7 +101,7 @@ The daily model is a deceptively complex model capable of handling some complex 
 In this real example, we have three models:
 
 1. Summer/shoulder weekday model: a smoothed model with heating, temperature independent, and cooling regions.
-2. Winter weekday model: a model with heating and temperature independent regions that relies on adaptive downweighting (see the influential points at 0 kWh/day)
+2. Winter weekday model: a model with heating and temperature independent regions that relies on adaptive downweighting (see the influential points at 0 kWh/day).
 3. Weekend model: an all-season model with significant usage decrease compared to the weekday models.
 
 <div style="text-align: center; margin-top: 30px">

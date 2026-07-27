@@ -9,7 +9,7 @@ description: CalTRACK working group discusses building qualification testing res
 
 Today we had an exciting working group meeting focused on Building Qualifications with test results and recommendations. We will be stepping into hourly methods in the upcoming week.
 
-[3/29 CalTRACK Working Group Meeting Recording](https://zoom.us/recording/play/c5vbkGb1wM_Jjrt6S2yfZ71aE_7xLHK0m972aiFmG31CEjsTBT8fB_ADZrVXwRx4)
+*3/29 CalTRACK Working Group Meeting Recording — Zoom recording no longer available.*
 
 *Note: Zoom recording links may no longer be accessible.*
 

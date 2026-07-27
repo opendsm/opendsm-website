@@ -9,7 +9,7 @@ description: Week six CalTRACK update covering building qualification metrics, i
 
 Week six was primarily focused on the building qualification discussions and will continue to be the focus of testing and experimentation this week; this was coming off of an exciting working group meeting on March 15, 2018 linked below.
 
-[Recording: March 15, 2018 Working Group Meeting](https://zoom.us/recording/play/f-HBRyevo26729eJEpuQqFjohJt8ByT9CAYuPS1VTI7SjuAlgpyaqGrYeMKGCUKC)
+*Recording: March 15, 2018 Working Group Meeting — Zoom recording no longer available.*
 
 *Note: Zoom recording links may no longer be accessible.*
 

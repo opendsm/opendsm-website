@@ -4,7 +4,8 @@ You can find a working example in the [Example Code](#example-code) at the botto
 
 <span style="font-size: 0.9em;">
 1) This example makes use of Matplotlib. Matplotlib is not a required dependency of OpenDSM.<br>
-2) If you run this example, it will download up to 150 MB of example data from the GitHub repo.
+2) If you run this example, it will download up to 150 MB of example data from the GitHub repo.<br>
+3) This example was written for OpenDSM 1.2.
 </span>
 
 ### Imports
@@ -39,7 +40,7 @@ The test data contained within the OpenDSM library is derived from [NREL ComStoc
 If working with your own data instead of these samples, please refer directly to the excellent pandas documentation for instructions for loading data (e.g., [pandas.read_csv](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html)).
 
 #### Important notes about data
-- *These models were developed and tested using temperature in units of °Fahrenheit. Please convert your temperatures accordingly*
+- *These models were developed and tested using temperature in units of °F. Please convert your temperatures accordingly*
 - *It is expected that all data is trimmed to its appropriate time period (baseline and reporting) and does not contain extraneous datetimes*
 
 Let us begin by loading some example data. Here we use a built-in utility function to load some example data.
@@ -108,9 +109,9 @@ print(df_baseline_n)
 Also notice the general structure of these dataframes for a single meter. We have four columns:
 
 1. A timezone-aware datetime index.
-2. A temperature column (float) in °Fahrenheit (be sure to convert any other units to °Fahrenheit first).
-3. A solar irradiance column (float) named ghi in (W/m²).
-3. Observed meter usage (float). The example here is electricity data in kWh, but it could also be gas data.
+2. A temperature column (float) in °F (be sure to convert any other units to °F first).
+3. A solar irradiance column (float) named `ghi` in W/m².
+4. Observed meter usage (float). The example here is electricity data in kWh, but it could also be gas data.
 
 We can stop to plot this data to get a better understanding of the general behavior of this meter.
 ```python
@@ -149,7 +150,7 @@ baseline_data = em.HourlyBaselineData(df_baseline_n, is_electricity_data=True)
 reporting_data = em.HourlyReportingData(df_reporting_n, is_electricity_data=True)
 ```
 
-These classes are critical to ensure standardized data loaded into the model. These classes also scan the data to check for data sufficiency and other criteria that might cause a model to be disqualified (unable to build a model of sufficient integrity).
+These classes are critical to ensure standardized data is loaded into the model. These classes also scan the data to check for data sufficiency and other criteria that might cause a model to be disqualified (unable to build a model of sufficient integrity).
 
 With data classes successfully instantiated, we can also check for any disqualifications or warnings before moving on to the model fitting step.
 
@@ -166,13 +167,13 @@ print(f"Warnings:          {baseline_data.warnings}")
 
 From this, we can see that no disqualifications are present but there is one warning to be aware of as we proceed. This warning will not stop us from creating a model.
 
-Before we move on, also notice that you can access the underlying dataframe in each object like follows to see exactly what will be loaded into the model. Note the additional columns from the prior input data. Since the Data class imputes data, it is important for the user to know which are real datapoints so the interpolated (misnomer) columns can be quite valuable.
+Before we move on, also notice that you can access the underlying dataframe in each object like follows to see exactly what will be loaded into the model. Note the additional columns from the prior input data. Since the Data class imputes data, it is important for the user to know which are real datapoints so the columns flagging imputed values can be quite valuable.
 
 ```python
 print(baseline_data.df)
 ```
 
-??? Returns 
+??? Returns
     ```
     datetime                   temperature    ghi   observed        date  hour_of_day  interpolated_temperature  interpolated_observed  interpolated_ghi  has_pv
     2018-01-01 00:00:00-06:00    -5.077778    0.0  30.340000  2018-01-01            0                     False                  False             False       1
@@ -271,12 +272,12 @@ baseline_data_DQ = em.HourlyBaselineData(df_baseline_n_dq, is_electricity_data=T
 print(f"Disqualifications: {baseline_data_DQ.disqualification}")
 ```
 
-???Returns
+??? Returns
     ```python
     Disqualifications: [EEMeterWarning(qualified_name=eemeter.sufficiency_criteria.missing_monthly_observed_data)]
     ```
 
-If this data were to try to be fit on it would return an error by default.
+If you tried to fit a model on this data, it would return an error by default.
 
 ```python
 try:
@@ -285,7 +286,7 @@ except Exception as e:
     print(f"Exception: {e}")
 ```
 
-???Returns
+??? Returns
     ```python
     Exception: Can't fit model on disqualified baseline data
     ```

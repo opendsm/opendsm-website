@@ -6,6 +6,11 @@ render_macros: false
 
 # Technical Appendix
 
+!!! warning "Historical document"
+    This appendix records the empirical testing behind the CalTRACK 2.1 methods and is preserved as a historical record.
+
+    CalTRACK has been superseded by [OpenDSM](site:documentation/history/).
+
 ## [2.2.1.2.](methodology.md#methods2-2-1-2) For fitting baseline models using the hourly methods, no minimum baseline period length is required. {#appendix2-2-1-2}
 
 The baseline period for hourly methods is not set according to a particular time period -- one year, for example -- but is instead defined as sufficient when the full range of independent variables are observed. This is referred to as "data coverage" in Hourly Methods Documentation. This process is described in greater detail in LBNL's [video on Time-of-Week Temperature models](https://vimeo.com/144156352).

@@ -54,6 +54,6 @@ If you missed last week's meeting, feel free to review it below at your leisure:
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/Nn22QZK5oq0" frameborder="0" allowfullscreen></iframe>
 
-[Watch the Video on Zoom](https://zoom.us/recording/play/hm5Bk6AT9exzt8W7yLiULso7AcJh0JLcGtD_h5lvcm7RxJjgBJGso6b3a8LkPml7)
+*Watch the Video on Zoom — Zoom recording no longer available.*
 
 *Note: Zoom recording links may no longer be accessible.*
