@@ -62,6 +62,6 @@ We look forward to future discussions on [GitHub](https://github.com/CalTRACK-2/
 **Homework:**
 
 1. Use Hourly Method Tools on test data
-2. Report findings on [Github](https://github.com/CalTRACK-2/caltrack/issues)
+2. Report findings on [GitHub](https://github.com/CalTRACK-2/caltrack/issues)
 3. Offer test criteria for hourly models
 4. Watch Phil Price Video about energy modeling and hourly methods: [Everything I Know About Building Energy Modeling, But Never Told Anyone Before](https://vimeo.com/144156352)

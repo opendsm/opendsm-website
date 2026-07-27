@@ -10,7 +10,7 @@ hide:
 </p>
 
 <p align="center">
-    <em>OpenDSM: An open-source python package to develop and implement standard methods for predicting metered energy usage.</em>
+    <em>OpenDSM: An open-source Python package to develop and implement standard methods for predicting metered energy usage.</em>
 </p>
 
 <!-- opendsm-badges -->

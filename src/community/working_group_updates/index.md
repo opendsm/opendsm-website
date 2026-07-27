@@ -6,4 +6,4 @@ hide:
 
 # Working Group Updates
 
-Updates from the OpenEEmeter and CalTrack technical working groups, including meeting summaries, milestone announcements, and community developments.
+Updates from the OpenEEmeter and CalTRACK technical working groups, including meeting summaries, milestone announcements, and community developments.

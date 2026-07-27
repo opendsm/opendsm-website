@@ -32,7 +32,7 @@ As we analyze building qualifications, it is useful to review the properties of 
 ![CalTRACK building qualification metrics table](site:assets/images/community/blog/caltrack-week6-metrics-table.png)
 
 **Description of Each Proposed Metric:**<br>
-During the upcoming week, we will use empirical testing to establish the preferred metric and threshold to determine a building's suitability for CalTrack methods. The two proposed metrics are described below:
+During the upcoming week, we will use empirical testing to establish the preferred metric and threshold to determine a building's suitability for CalTRACK methods. The two proposed metrics are described below:
 
 ![CVRMSE and MAPE formula reference](site:assets/images/community/blog/caltrack-week6-cvrmse-mape-formulas.png){ align=right width=300 style="margin: 10px 0 10px 20px" }
 
@@ -68,7 +68,7 @@ In the Southern California Edison study, buildings were sorted into four categor
 **Suggestions on Testing These Metrics**<br>
 Remember, our goal for testing is to establish our preferred metric and threshold for building qualification. When testing the CVRMSE and MAPE metrics, we have some suggestions to yield the most informative results:
 
-1. Test residential, commercial, and industrial buildings separately. This provides information on CalTrack's performance across different building types
+1. Test residential, commercial, and industrial buildings separately. This provides information on CalTRACK's performance across different building types
 2. Test intercept-only model performance. This will inform model usage decisions in the future
 
 **Non-Routine Adjustments:**<br>

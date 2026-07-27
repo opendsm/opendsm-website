@@ -32,7 +32,7 @@
 **1.2.1.** The technical working group meetings are open to all and technical contribution is highly encouraged. Efforts to propose changes which are in-scope (see 1.3.2), and empirically and replicably tested will generally be met with interest and engagement. Efforts to propose changes which are out-of-scope (see 1.3.3), are discouraged.
 {: data-depth="3"}
 
-**1.2.2.** Ongoing discussions within the technical working group can be followed in the CalTRACK Github Issues section, which should reference particular proposed changes to this document. These are also noted and linked where applicable in this document.
+**1.2.2.** Ongoing discussions within the technical working group can be followed in the CalTRACK GitHub Issues section, which should reference particular proposed changes to this document. These are also noted and linked where applicable in this document.
 {: data-depth="3"}
 
 **1.2.3.** Interested parties may sign up to participate in the CalTRACK technical working group proceedings by registering at http://www.caltrack.org.
@@ -298,7 +298,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 {: data-depth="2"}
 
 <span id="methods2-4-1"></span>
-**2.4.1.** Weather station to be used is closest within climate zone that meets CalTrack data sufficiency requirements. [See Appendix for Details.](technical_appendix.md#appendix2-4-1)
+**2.4.1.** Weather station to be used is closest within climate zone that meets CalTRACK data sufficiency requirements. [See Appendix for Details.](technical_appendix.md#appendix2-4-1)
 {: data-depth="3"}
 
 **2.4.1.1.** If there are no weather stations within that climate zone, fallback to closest weather station that has complete data.
@@ -341,7 +341,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 **3.1.4.1.** Select and qualify balance points for candidate models for each period for each meter. [See Appendix for Details.](technical_appendix.md#appendix3-1-4-1)
 {: data-depth="4"}
 
-**3.1.4.2.** Use hourly temperature from the matched weather station (11).
+**3.1.4.2.** Use hourly temperature from the matched weather station (see [EEweather](site:documentation/eeweather)).
 {: data-depth="4"}
 
 **3.1.4.3.** Compute design matrixes, fit, and qualify all candidate models.
@@ -425,7 +425,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 **3.3.1.3.3.** $β_C$ is the slope.
 {: data-depth="5"}
 
-**3.3.2.** Equation: $UPD_{p,i} = μ + β_{H,i}*HDD_p + β_{C,i}*CDD_p + ε_{p,i}$, where:
+**3.3.2.** Equation: $UPD_{p,i} = μ + β_{H,i} \cdot HDD_p + β_{C,i} \cdot CDD_p + ε_{p,i}$, where:
 {: data-depth="3"}
 
 **3.3.2.1.** $UPD_{p,i}$ is average use (gas in therms, electricity in kWh) per day during period $p$ for site $i$.
@@ -446,13 +446,13 @@ In many cases, data quality issues can be resolved by going back to the source t
 **3.3.2.6.** $CDD_p$ is the average number of cooling degree days per day in period $p$, which is a function of the selected balance point temperature, the average daily temperatures from the weather station matched to site $i$ during the period $p$, and the number of days in period $p$ with matched usage and weather data for site $i$.
 {: data-depth="4"}
 
-**3.3.2.7.** $n$ is the site specific random error term for a given period.
+**3.3.2.7.** $ε_{p,i}$ is the site specific random error term for a given period.
 {: data-depth="4"}
 
 **3.3.3.** Computing average usage per day (UPD) for each period.
 {: data-depth="3"}
 
-**3.3.3.1.** $UPD_p = \frac{1}{n_p} * Σ(U_d)$, where
+**3.3.3.1.** $UPD_p = \frac{1}{n_p} \cdot Σ(U_d)$, where
 {: data-depth="4"}
 
 **3.3.3.2.** $UPD_p$ is the average use per day for a given period $p$.
@@ -473,7 +473,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 **3.3.4.1.** CDD values are calculated as follows:
 {: data-depth="4"}
 
-**3.3.4.1.1.** $CDD_p = \frac{1}{n_{d,p}} * Σ(max(avg(T_d) - CDD_b, 0))$, where
+**3.3.4.1.1.** $CDD_p = \frac{1}{n_{d,p}} \cdot Σ(max(avg(T_d) - CDD_b, 0))$, where
 {: data-depth="5"}
 
 **3.3.4.1.2.** $CDD_p$ = Cooling degree days for period $p$.
@@ -500,7 +500,7 @@ In many cases, data quality issues can be resolved by going back to the source t
 **3.3.5.1.** HDD values are calculated as follows:
 {: data-depth="4"}
 
-**3.3.5.1.1.** $HDD_p = \frac{1}{n_{d,p}} * Σ(max(HDD_b - avg(T_d), 0))$, where
+**3.3.5.1.1.** $HDD_p = \frac{1}{n_{d,p}} \cdot Σ(max(HDD_b - avg(T_d), 0))$, where
 {: data-depth="5"}
 
 **3.3.5.1.2.** $HDD_p$ = Average heating degree days per day for period $p$.
@@ -541,21 +541,21 @@ In many cases, data quality issues can be resolved by going back to the source t
 {: data-depth="5"}
 
 $$
-UPD_{p,i} = μ_i + β_{H,i}*HDD_p + β_{C,i}*CDD_p + ε_{p,i}
+UPD_{p,i} = μ_i + β_{H,i} \cdot HDD_p + β_{C,i} \cdot CDD_p + ε_{p,i}
 $$
 
 **3.4.3.1.2.** HDD only:
 {: data-depth="5"}
 
 $$
-UPD_{p,i} = μ_i + β_{H,i}*HDD_p + ε_{p,i}
+UPD_{p,i} = μ_i + β_{H,i} \cdot HDD_p + ε_{p,i}
 $$
 
-**3.4.3.1.3.** CDD only: (electricity only):
+**3.4.3.1.3.** CDD only (electricity only):
 {: data-depth="5"}
 
 $$
-UPD_{p,i} = μ_i + β_{C,i}*CDD_p+ ε_{p,i}
+UPD_{p,i} = μ_i + β_{C,i} \cdot CDD_p+ ε_{p,i}
 $$
 
 **3.4.3.1.4.** Intercept-only:
@@ -597,7 +597,7 @@ In this case, adjusted R-squared is 0 by definition.
 **3.4.3.3.4.** $SS_{tot}$ is the total sum of squares
 {: data-depth="5"}
 
-**3.4.3.3.5.** $df_t$ is the degrees of freedom of the estimate of the population variance of the dependent variable, and is calculated as $(P - 1)$, were $P$ is the number of periods (e.g. days or billing periods) in the baseline used to estimate the model.
+**3.4.3.3.5.** $df_t$ is the degrees of freedom of the estimate of the population variance of the dependent variable, and is calculated as $(P - 1)$, where $P$ is the number of periods (e.g. days or billing periods) in the baseline used to estimate the model.
 {: data-depth="5"}
 
 **3.5. Missing Data in Reporting Period.**
@@ -627,7 +627,7 @@ In this case, adjusted R-squared is 0 by definition.
 **3.5.2.2.** Data is considered missing if it is clearly marked by the data provider as NULL, NaN, or similar.
 {: data-depth="4"}
 
-**3.5.2.1.** Values of 0 are considered missing for electricity data, but not gas data.
+**3.5.2.3.** Values of 0 are considered missing for electricity data, but not gas data.
 {: data-depth="4"}
 
 **3.5.3.** Estimating counterfactual usage when temperature data is missing.
@@ -651,7 +651,7 @@ In this case, adjusted R-squared is 0 by definition.
 **3.5.5.2.** If average temperatures for billing periods are calculated by averaging higher frequency temperature data, the high-frequency temperature data must cover 90% of each averaged billing period.
 {: data-depth="4"}
 
-**3.5.5.3.** Off-cycle reads (spanning less than 25 days) should be combined with next period up to a 70 day limit. These readings typically occur due to meter reading problems or changes in occupancy.
+**3.5.5.3.** Off-cycle reads (spanning less than 25 days) should be combined with next period up to a 70-day limit. These readings typically occur due to meter reading problems or changes in occupancy.
 {: data-depth="4"}
 
 **3.5.5.4.** For monthly billing cycles, periods spanning more than 35 days should be flagged for review. For bi-monthly billing cycles, periods spanning more than 70 days should be flagged for review.
@@ -670,7 +670,7 @@ In this case, adjusted R-squared is 0 by definition.
 {: data-depth="3"}
 
 $$
-AEU_{p,i} = n_p * (μ_i + β_{H,i}*HDD_p + β_{C,i}*CDD_p - UPD_p)
+AEU_{p,i} = n_p \cdot (μ_i + β_{H,i} \cdot HDD_p + β_{C,i} \cdot CDD_p - UPD_p)
 $$
 
 **3.6.1.1.** The coefficients $μ_i$, $β_{H,i}$, $β_{C,i}$ are those from the final model.
@@ -736,7 +736,7 @@ where, the subscripts min and max refer to the minimum and maximum temperatures 
 **3.8.2.** Time-of-week. A week is divided into 168 hourly time-of-week intervals starting on Monday. For example, interval 1 is from midnight to 1 a.m. on Monday morning, interval 2 is from 1 a.m.-2 a.m. and so on. Dummy variables $TOW_p$ (and consequently separate coefficients $\alpha_i$) are included in the model for each time of week.
 {: data-depth="3"}
 
-**3.8.3.** Regression to determine occupancy status. A single HDD and CDD weighted least squares (WLS) model is fit to the baseline dataset (defined pursuant to 3.6.5) using fixed balance points (50 for heating and 65 for cooling):
+**3.8.3.** Regression to determine occupancy status. A single HDD and CDD weighted least squares (WLS) model is fit to the baseline dataset (defined pursuant to 3.7.5) using fixed balance points (50 for heating and 65 for cooling):
 {: data-depth="3"}
 
 $$
@@ -870,7 +870,7 @@ $$
 AEU_{total,P} = \sum_{p=1}^{P}(AEU_{p,i})
 $$
 
-**4.1.2.** CalTRACK does not explicitly support annualizing results. For example, if avoided energy use $AEU_{total,8}$ is calculated for 8 monthly periods, then the annual savings cannot be estimated as $AEU_{total,12} = (AEU_{total,8} * \frac{12}{8})$, as this may yield biased estimates for interventions that yield seasonal savings. However, at the discretion of the procurer, such values may be used for intermediate reporting.
+**4.1.2.** CalTRACK does not explicitly support annualizing results. For example, if avoided energy use $AEU_{total,8}$ is calculated for 8 monthly periods, then the annual savings cannot be estimated as $AEU_{total,12} = (AEU_{total,8} \cdot \frac{12}{8})$, as this may yield biased estimates for interventions that yield seasonal savings. However, at the discretion of the procurer, such values may be used for intermediate reporting.
 {: data-depth="3"}
 
 **4.2. Aggregating multiple site-level results.**
@@ -905,7 +905,7 @@ $$
 **4.3.2.2.1.** $U_p$ is the total measured energy use during period $p$.
 {: data-depth="5"}
 
-**4.3.2.2.2.** $\hat{U}$ is the predicted energy use during period p.
+**4.3.2.2.2.** $\hat{U_p}$ is the predicted energy use during period $p$.
 {: data-depth="5"}
 
 **4.3.2.2.3.** $\overline{U}$ is the mean energy use during the baseline period.
@@ -924,7 +924,7 @@ $$
 {: data-depth="4"}
 
 $$
-FSU_i = \frac{\Delta U_{save, Qi}}{U_{save, Qi}} = \frac{t(aM^2 + bM + d)CV(RMSE)*\sqrt{\frac{P}{P'}(1+\frac{2}{P'})\frac{1}{Q}})}{F}
+FSU_i = \frac{\Delta U_{save, Qi}}{U_{save, Qi}} = \frac{t \cdot (aM^2 + bM + d) \cdot CV(RMSE) \cdot \sqrt{\frac{P}{P'}(1+\frac{2}{P'})\frac{1}{Q}}}{F}
 $$
 
 Where:
@@ -982,7 +982,7 @@ Portfolio-level bias error expressed as a percent of portfolio savings:
 {: data-depth="5"}
 
 $$
-FBE_{portfolio} = \frac{\sum_{i=1}^{N} (MB_i)^2}{\sum_{i=1}^{N} U_{save, Qi}}
+FBE_{portfolio} = \frac{\sum_{i=1}^{N} MB_i}{\sum_{i=1}^{N} U_{save, Qi}}
 $$
 
 <style>

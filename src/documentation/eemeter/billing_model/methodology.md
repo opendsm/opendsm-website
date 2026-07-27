@@ -1,4 +1,4 @@
-The billing model uses the [daily model](site:documentation/eemeter/daily_model/methodology) with small configuration changes and billing (monthly or bimonthly) interval data.
+The billing model uses the [daily model](site:documentation/eemeter/daily_model/methodology/) with small configuration changes and billing (monthly or bimonthly) interval data.
 
 ## Model Theory
 
@@ -49,10 +49,10 @@ The billing model disables this feature of the [daily model](site:documentation/
 When the model is fit, each site will receive its own unique model fit and coefficients. The general model fitting process is as follows:
 
 1. Balance points are estimated with a global optimization algorithm.
-2. Sum of Squares Error (SSE) is minimized with Lasso regression inspired penalization.
+2. Sum of Squares Error (SSE) is minimized with Lasso-inspired penalization.
 3. The best model type is determined (ex. cooling load only model) using the penalized SSE.
 
-The Lasso inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:
+The Lasso-inspired penalization means that increased model complexity must be justified by decreased SSE and balanced against these general rules:
 
 - Slopes are pushed to 0
 - Intercept is pushed to 0

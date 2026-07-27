@@ -1,6 +1,8 @@
 Create long-term models fit on historical data to generate predictions of energy consumption.
 
-As an example: energy efficiency interventions (modifications to a building) must be measured over the course of a year because they will likely affect the energy usage during various seasons differently. An OpenEEmeter model would therefore need to be trained on a baseline year (1 year prior to the change) and will predict what would have happened if the intervention never occurred (a counterfactual) for the reporting year (1 year after the change).
+EEmeter was originally released as OpenEEmeter, a name still widely used across the community and in earlier literature.
+
+As an example: energy efficiency interventions (modifications to a building) must be measured over the course of a year because they will likely affect the energy usage during various seasons differently. An EEmeter model would therefore need to be trained on a baseline year (1 year prior to the change) and will predict what would have happened if the intervention never occurred (a counterfactual) for the reporting year (1 year after the change).
 
 ### Models
 

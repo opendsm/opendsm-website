@@ -18,11 +18,11 @@ The decision to linearly interpolate up to 6 consecutive missing hours of weathe
 
 ---
 
-## [2.4.1.](methodology.md#methods2-4-1) Weather station to be used is closest within climate zone that meets CalTrack data sufficiency requirements. {#appendix2-4-1}
+## [2.4.1.](methodology.md#methods2-4-1) Weather station to be used is closest within climate zone that meets CalTRACK data sufficiency requirements. {#appendix2-4-1}
 
 ### Test 1: Weather station accuracy
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/65](https://github.com/CalTRACK-2/caltrack/issues/65)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/65](https://github.com/CalTRACK-2/caltrack/issues/65)
 
 **Background:**
 
@@ -73,7 +73,7 @@ Our results show that Method A produced the best possible weather station 56% of
 
 ### Test 2: Importance of weather data
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/65](https://github.com/CalTRACK-2/caltrack/issues/65)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/65](https://github.com/CalTRACK-2/caltrack/issues/65)
 
 **Background:**
 
@@ -108,7 +108,7 @@ CalTRACK 2.0 will employ Method A as the preferred weather station mapping metho
 
 ## [3.1.3.](methodology.md#methods3-1-3) Models are fit to baseline data in the 365 days immediately prior to the intervention start date. {#appendix3-1-3}
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/68](https://github.com/CalTRACK-2/caltrack/issues/68)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/68](https://github.com/CalTRACK-2/caltrack/issues/68)
 
 **Background:**
 
@@ -134,7 +134,7 @@ The CalTRACK methods were applied to the full dataset five times using baseline 
 Testing was conducted as follows:
 
 1. CalTRACK models were fit to each of the candidate baseline periods.
-2. Total energy consumption predictions for each baseline model we calculated for a 12-month reporting period.
+2. Total energy consumption predictions for each baseline model were calculated for a 12-month reporting period.
 3. The CVRMSE and NMBE error metrics were calculated for these predictions.
 4. This test was conducted separately for daily and monthly data.
 
@@ -166,11 +166,11 @@ The results from these empirical results indicate that baseline periods longer t
 
 ## [3.1.4.1.](methodology.md#methods3-1-4-1) Select and qualify balance points for candidate models for each period for each meter. {#appendix3-1-4-1}
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/69](https://github.com/CalTRACK-2/caltrack/issues/69)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/69](https://github.com/CalTRACK-2/caltrack/issues/69)
 
 **Background:**
 
-CalTRACK 1.0 methods recommends that fixed balance point temperatures are used for degree-day covariates in billing period methods. The UMP recommends fixed balance point temperatures 60 F for heating degree days and 70 F for cooling degree days for billing period methods.
+CalTRACK 1.0 methods recommend that fixed balance point temperatures are used for degree-day covariates in billing period methods. The UMP recommends fixed balance point temperatures 60 F for heating degree days and 70 F for cooling degree days for billing period methods.
 
 For daily methods, the UMP recommends that variable balance points are used for degree-day covariates.
 
@@ -198,7 +198,7 @@ Variable balance point temperatures for billing period models were accepted into
 
 For the 1077 buildings tested with fixed balance points, 479 were fit using intercept-only models. When the same 1077 buildings were tested with variable balance points, there were 357 intercept-only models. These results indicate that the weather-sensitivity of some buildings was not being modelled with fixed balance point temperatures.
 
-The performance of the remaining weather-sensitive buildings were compared when fit with fixed and variable balance point temperatures. The mean R-squared for fixed balance point models was 0.480, while the mean R-squared for variable balance point models was 0.495. The figure below shows slight improvements in model fit for variable balance point models.
+The performance of the remaining weather-sensitive buildings was compared when fit with fixed and variable balance point temperatures. The mean R-squared for fixed balance point models was 0.480, while the mean R-squared for variable balance point models was 0.495. The figure below shows slight improvements in model fit for variable balance point models.
 
 <figure markdown style="text-align: center;">
   <img src="site:assets/images/history/caltrack/3_1_4_1_image1.png" alt="R-squared for fixed and variable balance points" style="max-width: 85%;">
@@ -213,7 +213,7 @@ Our empirical results indicate that variable balance points generated fewer inte
 
 ## [3.2.1.](methodology.md#methods3-2-1) A grid search of models is performed using a wide range of candidate balance points. {#appendix3-2-1}
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/72](https://github.com/CalTRACK-2/caltrack/issues/72)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/72](https://github.com/CalTRACK-2/caltrack/issues/72)
 
 ### Test 1: Distribution of selected balance points with different grid search ranges
 
@@ -227,11 +227,11 @@ Billing period data from approximately 1000 residential buildings in Oregon and 
 
 **Tested parameters:**
 
-HDD and CDD balance points were calculated with different grid search ranges using Caltrack methods.
+HDD and CDD balance points were calculated with different grid search ranges using CalTRACK methods.
 
 **Testing methodology:**
 
-Caltrack models were fit to the Oregon building usage dataset using 4 balance point search ranges:
+CalTRACK models were fit to the Oregon building usage dataset using 4 balance point search ranges:
 
 1. 10-degree range: 55-65 F HDD and 65-75 F CDD
 2. 20-degree range: 45-65 F HDD and 65-85 F CDD
@@ -249,7 +249,7 @@ The bar chart below shows the distribution of best-fit HDD balance points for th
 
 ### Test 2: Importance of optimal balance points on estimated savings
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/72](https://github.com/CalTRACK-2/caltrack/issues/72)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/72](https://github.com/CalTRACK-2/caltrack/issues/72)
 
 **Background:**
 
@@ -284,7 +284,7 @@ Expand balance point search range to 30-90 F for heating balance points and 30-9
 
 ## [3.2.3.](methodology.md#methods3-2-3) Maximum gap between candidate balance points in the grid search is 3 degrees F or the equivalent in degrees C. {#appendix3-2-3}
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/72](https://github.com/CalTRACK-2/caltrack/issues/72)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/72](https://github.com/CalTRACK-2/caltrack/issues/72)
 
 **Background:**
 
@@ -323,11 +323,11 @@ CalTRACK's Billing Period and Daily methods will use a 3 F search increment in t
 
 ### Test 1: Calendar effects and error structure
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/57](https://github.com/CalTRACK-2/caltrack/issues/57)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/57](https://github.com/CalTRACK-2/caltrack/issues/57)
 
 **Background:**
 
-CalTRACK models are specified with only HDD and CDD covariates. However, there are a priori reasons to expect that energy consumption could be correlated with calendar effects, such as day-of-week, day-of-month, month-of-year, or holidays. If calendar effects are significantly correlated with energy consumption and excluded from the model, it may cause less accurate energy savings estimates with poorer model fit. .
+CalTRACK models are specified with only HDD and CDD covariates. However, there are a priori reasons to expect that energy consumption could be correlated with calendar effects, such as day-of-week, day-of-month, month-of-year, or holidays. If calendar effects are significantly correlated with energy consumption and excluded from the model, it may cause less accurate energy savings estimates with poorer model fit.
 
 Calendar effects can be added to the model as categorical variables for day-of-week, day-of-month, month-of-year, or holidays. Including these variables will control for variation in building-level energy consumption that is correlated with each respective calendar effect. If calendar effects variables have significant explanatory power for building-level energy consumption, including them will improve the accuracy of our energy savings estimates and model fit. However, the introduction of calendar effects complicates our model and demands additional data sufficiency requirements. The following test was conducted to determine which, if any, calendar effects should be included in CalTRACK model specifications.
 
@@ -384,7 +384,7 @@ Finally, the average residuals were 0.061 for holidays and -0.001 for non-holida
 
 ### Test 2: Calendar effects and aggregated energy savings
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/57](https://github.com/CalTRACK-2/caltrack/issues/57)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/57](https://github.com/CalTRACK-2/caltrack/issues/57)
 
 **Background:**
 
@@ -433,7 +433,7 @@ Although adding calendar effects may be significant when estimating daily models
 
 ## [3.4.1.](methodology.md#methods3-4-1) Models using daily data are fit using ordinary least squares. {#appendix3-4-1}
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/57](https://github.com/CalTRACK-2/caltrack/issues/57)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/57](https://github.com/CalTRACK-2/caltrack/issues/57)
 
 **Background:**
 
@@ -447,7 +447,7 @@ The NMBE for CalTRACK models with robust regression and OLS were compared. Addit
 
 **Testing methodology:**
 
-Robust and OLS regressions were estimated and their NMBE was calculated. The computational requirements for each of these methods was also analyzed.
+Robust and OLS regressions were estimated and their NMBE was calculated. The computational requirements for each of these methods were also analyzed.
 
 **Results:**
 
@@ -466,13 +466,13 @@ CalTRACK recommends using an OLS modelling approach instead of robust regression
 
 ## [3.4.3.2.](methodology.md#methods3-4-3-2) Candidate model qualification. {#appendix3-4-3-2}
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/76](https://github.com/CalTRACK-2/caltrack/issues/76)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/76](https://github.com/CalTRACK-2/caltrack/issues/76)
 
 **Background:**
 
 After HDD + CDD, HDD-only, CDD-only, and intercept-only model candidates are estimated, the best-fit model is selected through a two-stage process.
 
-First, for each model specifications with covariates (HDD + CDD, HDD-only, and CDD-only), the estimated model's HDD and CDD covariates that are statistically insignificant (p-value > .10) are removed from consideration. This is referred to as the p-value screen.
+First, for each model specification with covariates (HDD + CDD, HDD-only, and CDD-only), the estimated model's HDD and CDD covariates that are statistically insignificant (p-value > .10) are removed from consideration. This is referred to as the p-value screen.
 
 Second, the remaining model with the highest R-squared value is selected.
 
@@ -490,7 +490,7 @@ The out-of-sample prediction errors were calculated for models selected with and
 
 **Testing methodology:**
 
-1. Caltrack monthly models were fit to the baseline period usage data using the p-value screen.
+1. CalTRACK monthly models were fit to the baseline period usage data using the p-value screen.
 2. The fitting process was repeated without a p-value screen.
 3. A comparison was performed using 24-month electric traces, split into 12 months of training and 12 months of test data. Mean absolute prediction error was used as the metric to compare performance.
 
@@ -523,7 +523,7 @@ Our tests indicate that requiring a P-value screen was superfluous at best and m
 
 ## [3.4.3.3.](methodology.md#methods3-4-3-3) The model with highest adjusted R-squared will be selected as the final model. {#appendix3-4-3-3}
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/62](https://github.com/CalTRACK-2/caltrack/issues/62)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/62](https://github.com/CalTRACK-2/caltrack/issues/62)
 
 **Background:**
 
@@ -553,7 +553,7 @@ The HDD balance points were analyzed for each candidate loss function. They were
 
 **Testing methodology:**
 
-From the 1,000 residential building data set, the 263 buildings that were best fit by an CDD + HDD model were filtered for closer examination. Excluded models either had no significant heating or cooling component or were intercept-only models.
+From the 1,000 residential building data set, the 263 buildings that were best fit by a CDD + HDD model were filtered for closer examination. Excluded models either had no significant heating or cooling component or were intercept-only models.
 
 For each of the 263 selected buildings, the balance point algorithm was conducted 25 times. Before each test run, 10% of days in the baseline period were randomly removed. The selected balance point temperatures should not change drastically when 10% of days are removed from the baseline period. If the balance points do show large deviations between test runs, then it is possible that outliers are driving the fit.
 
@@ -609,7 +609,7 @@ Our results indicate that the quadratic loss function produced the most stable r
 
 ### Test 1: Adequacy of single estimated regression for baseline period
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/103](https://github.com/CalTRACK-2/caltrack/issues/103)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/103](https://github.com/CalTRACK-2/caltrack/issues/103)
 
 **Background:**
 
@@ -636,7 +636,7 @@ The methods were evaluated based on the average CVRMSE of sampled households.
 
 **Results:**
 
-The results shows that CVRMSE was improved when regressions were estimated for each month of the baseline period. There were CVRMSE improvements of 33% and 19% for electric and gas respectively when regressions were estimated for each month of the baseline period.
+The results show that CVRMSE was improved when regressions were estimated for each month of the baseline period. There were CVRMSE improvements of 33% and 19% for electric and gas respectively when regressions were estimated for each month of the baseline period.
 
 The figure below shows a distinct difference between monthly and annual regressions. The baseline region, which is the green portion of the graphs, in the annual regression was constant across the entire year. However, when regressions are estimated for each month in the baseline period, it is clear that baseline energy consumption varied in different months of the year.
 
@@ -647,7 +647,7 @@ The figure below shows a distinct difference between monthly and annual regressi
 
 ### Test 2: Optimal number of regressions in baseline period
 
-**Github issue:** [https://github.com/CalTRACK-2/caltrack/issues/85](https://github.com/CalTRACK-2/caltrack/issues/85)
+**GitHub issue:** [https://github.com/CalTRACK-2/caltrack/issues/85](https://github.com/CalTRACK-2/caltrack/issues/85)
 
 **Background:**
 

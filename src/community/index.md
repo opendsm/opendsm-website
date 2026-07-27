@@ -25,7 +25,7 @@ hide:
 </p>
 
 <p align="center">
-    <em>OpenDSM: An open-source python package to develop and implement standard methods for predicting metered energy usage.</em>
+    <em>OpenDSM: An open-source Python package to develop and implement standard methods for predicting metered energy usage.</em>
 </p>
 
 <!-- opendsm-badges -->
@@ -40,6 +40,6 @@ hide:
 
 - Catch up on the most recent working group developments [here](site:community/working_group_updates)
 
-- If you have any issues or contributions that you would like to discuss, please use either the discussion group or [github](https://github.com/opendsm/opendsm) under issues, pull requests or discussions.
+- If you have any issues or contributions that you would like to discuss, please use either the discussion group or [GitHub](https://github.com/opendsm/opendsm) under issues, pull requests, or discussions.
 
 We strictly adhere to our [code of conduct](https://github.com/opendsm/opendsm/blob/master/CODE_OF_CONDUCT.md) and [contribution guidelines](https://github.com/opendsm/opendsm/blob/master/CONTRIBUTING.md).

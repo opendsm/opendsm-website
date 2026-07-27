@@ -21,4 +21,4 @@ The meeting ended with a discussion of the need for more models in future work, 
 
 Watch the full presentation below.
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/NxxjyFbyokY" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/rS5wmUI7APE" frameborder="0" allowfullscreen></iframe>

@@ -28,6 +28,6 @@ The team is aiming to get the updates into the OpenEEmeter to be available for o
 
 Watch the full presentation below.
 
-<iframe width="100%" height="400" src="https://www.youtube.com/embed/CbNHRhNXdAY" frameborder="0" allowfullscreen></iframe>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/uNRL2_CF-y4" frameborder="0" allowfullscreen></iframe>
 
 [Join the Technical Working Group](https://opendsm.energy/community/)
